@@ -20,7 +20,7 @@
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <input class="form-control" type="text" placeholder="Cari..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </form>
@@ -80,9 +80,9 @@
                             </a>
                              <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link" href="layout-static.html">Belum Diproses</a>
-                                    <a class="nav-link" href="layout-static.html">Proses</a>
-                                    <a class="nav-link" href="layout-static.html">Selesai</a>
+                                    <a class="nav-link" href="#">Belum Diproses</a>
+                                    <a class="nav-link" href="#">Proses</a>
+                                    <a class="nav-link" href="#">Selesai</a>
                                 </a>
                                 </nav>
                             </div>
@@ -149,7 +149,7 @@
                 @yield('container')
             </div>
 
-                <footer class="py-4 bg-light mt-auto">
+                {{-- <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; Your Website 2023</div>
@@ -160,7 +160,7 @@
                             </div>
                         </div>
                     </div>
-                </footer>
+                </footer> --}}
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

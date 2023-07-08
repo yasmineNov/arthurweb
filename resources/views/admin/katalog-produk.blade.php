@@ -35,7 +35,7 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>No</th>
+                                           <th>No</th>
                                             <th>Nama Barang</th>
                                             <th>Divisi</th>
                                             <th>Harga</th>
