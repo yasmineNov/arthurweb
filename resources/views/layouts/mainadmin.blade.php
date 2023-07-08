@@ -61,12 +61,12 @@
                                 </nav>
                             </div>
                             
-                            <a class="nav-link collapsed" href="#">
+                            <a class="nav-link collapsed" href="/customer">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 customer
                                 {{-- <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div> --}}
                             </a>
-                            <a class="nav-link collapsed" href="#">
+                            <a class="nav-link collapsed" href="/artikeladmin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Artikel
                                 {{-- <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div> --}}
@@ -86,7 +86,7 @@
                                 </a>
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed" href="#">
+                            <a class="nav-link collapsed" href="/toko">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Toko
                                 {{-- <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div> --}}

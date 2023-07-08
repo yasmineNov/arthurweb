@@ -108,3 +108,15 @@ Route::get('/toko', function () {
         "title" => "Toko"
     ]);
 });
+
+Route::get('/artikeladmin', function () {
+    return view('admin/artikel-admin', [
+        "title" => "Artikel Admin"
+    ]);
+});
+
+Route::get('/customer', function () {
+    return view('admin/customer', [
+        "title" => "Customer"
+    ]);
+});
