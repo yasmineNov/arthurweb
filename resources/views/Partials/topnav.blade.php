@@ -7,7 +7,7 @@
       <li><a class="nav-link" href="#">Shopee</a></li>
       <li><a class="nav-link" href="#">Tokopedia</a></li>
         <li><a class="btn btn-sm btn-danger" class="nav-link" href="/login">Masuk</a></li>
-        <li><a class="btn btn-sm btn-outline-light" href="#" >Daftar</a></li>
+        <li><a class="btn btn-sm btn-outline-light" href="/register" >Daftar</a></li>
       </ul>
     </div>
   </nav>

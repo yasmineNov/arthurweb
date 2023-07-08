@@ -79,8 +79,26 @@ Route::get('/login', function () {
     ]);
 });
 
+Route::get('/register', function () {
+    return view('admin/register', [
+        "title" => "register"
+    ]);
+});
+
 Route::get('/dashboard', function () {
     return view('admin/dashboard', [
         "title" => "Dashboard"
+    ]);
+});
+
+Route::get('/katalogproduk', function () {
+    return view('admin/katalog-produk', [
+        "title" => "Katalog Produk"
+    ]);
+});
+
+Route::get('/katalogpromo', function () {
+    return view('admin/katalog-promo', [
+        "title" => "Katalog Promo"
     ]);
 });
