@@ -102,3 +102,9 @@ Route::get('/katalogpromo', function () {
         "title" => "Katalog Promo"
     ]);
 });
+
+Route::get('/toko', function () {
+    return view('admin/toko', [
+        "title" => "Toko"
+    ]);
+});
