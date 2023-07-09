@@ -21,13 +21,36 @@ Route::get('/', function () {
 
 Route::get('/artikel', function () {
     return view('artikel', [
-        "title" => "Artikel"
+        "title" => "artikel"
     ]);
 });
 
+// Route::get('/artikel', function () {
+//     $blog_posts = [
+//         [
+//             "title" => "Judul post pertama",
+//             "author" => "Arthur Citra Media",
+//             "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio alias veritatis suscipit provident id eaque, pariatur error cupiditate exercitationem laboriosam earum omnis, deleniti repudiandae quidem molestias ab tempora. Beatae non cupiditate ipsa deleniti veritatis alias harum mollitia repellendus at suscipit aliquid, eveniet quis nihil ex! Veritatis eos necessitatibus asperiores omnis nulla quam error pariatur id qui, in accusamus rerum placeat inventore iste illo labore! Eius, itaque numquam. Iusto accusantium, commodi laborum hic officiis voluptates natus quia vero quas minima voluptatum!"
+//         ],
+//         [
+//             "title" => "Judul post kedua",
+//             "author" => "Arthur Citra Media",
+//             "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio alias veritatis suscipit provident id eaque, pariatur error cupiditate exercitationem laboriosam earum omnis, deleniti repudiandae quidem molestias ab tempora. Beatae non cupiditate ipsa deleniti veritatis alias harum mollitia repellendus at suscipit aliquid, eveniet quis nihil ex! Veritatis eos necessitatibus asperiores omnis nulla quam error pariatur id qui, in accusamus rerum placeat inventore iste illo labore! Eius, itaque numquam. Iusto accusantium, commodi laborum hic officiis voluptates natus quia vero quas minima voluptatum!"
+//         ],
+//     ];
+
+//     return view('artikel', [
+//         "title" => "Artikel",
+//         "artikel" => $blog_posts
+//     ]);
+// });
+
 Route::get('/about', function () {
     return view('about' , [
-        "title" => "About"
+        "title" => "About",
+        "name" => "Arthur citra Media",
+        "email" => "acmbratang09@gmail.com",
+        "image" => "acm.png"
     ]);
 });
 

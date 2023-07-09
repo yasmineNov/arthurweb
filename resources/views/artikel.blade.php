@@ -9,5 +9,17 @@
     </div>
   </div>
 
+  {{-- @foreach ($artikel as $post)
+  <article class mb-5>
+  <h2>{{ $post["title"] }}</h2>
+  <h5>by: {{ $post["author"] }}</h5>
+  <p>{{ $post["body"] }}</p>
+  </article>  
+  @endforeach --}}
+
+
+
  <h1>Ini Adalah halaman Artikel test</h1>
 @endsection
+
+
