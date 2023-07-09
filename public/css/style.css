@@ -1,5 +1,7 @@
 /* Base */
 
+
+
 body {
     line-height: 1.7;
     color: #8c92a0;
@@ -66,6 +68,7 @@ a:hover {
 }
 
 .btn {
+    
     text-transform: uppercase;
     position: relative;
     -webkit-transition: 0.2s all ease-in-out !important;
@@ -193,6 +196,7 @@ a:hover {
 
 /* Navbar */
 
+
 .site-navbar {
     background: #fff;
     margin-bottom: 0px;
@@ -213,8 +217,8 @@ a:hover {
 
 @media (min-width: 768px) {
     .site-navbar .site-navbar-top {
-        padding-top: 5px;
-        padding-bottom: 40px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 }
 
@@ -227,7 +231,7 @@ a:hover {
     text-decoration: none;
 }
 
-.site-navbar .site-logo a {
+/* .site-navbar .site-logo a {
     text-transform: uppercase;
     color: #25262a;
     letter-spacing: .2em;
@@ -235,12 +239,12 @@ a:hover {
     padding-left: 10px;
     padding-right: 10px;
     border: 2px solid #25262a;
-}
+} */
 
-.site-navbar .site-logo img {
+/* .site-navbar .site-logo img {
     width: 150px;
     height: 70px;
-}
+} */
 
 .site-navbar .site-logo a:hover {
     text-decoration: none;
@@ -336,7 +340,7 @@ a:hover {
 
 .site-navbar .site-navigation .site-menu>li {
     display: inline-block;
-    padding: 10px 5px;
+    /* padding: 10px 5px; */
 }
 
 .site-navbar .site-navigation .site-menu>li>a {
