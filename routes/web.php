@@ -49,7 +49,7 @@ Route::get('/artikel', function () {
 
 Route::get('/artikel/{slug}', function ($slug) {
     return view('artikel-single' , [
-        "title" => "{{ $slug }}"
+        "title" => "$slug"
     ]);
 });
 
