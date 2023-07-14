@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\adminController;
+use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [
-        "title" => "Home"
-    ]);
-});
 
 // Route::get('/artikel', function () {
-//     return view('artikel', [
+    //     return view('artikel', [
 //         "title" => "artikel"
 //     ]);
 // });
@@ -53,101 +50,23 @@ Route::get('/artikel/{slug}', function ($slug) {
     ]);
 });
 
-Route::get('/about', function () {
-    return view('about' , [
-        "title" => "About",
-        "name" => "Arthur citra Media",
-        "email" => "acmbratang09@gmail.com",
-        "image" => "acm.png"
-    ]);
-});
+// ROUTES USER
+Route::get('/',[userController::class, 'home']);
+Route::get('/about',[userController::class, 'about']);
+Route::get('/keranjang',[userController::class, 'keranjang']);
+Route::get('/checkout',[userController::class, 'checkout']);
+Route::get('/member',[userController::class, 'member']);
+Route::get('/katalog',[userController::class, 'katalog']);
+Route::get('/deskripsikatalog',[userController::class, 'deskripsikatalog']);
+Route::get('/thanks',[userController::class, 'thanks']);
+// Route::get('/artikel',[userController::class, 'artikel']);
 
-Route::get('/keranjang', function () {
-    return view('cart', [
-        "title" => "Keranjang"
-    ]);
-});
-
-Route::get('/admin', function () {
-    return view('admin', [
-        "title" => "Admin"
-    ]);
-});
-
-Route::get('/checkout', function () {
-    return view('checkout' , [
-        "title" => "Checkout"
-    ]);
-});
-
-Route::get('/member', function () {
-    return view('contact' , [
-        "title" => "Member"
-    ]);
-});
-
-Route::get('/katalog', function () {
-    return view('shop', [
-        "title" => "Katalog"
-    ]);
-});
-
-Route::get('/deskripsikatalog', function () {
-    return view('shop-single', [
-        "title" => "Deskripsi Katalog"
-    ]);
-});
-
-Route::get('/thanks', function () {
-    return view('thanks', [
-        "title" => "Thanks"
-    ]);
-});
-
-Route::get('/login', function () {
-    return view('admin/login', [
-        "title" => "login"
-    ]);
-});
-
-Route::get('/register', function () {
-    return view('admin/register', [
-        "title" => "register"
-    ]);
-});
-
-Route::get('/dashboard', function () {
-    return view('admin/dashboard', [
-        "title" => "Dashboard"
-    ]);
-});
-
-Route::get('/katalogproduk', function () {
-    return view('admin/katalog-produk', [
-        "title" => "Katalog Produk"
-    ]);
-});
-
-Route::get('/katalogpromo', function () {
-    return view('admin/katalog-promo', [
-        "title" => "Katalog Promo"
-    ]);
-});
-
-Route::get('/toko', function () {
-    return view('admin/toko', [
-        "title" => "Toko"
-    ]);
-});
-
-Route::get('/artikeladmin', function () {
-    return view('admin/artikel-admin', [
-        "title" => "Artikel Admin"
-    ]);
-});
-
-Route::get('/customer', function () {
-    return view('admin/customer', [
-        "title" => "Customer"
-    ]);
-});
+// ROUTES ADMIN
+Route::get('/login',[adminController::class, 'login']);
+Route::get('/register',[adminController::class, 'register']);
+Route::get('/dashboard',[adminController::class, 'dashboard']);
+Route::get('/katalogproduk',[adminController::class, 'katalogproduk']);
+Route::get('/katalogpromo',[adminController::class, 'katalogpromo']);
+Route::get('/toko',[adminController::class, 'toko']);
+Route::get('/artikeladmin',[adminController::class, 'artikeladmin']);
+Route::get('/customer',[adminController::class, 'customer']);
