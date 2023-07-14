@@ -11,11 +11,28 @@
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
-                    DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
-                    <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-                    .
+                    <table class="table table-stripped">
+                        <thead>
+                            <tr>
+                                <td>Nama Toko</td>
+                                <td>Alamat Toko</td>
+                                <td>whatsapp</td>
+                                <td>Aksi</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input placeholder="Nama Toko"></td>
+                                <td><input placeholder="Alamat Toko"></td>
+                                <td><input placeholder="Whatsapp"></td>
+                                <td><button class="btn btn-primary"><i class="fa fa-pencil"></i> Update Data</button></td>
+                            </tr>
+                            </form>
+                        </tbody>
+                    </table>
                 </div>
             </div>
+            
         </div>
     </main>
 </div>
