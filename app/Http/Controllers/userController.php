@@ -15,7 +15,7 @@ class userController extends Controller
     }
     function about()
     {
-        return view('about' , [
+        return view('about', [
             "title" => "About",
             "name" => "Arthur citra Media",
             "email" => "acmbratang09@gmail.com",
@@ -30,13 +30,13 @@ class userController extends Controller
     }
     function checkout()
     {
-        return view('checkout' , [
+        return view('checkout', [
             "title" => "Checkout"
         ]);
     }
     function member()
     {
-        return view('contact' , [
+        return view('contact', [
             "title" => "Member"
         ]);
     }

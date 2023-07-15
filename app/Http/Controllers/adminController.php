@@ -28,8 +28,8 @@ class adminController extends Controller
     function katalogproduk()
     {
         return view('admin/katalog-produk', [
-                    "title" => "Katalog Produk"
-                ]);
+            "title" => "Katalog Produk"
+        ]);
     }
     function katalogpromo()
     {
@@ -53,6 +53,12 @@ class adminController extends Controller
     {
         return view('admin/customer', [
             "title" => "Customer"
+        ]);
+    }
+    function tambahProduk()
+    {
+        return view('admin/katalog-tambahProduk', [
+            "title" => "Tambah Produk"
         ]);
     }
 }

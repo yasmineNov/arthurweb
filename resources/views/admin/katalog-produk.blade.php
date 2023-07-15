@@ -22,9 +22,7 @@
                         <div><i class="fas fa-table me-1"></i>
                             Katalog Produk
                         </div>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalketerangan">
-                            Tambahkan Produk
-                        </button>
+                        <a class="btn btn-primary" href="/tambahProduk" role="button"><i class="fa-solid fa-plus"></i> Tambahkan Produk</a>
                     </div>
                 </div>
                 <div class="card-body">

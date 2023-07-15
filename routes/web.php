@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 // Route::get('/artikel', function () {
-    //     return view('artikel', [
+//     return view('artikel', [
 //         "title" => "artikel"
 //     ]);
 // });
@@ -45,28 +45,29 @@ Route::get('/artikel', function () {
 });
 
 Route::get('/artikel/{slug}', function ($slug) {
-    return view('artikel-single' , [
+    return view('artikel-single', [
         "title" => "$slug"
     ]);
 });
 
 // ROUTES USER
-Route::get('/',[userController::class, 'home']);
-Route::get('/about',[userController::class, 'about']);
-Route::get('/keranjang',[userController::class, 'keranjang']);
-Route::get('/checkout',[userController::class, 'checkout']);
-Route::get('/member',[userController::class, 'member']);
-Route::get('/katalog',[userController::class, 'katalog']);
-Route::get('/deskripsikatalog',[userController::class, 'deskripsikatalog']);
-Route::get('/thanks',[userController::class, 'thanks']);
+Route::get('/', [userController::class, 'home']);
+Route::get('/about', [userController::class, 'about']);
+Route::get('/keranjang', [userController::class, 'keranjang']);
+Route::get('/checkout', [userController::class, 'checkout']);
+Route::get('/member', [userController::class, 'member']);
+Route::get('/katalog', [userController::class, 'katalog']);
+Route::get('/deskripsikatalog', [userController::class, 'deskripsikatalog']);
+Route::get('/thanks', [userController::class, 'thanks']);
 // Route::get('/artikel',[userController::class, 'artikel']);
 
 // ROUTES ADMIN
-Route::get('/login',[adminController::class, 'login']);
-Route::get('/register',[adminController::class, 'register']);
-Route::get('/dashboard',[adminController::class, 'dashboard']);
-Route::get('/katalogproduk',[adminController::class, 'katalogproduk']);
-Route::get('/katalogpromo',[adminController::class, 'katalogpromo']);
-Route::get('/toko',[adminController::class, 'toko']);
-Route::get('/artikeladmin',[adminController::class, 'artikeladmin']);
-Route::get('/customer',[adminController::class, 'customer']);
+Route::get('/login', [adminController::class, 'login']);
+Route::get('/register', [adminController::class, 'register']);
+Route::get('/dashboard', [adminController::class, 'dashboard']);
+Route::get('/katalogproduk', [adminController::class, 'katalogproduk']);
+Route::get('/katalogpromo', [adminController::class, 'katalogpromo']);
+Route::get('/toko', [adminController::class, 'toko']);
+Route::get('/artikeladmin', [adminController::class, 'artikeladmin']);
+Route::get('/customer', [adminController::class, 'customer']);
+Route::get('/tambahProduk', [adminController::class, 'tambahProduk']);
