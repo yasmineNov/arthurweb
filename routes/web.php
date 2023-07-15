@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+// MODEL ROOT BAWAAN
 // Route::get('/artikel', function () {
 //     return view('artikel', [
 //         "title" => "artikel"
