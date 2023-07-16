@@ -118,6 +118,33 @@
       <li><a class="nav-link" href="/about">Tentang Kami</a></li>
       <li><a class="nav-link" href="/member">Member</a></li>
 
+      <div class="d-md-none">
+        <div class="row">
+          <div class=" d-flex col-12 text-right">
+            <!-- <li><a class="nav-link" href="#"><img src="images/instagram.png" alt="Instagram"></a></li>
+            <li><a class="nav-link" href="#"><img src="images/tokped.png" alt="tiktok"></a></li>
+            <li><a class="nav-link" href="#"><img src="images/whatsapp.png" alt="whatsapp"></a></li>
+            <li><a class="nav-link" href="#"><img src="images/shopee.png" alt="shopee"></a></li> -->
+            <li class="nav-item"><a class="nav-link" href="https://wa.me/087858860888"><img src="images/whatsapp.png"></a></li>
+            <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/arthurcitramedia/"><img src="images/instagram.png"></a></li>
+            <li class="nav-item"><a class="nav-link" href="https://shopee.co.id/arthuradv?smtt=0.0.9"><img src="images/shopee.png"></a></li>
+            <li class="nav-item"><a class="nav-link" href="https://www.tokopedia.com/archive-arthuradv"><img src="images/tokped.png"></a></li>
+          </div>
+          <div class="col-12 text-right mt-2">
+            <li class="nav-item"><a class="btn btn-light" href="/register">Daftar</a></li>
+            <li class="nav-item"><a class="btn btn-primary" href="/login">Masuk</a></li>
+          </div>
+        </div>
+      </div>
     </ul>
+    <!-- <div class="d-md-none">
+      <ul class="site-menu d-flex align-items-center justify-content-between">
+        <li class="nav-item"><a class="nav-link" href="#"><img src="images/instagram.png" alt="Instagram"></a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><img src="images/instagram.png" alt="tiktok"></a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><img src="images/whatsapp.png" alt="Facebook"></a></li>
+        <li class="nav-item"><a class="btn btn-primary" href="/register">Daftar</a></li>
+        <li class="nav-item"><a class="btn btn-light" href="/login">Masuk</a></li>
+      </ul>
+    </div> -->
   </div>
 </nav>

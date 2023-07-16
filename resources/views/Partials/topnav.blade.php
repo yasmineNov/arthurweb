@@ -1,6 +1,6 @@
 <nav class="site-navigationtop navbar-light bg-light border-bottom" role="navigation">
-  <!--  <h1 class="logo text-md-left"><a href="#">Arthur Citra Media</a></h1> -->
-  <div class="container">
+  <div class="container d-md-block d-none">
+    <!-- Konten container hanya akan muncul pada tampilan desktop -->
     <div class="row">
       <div class="col-md-6">
         <ul class="site-menu d-flex align-items-center justify-content-start">

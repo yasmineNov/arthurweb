@@ -23,7 +23,7 @@
 </head>
 
 <body>
-  @include('partials.topnav');
+  @include('partials.topnav')
 
   <div class="site-wrap">
 
