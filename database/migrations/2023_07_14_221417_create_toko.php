@@ -17,7 +17,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('nama_toko');
             $table->string('alamat_toko');
-            $table->unique('whatsapp');
+            $table->string('whatsapp')->unique();
         });
     }
 
