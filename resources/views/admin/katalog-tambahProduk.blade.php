@@ -13,26 +13,35 @@
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
-                    <label for="formFileSm" class="form-label">Tambahkan foto</label>
-                    <input class="form-control form-control-sm" id="formFileSm" type="file" />
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Nama produk</label>
-                        <input class="form-control" type="text" placeholder="Default input">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">kategori</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Deskripsi</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
+                      <!-- START FORM -->
+       <form action='' method='post'>
+        <div class="my-3 p-3 bg-body rounded shadow-sm">
+            <div class="mb-3 row">
+                <label for="nim" class="col-sm-2 col-form-label">NIM</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" name='nim' id="nim">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name='nama' id="nama">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="jurusan" class="col-sm-2 col-form-label">Jurusan</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name='jurusan' id="jurusan">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="jurusan" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10"><button type="submit" class="btn btn-primary" name="submit">SIMPAN</button></div>
+            </div>
+          
+        </div>
+    </form>
+        <!-- AKHIR FORM -->
                 </div>
             </div>
         </div>
