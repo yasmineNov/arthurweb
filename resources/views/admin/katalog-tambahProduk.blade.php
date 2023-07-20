@@ -14,7 +14,9 @@
             <div class="card mb-4">
                 <div class="card-body">
                       <!-- START FORM -->
-       <form action='' method='post'>
+       <form  method='post' action='{{url('produk')}}'>
+        @csrf
+        
         <div class="my-3 p-3 bg-body rounded shadow-sm">
             <div class="mb-3 row">
                 <label for="idProduk" class="col-sm-2 col-form-label">Id Produk</label>

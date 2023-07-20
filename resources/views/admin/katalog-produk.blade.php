@@ -22,7 +22,7 @@
                         <div><i class="fas fa-table me-1"></i>
                             Katalog Produk
                         </div>
-                        <a class="btn btn-primary" href="/tambahProduk" role="button"><i class="fa-solid fa-plus"></i> Tambahkan Produk</a>
+                        <a class="btn btn-primary" href='{{url('/tambahProduk')}}' role="button"><i class="fa-solid fa-plus"></i> Tambahkan Produk</a>
                     </div>
                 </div>
                 <div class="card-body">
