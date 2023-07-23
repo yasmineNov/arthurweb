@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('produks', function (Blueprint $table) {
             $table->increments('idProduk', 100);
             $table->string('namaProduk', 100);
-            $table->string('kategori', 100);
-            $table->double('Harga', 100);
-            $table->string('deskripsi', 100);
-            $table->primary('idProduk');
+            $table->integer('harga')->nullable();
+            $table->string('deskripsi',100)->nullable();
+            $table->BigInteger('kategori')->unsigned()->nullable();
+            $table->foreign('kategori')
+            ->references('idKategori')->on('kategoris');
             $table->timestamps();
-            // $table->softDeletesTz($column = 'deleted_at', $precision = 0);
+            $table->softDeletesTz($column = 'deleted_at', $precision = 0);
         });
     }
 

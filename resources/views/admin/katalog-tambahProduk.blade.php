@@ -29,12 +29,12 @@
         @csrf
         
         <div class="my-3 p-3 bg-body rounded shadow-sm">
-            <div class="mb-3 row">
+            {{-- <div class="mb-3 row">
                 <label for="idProduk" class="col-sm-2 col-form-label">Id Produk</label>
                 <div class="col-sm-10">
                     <input type="number" class="form-control" name='idProduk' id="idProduk">
                 </div>
-            </div>
+            </div> --}}
             <div class="mb-3 row">
                 <label for="namaProduk" class="col-sm-2 col-form-label">Nama Produk</label>
                 <div class="col-sm-10">

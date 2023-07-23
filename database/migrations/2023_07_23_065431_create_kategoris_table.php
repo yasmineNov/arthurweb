@@ -15,6 +15,7 @@ return new class extends Migration
             $table->BigIncrements('idKategori', 100);
             $table->string('namaKategori', 100);
             $table->timestamps();
+            $table->softDeletesTz($column = 'deleted_at', $precision = 0);
         });
     }
 
