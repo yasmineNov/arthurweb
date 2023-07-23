@@ -12,10 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('produks', function (Blueprint $table) {
-            $table->char('idProduk', 12);
+            $table->increments('idProduk', 100);
             $table->string('namaProduk', 100);
-            $table->primary('idProduk');
+            $table->integer('harga');
+            $table->string('deskripsi',100);
+            $table->BigInteger('kategori')->unsigned();
+            $table->foreign('kategori')
+            ->references('idKategori')->on('kategoris');
             $table->timestamps();
+            // $table->softDeletesTz($column = 'deleted_at', $precision = 0);
         });
     }
 
