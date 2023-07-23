@@ -8,6 +8,9 @@
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
                 <li class="breadcrumb-item active">Katalog Produk</li>
+               <li>
+                
+            </li>
             </ol>
             <!-- <div class="card mb-4">
                             <div class="card-body">
@@ -18,6 +21,14 @@
                         </div> -->
             <div class="card mb-4">
                 <div class="card-header">
+                    @if (Session::has('success'))
+                <div class="pt-3">
+                    <div class="alert alert-success">
+                        {{ Session::get('success') }}
+                    </div>
+                </div>
+                    
+                @endif
                     <div class="d-sm-flex align-items-center justify-content-between">
                         <div><i class="fas fa-table me-1"></i>
                             Katalog Produk

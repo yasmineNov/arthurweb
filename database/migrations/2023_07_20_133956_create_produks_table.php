@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('produks', function (Blueprint $table) {
             $table->char('idProduk', 12);
             $table->string('namaProduk', 100);
+            $table->string('kategori', 100);
+            $table->double('Harga', 100);
+            $table->string('deskripsi', 100);
             $table->primary('idProduk');
             $table->timestamps();
         });

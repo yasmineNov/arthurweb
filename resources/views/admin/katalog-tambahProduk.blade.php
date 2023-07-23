@@ -14,6 +14,17 @@
             <div class="card mb-4">
                 <div class="card-body">
                       <!-- START FORM -->
+                      @if ($errors->any())
+                          <div class="pt-3">
+                            <div class="alert alert-danger"><ul>
+                                @foreach ($errors->all() as $item)
+                                    <li>{{ $item }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                            
+                          </div>
+                      @endif
        <form  method='post' action='{{url('produk')}}'>
         @csrf
         
@@ -33,7 +44,7 @@
             <div class="mb-3 row">
                 <label for="kategori" class="col-sm-2 col-form-label">kategori</label>
                 <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" name='kategori' id="kategori" aria-label="Default select example">
                         <option selected>Pilih Kategori</option>
                         <option value="1">Indoor</option>
                         <option value="2">Outdoor</option>

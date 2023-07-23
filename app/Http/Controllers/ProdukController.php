@@ -6,6 +6,7 @@ use App\Models\produk;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreprodukRequest;
 use App\Http\Requests\UpdateprodukRequest;
+use Illuminate\Contracts\Session\Session;
 
 class ProdukController extends Controller
 {
@@ -37,12 +38,35 @@ class ProdukController extends Controller
      */
     public function store(StoreprodukRequest $request)
     {
+        $request->validate([
+            'idProduk' => 'required|numeric|unique:produks,idProduk',
+            'namaProduk' => 'required',
+            'kategori' => 'required',
+            'harga' => 'required|numeric',
+            'deskripsi' => 'required',
+
+        ], [
+            'idProduk.required' => 'Id produk wajib diisi',
+            'idProduk.numeric' => 'Id produk harus angka',
+            'idProduk.unique' => 'Id produk sudah ada dalam database',
+            'namaProduk.required' => 'Nama produk wajib diisi',
+            'kategori.required' => 'kategori wajib diisi',
+            'harga.required' => 'Harga wajib diisi',
+            'harga.numeric' => 'Harga harus dalam bentuk angka',
+            'deskripsi.required' => 'Deskripsi wajib diisi',
+        ]);
+
         $produk = new produk;
         // $dari database = inputan
         $produk->idProduk = $request->idProduk;
         $produk->namaProduk = $request->namaProduk;
+        $produk->kategori = $request->kategori;
+        $produk->Harga = $request->harga;
+        $produk->deskripsi = $request->deskripsi;
         $produk->save();
-        dd($request->all());
+        // dd($request->all());
+
+        return redirect()->to('katalogproduk')->with('success', 'Berhasil menambah data');
     }
 
     /**
