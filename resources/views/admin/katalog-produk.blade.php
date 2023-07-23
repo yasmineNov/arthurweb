@@ -59,19 +59,20 @@
                             </tr>
                         </tfoot>
                         <tbody>
+                            @foreach ($data as $item)
                             <tr>
                                 <td>1</td>
-                                <td>Xbanner</td>
-                                <td>Outdoor</td>
-                                <td>40.000</td>
-                                <td>ini adalah xbanner</td>                           
+                                <td>{{ $item->namaProduk }}</td>
+                                <td>{{ $item->kategori }}</td>
+                                <td>{{ $item->harga }}</td>
+                                <td>{{ $item->deskripsi }}</td>                           
                                 <td>
                                     <a href='' class="btn btn-warning btn-sm">Edit</a>
                                 <a href='' class="btn btn-danger btn-sm">Del</a>
                                     
                                 </td>
                             </tr>
-                            
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

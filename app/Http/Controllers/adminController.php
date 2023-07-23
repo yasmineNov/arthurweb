@@ -25,12 +25,12 @@ class adminController extends Controller
             "title" => "Dashboard"
         ]);
     }
-    function katalogproduk()
-    {
-        return view('admin/katalog-produk', [
-            "title" => "Katalog Produk"
-        ]);
-    }
+    // function katalogproduk()
+    // {
+    //     return view('admin/katalog-produk', [
+    //         "title" => "Katalog Produk"
+    //     ]);
+    // }
     function katalogpromo()
     {
         return view('admin/katalog-promo', [

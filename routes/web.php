@@ -66,7 +66,7 @@ Route::get('/thanks', [userController::class, 'thanks']);
 Route::get('/login', [adminController::class, 'login']);
 Route::get('/register', [adminController::class, 'register']);
 Route::get('/dashboard', [adminController::class, 'dashboard']);
-Route::get('/katalogproduk', [adminController::class, 'katalogproduk']);
+Route::get('/katalogproduk', [ProdukController::class, 'katalogproduk']);
 Route::get('/katalogpromo', [adminController::class, 'katalogpromo']);
 Route::get('/toko', [adminController::class, 'toko']);
 Route::get('/artikeladmin', [adminController::class, 'artikeladmin']);

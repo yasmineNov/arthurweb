@@ -15,12 +15,18 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        return view('admin.katalog-produk', [
-            "title" => "Dashboard"
-        ]);
+        //
+    }
+    function katalogproduk()
+    {
+        $data = produk::orderBy('idProduk', 'desc')->get();
+        return view('admin/katalog-produk', [
+            "title" => "Katalog Produk"
+        ])->with('data', $data);
     }
     function tambahProduk()
     {
+
         return view('admin/katalog-tambahProduk', [
             "title" => "Tambah Produk"
         ]);
@@ -39,14 +45,14 @@ class ProdukController extends Controller
     public function store(StoreprodukRequest $request)
     {
         $request->validate([
-            'idProduk' => 'required|numeric|unique:produks,idProduk',
+
             'namaProduk' => 'required',
             'kategori' => 'required',
             'harga' => 'required|numeric',
             'deskripsi' => 'required',
 
         ], [
-            'idProduk.required' => 'Id produk wajib diisi',
+            // 'idProduk.required' => 'Id produk wajib diisi',
             'idProduk.numeric' => 'Id produk harus angka',
             'idProduk.unique' => 'Id produk sudah ada dalam database',
             'namaProduk.required' => 'Nama produk wajib diisi',
@@ -58,9 +64,9 @@ class ProdukController extends Controller
 
         $produk = new produk;
         // $dari database = inputan
-        $produk->idProduk = $request->idProduk;
+        // $produk->idProduk = $request->idProduk;
         $produk->namaProduk = $request->namaProduk;
-        $produk->kategori = $request->kategori;
+        // $produk->kategori = $request->kategori;
         $produk->harga = $request->harga;
         $produk->deskripsi = $request->deskripsi;
         $produk->save();
