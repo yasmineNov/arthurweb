@@ -26,7 +26,6 @@ class ProdukController extends Controller
     }
     function tambahProduk()
     {
-
         return view('admin/katalog-tambahProduk', [
             "title" => "Tambah Produk"
         ]);
@@ -45,7 +44,6 @@ class ProdukController extends Controller
     public function store(StoreprodukRequest $request)
     {
         $request->validate([
-
             'namaProduk' => 'required',
             'kategori' => 'required',
             'harga' => 'required|numeric',

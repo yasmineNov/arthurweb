@@ -60,7 +60,11 @@
                                     {{-- <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a> --}}
                                 </nav>
                             </div>
-                            
+                            <a class="nav-link collapsed" href="/kategori">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Kategori
+                                {{-- <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div> --}}
+                            </a>
                             <a class="nav-link collapsed" href="/customer">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 customer

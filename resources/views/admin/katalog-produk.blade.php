@@ -12,13 +12,7 @@
                 
             </li>
             </ol>
-            <!-- <div class="card mb-4">
-                            <div class="card-body">
-                                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
-                                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-                                .
-                            </div>
-                        </div> -->
+        
             <div class="card mb-4">
                 <div class="card-header">
                     @if (Session::has('success'))
@@ -35,7 +29,6 @@
                         </div>
                         <a class="btn btn-primary" href='{{url('/tambahProduk')}}' role="button"><i class="fa-solid fa-plus"></i> Tambahkan Produk</a>
                     </div>
-                </div>
                 <div class="card-body">
                     <table id="datatablesSimple">
                         <thead>

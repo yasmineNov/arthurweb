@@ -14,6 +14,16 @@ class KategoriController extends Controller
     public function index()
     {
         //
+        return view('admin.kategori', [
+            "title" => "kategori"
+        ]);
+    }
+    function kategori()
+    {
+        
+        return view('admin/kategori', [
+            "title" => "kategori"
+        ]);
     }
 
     /**
