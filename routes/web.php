@@ -3,6 +3,7 @@
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
@@ -71,7 +72,8 @@ Route::get('/katalogproduk', [ProdukController::class, 'katalogproduk']);
 Route::get('/katalogpromo', [adminController::class, 'katalogpromo']);
 Route::get('/toko', [adminController::class, 'toko']);
 Route::get('/artikeladmin', [adminController::class, 'artikeladmin']);
-Route::get('/customer', [adminController::class, 'customer']);
+// Route::get('/customer', [adminController::class, 'customer']);
 Route::get('/tambahProduk', [ProdukController::class, 'tambahProduk']);
 Route::resource('/kategori', KategoriController::class);
 Route::resource('produk', ProdukController::class);
+Route::resource('customer', CustomerController::class);
