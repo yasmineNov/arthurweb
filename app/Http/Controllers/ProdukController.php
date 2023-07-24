@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreprodukRequest;
 use App\Http\Requests\UpdateprodukRequest;
 use Illuminate\Contracts\Session\Session;
+use Illuminate\Support\Facades\Storage;
 
 class ProdukController extends Controller
 {
@@ -44,6 +45,7 @@ class ProdukController extends Controller
     public function store(StoreprodukRequest $request)
     {
         $request->validate([
+            'image' => 'required|mimes:png,jpg,jpeg|max:2048',
             'namaProduk' => 'required',
             'kategori' => 'required',
             'harga' => 'required|numeric',
@@ -63,6 +65,13 @@ class ProdukController extends Controller
         $produk = new produk;
         // $dari database = inputan
         // $produk->idProduk = $request->idProduk;
+        $image    = $request->file('image');
+        $filename = date('Y-m-d') . $image->getClientOriginalName();
+        $path     = 'image-produk/' . $filename;
+
+        Storage::disk('public')->put($path, file_get_contents($image));
+
+        $produk->img = $filename;
         $produk->namaProduk = $request->namaProduk;
         // $produk->kategori = $request->kategori;
         $produk->harga = $request->harga;

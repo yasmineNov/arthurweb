@@ -34,6 +34,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Gambar </th>
                                 <th>Nama Produk</th>
                                 <th>Kategori</th>
                                 <th>Harga</th>
@@ -44,7 +45,7 @@
                         <tfoot>
                             <tr>
                                 <th>No</th>
-                                <th>Nama Produk</th>
+                                <th>Gambar</th>
                                 <th>Kategori</th>
                                 <th>Harga</th>
                                 <th>Deksripsi</th>
@@ -55,6 +56,7 @@
                             @foreach ($data as $item)
                             <tr>
                                 <td>1</td>
+                                <td><img src="{{asset('storage/image-produk/'.$item->img)}}" alt="" width="100"></td>
                                 <td>{{ $item->namaProduk }}</td>
                                 <td>{{ $item->kategori }}</td>
                                 <td>{{ $item->harga }}</td>
