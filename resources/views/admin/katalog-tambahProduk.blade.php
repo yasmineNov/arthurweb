@@ -13,65 +13,67 @@
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
-                      <!-- START FORM -->
-                      @if ($errors->any())
-                          <div class="pt-3">
-                            <div class="alert alert-danger"><ul>
+                    <!-- START FORM -->
+                    @if ($errors->any())
+                    <div class="pt-3">
+                        <div class="alert alert-danger">
+                            <ul>
                                 @foreach ($errors->all() as $item)
-                                    <li>{{ $item }}</li>
+                                <li>{{ $item }}</li>
                                 @endforeach
                             </ul>
                         </div>
-                            
-                          </div>
-                      @endif
-       <form  method='post' action='{{url('produk')}}'>
-        @csrf
-        
-        <div class="my-3 p-3 bg-body rounded shadow-sm">
-            {{-- <div class="mb-3 row">
+
+                    </div>
+                    @endif
+                    <form method='post' action='{{url('produk')}}'>
+                        @csrf
+
+                        <div class="my-3 p-3 bg-body rounded shadow-sm">
+                            {{-- <div class="mb-3 row">
                 <label for="idProduk" class="col-sm-2 col-form-label">Id Produk</label>
                 <div class="col-sm-10">
                     <input type="number" class="form-control" name='idProduk' id="idProduk">
                 </div>
             </div> --}}
-            <div class="mb-3 row">
-                <label for="namaProduk" class="col-sm-2 col-form-label">Nama Produk</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name='namaProduk' id="namaProduk">
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="kategori" class="col-sm-2 col-form-label">kategori</label>
-                <div class="col-sm-10">
-                    <select class="form-select" name='kategori' id="kategori" aria-label="Default select example">
-                        <option selected>Pilih Kategori</option>
-                        <option value="1">Indoor</option>
-                        <option value="2">Outdoor</option>
-                        <option value="3">UV</option>
-                      </select>
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="harga" class="col-sm-2 col-form-label">harga</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name='harga' id="harga">
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="deskripsi" class="col-sm-2 col-form-label">deskripsi</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name='deskripsi' id="deskripsi">
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="jurusan" class="col-sm-2 col-form-label"></label>
-                <div class="col-sm-10"><button type="submit" class="btn btn-primary" name="submit">SIMPAN</button></div>
-            </div>
-          
-        </div>
-    </form>
-        <!-- AKHIR FORM -->
+            
+                            <div class="mb-3 row">
+                                <label for="namaProduk" class="col-sm-2 col-form-label">Nama Produk</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name='namaProduk' id="namaProduk">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="kategori" class="col-sm-2 col-form-label">kategori</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select" name='kategori' id="kategori" aria-label="Default select example">
+                                        <option selected>Pilih Kategori</option>
+                                        <option value="1">Indoor</option>
+                                        <option value="2">Outdoor</option>
+                                        <option value="3">UV</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="harga" class="col-sm-2 col-form-label">harga</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name='harga' id="harga">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="deskripsi" class="col-sm-2 col-form-label">deskripsi</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name='deskripsi' id="deskripsi">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="jurusan" class="col-sm-2 col-form-label"></label>
+                                <div class="col-sm-10"><button type="submit" class="btn btn-primary" name="submit">SIMPAN</button></div>
+                            </div>
+
+                        </div>
+                    </form>
+                    <!-- AKHIR FORM -->
                 </div>
             </div>
         </div>
