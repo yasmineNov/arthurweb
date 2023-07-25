@@ -81,12 +81,6 @@ class ProdukController extends Controller
 
         return redirect()->to('katalogproduk')->with('success', 'Berhasil menambah data');
 
-        // $produk = new produk;
-        // $produk->idProduk = $request->idProduk;
-        // $produk->namaProduk = $request->namaProduk;
-        // $produk->namaProduk = $request->namaProduk;
-        // $produk->save();
-        // dd($request->all());
     }
 
     /**
