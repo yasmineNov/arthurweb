@@ -20,7 +20,7 @@ class ProdukController extends Controller
     }
     function katalogproduk()
     {
-        $data = produk::orderBy('idProduk', 'desc')->get();
+        $data = produk::orderBy('idProduk', 'desc')->paginate();
         return view('admin/katalog-produk', [
             "title" => "Katalog Produk"
         ])->with('data', $data);
@@ -80,7 +80,6 @@ class ProdukController extends Controller
         // dd($request->all());
 
         return redirect()->to('katalogproduk')->with('success', 'Berhasil menambah data');
-
     }
 
     /**
@@ -96,7 +95,8 @@ class ProdukController extends Controller
      */
     public function edit(produk $produk)
     {
-        //
+        $data = produk::where('idProduk', $produk)->first();
+        return view('admin/katalog-editProduk')->with('data', $data);
     }
 
     /**

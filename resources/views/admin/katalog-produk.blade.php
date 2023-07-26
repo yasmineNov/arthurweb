@@ -53,20 +53,22 @@
                             </tr>
                         </tfoot>
                         <tbody>
+                            <?php $i = $data->firstItem() ?>
                             @foreach ($data as $item)
                             <tr>
-                                <td>1</td>
+                                <td>{{ $i }}</td>
                                 <td><img src="{{asset('storage/image-produk/'.$item->img)}}" alt="" width="100"></td>
                                 <td>{{ $item->namaProduk }}</td>
                                 <td>{{ $item->kategori }}</td>
                                 <td>{{ $item->harga }}</td>
                                 <td>{{ $item->deskripsi }}</td>                           
                                 <td>
-                                    <a href='' class="btn btn-warning btn-sm">Edit</a>
+                                    <a href='{{ url('produk/'.$item->idProduk.'/edit')}}' class="btn btn-warning btn-sm">Edit</a>
                                 <a href='' class="btn btn-danger btn-sm">Del</a>
                                     
                                 </td>
                             </tr>
+                            <?php $i++ ?>
                             @endforeach
                         </tbody>
                     </table>
