@@ -29,7 +29,7 @@
                         </div>
                         <a class="btn btn-primary" href='{{url('/tambahProduk')}}' role="button"><i class="fa-solid fa-plus"></i> Tambahkan Produk</a>
                     </div>
-                <div class="card-body">
+    <div class="card-body">
                     <table id="datatablesSimple">
                         <thead>
                             <tr>

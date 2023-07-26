@@ -13,86 +13,109 @@
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
-                      <!-- START FORM -->
-                      @if ($errors->any())
-                          <div class="pt-3">
-                            <div class="alert alert-danger"><ul>
-                                @foreach ($errors->all() as $item)
-                                    <li>{{ $item }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                            
-                          </div>
-                      @endif
-       <form  method='post' action='{{url('kategori')}}'>
-        @csrf
-        
-        <div class="my-3 p-3 bg-body rounded shadow-sm">
-            <div class="mb-3 row">
-                <label for="namaKategori" class="col-sm-2 col-form-label">Nama Kategori</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name='namaKategori' id="namaKategori">
-                </div>
+    
+    <div class="card mb-4">
+        <div class="card-header d-sm-flex align-items-center justify-content-between">
+            <div><i class="fas fa-table me-1"></i>
+                Kategori
             </div>
-            <div class="mb-3 row">
-                <label for="jurusan" class="col-sm-2 col-form-label"></label>
-                <div class="col-sm-10"><button type="submit" class="btn btn-primary" name="submit">SIMPAN</button></div>
-            </div>
-        </div>
-    </form>
-        <!-- AKHIR FORM -->
+            {{-- <a class="btn btn-primary" href='{{url('/tambahProduk')}}' role="button"><i class="fa-solid fa-plus"></i> Tambahkan Kategori</a> --}}
+           <!-- Button trigger modal -->
 
-        {{-- <div class="card mb-4">
-            <div class="card-header">
-                @if (Session::has('success'))
-            <div class="pt-3">
-                <div class="alert alert-success">
-                    {{ Session::get('success') }}
-                </div>
-            </div>
-                
-            @endif --}}
-                {{-- <div class="d-sm-flex align-items-center justify-content-between">
-                    <div><i class="fas fa-table me-1"></i>
-                        Master Kategori
+           <!-- Modal -->
+           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Kategori</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form  action='{{action('KategoriController@store')}}' method='POST'>
+                        {{-- {{csrf_field()}} --}}
+                        @csrf_field
+                        <div class="mb-3">
+                            <label>Nama Kategori</label>
+                            <input type="text" name="namaKategori" class="form-control" placeholder="Masukkan Kategori Baru">
+                          </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
+                        <button type="button" class="btn btn-primary">Simpan</button>
                     </div>
                 </div>
-            <div class="card-body">
-                <table id="datatablesSimple">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Kategori</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Kategori</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                        <tr>
-                            @foreach ($dataKategori as $item)
-                            <tr>
-                                <td>1</td>
-                                <td>Outdoor</td>
-                                <td>{{ $item->namaKategori }}</td>                         
-                                <td>
-                                    <a href='' class="btn btn-warning btn-sm">Edit</a>
-                                <a href='' class="btn btn-danger btn-sm">Del</a>
-                                    
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tr>
-                    </tbody>
-                </table>
             </div>
-        </div> --}}
+    </div>
+
+           <div class="container">
+            @if(count($errors)>0)
+    
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all()as $error)
+                    <li>{{error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+    
+            @if(\Session::has('sukses'))
+                <div class="alert alert-success">
+                    <p>{{ \Session::get('sukses')}}</p>
+                </div>
+            @endif
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" href='{{url('/kategori')}}' role="button">
+                <i class="fa-solid fa-plus"></i> Tambahkan Kategori
+                </button>
+        </div>
+            
+  
+            
+        </div>
+        <div class="card-body">
+            <table id="datatablesSimple">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Office</th>
+                        <th>Age</th>
+                        <th>Start date</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Office</th>
+                        <th>Age</th>
+                        <th>Start date</th>
+                        <th>Salary</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td>Tiger Nixon</td>
+                        <td>System Architect</td>
+                        <td>Edinburgh</td>
+                        <td>61</td>
+                        <td>2011/04/25</td>
+                        <td>$320,800</td>
+                    </tr>
+                    <tr>
+                        <td>Garrett Winters</td>
+                        <td>Accountant</td>
+                        <td>Tokyo</td>
+                        <td>63</td>
+                        <td>2011/07/25</td>
+                        <td>$170,750</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 
                 </div>

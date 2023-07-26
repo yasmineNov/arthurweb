@@ -20,7 +20,7 @@ class KategoriController extends Controller
     }
     function kategori()
     {
-        
+
         return view('admin/kategori', [
             "title" => "kategori"
         ]);
@@ -40,6 +40,17 @@ class KategoriController extends Controller
     public function store(StorekategoriRequest $request)
     {
         //
+        $this->validate($request, [
+            'namaKategori' => 'required'
+        ]);
+
+        $kategori = new kategori;
+
+        $kategori->namaKategori = $request->input('namaKategori');
+
+        $kategori->save();
+
+        return redirect('/kategori')->with('sukses', 'Data telah tersimpan');
     }
 
     /**
