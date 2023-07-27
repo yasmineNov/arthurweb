@@ -14,10 +14,12 @@ class KategoriController extends Controller
     public function index()
     {
         //
-        return view('admin.kategori', [
+        $data['kategoris'] = kategori::orderBy('idKategori', 'desc')->paginate(5);
+        return view('admin.kategori', $data, [
             "title" => "kategori"
         ]);
     }
+
     function kategori()
     {
 
@@ -32,6 +34,7 @@ class KategoriController extends Controller
     public function create()
     {
         //
+        return view('kategoris.create');
     }
 
     /**
@@ -40,17 +43,15 @@ class KategoriController extends Controller
     public function store(StorekategoriRequest $request)
     {
         //
-        $this->validate($request, [
+        $request->validate([
             'namaKategori' => 'required'
         ]);
-
         $kategori = new kategori;
-
-        $kategori->namaKategori = $request->input('namaKategori');
-
+        $kategori->name = $request->namaKategori;
         $kategori->save();
 
-        return redirect('/kategori')->with('sukses', 'Data telah tersimpan');
+        return redirect()->route('kategori')
+            ->with('success', 'Company has been created successfully.');
     }
 
     /**
@@ -59,6 +60,7 @@ class KategoriController extends Controller
     public function show(kategori $kategori)
     {
         //
+        return view('kategori', compact('kategori'));
     }
 
     /**
@@ -83,5 +85,8 @@ class KategoriController extends Controller
     public function destroy(kategori $kategori)
     {
         //
+        $kategori->delete();
+        return redirect()->route('kategori')
+            ->with('success', 'kategori has been deleted successfully');
     }
 }

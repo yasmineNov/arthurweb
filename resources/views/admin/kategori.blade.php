@@ -31,9 +31,9 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form  action='{{action('KategoriController@store')}}' method='POST'>
+                        <form  action='{{url('KategoriController')}}' method='POST'>
                         {{-- {{csrf_field()}} --}}
-                        @csrf_field
+                        @csrf
                         <div class="mb-3">
                             <label>Nama Kategori</label>
                             <input type="text" name="namaKategori" class="form-control" placeholder="Masukkan Kategori Baru">
@@ -42,7 +42,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
-                        <button type="button" class="btn btn-primary">Simpan</button>
+                        <button type="button" class="btn  btn-primary" href="{{ route('kategori.index') }}">Simpan</button>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
     
             <div class="alert alert-danger">
                 <ul>
-                    @foreach($errors->all()as $error)
+                    @foreach($errors->all() as $error)
                     <li>{{error}}</li>
                     @endforeach
                 </ul>
@@ -65,7 +65,7 @@
                     <p>{{ \Session::get('sukses')}}</p>
                 </div>
             @endif
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" href='{{url('/kategori')}}' role="button">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" role="button">
                 <i class="fa-solid fa-plus"></i> Tambahkan Kategori
                 </button>
         </div>
@@ -74,46 +74,44 @@
             
         </div>
         <div class="card-body">
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+            @endif
             <table id="datatablesSimple">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <th>No.</th>
+                        <th>NamaKategori</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Office</th>
-                        <th>Age</th>
-                        <th>Start date</th>
-                        <th>Salary</th>
+                        <th>No.</th>
+                        <th>NamaKategori</th>
+                        <th>Aksi</th>
                     </tr>
                 </tfoot>
                 <tbody>
+                    @foreach ($kategoris as $kategori)
                     <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                        <td>2011/04/25</td>
-                        <td>$320,800</td>
+                        <td>{{ $kategori->idKategori }}</td>
+                        <td>{{ $kategori->namaKategori }}</td>
+                        <td>
+                        <form action="{{ route('kategori.destroy',$kategori->idKategori) }}" method="Post">
+                        <a class="btn btn-primary" href="{{ route('kategori.edit',$kategori->idKategori) }}">Edit</a>
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>   
+                        </td>
                     </tr>
-                    <tr>
-                        <td>Garrett Winters</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>63</td>
-                        <td>2011/07/25</td>
-                        <td>$170,750</td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
+        {!! $kategoris->links() !!}    
         </div>
     </div>
 
