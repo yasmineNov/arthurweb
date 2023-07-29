@@ -96,7 +96,10 @@ class ProdukController extends Controller
     public function edit(produk $produk)
     {
         $data = produk::where('idProduk', $produk)->first();
-        return view('admin/katalog-editProduk')->with('data', $data);
+        return view('admin/katalog-editProduk', [
+            "title" => "edit Produk"
+        ])->with('data', $data);
+        // return 'HI' . $produk;
     }
 
     /**
