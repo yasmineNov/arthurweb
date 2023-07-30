@@ -9,142 +9,57 @@
   </div>
 </div>
 
+<div class="container text-center mt-3 mb-3">
+  <img src="images/home1.jpg" alt="Digital Printing" width="700">
+</div>  
 
-              {{-- contoh --}}
-              <div class="container text-center">
-                <h1>Ini halaman About</h1>
-                <img src="logo/{{ $image }}" alt="{{ $name }}" width="200">
-                <h3>{{  $name }}</h3>
-                <p>{{ $email }}</p>
-              </div>
-              {{-- contoh selesai --}}
-
-
-    <div class="site-section border-bottom" data-aos="fade">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-6">
-            <div class="block-16">
-              <figure>
-                <img src="images/blog_1.jpg" alt="Image placeholder" class="img-fluid rounded">
-                <a href="https://vimeo.com/channels/staffpicks/93951774" class="play-button popup-vimeo"><span class="ion-md-play"></span></a>
-              </figure>
-            </div>
-          </div>
-          <div class="col-md-1"></div>
-          <div class="col-md-5">
-            <div class="site-section-heading pt-3 mb-4">
-              <h2 class="text-black">How We Started</h2>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius repellat, dicta at laboriosam, nemo exercitationem itaque eveniet architecto cumque, deleniti commodi molestias repellendus quos sequi hic fugiat asperiores illum. Atque, in, fuga excepturi corrupti error corporis aliquam unde nostrum quas.</p>
-            <p>Accusantium dolor ratione maiores est deleniti nihil? Dignissimos est, sunt nulla illum autem in, quibusdam cumque recusandae, laudantium minima repellendus.</p>
-            
-          </div>
+<div class="text-center title text-uppercase mb-6"><h1>profil arthur citra media</h1></div>
+  <div class="container">
+        <div class="text text-center mb-4">
+            <h1 class="sub-title text-uppercase mt-3 mb-3">Visi</h1>
+            <h2>Menjadi solusi patner periklanan kreatif dan terpercaya di indonesia</h2>
+        </div>
+        <div class="text">
+          <h1 class="text-center sub-title text-uppercase mt-3 mb-3">Misi</h1>
+          <h4 class="text-justify">1. Menyediakan solusi kreatif periklanan dengan harga yang kompetitif dan tetap mengandalkan kualitas.</h4>
+          <h4>2. Membangun Kemitraan jangka panjang dengan patner bisnis kami dengan landasan kepercayaan dan saling menguntungkan.</h4>
+          <h4>3. Menyediakan tempat dan budaya kerja yang kondusif.</h4>
+          <h4>4. Partisipatif dalam pembangunan ekonomi Indonesia.</h4>
         </div>
       </div>
-    </div>
+  </div>
+</div>
 
-    <div class="site-section border-bottom" data-aos="fade">
-      <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-7 site-section-heading text-center pt-4">
-            <h2>The Team</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-lg-3">
-  
-            <div class="block-38 text-center">
-              <div class="block-38-img">
-                <div class="block-38-header">
-                  <img src="images/person_1.jpg" alt="Image placeholder" class="mb-4">
-                  <h3 class="block-38-heading h4">Elizabeth Graham</h3>
-                  <p class="block-38-subheading">CEO/Co-Founder</p>
-                </div>
-                <div class="block-38-body">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="block-38 text-center">
-              <div class="block-38-img">
-                <div class="block-38-header">
-                  <img src="images/person_2.jpg" alt="Image placeholder" class="mb-4">
-                  <h3 class="block-38-heading h4">Jennifer Greive</h3>
-                  <p class="block-38-subheading">Co-Founder</p>
-                </div>
-                <div class="block-38-body">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="block-38 text-center">
-              <div class="block-38-img">
-                <div class="block-38-header">
-                  <img src="images/person_3.jpg" alt="Image placeholder" class="mb-4">
-                  <h3 class="block-38-heading h4">Patrick Marx</h3>
-                  <p class="block-38-subheading">Marketing</p>
-                </div>
-                <div class="block-38-body">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="block-38 text-center">
-              <div class="block-38-img">
-                <div class="block-38-header">
-                  <img src="images/person_4.jpg" alt="Image placeholder" class="mb-4">
-                  <h3 class="block-38-heading h4">Mike Coolbert</h3>
-                  <p class="block-38-subheading">Sales Manager</p>
-                </div>
-                <div class="block-38-body">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae aut minima nihil sit distinctio recusandae doloribus ut fugit officia voluptate soluta. </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  
+<div class="text text-center mb-4">
+  <h1 class="sub-title text-uppercase mt-3 mb-3">Lokasi</h1>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31658.956388491606!2d112.7281303!3d-7.3123165!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb35c6e838c1%3A0xe95770d2b91ea8d0!2sArthur%20Citra%20Media!5e0!3m2!1sid!2sid!4v1690739281585!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
 
-    <div class="site-section site-section-sm site-blocks-1 border-0" data-aos="fade">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
-            <div class="icon mr-4 align-self-start">
-              <span class="icon-truck"></span>
-            </div>
-            <div class="text">
-              <h2 class="text-uppercase">Free Shipping</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon mr-4 align-self-start">
-              <span class="icon-refresh2"></span>
-            </div>
-            <div class="text">
-              <h2 class="text-uppercase">Free Returns</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon mr-4 align-self-start">
-              <span class="icon-help"></span>
-            </div>
-            <div class="text">
-              <h2 class="text-uppercase">Customer Support</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+              <div class="site-section site-blocks-2">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+                      <a class="block-2-item" href="#">
+                        <figure class="image">
+                          <img src="images/pict1.jpg" alt="" class="img-fluid">
+                        </figure>
+                      </a>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+                      <a class="block-2-item" href="#">
+                        <figure class="image">
+                          <img src="images/pict2.jpg" alt="" class="img-fluid">
+                        </figure>         
+                      </a>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
+                      <a class="block-2-item" href="#">
+                        <figure class="image">
+                          <img src="images/pict3.jpg" alt="" class="img-fluid">
+                        </figure>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
 @endsection

@@ -17,6 +17,16 @@ body {
     color: #fff;
 }
 
+.title {
+    color: #086788;
+    font-weight: 900;
+}
+
+.sub-title {
+    color: #07a0c3;
+    font-weight: 500;
+}
+
 a {
     -webkit-transition: 0.3s all ease;
     -o-transition: 0.3s all ease;
