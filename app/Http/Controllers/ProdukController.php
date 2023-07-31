@@ -8,16 +8,17 @@ use App\Http\Requests\StoreprodukRequest;
 use App\Http\Requests\UpdateprodukRequest;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class ProdukController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
+    // public function index()
+    // {
+
+    // }
     function katalogproduk()
     {
         $data = produk::orderBy('idProduk', 'desc')->paginate();
@@ -93,9 +94,9 @@ class ProdukController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(produk $produk)
+    public function edit($id)
     {
-        $data = produk::where('idProduk', $produk)->first();
+        $data = produk::where('idProduk', $id)->first();
         return view('admin/katalog-editProduk', [
             "title" => "edit Produk"
         ])->with('data', $data);
@@ -105,9 +106,36 @@ class ProdukController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateprodukRequest $request, produk $produk)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'image' => 'mimes:png,jpg,jpeg|max:2048',
+            'namaProduk' => 'required',
+            'kategori' => 'required',
+            'harga' => 'required|numeric',
+            'deskripsi' => 'required',
+        ], [
+            // Validasi lainnya
+        ]);
+
+        $produk = produk::class($id);
+        // $dari database = inputan
+        if ($request->hasFile('image')) {
+            $image    = $request->file('image');
+            $filename = date('Y-m-d') . $image->getClientOriginalName();
+            $path     = 'image-produk/' . $filename;
+
+            Storage::disk('public')->put($path, file_get_contents($image));
+            $produk->img = $filename;
+        }
+
+        $produk->namaProduk = $request->namaProduk;
+        // $produk->kategori = $request->kategori;
+        $produk->harga = $request->harga;
+        $produk->deskripsi = $request->deskripsi;
+        $produk->save();
+
+        return redirect()->to('katalogproduk')->with('success', 'Berhasil mengupdate data');
     }
 
     /**
