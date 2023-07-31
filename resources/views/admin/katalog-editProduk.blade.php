@@ -6,10 +6,10 @@
 
         <div class="container-fluid px-4">
             <a class="btn btn-primary" href="/katalogproduk" role="button"><i class="fa-solid fa-circle-arrow-left"></i> Kembali</a>
-            <h1 class="mt-4">tambahkan produk</h1>
+            <h1 class="mt-4">edit produk</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item nav-link"><a href="/">Dashboard</a></li>
-                <li class="breadcrumb-item active">tambahkan produk</li>
+                <li class="breadcrumb-item active">edit produk</li>
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
