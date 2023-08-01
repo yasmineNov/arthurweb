@@ -45,7 +45,6 @@ class KategoriController extends Controller
     public function create()
     {
         //
-        // return view('kategoris.create');
     }
 
     /**
@@ -71,7 +70,9 @@ class KategoriController extends Controller
     public function show(kategori $kategori)
     {
         //
-        return view('kategori', compact('kategori'));
+        return view('admin.show-kategori', compact('kategori'), [
+            "title" => "Tambah Kategori"
+        ]);
     }
 
     /**
@@ -80,6 +81,9 @@ class KategoriController extends Controller
     public function edit(kategori $kategori)
     {
         //
+        return view('admin.edit-kategori', compact('kategori'), [
+            "title" => "Tambah Kategori"
+        ]);
     }
 
     /**
@@ -88,6 +92,14 @@ class KategoriController extends Controller
     public function update(UpdatekategoriRequest $request, kategori $kategori)
     {
         //
+        $request->validate([
+            'namaKategori' => 'required'
+        ]);
+
+        $kategori->update($request->all());
+
+        return redirect()->to('kategori')
+            ->with('success', 'Berhasil Mengedit data');
     }
 
     /**
@@ -97,7 +109,7 @@ class KategoriController extends Controller
     {
         //
         $kategori->delete();
-        return redirect()->route('kategori')
-            ->with('success', 'kategori has been deleted successfully');
+        return redirect()->to('kategori')
+            ->with('success', 'Data telah berhasil dihapus');
     }
 }
