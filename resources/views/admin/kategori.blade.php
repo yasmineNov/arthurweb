@@ -16,39 +16,11 @@
     
     <div class="card mb-4">
         <div class="card-header d-sm-flex align-items-center justify-content-between">
-            <div><i class="fas fa-table me-1"></i>
-                Kategori
-            </div>
-            {{-- <a class="btn btn-primary" href='{{url('/tambahProduk')}}' role="button"><i class="fa-solid fa-plus"></i> Tambahkan Kategori</a> --}}
-           <!-- Button trigger modal -->
+            <div>Kategori</div>
+            <a class="btn btn-primary" href='{{url('tambahKategori')}}' role="button"><i class="fa-solid fa-plus"></i> Tambahkan Kategori</a>
+        </div>
 
-           <!-- Modal -->
-           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Kategori</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form  action='{{url('KategoriController')}}' method='POST'>
-                        {{-- {{csrf_field()}} --}}
-                        @csrf
-                        <div class="mb-3">
-                            <label>Nama Kategori</label>
-                            <input type="text" name="namaKategori" class="form-control" placeholder="Masukkan Kategori Baru">
-                          </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
-                        <button type="button" class="btn  btn-primary" href="{{ route('kategori.index') }}">Simpan</button>
-                    </div>
-                </div>
-            </div>
-    </div>
-
-           <div class="container">
+        <div class="container">
             @if(count($errors)>0)
     
             <div class="alert alert-danger">
@@ -65,13 +37,6 @@
                     <p>{{ \Session::get('sukses')}}</p>
                 </div>
             @endif
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" role="button">
-                <i class="fa-solid fa-plus"></i> Tambahkan Kategori
-                </button>
-        </div>
-            
-  
-            
         </div>
         <div class="card-body">
             @if ($message = Session::get('success'))
@@ -95,7 +60,7 @@
                     </tr>
                 </tfoot>
                 <tbody>
-                    @foreach ($kategoris as $kategori)
+                    @foreach ($data as $kategori)
                     <tr>
                         <td>{{ $kategori->idKategori }}</td>
                         <td>{{ $kategori->namaKategori }}</td>
@@ -111,7 +76,7 @@
                     @endforeach
                 </tbody>
             </table>
-        {!! $kategoris->links() !!}    
+        {!! $data->links() !!}    
         </div>
     </div>
 

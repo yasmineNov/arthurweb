@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\kategori;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StorekategoriRequest;
 use App\Http\Requests\UpdatekategoriRequest;
+use Illuminate\Support\Facades\Storage;
 
 class KategoriController extends Controller
 {
@@ -14,17 +17,25 @@ class KategoriController extends Controller
     public function index()
     {
         //
-        $data['kategoris'] = kategori::orderBy('idKategori', 'desc')->paginate(5);
+        $data = kategori::orderBy('idKategori', 'desc')->paginate();
         return view('admin.kategori', $data, [
             "title" => "kategori"
-        ]);
+        ])->with('data', $data);
     }
 
-    function kategori()
+    public function kategori()
     {
-
-        return view('admin/kategori', [
+        //
+        $data = kategori::orderBy('idKategori', 'desc')->paginate();
+        return view('admin.kategori', $data, [
             "title" => "kategori"
+        ])->with('data', $data);
+    }
+
+    function tambahkategori()
+    {
+        return view('admin/tambah-kategori', [
+            "title" => "Tambah Kategori"
         ]);
     }
 
@@ -34,7 +45,7 @@ class KategoriController extends Controller
     public function create()
     {
         //
-        return view('kategoris.create');
+        // return view('kategoris.create');
     }
 
     /**
@@ -42,16 +53,16 @@ class KategoriController extends Controller
      */
     public function store(StorekategoriRequest $request)
     {
-        //
+        //                                                                                                      
         $request->validate([
             'namaKategori' => 'required'
         ]);
         $kategori = new kategori;
-        $kategori->name = $request->namaKategori;
+        $kategori->namaKategori = $request->namaKategori;
         $kategori->save();
 
-        return redirect()->route('kategori')
-            ->with('success', 'Company has been created successfully.');
+        return redirect()->to('kategori')
+            ->with('success', 'Berhasil menambah data');
     }
 
     /**

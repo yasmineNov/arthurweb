@@ -73,7 +73,10 @@ Route::get('/katalogpromo', [adminController::class, 'katalogpromo']);
 Route::get('/toko', [adminController::class, 'toko']);
 Route::get('/artikeladmin', [adminController::class, 'artikeladmin']);
 // Route::get('/customer', [adminController::class, 'customer']);
-Route::get('/tambahProduk', [ProdukController::class, 'tambahProduk']);
-Route::resource('/kategori', KategoriController::class);
-Route::resource('produk', ProdukController::class);
 Route::resource('customer', CustomerController::class);
+
+Route::resource('produk', ProdukController::class);
+Route::get('/tambahProduk', [ProdukController::class, 'tambahProduk']);
+
+Route::resource('kategori', KategoriController::class);
+Route::get('tambahKategori', [KategoriController::class, 'tambahKategori']);
