@@ -16,19 +16,20 @@
             <div class="card mb-4">
                 <div class="card-header">
                     @if (Session::has('success'))
-                <div class="pt-3">
-                    <div class="alert alert-success">
-                        {{ Session::get('success') }}
+                    <div class="pt-3">
+                        <div class="alert alert-success">
+                            {{ Session::get('success') }}
+                        </div>
                     </div>
-                </div>
-                    
-                @endif
+                    @endif
                     <div class="d-sm-flex align-items-center justify-content-between">
                         <div><i class="fas fa-table me-1"></i>
                             Katalog Produk
                         </div>
                         <a class="btn btn-primary" href='{{url('/tambahProduk')}}' role="button"><i class="fa-solid fa-plus"></i> Tambahkan Produk</a>
                     </div>
+                </div>
+                
     <div class="card-body">
                     <table id="datatablesSimple">
                         <thead>
