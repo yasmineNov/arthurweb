@@ -31,7 +31,7 @@
 
                         <div class="my-3 p-3 bg-body rounded shadow-sm">
                             <div class="mb-3 row">
-                                <label for="namaProduk" class="col-sm-2 col-form-label">Nama Kategori</label>
+                                <label for="namaKategori" class="col-sm-2 col-form-label">Nama Kategori</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name='namaKategori' id="namaKategori">
                                 </div>

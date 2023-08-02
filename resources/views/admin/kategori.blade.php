@@ -66,9 +66,7 @@
                         <td>
                         <form action="{{ route('kategori.destroy',$kategori->idKategori) }}" method="POST">
    
-                        <a class="btn btn-info" href="{{ route('kategori.show',$kategori->idKategori) }}">Show</a>
-                
-                        {{-- <a class="btn btn-warning" href="{{ route('kategori.edit',$kategori->idKategori) }}"><i class="fa fa-pencil"></i>   Edit</a> --}}
+                        {{-- <a class="btn btn-info" href="{{ route('kategori.show',$kategori->idKategori) }}">Show</a> --}}
 
                         <a class="btn btn-warning" href="{{ route('kategori.edit',$kategori->idKategori) }}"><i class="fa fa-pencil"></i>   Edit</a>
                

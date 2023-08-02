@@ -39,6 +39,13 @@ class KategoriController extends Controller
         ]);
     }
 
+    // function editkategori()
+    // {
+    //     return view('admin.edit-kategori', compact('kategori'), [
+    //         "title" => "Edit Kategori"
+    //     ]);
+    // }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -82,7 +89,7 @@ class KategoriController extends Controller
     {
         //
         return view('admin.edit-kategori', compact('kategori'), [
-            "title" => "Tambah Kategori"
+            "title" => "Edit Kategori"
         ]);
     }
 

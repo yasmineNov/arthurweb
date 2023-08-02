@@ -80,3 +80,4 @@ Route::get('/tambahProduk', [ProdukController::class, 'tambahProduk']);
 
 Route::resource('kategori', KategoriController::class);
 Route::get('tambahKategori', [KategoriController::class, 'tambahKategori']);
+// Route::get('editKategori', [KategoriController::class, 'editKategori']);

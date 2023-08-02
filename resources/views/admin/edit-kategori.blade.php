@@ -26,14 +26,15 @@
 
                     </div>
                     @endif
-                    <form method='post' action='{{url('kategori')}}' enctype="multipart/form-data">
+                    <form method='post' action='{{url('kategori.update', $kategori->idKategori)}}' enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
 
                         <div class="my-3 p-3 bg-body rounded shadow-sm">
                             <div class="mb-3 row">
                                 <label for="namaProduk" class="col-sm-2 col-form-label">Nama Kategori</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name='namaKategori' id="namaKategori">
+                                    <input type="text" class="form-control" name='namaKategori' value="{{ $kategori->namaKategori }}" id="namaKategori">
                                 </div>
                             </div>
                             <div class="mb-3 row">
