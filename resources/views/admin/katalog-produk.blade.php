@@ -65,8 +65,11 @@
                                 <td>{{ $item->deskripsi }}</td>                           
                                 <td>
                                     <a href='{{ url('produk/'.$item->idProduk.'/edit')}}' class="btn btn-warning btn-sm">Edit</a>
-                                <a href='' class="btn btn-danger btn-sm">Del</a>
-                                    
+                                <form class='d-inline' action="{{ route('produk.destroy',$item->idProduk) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    </form>  
                                 </td>
                             </tr>
                             <?php $i++ ?>

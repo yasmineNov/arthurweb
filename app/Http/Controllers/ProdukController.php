@@ -140,6 +140,8 @@ class ProdukController extends Controller
      */
     public function destroy(produk $produk)
     {
-        //
+        $produk->delete();
+        return redirect()->to('katalogproduk')
+            ->with('success', 'Data telah berhasil dihapus');
     }
 }
