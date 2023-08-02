@@ -115,25 +115,22 @@ class ProdukController extends Controller
             'harga' => 'required|numeric',
             'deskripsi' => 'required',
         ], [
-            // Validasi lainnya
+            'idProduk.numeric' => 'Id produk harus angka',
+            'idProduk.unique' => 'Id produk sudah ada dalam database',
+            'namaProduk.required' => 'Nama produk wajib diisi',
+            'kategori.required' => 'kategori wajib diisi',
+            'harga.required' => 'Harga wajib diisi',
+            'harga.numeric' => 'Harga harus dalam bentuk angka',
+            'deskripsi.required' => 'Deskripsi wajib diisi',
         ]);
 
-        $produk = produk::class($id);
-        // $dari database = inputan
-        if ($request->hasFile('image')) {
-            $image    = $request->file('image');
-            $filename = date('Y-m-d') . $image->getClientOriginalName();
-            $path     = 'image-produk/' . $filename;
-
-            Storage::disk('public')->put($path, file_get_contents($image));
-            $produk->img = $filename;
-        }
-
-        $produk->namaProduk = $request->namaProduk;
-        // $produk->kategori = $request->kategori;
-        $produk->harga = $request->harga;
-        $produk->deskripsi = $request->deskripsi;
-        $produk->save();
+        $data = [
+            'namaProduk' => $request->namaProduk,
+            // 'karegori' => $request->karegori,
+            'harga' => $request->harga,
+            'deskripsi' => $request->deskripsi,
+        ];
+        produk::where('idproduk', $id)->update($data);
 
         return redirect()->to('katalogproduk')->with('success', 'Berhasil mengupdate data');
     }
