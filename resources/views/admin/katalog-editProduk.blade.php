@@ -26,9 +26,9 @@
 
                     </div>
                     @endif
-                    <form method='post' action='{{url('produk')}}' enctype="multipart/form-data">
+                    <form method='post' action='{{url('produk/'.$data->idProduk)}}' enctype="multipart/form-data">
                         @csrf
-
+                        @method('PUT')
                         <div class="my-3 p-3 bg-body rounded shadow-sm">
                             {{-- <div class="mb-3 row">
                 <label for="idProduk" class="col-sm-2 col-form-label">Id Produk</label>
