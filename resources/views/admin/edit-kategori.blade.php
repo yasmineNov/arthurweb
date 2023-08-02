@@ -26,7 +26,7 @@
 
                     </div>
                     @endif
-                    <form method='post' action='{{url('kategori.update', $kategori->idKategori)}}' enctype="multipart/form-data">
+                    <form method='post' action='{{url('kategori', $kategori->idKategori)}}' enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 

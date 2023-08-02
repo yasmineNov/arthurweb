@@ -74,15 +74,7 @@
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i>   Delete</button>
                         </form>
-                        
-                        
-                        {{-- <form method='post' action='{{url('Kategori')}}' enctype="multipart/form-data">
-                        <a href="{{ route('kategori.edit',$kategori->idKategori) }}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i>  Edit</a>
-                        @csrf
-                        @method('DELETE')
-                        <a href="{{ route('kategori.destroy',$kategori->idKategori) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>  Delete</a> --}}
-                        {{-- <button type="submit" class="btn btn-danger">Delete</button> --}}
-                        </form>   
+                         
                         </td>
                     </tr>
                     @endforeach
