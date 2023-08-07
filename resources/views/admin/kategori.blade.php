@@ -47,14 +47,14 @@
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>NamaKategori</th>
+                        <th>Nama Kategori</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th>No.</th>
-                        <th>NamaKategori</th>
+                        <th>Nama Kategori</th>
                         <th>Aksi</th>
                     </tr>
                 </tfoot>

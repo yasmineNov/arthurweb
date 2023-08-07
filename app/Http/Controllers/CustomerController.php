@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\customer;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StorecustomerRequest;
 use App\Http\Requests\UpdatecustomerRequest;
 
@@ -14,16 +15,17 @@ class CustomerController extends Controller
     public function index()
     {
         //
-        return view('admin.customer', [
+        $data = customer::orderBy('idCustomer', 'desc')->paginate();
+        return view('admin.customer', $data, [
             "title" => "customer"
-        ]);
+        ])->with('data', $data);
     }
     function customer()
     {
-        
-        return view('admin/customer', [
+        $data = customer::orderBy('idCustomer', 'desc')->paginate();
+        return view('admin.customer', $data, [
             "title" => "customer"
-        ]);
+        ])->with('data', $data);
     }
 
     /**
@@ -40,6 +42,19 @@ class CustomerController extends Controller
     public function store(StorecustomerRequest $request)
     {
         //
+        $request->validate([
+            'namaCustomer' => 'required',
+            'whatsapp' => 'required',
+            'email' => 'required'
+        ]);
+        $customer = new customer;
+        $customer->namaCustomer = $request->namaCustomer;
+        $customer->whatsapp = $request->whatsapp;
+        $customer->email = $request->email;
+        $customer->save();
+
+        return redirect()->to('customer')
+            ->with('success', 'Berhasil menambah data');
     }
 
     /**
@@ -72,5 +87,8 @@ class CustomerController extends Controller
     public function destroy(customer $customer)
     {
         //
+        $customer->delete();
+        return redirect()->to('customer')
+            ->with('success', 'Data telah berhasil dihapus');
     }
 }
