@@ -3,17 +3,95 @@
 @section('container')
 <div id="layoutSidenav_content">
     <main>
+
         <div class="container-fluid px-4">
             <h1 class="mt-4">Master Artikel</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item nav-link"><a href="/">Dashboard</a></li>
-                <li class="breadcrumb-item active">Master Artikel</li>
+                <li class="breadcrumb-item active">Artikel</li>
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
-                    DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
-                    <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-                    .
+    
+    <div class="card mb-4">
+        <div class="card-header d-sm-flex align-items-center justify-content-between">
+            <div>Artikel</div>
+            <a class="btn btn-primary" href='{{url('tambahArtikel')}}' role="button"><i class="fa-solid fa-plus"></i> Tambahkan Artikel</a>
+        </div>
+
+        <div class="container">
+            @if(count($errors)>0)
+    
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                    <li>{{error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+    
+            @if(\Session::has('sukses'))
+                <div class="alert alert-success">
+                    <p>{{ \Session::get('sukses')}}</p>
+                </div>
+            @endif
+        </div>
+        <div class="card-body">
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+            @endif
+            <table id="datatablesSimple">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Gambar</th>
+                        <th>Judul</th>
+                        <th>Konten</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>No.</th>
+                        <th>Gambar</th>
+                        <th>Judul</th>
+                        <th>Konten</th>
+                        <th>Aksi</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <?php $i = $data->firstItem() ?>
+                    @foreach ($data as $artikel)
+                    <tr>
+                        <td>{{ $i++ }}</td>
+                        <td><img src="{{asset('storage/image-artikel/'.$artikel->img)}}" alt="" width="100"></td>
+                        <td>{{ $artikel->judul }}</td>
+                        <td>{{ $artikel->konten }}</td>
+                        <td>
+                        <form action="{{ route('artikel.destroy',$artikel->idArtikel) }}" method="POST">
+   
+                        {{-- <a class="btn btn-info" href="{{ route('kategori.show',$kategori->idKategori) }}">Show</a> --}}
+
+                        <a class="btn btn-warning" href="{{ route('artikel.edit',$artikel->idArtikel) }}"><i class="fa fa-pencil"></i>   Edit</a>
+               
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i>   Delete</button>
+                        </form>
+                         
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        {!! $data->links() !!}    
+        </div>
+    </div>
+
+
                 </div>
             </div>
         </div>
