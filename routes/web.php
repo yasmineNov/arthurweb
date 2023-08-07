@@ -74,10 +74,12 @@ Route::get('/katalogpromo', [adminController::class, 'katalogpromo']);
 Route::get('/toko', [adminController::class, 'toko']);
 
 Route::resource('customer', CustomerController::class);
-Route::resource('artikel', ArtikelController::class);
 
-Route::resource('produk', ProdukController::class);
+Route::resource('artikel', ArtikelController::class);
+Route::get('tambahArtikel', [ArtikelController::class, 'tambahArtikel']);
+
 Route::get('/tambahProduk', [ProdukController::class, 'tambahProduk']);
+Route::resource('produk', ProdukController::class);
 
 Route::resource('kategori', KategoriController::class);
 Route::get('tambahKategori', [KategoriController::class, 'tambahKategori']);

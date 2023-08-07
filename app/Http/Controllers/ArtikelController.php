@@ -30,6 +30,12 @@ class ArtikelController extends Controller
         ])->with('data', $data);
     }
 
+    function tambahArtikel()
+    {
+        return view('admin/artikel-tambahArtikel', [
+            "title" => "Tambah Artikel"
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.
