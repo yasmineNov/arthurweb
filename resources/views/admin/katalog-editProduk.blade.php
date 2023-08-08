@@ -45,11 +45,11 @@
                             <div class="mb-3 row">
                                 <label for="kategori" class="col-sm-2 col-form-label">kategori</label>
                                 <div class="col-sm-10">
-                                    <select class="form-select" name='kategori' id="kategori" aria-label="Default select example">
+                                    <select class="form-control" name='kategori'>
                                         <option selected>Pilih Kategori</option>
-                                        <option value="1">Indoor</option>
-                                        <option value="2">Outdoor</option>
-                                        <option value="3">UV</option>
+                                        @foreach ($kategori as $item)
+                                        <option value="{{$item->idKategori}}">{{$item->namaKategori}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

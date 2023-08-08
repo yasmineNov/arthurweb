@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\kategori;
 use App\Models\produk;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreprodukRequest;
@@ -28,7 +29,8 @@ class ProdukController extends Controller
     }
     function tambahProduk()
     {
-        return view('admin/katalog-tambahProduk', [
+        $kategori = kategori::all();
+        return view('admin/katalog-tambahProduk', compact('kategori'), [
             "title" => "Tambah Produk"
         ]);
     }
@@ -74,7 +76,7 @@ class ProdukController extends Controller
 
         $produk->img = $filename;
         $produk->namaProduk = $request->namaProduk;
-        // $produk->kategori = $request->kategori;
+        $produk->kategori = $request->kategori;
         $produk->harga = $request->harga;
         $produk->deskripsi = $request->deskripsi;
         $produk->save();
@@ -96,8 +98,9 @@ class ProdukController extends Controller
      */
     public function edit($id)
     {
+        $kategori = kategori::all();
         $data = produk::where('idProduk', $id)->first();
-        return view('admin/katalog-editProduk', [
+        return view('admin/katalog-editProduk', compact('kategori'), [
             "title" => "edit Produk"
         ])->with('data', $data);
         // return 'HI' . $produk;
@@ -126,7 +129,7 @@ class ProdukController extends Controller
 
         $data = [
             'namaProduk' => $request->namaProduk,
-            // 'karegori' => $request->karegori,
+            'kategori' => $request->kategori,
             'harga' => $request->harga,
             'deskripsi' => $request->deskripsi,
         ];
