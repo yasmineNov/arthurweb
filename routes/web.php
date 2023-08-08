@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\CustomerController;
@@ -71,13 +72,14 @@ Route::get('/dashboard', [adminController::class, 'dashboard']);
 Route::get('/katalogproduk', [ProdukController::class, 'katalogproduk']);
 Route::get('/katalogpromo', [adminController::class, 'katalogpromo']);
 Route::get('/toko', [adminController::class, 'toko']);
-Route::get('/artikeladmin', [adminController::class, 'artikeladmin']);
-// Route::get('/customer', [adminController::class, 'customer']);
+
 Route::resource('customer', CustomerController::class);
 
-Route::resource('produk', ProdukController::class);
+Route::resource('artikel', ArtikelController::class);
+Route::get('tambahArtikel', [ArtikelController::class, 'tambahArtikel']);
+
 Route::get('/tambahProduk', [ProdukController::class, 'tambahProduk']);
+Route::resource('produk', ProdukController::class);
 
 Route::resource('kategori', KategoriController::class);
 Route::get('tambahKategori', [KategoriController::class, 'tambahKategori']);
-// Route::get('editKategori', [KategoriController::class, 'editKategori']);

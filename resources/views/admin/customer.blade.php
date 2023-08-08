@@ -62,9 +62,10 @@
                     </tr>
                 </tfoot>
                 <tbody>
+                    <?php $i = $data->firstItem() ?>
                     @foreach ($data as $customer)
                     <tr>
-                        <td>{{ $customer->idCustomer }}</td>
+                        <td>{{ $i++ }}</td>
                         <td>{{ $customer->namaCustomer }}</td>
                         <td>{{ $customer->whatsapp }}</td>
                         <td>{{ $customer->email }}</td>

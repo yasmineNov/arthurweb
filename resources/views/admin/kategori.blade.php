@@ -59,9 +59,10 @@
                     </tr>
                 </tfoot>
                 <tbody>
+                    <?php $i = $data->firstItem() ?>
                     @foreach ($data as $kategori)
                     <tr>
-                        <td>{{ $kategori->idKategori }}</td>
+                        <td>{{ $i++ }}</td>
                         <td>{{ $kategori->namaKategori }}</td>
                         <td>
                         <form action="{{ route('kategori.destroy',$kategori->idKategori) }}" method="POST">
