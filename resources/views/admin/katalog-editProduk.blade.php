@@ -47,8 +47,11 @@
                                 <div class="col-sm-10">
                                     <select class="form-control" name='kategori'>
                                         <option selected>Pilih Kategori</option>
-                                        @foreach ($kategori as $item)
+                                        {{-- @foreach ($kategori as $item)
                                         <option value="{{$item->idKategori}}">{{$item->namaKategori}}</option>
+                                        @endforeach --}}
+                                        @foreach ($kategori as $item)
+                                        <option value="{{$item->idKategori}}" @if($data->idKategori == $item->idKategori) selected @endif>{{$item->namaKategori}}</option>
                                         @endforeach
                                     </select>
                                 </div>
