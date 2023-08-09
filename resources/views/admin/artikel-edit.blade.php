@@ -5,7 +5,7 @@
     <main>
 
         <div class="container-fluid px-4">
-            <a class="btn btn-primary" href="artikelAdmin" role="button"><i class="fa-solid fa-circle-arrow-left"></i> Kembali</a>
+            <a class="btn btn-primary" href="/artikelAdmin" role="button"><i class="fa-solid fa-circle-arrow-left"></i> Kembali</a>
             <h1 class="mt-4">tambahkan Artikel</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item nav-link"><a href="/dashboard">Dashboard</a></li>
@@ -26,8 +26,9 @@
 
                     </div>
                     @endif
-                    <form method='post' action='{{url('artikel')}}' enctype="multipart/form-data">
+                    <form method='post' action='{{url('artikel', $artikel->idArtikel)}}' enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
 
                         <div class="my-3 p-3 bg-body rounded shadow-sm">
                            <div class="mb-3 row">
@@ -37,15 +38,15 @@
                                 </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="namaProduk" class="col-sm-2 col-form-label">Judul</label>
+                                <label for="judul" class="col-sm-2 col-form-label">Judul</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name='judul' id="judul">
+                                    <input type="text" class="form-control" name='judul' value="{{ $artikel->judul }}"  id="judul">
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="harga" class="col-sm-2 col-form-label">konten</label>
                                 <div class="col-sm-10">
-                                    <textarea type="text" class="form-control" name='konten' id="konten"></textarea>
+                                    <textarea type="text" class="form-control" name='konten' value="{{ $artikel->konten }}" id="konten"></textarea>
                                 </div>
                             </div>
                             <div class="mb-3 row">

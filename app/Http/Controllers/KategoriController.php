@@ -52,7 +52,7 @@ class KategoriController extends Controller
      */
     public function store(StorekategoriRequest $request)
     {
-        //                                                                                                      
+        // VALIDATE
         $request->validate([
             'namaKategori' => 'required'
         ]);
@@ -63,6 +63,7 @@ class KategoriController extends Controller
         return redirect()->to('kategori')
             ->with('success', 'Berhasil menambah data');
     }
+
 
     /**
      * Display the specified resource.

@@ -9,7 +9,7 @@ class artikel extends Model
 {
     use HasFactory;
     protected $primaryKey = 'idArtikel';
-    protected $fillable = ['idArtikel', 'img', 'judul', 'konten'];
+    protected $fillable = ['idArtikel', 'img', 'judul', 'konten', 'slug'];
     protected $table = 'artikels';
     public $timestamps = false;
 }

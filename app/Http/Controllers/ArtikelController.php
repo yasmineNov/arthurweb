@@ -6,6 +6,7 @@ use App\Models\artikel;
 use App\Http\Requests\StoreartikelRequest;
 use App\Http\Requests\UpdateartikelRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ArtikelController extends Controller
 {
@@ -68,6 +69,7 @@ class ArtikelController extends Controller
 
         $artikel->judul = $request->judul;
         $artikel->konten = $request->konten;
+        $artikel->slug = "Edit Artikel";
         $artikel->save();
 
         return redirect()->to('artikel')
