@@ -60,15 +60,15 @@
                                 <td>{{ $i }}</td>
                                 <td><img src="{{asset('storage/image-produk/'.$item->img)}}" alt="" width="100"></td>
                                 <td>{{ $item->namaProduk }}</td>
-                                <td>{{ $item->kategori }}</td>
+                                <td>{{ $item->kategori->namaKategori }}</td>
                                 <td>{{ $item->harga }}</td>
                                 <td>{{ $item->deskripsi }}</td>                           
                                 <td>
-                                    <a href='{{ url('produk/'.$item->idProduk.'/edit')}}' class="btn btn-warning btn-sm">Edit</a>
-                                <form class='d-inline' action="{{ route('produk.destroy',$item->idProduk) }}" method="POST">
-                                    @csrf
+                                    <form class='d-inline' action="{{ route('produk.destroy',$item->idProduk) }}" method="POST">
+                                        @csrf
+                                        <a href='{{ url('produk/'.$item->idProduk.'/edit')}}' class="btn btn-warning"><i class="fa fa-pencil">Edit</i></a>
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash">hapus</i></button>
                                     </form>  
                                 </td>
                             </tr>

@@ -22,7 +22,7 @@ class ProdukController extends Controller
     // }
     function katalogproduk()
     {
-        $data = produk::orderBy('idProduk', 'desc')->paginate();
+        $data = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate();
         return view('admin/katalog-produk', [
             "title" => "Katalog Produk"
         ])->with('data', $data);
@@ -76,7 +76,7 @@ class ProdukController extends Controller
 
         $produk->img = $filename;
         $produk->namaProduk = $request->namaProduk;
-        $produk->kategori = $request->kategori;
+        $produk->idKategori = $request->kategori;
         $produk->harga = $request->harga;
         $produk->deskripsi = $request->deskripsi;
         $produk->save();
@@ -129,7 +129,7 @@ class ProdukController extends Controller
 
         $data = [
             'namaProduk' => $request->namaProduk,
-            'kategori' => $request->kategori,
+            'idKategori' => $request->kategori,
             'harga' => $request->harga,
             'deskripsi' => $request->deskripsi,
         ];
