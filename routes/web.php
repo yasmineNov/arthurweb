@@ -69,17 +69,19 @@ Route::get('/thanks', [userController::class, 'thanks']);
 Route::get('/login', [adminController::class, 'login']);
 Route::get('/register', [adminController::class, 'register']);
 Route::get('/dashboard', [adminController::class, 'dashboard']);
-Route::get('/katalogproduk', [ProdukController::class, 'katalogproduk']);
 Route::get('/katalogpromo', [adminController::class, 'katalogpromo']);
 Route::get('/toko', [adminController::class, 'toko']);
 
 Route::resource('customer', CustomerController::class);
 
+Route::get('/artikelAdmin', [ArtikelController::class, '/artikelAdmin']);
 Route::resource('artikel', ArtikelController::class);
 Route::get('tambahArtikel', [ArtikelController::class, 'tambahArtikel']);
 
-Route::get('/tambahProduk', [ProdukController::class, 'tambahProduk']);
+Route::get('/katalogproduk', [ProdukController::class, 'katalogproduk']);
 Route::resource('produk', ProdukController::class);
+Route::get('/tambahProduk', [ProdukController::class, 'tambahProduk']);
 
+Route::get('/kategoriAdmin', [KategoriController::class, 'kategoriAdmin']);
 Route::resource('kategori', KategoriController::class);
 Route::get('tambahKategori', [KategoriController::class, 'tambahKategori']);

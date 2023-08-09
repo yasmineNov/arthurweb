@@ -54,7 +54,7 @@ class ArtikelController extends Controller
         $request->validate([
             'image' => 'required|mimes:png,jpg,jpeg|max:2048',
             'judul' => 'required',
-            'konten' => 'required',
+            'konten' => 'required'
         ]);
         $artikel = new artikel;
         $image    = $request->file('image');
@@ -88,6 +88,9 @@ class ArtikelController extends Controller
     public function edit(artikel $artikel)
     {
         //
+        return view('admin.artikel-edit', compact('artikel'), [
+            "title" => "Edit Artikel"
+        ]);
     }
 
     /**
@@ -96,6 +99,16 @@ class ArtikelController extends Controller
     public function update(UpdateartikelRequest $request, artikel $artikel)
     {
         //
+        $request->validate([
+            'image' => 'required|mimes:png,jpg,jpeg|max:2048',
+            'judul' => 'required',
+            'konten' => 'required'
+        ]);
+
+        $artikel->update($request->all());
+
+        return redirect()->to('artikel')
+            ->with('success', 'Berhasil Mengedit data');
     }
 
     /**
