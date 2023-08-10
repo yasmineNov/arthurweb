@@ -133,6 +133,20 @@ class ProdukController extends Controller
             'harga' => $request->harga,
             'deskripsi' => $request->deskripsi,
         ];
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = date('Y-m-d') . $image->getClientOriginalName();
+            $path = 'image-produk/' . $filename;
+            Storage::disk('public')->put($path, file_get_contents($image));
+
+            // Hapus gambar lama jika ada
+            if (isset($data['img'])) {
+                Storage::disk('public')->delete('image-produk/' . $data['img']);
+            }
+
+            $data['img'] = $filename;
+        }
         produk::where('idproduk', $id)->update($data);
 
         return redirect()->to('katalogproduk')->with('success', 'Berhasil mengupdate data');

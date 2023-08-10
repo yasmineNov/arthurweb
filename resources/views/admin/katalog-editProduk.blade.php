@@ -30,12 +30,18 @@
                         @csrf
                         @method('PUT')
                         <div class="my-3 p-3 bg-body rounded shadow-sm">
-            <div class="mb-3 row">
-                <label for="image" class="col-sm-2 col-form-label">Gambar</label>
-                <div class="col-sm-10">
-                    <input type="file" class="form-control" name='image' value="{{ $data->img }}"  id="image">
-                </div>
-            </div>
+                            <div class="mb-3 row">
+                                <label for="image" class="col-sm-2 col-form-label">Gambar</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" name='image' id="image">
+                                    <p></p>
+                                    @if ($data->img)
+                                        <img src="{{ asset('storage/image-produk/' . $data->img) }}" alt="Gambar Produk" width="100">
+                                    @else
+                                        <p>Tidak ada gambar</p>
+                                    @endif
+                                </div>
+                            </div>
                             <div class="mb-3 row">
                                 <label for="namaProduk" class="col-sm-2 col-form-label">Nama Produk</label>
                                 <div class="col-sm-10">
@@ -65,7 +71,8 @@
                             <div class="mb-3 row">
                                 <label for="deskripsi" class="col-sm-2 col-form-label">deskripsi</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name='deskripsi' value="{{ $data->deskripsi }}"  id="deskripsi">
+                                    <textarea class="form-control" name='deskripsi' id="deskripsi" rows="5">{{ $data->deskripsi }}</textarea>
+                                    {{-- <input type="text" class="form-control" name='deskripsi' value="{{ $data->deskripsi }}"  id="deskripsi"> --}}
                                 </div>
                             </div>
                             <div class="mb-3 row">
