@@ -15,9 +15,9 @@ return new class extends Migration
             $table->increments('idProduk', 100);
             $table->string('namaProduk', 100);
             $table->integer('harga')->nullable();
-            $table->string('deskripsi', 100)->nullable();
+            $table->text('deskripsi', 100)->nullable();
             $table->BigInteger('idKategori')->unsigned()->nullable();
-            $table->foreign('kategori')
+            $table->foreign('idKategori')
                 ->references('idKategori')->on('kategoris');
             $table->timestamps();
             $table->softDeletesTz($column = 'deleted_at', $precision = 0);
