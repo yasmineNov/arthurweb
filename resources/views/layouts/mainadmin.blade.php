@@ -9,6 +9,10 @@
         <title>ACM &mdash; {{$title}}</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
 
+        {{-- TinyMCE --}}
+        <script src="https://cdn.tiny.cloud/1/pzu9x5pjvgol75f7v6541v2xdqv0ib0jukp1ekkp4duveqsx/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>tinymce.init({selector:'textarea'});</script>
+
         <!-- CSS Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -172,6 +176,7 @@
             </div>
         </div>
         {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> --}}
+    
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>

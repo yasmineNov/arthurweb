@@ -28,6 +28,12 @@ class userController extends Controller
             "title" => "Keranjang"
         ]);
     }
+    function artikel()
+    {
+        return view('artikel', [
+            "title" => "Artikel"
+        ]);
+    }
     function checkout()
     {
         return view('checkout', [

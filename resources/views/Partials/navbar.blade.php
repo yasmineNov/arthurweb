@@ -107,7 +107,7 @@
         </ul>
       </li>
       <li class="has-children">
-        <a class="nav-link" href="/artikel">Artikel</a>
+        <a class="nav-link" href="/frontartikel">Artikel</a>
         <ul class="dropdown">
           <li><a href="#">Menu One</a></li>
           <li><a href="#">Menu Two</a></li>

@@ -63,7 +63,7 @@ Route::get('/member', [userController::class, 'member']);
 Route::get('/katalog', [userController::class, 'katalog']);
 Route::get('/deskripsikatalog', [userController::class, 'deskripsikatalog']);
 Route::get('/thanks', [userController::class, 'thanks']);
-// Route::get('/artikel',[userController::class, 'artikel']);
+Route::get('/frontartikel', [userController::class, 'artikel']);
 
 // ROUTES ADMIN
 Route::get('/login', [adminController::class, 'login']);
