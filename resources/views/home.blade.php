@@ -192,65 +192,15 @@
     <div class="row">
       <div class="col-md-12">
         <div class="nonloop-block-3 owl-carousel">
-          <div class="item">
-            <div class="block-4 text-center">
-              <figure class="block-4-image">
-                <img src="images/cloth_1.jpg" alt="Image placeholder" class="img-fluid">
-              </figure>
-              <div class="block-4-text p-4">
-                <h3><a href="#">Tank Top</a></h3>
-                <p class="mb-0">Finding perfect t-shirt</p>
-                <p class="text-primary font-weight-bold">$50</p>
-              </div>
+
+            @foreach ($data1 as $item)
+            <div class="card">
+              <div class="image"><img src="{{asset('storage/image-produk/'.$item->img)}}" alt="" width="100"></div>
+              <span class="title">{{ $item->namaProduk }}</span>
+              <span class="price">{{ $item->harga }}</span>
             </div>
-          </div>
-          <div class="item">
-            <div class="block-4 text-center">
-              <figure class="block-4-image">
-                <img src="images/shoe_1.jpg" alt="Image placeholder" class="img-fluid">
-              </figure>
-              <div class="block-4-text p-4">
-                <h3><a href="#">Corater</a></h3>
-                <p class="mb-0">Finding perfect products</p>
-                <p class="text-primary font-weight-bold">$50</p>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="block-4 text-center">
-              <figure class="block-4-image">
-                <img src="images/cloth_2.jpg" alt="Image placeholder" class="img-fluid">
-              </figure>
-              <div class="block-4-text p-4">
-                <h3><a href="#">Polo Shirt</a></h3>
-                <p class="mb-0">Finding perfect products</p>
-                <p class="text-primary font-weight-bold">$50</p>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="block-4 text-center">
-              <figure class="block-4-image">
-                <img src="images/cloth_3.jpg" alt="Image placeholder" class="img-fluid">
-              </figure>
-              <div class="block-4-text p-4">
-                <h3><a href="#">T-Shirt Mockup</a></h3>
-                <p class="mb-0">Finding perfect products</p>
-                <p class="text-primary font-weight-bold">$50</p>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="block-4 text-center">
-              <figure class="block-4-image">
-                <img src="images/shoe_1.jpg" alt="Image placeholder" class="img-fluid">
-              </figure>
-              <div class="block-4-text p-4">
-                <h3><a href="#">Corater</a></h3>
-                <p class="mb-0">Finding perfect products</p>
-                <p class="text-primary font-weight-bold">$50</p>
-              </div>
-            </div>
+            @endforeach
+
           </div>
         </div>
       </div>

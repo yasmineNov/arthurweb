@@ -1,7 +1,10 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
+use App\Models\kategori;
+use App\Models\produk;
 use Illuminate\Http\Request;
 
 class userController extends Controller
@@ -9,9 +12,10 @@ class userController extends Controller
     //
     function home()
     {
+        $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate();
         return view('home', [
-            "title" => "Home"
-        ]);
+            "title" => "home Produk"
+        ])->with('data1', $data1);
     }
     function about()
     {
