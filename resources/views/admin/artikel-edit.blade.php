@@ -35,6 +35,12 @@
                                 <label for="image" class="col-sm-2 col-form-label">Gambar</label>
                                 <div class="col-sm-10">
                                     <input type="file" class="form-control" name='image' id="image">
+                                    <p></p>
+                                    @if ($artikel->img)
+                                        <img src="{{ asset('storage/image-artikel/' . $artikel->img) }}" alt="Gambar artikel" width="100">
+                                    @else
+                                        <p>Tidak ada gambar</p>
+                                    @endif
                                 </div>
                             </div>
                             <div class="mb-3 row">
@@ -46,7 +52,7 @@
                             <div class="mb-3 row">
                                 <label for="harga" class="col-sm-2 col-form-label">konten</label>
                                 <div class="col-sm-10">
-                                    <textarea type="text" class="form-control" name='konten' value="{{ $artikel->konten }}" id="konten"></textarea>
+                                    <textarea type="text" class="form-control" name='konten' id="konten">{{ $artikel->konten }}</textarea>
                                 </div>
                             </div>
                             <div class="mb-3 row">
