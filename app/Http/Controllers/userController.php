@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\kategori;
+use App\Models\artikel;
 use App\Models\produk;
 use Illuminate\Http\Request;
 
@@ -34,9 +35,10 @@ class userController extends Controller
     }
     function artikel()
     {
+        $data2 = artikel::orderBy('idArtikel', 'desc')->paginate();
         return view('artikel', [
-            "title" => "Artikel"
-        ]);
+            "title" => "artikel"
+        ])->with('data2', $data2);
     }
     function checkout()
     {

@@ -14,6 +14,14 @@
     padding-bottom: 3.4em;
 }
 
+.img-artikel {
+    background: rgb(241, 241, 241);
+    width: 20rem;
+    height: 20rem;
+    display: grid;
+    place-items: center;
+}
+
 .card .title {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9em;
