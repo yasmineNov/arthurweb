@@ -1,5 +1,13 @@
 /* Base */
-.card {
+.icon-hover:hover {
+    border-color: #3b71ca !important;
+    background-color: white !important;
+}
+
+.icon-hover:hover i {
+    color: #3b71ca !important;
+}
+/* .card {
     position: relative;
     width: 11.875em;
     height: 16.5em;
@@ -12,7 +20,7 @@
     background: #fff;
     padding: 0.5em;
     padding-bottom: 3.4em;
-}
+} */
 
 .img-artikel {
     background: rgb(241, 241, 241);
@@ -22,7 +30,7 @@
     place-items: center;
 }
 
-.card .title {
+/* .card .title {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9em;
     position: absolute;
@@ -53,7 +61,7 @@
 .card:active::after {
     content: "Added !";
     height: 3.125em;
-}
+} */
 
 /* .text {
     max-width: 55px;

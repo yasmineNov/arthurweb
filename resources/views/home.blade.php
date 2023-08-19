@@ -182,7 +182,7 @@
   </div>
 </div>
 
-<div class="site-section block-3 site-blocks-2 bg-light">
+{{-- <div class="site-section block-3 site-blocks-2 bg-light">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-7 site-section-heading text-center pt-4">
@@ -205,8 +205,33 @@
         </div>
       </div>
     </div>
+  </div> --}}
+
+  <div class="container my-5">
+    <header class="mb-4">
+      <h3>New products</h3>
+    </header>
+
+    <div class="row">
+      @foreach ($data1 as $item)
+      <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+        <div class="card w-100 my-2 shadow-2-strong">
+          <img src="{{asset('storage/image-produk/'.$item->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ $item->namaProduk }}</h5>
+            <p class="card-text">{{ $item->kategori->namaKategori }}</p>
+            <p class="card-text">{{ $item->harga }}</p>
+            <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+              <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a>
+              <a href="#!" class="btn btn-light border px-2 pt-2 icon-hover"><i class="fas fa-heart fa-lg text-secondary px-1"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>    
+      @endforeach
+
+    </div>
   </div>
-</div>
 
 <div class="site-section block-8">
   <div class="container">
