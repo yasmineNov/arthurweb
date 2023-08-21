@@ -1,13 +1,13 @@
 @extends('layouts.main')
 
 @section('container')
-<div class="bg-light py-3">
+{{-- <div class="bg-light py-3">
     <div class="container">
       <div class="row">
         <div class="col-md-12 mb-0"><a href="/">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Artikel</strong></div>
       </div>
     </div>
-  </div>
+  </div> --}}
 
   <div class="site-section">
     <div class="container">
@@ -44,34 +44,29 @@
             </div>
           </div>
           <div class="row mb-5">
-            
-          @foreach ($data2 as $artikel)
 
-            <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-              <div class="block-4 text-center border">
-                <figure class="block-4-image">
-                  <a href="shop-single.html"><img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="img-fluid" alt="..."></a>
-                </figure>
-                
-                <div class="block-4-text p-4">
-                  <h3><a href="artikel-single.html">{{$artikel->judul}}</a></h3>
-                  <p class="mb-0">{{substr ($artikel->konten, 0,50)}}</p>
+          @foreach ($data2 as $artikel)
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="card-img-top" style="aspect-ratio: 11 / 8" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h3 class="card-title">{{$artikel->judul}}</h3>
+                  <p class="card-text">{{substr ($artikel->konten, 0,145)}}.....</p>
+                  {{-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> --}}
+                  <div class="text-right">
+                    <h6 class="card-text" ><small class="text-body-secondary">read more >>>>></small></h6>
+                    {{-- <h6 href="{{ route('/singleArtikel',$artikel->idArtikel) }}" class="card-text" ><small class="text-body-secondary">read more >>>>></small></h6> --}}
+                    {{-- <a class="btn btn-info" href="{{ route('/singleArtikel',$artikel->idArtikel) }}">Read more >>>>></a> --}}
+                  </div>
+
                 </div>
               </div>
             </div>
-
+          </div>
           @endforeach
-
-          {{-- <div class="row mb-5">
-          @foreach ($data2 as $artikel)
-      <div class="container mb-3">
-        <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="img-artikel" alt="...">
-          <h5>{{$artikel->judul}}</h5>
-          <p>{{substr ($artikel->konten, 0,50)}}</p>
-          <a href="#" class="btn btn-primary" href='{{url('artikel-single')}}'>selengkapnya</a>
-        </div>
-      </div>
-      @endforeach --}}
 
           </div>
           <div class="row" data-aos="fade-up">
@@ -104,87 +99,14 @@
           <div class="border p-4 rounded mb-4">
             <div class="mb-4">
               <h3 class="mb-3 h6 text-uppercase text-black d-block">Recent Post</h3>
-              <div id="slider-range" class="border-primary"></div>
+              {{-- <div id="slider-range" class="border-primary"></div>
               <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
-            </div>
+              </div> --}}
+              
+              @foreach ($data2 as $artikel)
+              <p><i class="fa fa-star"></i>    {{$artikel->judul}}</p>
+              @endforeach
 
-            <div class="mb-4">
-              <h3 class="mb-3 h6 text-uppercase text-black d-block">Size</h3>
-              <label for="s_sm" class="d-flex">
-                <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black">Small (2,319)</span>
-              </label>
-              <label for="s_md" class="d-flex">
-                <input type="checkbox" id="s_md" class="mr-2 mt-1"> <span class="text-black">Medium (1,282)</span>
-              </label>
-              <label for="s_lg" class="d-flex">
-                <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">Large (1,392)</span>
-              </label>
-            </div>
-
-            <div class="mb-4">
-              <h3 class="mb-3 h6 text-uppercase text-black d-block">Color</h3>
-              <a href="#" class="d-flex color-item align-items-center" >
-                <span class="bg-danger color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Red (2,429)</span>
-              </a>
-              <a href="#" class="d-flex color-item align-items-center" >
-                <span class="bg-success color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Green (2,298)</span>
-              </a>
-              <a href="#" class="d-flex color-item align-items-center" >
-                <span class="bg-info color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Blue (1,075)</span>
-              </a>
-              <a href="#" class="d-flex color-item align-items-center" >
-                <span class="bg-primary color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Purple (1,075)</span>
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="site-section site-blocks-2">
-              <div class="row justify-content-center text-center mb-5">
-                <div class="col-md-7 site-section-heading pt-4">
-                  <h2>Categories</h2>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
-                  <a class="block-2-item" href="#">
-                    <figure class="image">
-                      <img src="images/women.jpg" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                      <span class="text-uppercase">Collections</span>
-                      <h3>Women</h3>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-                  <a class="block-2-item" href="#">
-                    <figure class="image">
-                      <img src="images/children.jpg" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                      <span class="text-uppercase">Collections</span>
-                      <h3>Children</h3>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-                  <a class="block-2-item" href="#">
-                    <figure class="image">
-                      <img src="images/men.jpg" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                      <span class="text-uppercase">Collections</span>
-                      <h3>Men</h3>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            
           </div>
         </div>
       </div>

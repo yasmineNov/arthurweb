@@ -90,6 +90,7 @@ class ArtikelController extends Controller
     public function edit(artikel $artikel)
     {
         //
+        $data = artikel::where('idArtikel', $artikel)->first();
         return view('admin.artikel-edit', compact('artikel'), [
             "title" => "Edit Artikel"
         ]);
@@ -107,7 +108,27 @@ class ArtikelController extends Controller
             'konten' => 'required'
         ]);
 
-        $artikel->update($request->all());
+        $data = [
+            'judul' => $request->judul,
+            'konten' => $request->konten,
+        ];
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = date('Y-m-d') . $image->getClientOriginalName();
+            $path = 'image-artikel/' . $filename;
+            Storage::disk('public')->put($path, file_get_contents($image));
+
+            // Hapus gambar lama jika ada
+            if (isset($data['img'])) {
+                Storage::disk('public')->delete('image-artikel/' . $data['img']);
+            }
+
+            $data['img'] = $filename;
+        }
+
+        artikel::where('idArtikel', $artikel)->update($artikel);
+
 
         return redirect()->to('artikel')
             ->with('success', 'Berhasil Mengedit data');
