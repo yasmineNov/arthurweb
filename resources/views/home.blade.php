@@ -221,9 +221,9 @@
             <h5 class="card-title">{{ $item->namaProduk }}</h5>
             <p class="card-text">{{ $item->kategori->namaKategori }}</p>
             <p class="card-text">{{ $item->harga }}</p>
-            <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+            <div class="d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
               <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a>
-              <a href="#!" class="btn btn-light border px-2 pt-2 icon-hover"><i class="fas fa-heart fa-lg text-secondary px-1"></i></a>
+              
             </div>
           </div>
         </div>
