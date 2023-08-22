@@ -82,6 +82,10 @@ class ArtikelController extends Controller
     public function show(artikel $artikel)
     {
         //
+        $data = artikel::where('idArtikel', $artikel)->first();
+        return view('artikel-single', compact('artikel'), [
+            "title" => "Single Artikel"
+        ]);
     }
 
     /**

@@ -1,13 +1,6 @@
 @extends('layouts.main')
 
 @section('container')
-{{-- <div class="bg-light py-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 mb-0"><a href="/">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Artikel</strong></div>
-      </div>
-    </div>
-  </div> --}}
 
   <div class="site-section">
     <div class="container">
@@ -54,13 +47,11 @@
               <div class="col-md-8">
                 <div class="card-body">
                   <h3 class="card-title">{{$artikel->judul}}</h3>
-                  <p class="card-text">{{substr ($artikel->konten, 0,145)}}.....</p>
-                  {{-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> --}}
-                  <div class="text-right">
-                    <h6 class="card-text" ><small class="text-body-secondary">read more >>>>></small></h6>
-                    {{-- <h6 href="{{ route('/singleArtikel',$artikel->idArtikel) }}" class="card-text" ><small class="text-body-secondary">read more >>>>></small></h6> --}}
-                    {{-- <a class="btn btn-info" href="{{ route('/singleArtikel',$artikel->idArtikel) }}">Read more >>>>></a> --}}
-                  </div>
+                  <p class="card-text">{{substr ($artikel->konten, 0,145)}}.....</p>                
+                  {{-- <div class="text-right">
+                    <h6 class="card-text" href="{{ route('artikel.edit',$artikel->idArtikel) }}"><small class="text-body-secondary">read more >>>>></small></h6>
+                  </div> --}}
+                  <a class="btn btn-info" href="{{ route('artikel.show',$artikel->idArtikel) }}">Read More</a>
 
                 </div>
               </div>
@@ -99,9 +90,6 @@
           <div class="border p-4 rounded mb-4">
             <div class="mb-4">
               <h3 class="mb-3 h6 text-uppercase text-black d-block">Recent Post</h3>
-              {{-- <div id="slider-range" class="border-primary"></div>
-              <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
-              </div> --}}
               
               @foreach ($data2 as $artikel)
               <p><i class="fa fa-star"></i>    {{$artikel->judul}}</p>
