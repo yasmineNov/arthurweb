@@ -17,8 +17,10 @@
   <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
   <link rel="stylesheet" href="css/aos.css">
-
-  <link rel="stylesheet" href="css/style.css">
+  <!-- CSS Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+  {{-- <link rel="stylesheet" href="css/style.css"> --}}
 
 </head>
 
@@ -89,7 +91,7 @@
     @include('partials.footer')
 
   </div>
-
+  
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
   <script src="js/popper.min.js"></script>

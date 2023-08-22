@@ -40,12 +40,17 @@ class userController extends Controller
             "title" => "artikel"
         ])->with('data2', $data2);
     }
-    function singleArtikel()
+    function singleArtikel(artikel $artikel)
     {
-        $data3 = artikel::orderBy('idArtikel', 'desc')->paginate();
-        return view('artikel-single', [
-            "title" => "singleArtikel"
-        ])->with('data3', $data3);
+        $data2 = artikel::orderBy('idArtikel', 'desc')->paginate();
+        return view('artikel', [
+            "title" => "artikel"
+        ])->with('data2', $data2);
+
+        $data2 = artikel::where('idArtikel', $artikel)->first();
+        return view('artikel-single', compact('artikel'), [
+            "title" => "Single Artikel"
+        ]);
     }
     function checkout()
     {
