@@ -9,6 +9,47 @@
     </div>
   </div>
 
+  {{-- @foreach ($data as $artikel)
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="card-img-top" style="aspect-ratio: 11 / 8" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="card-title">{{$artikel->judul}}</h3>
+          <p class="card-text">{{substr ($artikel->konten, 0,145)}}.....</p> 
+          <a class="btn btn-info" href="{{ route('artikel.show',$artikel->idArtikel) }}">Read More</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  @endforeach --}}
+  
+  @foreach ($data as $artikel)
+  <div class="card mb-3">
+      <img src="{{asset('storage/image-artikel/'.$artikel->$idArtikel->img)}}" class="card-img-top" style="aspect-ratio: 11 / 8" alt="...">
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="card-title">
+            @if ($artikel->$idArtikel->img)
+              <img src="{{ asset('storage/image-artikel/' . $artikel->img) }}" alt="Gambar artikel" width="100">
+            @else
+              <p>Tidak ada gambar</p>
+            @endif
+          </h3>
+          <p class="card-text">{{ $artikel->$idArtikel->$judul }}</p>                
+          <p class="card-text">{{ $artikel->$idArtikel->$konten }}</p>                
+          <a class="btn btn-info" href="{{ route('artikel.show',$artikel->idArtikel) }}">Read More</a>
+        </div>
+      </div>
+   </div>
+   @endforeach
+
+
+
+
  <h1>Ini Adalah halaman Artikel single</h1>
 
  <article>

@@ -55,6 +55,7 @@ Route::get('/artikel/{slug}', function ($slug) {
 });
 
 // ROUTES USER
+Route::resource('usr', CustomerController::class);
 Route::get('/', [userController::class, 'home']);
 Route::get('/about', [userController::class, 'about']);
 Route::get('/keranjang', [userController::class, 'keranjang']);
