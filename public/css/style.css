@@ -406,7 +406,8 @@ a:hover {
 }
 
 .site-navigation {
-    background-color: yellow;
+    /* warna navbar */
+    background-color: #2b72ee;
 }
 
 .site-navbar .site-navigation.border-bottom {
@@ -437,14 +438,16 @@ a:hover {
     padding: 10px 10px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #25262a;
+    /* warna text navbar */
+    color: #ffffff;
+    /* font-family: sans-serif;     */
     font-size: 17px;
     font-weight: bold;
     text-decoration: none !important;
 }
 
 .site-navbar .site-navigation .site-menu > li > a:hover {
-    color: #7971ea;
+    color: #f3ff4b;
 }
 
 .site-navbar .site-navigation .site-menu .has-children {
@@ -586,7 +589,7 @@ a:hover {
 .site-navbar .site-navigation .site-menu .has-children:hover > a,
 .site-navbar .site-navigation .site-menu .has-children:focus > a,
 .site-navbar .site-navigation .site-menu .has-children:active > a {
-    color: #7971ea;
+    color: #f3ff4b;
 }
 
 .site-navbar .site-navigation .site-menu .has-children:hover,
