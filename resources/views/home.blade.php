@@ -223,7 +223,7 @@
             <p class="card-text">{{ $item->harga }}</p>
             <div class="d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
               <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a>
-              
+              <a href="{{ route('produk.show', $item->idProduk) }}" class="btn btn-light shadow-0 me-1">Detail</a>
             </div>
           </div>
         </div>

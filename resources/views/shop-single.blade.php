@@ -41,8 +41,7 @@
           <main class="col-lg-6">
             <div class="ps-lg-3">
               <h4 class="title text-dark">
-                Quality Men's Hoodie for Winter, Men's Fashion <br />
-                Casual Hoodie
+                {{ $produk->namaProduk }}
               </h4>
               <div class="d-flex flex-row my-3">
                 <div class="text-warning mb-1 me-2">
@@ -60,13 +59,12 @@
               </div>
     
               <div class="mb-3">
-                <span class="h5">$75.00</span>
+                <span class="h5">{{ $produk->harga }}</span>
                 <span class="text-muted">/per box</span>
               </div>
     
               <p>
-                Modern look and quality demo item is a streetwear-inspired collection that continues to break away from the conventions of mainstream fashion. Made in Italy, these black and brown clothing low-top shirts for
-                men.
+                {{ $produk->deskripsi }}
               </p>
     
               <div class="row">

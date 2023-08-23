@@ -88,9 +88,15 @@ class ProdukController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(produk $produk)
-    {
-        dd('septian jancok');
+    public function show($id)
+    { {
+            $produk = produk::findOrFail($id);
+
+            return view('shop-single', [
+                'title' => $produk->namaProduk,
+                'produk' => $produk,
+            ]);
+        }
     }
 
     /**
