@@ -40,20 +40,20 @@ class userController extends Controller
             "title" => "artikel"
         ])->with('data2', $data2);
     }
-    function singleArtikel(artikel $artikel)
-    {
-        $data = artikel::where('idArtikel', $artikel)->first();
-        return view('artikel-single', compact('artikel'), [
-            "title" => "Single Artikel"
-        ]);
-    }
+    // function singleArtikel(artikel $artikel)
+    // {
+    //     $data = artikel::where('idArtikel', $artikel)->first();
+    //     return view('artikel-single', compact('artikel'), [
+    //         "title" => "Single Artikel"
+    //     ]);
+    // }
     public function show(artikel $artikel)
     {
         //
         $data = artikel::where('idArtikel', $artikel)->first();
         return view('artikel-single', compact('artikel'), [
             "title" => "Single Artikel"
-        ])->with('data', $data);;
+        ])->with('data', $data);
     }
     function checkout()
     {

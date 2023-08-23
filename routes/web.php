@@ -55,7 +55,6 @@ Route::get('/artikel/{slug}', function ($slug) {
 });
 
 // ROUTES USER
-Route::resource('usr', CustomerController::class);
 Route::get('/', [userController::class, 'home']);
 Route::get('/about', [userController::class, 'about']);
 Route::get('/keranjang', [userController::class, 'keranjang']);
@@ -66,6 +65,7 @@ Route::get('/deskripsikatalog', [userController::class, 'deskripsikatalog']);
 Route::get('/thanks', [userController::class, 'thanks']);
 Route::get('/frontartikel', [userController::class, 'artikel']);
 Route::get('singleArtikel', [userController::class, 'singleArtikel']);
+Route::resource('usr', userController::class);
 
 // ROUTES ADMIN
 Route::get('/login', [adminController::class, 'login']);

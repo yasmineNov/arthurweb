@@ -157,7 +157,7 @@ a:hover {
 }
 
 .btn {
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     position: relative;
     -webkit-transition: 0.2s all ease-in-out !important;
     -o-transition: 0.2s all ease-in-out !important;
@@ -189,6 +189,7 @@ a:hover {
     font-size: 13px;
     font-weight: 300;
     letter-spacing: 0.2em;
+    font-family: sans-serif;
 }
 
 .btn:hover {

@@ -27,7 +27,7 @@
   </div>
   @endforeach --}}
   
-  @foreach ($data as $artikel)
+  {{-- @foreach ($data as $artikel)
   <div class="card mb-3">
       <img src="{{asset('storage/image-artikel/'.$artikel->$idArtikel->img)}}" class="card-img-top" style="aspect-ratio: 11 / 8" alt="...">
       <div class="col-md-8">
@@ -45,7 +45,7 @@
         </div>
       </div>
    </div>
-   @endforeach
+   @endforeach --}}
 
 
 

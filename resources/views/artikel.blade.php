@@ -10,8 +10,8 @@
 
           <div class="row">
             <div class="col-md-12 mb-5">
-              <div class="float-md-left mb-4"><h2 class="text-black h5">Semua Artikel</h2></div>
-              <div class="d-flex">
+              <div class="text-center"><h5 class="text-black h2">Postingan Artikel</h5></div>
+              {{-- <div class="d-flex justify-content-end">
                 <div class="dropdown mr-1 ml-md-auto">
                   <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Latest
@@ -33,7 +33,7 @@
                     <a class="dropdown-item" href="#">Price, high to low</a>
                   </div>
                 </div>
-              </div>
+              </div> --}}
             </div>
           </div>
           <div class="row mb-5">
@@ -51,7 +51,7 @@
                   {{-- <div class="text-right">
                     <h6 class="card-text" href="{{ route('artikel.edit',$artikel->idArtikel) }}"><small class="text-body-secondary">read more >>>>></small></h6>
                   </div> --}}
-                  <a class="btn btn-info" href="{{ route('usr.show',$artikel->idArtikel) }}">Read More</a>
+                  <a class="btn btn-primary" href="{{ route('usr.show',$artikel->idArtikel) }}">Selengkapnya</a>
 
                 </div>
               </div>
@@ -80,6 +80,7 @@
         <div class="col-md-3 order-1 mb-5 mb-md-0">
           <div class="border p-4 rounded mb-4">
             <h3 class="mb-3 h6 text-uppercase text-black d-block">Kategori</h3>
+
             <ul class="list-unstyled mb-0">
               <li class="mb-1"><a href="#" class="d-flex"><span>Outdoor</span></li>
               <li class="mb-1"><a href="#" class="d-flex"><span>Indoor</span></li>
