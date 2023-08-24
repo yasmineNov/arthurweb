@@ -51,7 +51,7 @@
                   {{-- <div class="text-right">
                     <h6 class="card-text" href="{{ route('artikel.edit',$artikel->idArtikel) }}"><small class="text-body-secondary">read more >>>>></small></h6>
                   </div> --}}
-                  <a class="btn btn-primary" href="{{ route('usr.show',$artikel->idArtikel) }}">Selengkapnya</a>
+                  <a class="btn btn-primary" href="{{ route('artikel.show',$artikel->idArtikel) }}">Selengkapnya</a>
 
                 </div>
               </div>
