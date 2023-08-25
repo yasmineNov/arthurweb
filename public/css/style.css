@@ -29,7 +29,23 @@
     width: 20rem;
     height: 20rem;
     display: grid;
-    place-items: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+}
+
+.title-artikel {
+    color :#000000;
+    font-weight: bold;
+    font-family: 'Roboto Slab', serif;
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+}
+
+.detail-artikel {
+    color :#000000;
+    font-size: 16px;
+    font-family: 'Roboto Slab', serif;
 }
 
 /* .card .title {

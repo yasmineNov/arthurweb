@@ -22,6 +22,11 @@
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
   {{-- <link rel="stylesheet" href="css/style.css"> --}}
 
+  {{-- google fonts --}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap" rel="stylesheet">
+
 </head>
 
 <body>

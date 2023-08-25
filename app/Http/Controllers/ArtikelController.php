@@ -79,12 +79,13 @@ class ArtikelController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(artikel $artikel)
+    public function show($id)
     {
-        //
-        $data = artikel::where('idArtikel', $artikel)->first();
+
+        $artikel = artikel::findOrFail($id);
         return view('artikel-single', compact('artikel'), [
-            "title" => "Single Artikel"
+            "title" => $artikel->judul,
+            'artikel' => $artikel
         ]);
     }
 
@@ -131,7 +132,7 @@ class ArtikelController extends Controller
             $data['img'] = $filename;
         }
 
-        artikel::where('idArtikel', $artikel)->update($artikel);
+        artikel::where('idArtikel', $artikel)->update($data);
 
 
         return redirect()->to('artikel')

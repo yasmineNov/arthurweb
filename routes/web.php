@@ -26,33 +26,33 @@ use Illuminate\Support\Facades\Route;
 //     ]);
 // });
 
-Route::get('/artikel', function () {
-    $blog_posts = [
-        [
-            "title" => "Judul post pertama",
-            "slug" => "judul-post-pertama",
-            "author" => "Arthur Citra Media",
-            "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio alias veritatis suscipit provident id eaque, pariatur error cupiditate exercitationem laboriosam earum omnis, deleniti repudiandae quidem molestias ab tempora. Beatae non cupiditate ipsa deleniti veritatis alias harum mollitia repellendus at suscipit aliquid, eveniet quis nihil ex! Veritatis eos necessitatibus asperiores omnis nulla quam error pariatur id qui, in accusamus rerum placeat inventore iste illo labore! Eius, itaque numquam. Iusto accusantium, commodi laborum hic officiis voluptates natus quia vero quas minima voluptatum!"
-        ],
-        [
-            "title" => "Judul post kedua",
-            "slug" => "judul-post-kedua",
-            "author" => "Arthur Citra Media",
-            "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio alias veritatis suscipit provident id eaque, pariatur error cupiditate exercitationem laboriosam earum omnis, deleniti repudiandae quidem molestias ab tempora. Beatae non cupiditate ipsa deleniti veritatis alias harum mollitia repellendus at suscipit aliquid, eveniet quis nihil ex! Veritatis eos necessitatibus asperiores omnis nulla quam error pariatur id qui, in accusamus rerum placeat inventore iste illo labore! Eius, itaque numquam. Iusto accusantium, commodi laborum hic officiis voluptates natus quia vero quas minima voluptatum!"
-        ],
-    ];
+// Route::get('/artikel', function () {
+//     $blog_posts = [
+//         [
+//             "title" => "Judul post pertama",
+//             "slug" => "judul-post-pertama",
+//             "author" => "Arthur Citra Media",
+//             "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio alias veritatis suscipit provident id eaque, pariatur error cupiditate exercitationem laboriosam earum omnis, deleniti repudiandae quidem molestias ab tempora. Beatae non cupiditate ipsa deleniti veritatis alias harum mollitia repellendus at suscipit aliquid, eveniet quis nihil ex! Veritatis eos necessitatibus asperiores omnis nulla quam error pariatur id qui, in accusamus rerum placeat inventore iste illo labore! Eius, itaque numquam. Iusto accusantium, commodi laborum hic officiis voluptates natus quia vero quas minima voluptatum!"
+//         ],
+//         [
+//             "title" => "Judul post kedua",
+//             "slug" => "judul-post-kedua",
+//             "author" => "Arthur Citra Media",
+//             "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio alias veritatis suscipit provident id eaque, pariatur error cupiditate exercitationem laboriosam earum omnis, deleniti repudiandae quidem molestias ab tempora. Beatae non cupiditate ipsa deleniti veritatis alias harum mollitia repellendus at suscipit aliquid, eveniet quis nihil ex! Veritatis eos necessitatibus asperiores omnis nulla quam error pariatur id qui, in accusamus rerum placeat inventore iste illo labore! Eius, itaque numquam. Iusto accusantium, commodi laborum hic officiis voluptates natus quia vero quas minima voluptatum!"
+//         ],
+//     ];
 
-    return view('artikel', [
-        "title" => "Artikel",
-        "posts" => $blog_posts
-    ]);
-});
+//     return view('artikel', [
+//         "title" => "Artikel",
+//         "posts" => $blog_posts
+//     ]);
+// });
 
-Route::get('/artikel/{slug}', function ($slug) {
-    return view('artikel-single', [
-        "title" => "$slug"
-    ]);
-});
+// Route::get('/artikel/{slug}', function ($slug) {
+//     return view('artikel-single', [
+//         "title" => "$slug"
+//     ]);
+// });
 
 // ROUTES USER
 Route::resource('usr', CustomerController::class);
@@ -80,6 +80,7 @@ Route::resource('customer', CustomerController::class);
 Route::get('/artikelAdmin', [ArtikelController::class, '/artikelAdmin']);
 Route::resource('artikel', ArtikelController::class);
 Route::get('tambahArtikel', [ArtikelController::class, 'tambahArtikel']);
+Route::get('/artikel/{id}', [ArtikelController::class, 'show'])->name('artikel.show');
 
 Route::get('/katalogproduk', [ProdukController::class, 'katalogproduk']);
 Route::resource('produk', ProdukController::class);

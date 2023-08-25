@@ -12,6 +12,7 @@
         {{-- TinyMCE --}}
         <script src="https://cdn.tiny.cloud/1/pzu9x5pjvgol75f7v6541v2xdqv0ib0jukp1ekkp4duveqsx/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
         <script>tinymce.init({selector:'textarea'});</script>
+        <script>var myContent = tinymce.get("myTextarea").getContent();</script>
 
         <!-- CSS Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -185,5 +186,8 @@
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+        {{-- tinyMCE --}}
+        <script src="https://cdn.tiny.cloud/1/pzu9x5pjvgol75f7v6541v2xdqv0ib0jukp1ekkp4duveqsx/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>tinymce.init({selector:'textarea'});</script>
     </body>
 </html>
