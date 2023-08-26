@@ -98,17 +98,18 @@ class ArtikelController extends Controller
         $data = artikel::where('idArtikel', $artikel)->first();
         return view('admin.artikel-edit', compact('artikel'), [
             "title" => "Edit Artikel"
-        ]);
+        ])->with('data', $data);;
     }
 
     /**
      * Update the specified resource in storage.
      */
+
     public function update(UpdateartikelRequest $request, artikel $artikel)
     {
         //
         $request->validate([
-            'image' => 'required|mimes:png,jpg,jpeg|max:2048',
+            'img' => 'required|mimes:png,jpg,jpeg|max:2048',
             'judul' => 'required',
             'konten' => 'required'
         ]);
@@ -118,8 +119,8 @@ class ArtikelController extends Controller
             'konten' => $request->konten,
         ];
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
+        if ($request->hasFile('img')) {
+            $image = $request->file('img');
             $filename = date('Y-m-d') . $image->getClientOriginalName();
             $path = 'image-artikel/' . $filename;
             Storage::disk('public')->put($path, file_get_contents($image));

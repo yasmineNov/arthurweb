@@ -33,6 +33,8 @@
     margin-left: auto;
     margin-right: auto;
     height: auto;
+    aspect-ratio: 1/1 ;
+    background-position: center;
 }
 
 .title-artikel {

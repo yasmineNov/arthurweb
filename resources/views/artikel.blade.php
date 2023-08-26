@@ -24,18 +24,16 @@
           @foreach ($data2 as $artikel)
           <div class="card mb-3">
             <div class="row g-0">
-              <div class="col-md-4">
-                <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="card-img-top" style="aspect-ratio: 11 / 8" alt="...">
+              <div class="col-md-4 d-flex align-items-center justify-content-center">
+                <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="img-artikel" alt="...">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h3 class="card-title">{{$artikel->judul}}</h3>
-                  <p class="card-text">{{substr ($artikel->konten, 0,145)}}.....</p>                
-                  {{-- <div class="text-right">
-                    <h6 class="card-text" href="{{ route('artikel.edit',$artikel->idArtikel) }}"><small class="text-body-secondary">read more >>>>></small></h6>
-                  </div> --}}
-                  <a class="btn btn-primary" href="{{ route('artikel.show',$artikel->idArtikel) }}">Selengkapnya</a>
-
+                  <h5 class="card-title mb-0">{{$artikel->judul}}</h5>
+                  <p class="card-text mt-0"><br>{!!substr ($artikel->konten, 0,145)!!}.....<br></p>         
+                  <div class="d-flex flex-row-reverse">
+                    <a class="btn btn-primary" href="{{ route('artikel.show',$artikel->idArtikel) }}">Selengkapnya</a>
+                </div>
                 </div>
               </div>
             </div>
