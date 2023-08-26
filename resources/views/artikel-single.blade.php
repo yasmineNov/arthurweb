@@ -9,9 +9,9 @@
       </div>
     </div>
   </div>
-  <a class="btn btn-primary mt-5" href="/frontartikel" role="button"><i class="fa-solid fa-circle-arrow-left"></i> Kembali</a>
+  <a class="btn btn-primary mt-3" href="/frontartikel" role="button"><i class="fa-solid fa-circle-arrow-left"></i> Kembali</a>
 
-  <div class="text-center title-artikel mt-4 mb-3">
+  <div class="text-center title-artikel mt-3 mb-3">
     <h1>{{$artikel->judul}}</h1>
   </div>
   <div class="text-center mt-4 mb-3">             
