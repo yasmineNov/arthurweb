@@ -32,7 +32,7 @@
 
 {{-- CAROUSEL END --}}
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+{{-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -50,7 +50,6 @@
     <div class="carousel-item">
       <div class="jumbotron">
         <h1 class="display-4">IYA TAU, AGAK MUMET EMANG.. TAPI KUDU SEMANGAT & NIAT !!</h1>
-        {{-- <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p> --}}
         <hr class="my-4"> 
         <p>It uses utility classes for typography</p> 
       </div>
@@ -72,8 +71,40 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
-<div class="mt-2 text-center"><h1>MENGAPA MEMILIH KAMI ? </h1></div>
+</div> --}}
+<!-- intro -->
+<section class="pt-3">
+  <div class="container">
+    <div class="row gx-3">
+      <main class="col-lg-9">
+        <div class="card-banner p-5 bg-primary rounded-5" style="height: 350px;">
+          <div style="max-width: 500px;">
+            <h2 class="text-white">
+              Great products with <br />
+              best deals
+            </h2>
+            <p class="text-white">No matter how far along you are in your sophistication as an amateur astronomer, there is always one.</p>
+            <a href="#" class="btn btn-light shadow-0 text-primary"> View more </a>
+          </div>
+        </div>
+      </main>
+      <aside class="col-lg-3">
+        <div class="card-banner h-100 rounded-5" style="background-color: #f87217;">
+          <div class="card-body text-center pb-5">
+            <h5 class="pt-5 text-white">Amazing Gifts</h5>
+            <p class="text-white">No matter how far along you are in your sophistication</p>
+            <a href="#" class="btn btn-outline-light"> View more </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <!-- row //end -->
+  </div>
+  <!-- container end.// -->
+</section>
+<!-- intro --> 
+<section class="pt-5">
+  <div class="mt-2 text-center"><h1>MENGAPA MEMILIH KAMI ? </h1></div>
 <div class="site-section site-section-sm site-blocks-1">
   <div class="container">
     <div class="row">
@@ -107,6 +138,8 @@
     </div>
   </div>
 </div>
+
+</section>
 
 <div class="site-section site-blocks-2">
   <div class="container">
@@ -219,8 +252,8 @@
           <img src="{{asset('storage/image-produk/'.$item->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" />
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">{{ $item->namaProduk }}</h5>
-            <p class="card-text">{{ $item->kategori->namaKategori }}</p>
-            <p class="card-text">{{ $item->harga }}</p>
+            <p class="card-text text-primary">{{ $item->kategori->namaKategori }}</p>
+            <h6 class="card-text text-danger">Rp {{ $item->harga }}</h6>
             <div class="d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
               <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a>
               <a href="{{ route('produk.show', $item->idProduk) }}" class="btn btn-light shadow-0 me-1">Detail</a>
@@ -346,7 +379,7 @@
 <section class="mt-5 mb-4">
   <div class="container text-dark">
     <header class="mb-4">
-      <h3>Blog posts</h3>
+      <h3>Artikel</h3>
     </header>
 
     <div class="row">

@@ -64,21 +64,19 @@
               </div>
     
               <p>
-                {{ $produk->deskripsi }}
+                {!! $produk->deskripsi !!}
               </p>
     
               <div class="row">
-                <dt class="col-3">Type:</dt>
+                <dt class="col-3">Bahan:</dt>
                 <dd class="col-9">Regular</dd>
     
-                <dt class="col-3">Color</dt>
+                <dt class="col-3">Kategori</dt>
                 <dd class="col-9">Brown</dd>
     
-                <dt class="col-3">Material</dt>
+                <dt class="col-3">Gramasi</dt>
                 <dd class="col-9">Cotton, Jeans</dd>
     
-                <dt class="col-3">Brand</dt>
-                <dd class="col-9">Reebook</dd>
               </div>
     
               <hr />
