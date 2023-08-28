@@ -9,14 +9,14 @@
   </div>
 </div>
 
-    <div class="container">
+    <div class="container mb-5">
+      <div class="row mt-5 mb-0">
 
-      <div class="row mt-3 mb-0">
+        {{-- Kolom artikel Start --}}
         <div class="col-md-9 order-2">
-
           <div class="row">
-            <div class="col-md-12 mb-5">
-              <div class="text-center"><h5 class="text-black h2">Postingan Artikel</h5></div>
+            <div class="col-md-12 mb-2">
+              <div class="text-right"><h2 class="text-black h2">Postingan Artikel</h2></div>
             </div>
           </div>
           <div class="row mb-5">
@@ -24,16 +24,22 @@
           @foreach ($data2 as $artikel)
             <div class="row g-0 mb-4">
               <div class="col-md-4 d-flex align-items-center justify-content-center">
-                <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="img-artikel" alt="...">
+                <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
+                  <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="img-artikel" alt="...">
+                </a>
               </div>
               <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title mb-0">{{$artikel->judul}}</h5>
-                  <p class="card-text mt-0"><br>{!!substr ($artikel->konten, 0,145)!!}.....<br></p>         
-                  <div class="d-flex flex-row-reverse">
+                <div class="card-body text-center">
+                  <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
+                    <h3 class="title-artikel mb-0">{{$artikel->judul}}</h3>
+                  </a>  
+                  <p class="card-text mt-0"><br>{!!substr ($artikel->konten, 0,145)!!}.....<br></p> 
+                         
+                  {{-- <div class="d-flex flex-row-reverse">
                     <a class="btn btn-primary" href="{{ route('artikel.show',$artikel->idArtikel) }}">Selengkapnya</a>
+                </div> --}}
                 </div>
-                </div>
+                <p class="text-center">___________________________________________________________</p> 
               </div>
             </div>
           @endforeach
@@ -55,7 +61,9 @@
             </div>
           </div>
         </div>
+        {{-- kolom artikel end --}}
 
+        {{-- Kolom samping --}}
         <div class="col-md-3 order-1 mb-5 mb-md-0">
           <div class="border p-4 rounded mb-4">
             <h3 class="mb-3 h6 text-uppercase text-black d-block">Kategori</h3>
@@ -77,8 +85,9 @@
 
           </div>
         </div>
+        {{-- kolom samping end --}}
+
       </div>
-      
     </div>
 
 

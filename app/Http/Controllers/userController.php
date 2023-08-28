@@ -33,6 +33,15 @@ class userController extends Controller
             "title" => "Keranjang"
         ]);
     }
+
+    function kategori()
+    {
+        $data3 = kategori::orderBy('idKategori', 'desc')->paginate();
+        return view('artikel', [
+            "title" => "artikel"
+        ])->with('data3', $data3);
+    }
+
     function artikel()
     {
         $data2 = artikel::orderBy('idArtikel', 'desc')->paginate();
@@ -40,6 +49,14 @@ class userController extends Controller
             "title" => "artikel"
         ])->with('data2', $data2);
     }
+
+    // function artikelhome()
+    // {
+    //     $data4 = artikel::orderBy('idArtikel', 'desc')->paginate();
+    //     return view('home', [
+    //         "title" => "artikel"
+    //     ])->with('data4', $data4);
+    // }
     // function singleArtikel(artikel $artikel)
     // {
     //     $data = artikel::where('idArtikel', $artikel)->first();
@@ -55,6 +72,7 @@ class userController extends Controller
             "title" => "Single Artikel"
         ])->with('data', $data);
     }
+
     function checkout()
     {
         return view('checkout', [

@@ -383,21 +383,25 @@
     </header>
 
     <div class="row">
-      <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+      {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+        @foreach ($data4 as $artikel)
         <article>
-          <a href="#" class="img-fluid">
-            <img class="rounded w-100" src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/posts/1.webp" style="object-fit: cover;" height="160" />
+          <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
+            <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="img-artikel" alt="...">
           </a>
           <div class="mt-2 text-muted small d-block mb-1">
             <span>
               <i class="fa fa-calendar-alt fa-sm"></i>
               23.12.2022
             </span>
-            <a href="#"><h6 class="text-dark">How to promote brands</h6></a>
-            <p>When you enter into any new area of science, you almost reach</p>
+            <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
+              <h3 class="title-artikel mb-0">{{$artikel->judul}}</h3>
+            </a>  
+            <p class="card-text mt-0"><br>{!!substr ($artikel->konten, 0,145)!!}.....<br></p> 
           </div>
         </article>
-      </div>
+        @endforeach  
+      </div> --}}
       <!-- col.// -->
       <div class="col-lg-3 col-md-6 col-sm-6 col-12">
         <article>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\artikel;
+use App\Models\kategori;
 use App\Http\Requests\StoreartikelRequest;
 use App\Http\Requests\UpdateartikelRequest;
 use Illuminate\Support\Facades\Storage;
@@ -83,7 +84,7 @@ class ArtikelController extends Controller
      */
     public function show($id)
     {
-
+        $kategori = kategori::all();
         $artikel = artikel::findOrFail($id);
         return view('artikel-single', compact('artikel'), [
             "title" => $artikel->judul,
