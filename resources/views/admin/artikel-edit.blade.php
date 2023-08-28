@@ -26,7 +26,7 @@
 
                     </div>
                     @endif
-                    <form method='post' action='{{url('artikel', $artikel->idArtikel)}}' enctype="multipart/form-data">
+                    <form method='post' action='{{url('artikel', $data->idArtikel)}}' enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
@@ -36,8 +36,8 @@
                                 <div class="col-sm-10">
                                     <input type="file" class="form-control" name='image' id="image">
                                     <p></p>
-                                    @if ($artikel->img)
-                                        <img src="{{ asset('storage/image-artikel/' . $artikel->img) }}" alt="Gambar artikel" width="100">
+                                    @if ($data->img)
+                                        <img src="{{ asset('storage/image-artikel/' . $data->img) }}" alt="Gambar artikel" width="100">
                                     @else
                                         <p>Tidak ada gambar</p>
                                     @endif
@@ -46,13 +46,13 @@
                             <div class="mb-3 row">
                                 <label for="judul" class="col-sm-2 col-form-label">Judul</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name='judul' value="{{ $artikel->judul }}"  id="judul">
+                                    <input type="text" class="form-control" name='judul' value="{{ $data->judul }}"  id="judul">
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="harga" class="col-sm-2 col-form-label">konten</label>
                                 <div class="col-sm-10">
-                                    <textarea type="text" class="form-control" name='konten' id="konten">{{ $artikel->konten }}</textarea>
+                                    <textarea type="text" class="form-control" name='konten' id="konten">{{ $data->konten }}</textarea>
                                 </div>
                             </div>
                             <div class="mb-3 row">

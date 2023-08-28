@@ -22,8 +22,7 @@
           <div class="row mb-5">
 
           @foreach ($data2 as $artikel)
-          <div class="card mb-3">
-            <div class="row g-0">
+            <div class="row g-0 mb-4">
               <div class="col-md-4 d-flex align-items-center justify-content-center">
                 <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="img-artikel" alt="...">
               </div>
@@ -37,7 +36,6 @@
                 </div>
               </div>
             </div>
-          </div>
           @endforeach
 
           </div>

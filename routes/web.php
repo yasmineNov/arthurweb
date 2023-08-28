@@ -77,7 +77,7 @@ Route::get('/toko', [adminController::class, 'toko']);
 
 Route::resource('customer', CustomerController::class);
 
-Route::get('/artikelAdmin', [ArtikelController::class, '/artikelAdmin']);
+Route::get('/artikelAdmin', [ArtikelController::class, 'artikel']);
 Route::resource('artikel', ArtikelController::class);
 Route::get('tambahArtikel', [ArtikelController::class, 'tambahArtikel']);
 Route::get('/artikel/{id}', [ArtikelController::class, 'show'])->name('artikel.show');

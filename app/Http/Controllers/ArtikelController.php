@@ -56,7 +56,11 @@ class ArtikelController extends Controller
             'image' => 'required|mimes:png,jpg,jpeg|max:2048',
             'judul' => 'required',
             'konten' => 'required'
+        ], [
+            'judul.required' => 'judul wajib diisi',
+            'konten.required' => 'Konten wajib diisi',
         ]);
+
         $artikel = new artikel;
         $image    = $request->file('image');
         $filename = date('Y-m-d') . $image->getClientOriginalName();
@@ -65,14 +69,12 @@ class ArtikelController extends Controller
         Storage::disk('public')->put($path, file_get_contents($image));
 
         $artikel->img = $filename;
-
-
         $artikel->judul = $request->judul;
         $artikel->konten = $request->konten;
-        $artikel->slug = "Edit Artikel";
+        $artikel->slug = "Artikel";
         $artikel->save();
 
-        return redirect()->to('artikel')
+        return redirect()->to('artikelAdmin')
             ->with('success', 'Berhasil menambah data');
     }
 
@@ -92,11 +94,11 @@ class ArtikelController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(artikel $artikel)
+    public function edit($id)
     {
         //
-        $data = artikel::where('idArtikel', $artikel)->first();
-        return view('admin.artikel-edit', compact('artikel'), [
+        $data = artikel::where('idArtikel', $id)->first();
+        return view('admin.artikel-edit', [
             "title" => "Edit Artikel"
         ])->with('data', $data);;
     }
@@ -105,13 +107,16 @@ class ArtikelController extends Controller
      * Update the specified resource in storage.
      */
 
-    public function update(UpdateartikelRequest $request, artikel $artikel)
+    public function update(UpdateartikelRequest $request, $id)
     {
         //
         $request->validate([
-            'img' => 'required|mimes:png,jpg,jpeg|max:2048',
+            'image' => 'mimes:png,jpg,jpeg|max:2048',
             'judul' => 'required',
             'konten' => 'required'
+        ], [
+            'judul.required' => 'judul wajib diisi',
+            'konten.required' => 'Konten wajib diisi',
         ]);
 
         $data = [
@@ -119,8 +124,8 @@ class ArtikelController extends Controller
             'konten' => $request->konten,
         ];
 
-        if ($request->hasFile('img')) {
-            $image = $request->file('img');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
             $filename = date('Y-m-d') . $image->getClientOriginalName();
             $path = 'image-artikel/' . $filename;
             Storage::disk('public')->put($path, file_get_contents($image));
@@ -133,10 +138,10 @@ class ArtikelController extends Controller
             $data['img'] = $filename;
         }
 
-        artikel::where('idArtikel', $artikel)->update($data);
+        artikel::where('idArtikel', $id)->update($data);
 
 
-        return redirect()->to('artikel')
+        return redirect()->to('artikelAdmin')
             ->with('success', 'Berhasil Mengedit data');
     }
 
