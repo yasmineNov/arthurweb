@@ -76,6 +76,8 @@ Route::get('/katalogpromo', [adminController::class, 'katalogpromo']);
 Route::get('/toko', [adminController::class, 'toko']);
 
 Route::resource('customer', CustomerController::class);
+// Route::post('member', [CustomerController::class, 'member']);
+Route::get('member', [CustomerController::class, 'member']);
 
 Route::get('artikelhome', [ArtikelController::class, 'artikelhome']);
 Route::get('/artikelAdmin', [ArtikelController::class, 'artikel']);

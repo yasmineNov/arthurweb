@@ -28,6 +28,13 @@ class CustomerController extends Controller
         ])->with('data', $data);
     }
 
+    function member()
+    {
+        return view('contact', [
+            "title" => "Contact"
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

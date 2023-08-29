@@ -37,19 +37,19 @@
                                 </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="namaProduk" class="col-sm-2 col-form-label">Judul</label>
+                                <label for="namaArtikel" class="col-sm-2 col-form-label">Judul</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name='judul' id="judul">
                                 </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="harga" class="col-sm-2 col-form-label">konten</label>
+                                <label for="konten" class="col-sm-2 col-form-label">konten</label>
                                 <div class="col-sm-10">
                                     <textarea type="text" class="form-control" name='konten' id="konten"></textarea>
                                 </div>
                             </div>
                             <div class="mb-3 row">
-                                <label for="jurusan" class="col-sm-2 col-form-label"></label>
+                                <label for="button" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10"><button type="submit" class="btn btn-primary" name="submit">SIMPAN</button></div>
                             </div>
 

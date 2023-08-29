@@ -13,45 +13,49 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h2 class="h3 mb-3 text-black">Get In Touch</h2>
+            <h2 class="mb-5 text-black">Member of Arthur Citra Media :</h2>
           </div>
           <div class="col-md-7">
+            <!-- START FORM -->
+            @if ($errors->any())
+            <div class="pt-3">
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $item)
+                        <li>{{ $item }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            @endif
 
-            <form action="#" method="post">
+            <form method='post' action='{{url('customer')}}' enctype="multipart/form-data">
+            @csrf
               
               <div class="p-3 p-lg-5 border">
                 <div class="form-group row">
-                  <div class="col-md-6">
-                    <label for="c_fname" class="text-black">First Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="c_fname" name="c_fname">
-                  </div>
-                  <div class="col-md-6">
-                    <label for="c_lname" class="text-black">Last Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="c_lname" name="c_lname">
+                  <div class="col-md-12">
+                    <label for="namaCustomer" class="text-black">Nama <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="namaCustomer" name="namaCustomer" placeholder="">
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-md-12">
-                    <label for="c_email" class="text-black">Email <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" id="c_email" name="c_email" placeholder="">
+                    <label for="whatsapp" class="text-black">Whatsapp <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="whatsapp" name="whatsapp" placeholder="">
                   </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row mb-1">
                   <div class="col-md-12">
-                    <label for="c_subject" class="text-black">Subject </label>
-                    <input type="text" class="form-control" id="c_subject" name="c_subject">
+                    <label for="email" class="text-black">Email </label>
+                    <input type="email" class="form-control" id="email" name="email">
                   </div>
                 </div>
 
                 <div class="form-group row">
-                  <div class="col-md-12">
-                    <label for="c_message" class="text-black">Message </label>
-                    <textarea name="c_message" id="c_message" cols="30" rows="7" class="form-control"></textarea>
-                  </div>
-                </div>
-                <div class="form-group row">
                   <div class="col-lg-12">
-                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Send Message">
+                    <label for="button" class="col-sm-2 col-form-label"></label>
+                                <div class="col-sm-10"><button type="submit" class="btn btn-primary" name="submit">SIMPAN</button></div>
                   </div>
                 </div>
               </div>
