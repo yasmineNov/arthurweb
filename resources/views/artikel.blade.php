@@ -22,26 +22,28 @@
           <div class="row mb-5">
 
           @foreach ($data2 as $artikel)
-            <div class="row g-0 mb-4">
-              <div class="col-md-4 d-flex align-items-center justify-content-center">
+          <div class="border-bottom">
+            <div class="row g-0 mb-3">
+              <div class="col-md-4 mt-3 d-flex align-items-center justify-content-center">
                 <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
-                  <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="img-artikel" alt="...">
+                  <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="img-artikel" style="aspect-ratio: 1 / 1" alt="...">
                 </a>
               </div>
-              <div class="col-md-8">
-                <div class="card-body text-center">
+              <div class="col-md-8 mt-2">
+                <div class="card-body d-flex flex-column">
                   <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
-                    <h3 class="title-artikel mb-0">{{$artikel->judul}}</h3>
+                    <h2 class="title-artikel text-center mb-0">{{$artikel->judul}}</h2>
                   </a>  
-                  <p class="card-text mt-0"><br>{!!substr ($artikel->konten, 0,145)!!}.....<br></p> 
+                  <p class="card-text mt-0">{!!substr ($artikel->konten, 0,175)!!}.....<br></p> 
                          
                   {{-- <div class="d-flex flex-row-reverse">
                     <a class="btn btn-primary" href="{{ route('artikel.show',$artikel->idArtikel) }}">Selengkapnya</a>
                 </div> --}}
                 </div>
-                <p class="text-center">___________________________________________________________</p> 
+                {{-- <p class="text-center">___________________________________________________________</p>  --}}
               </div>
             </div>
+          </div>
           @endforeach
 
           </div>
