@@ -388,7 +388,7 @@
         {{-- <div class="d-flex justify-content-center"> --}}
             @foreach ($dataPost as $artikel)
               <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
-                <div class="card w-100 my-2 shadow-2-strong">
+                <div class="card w-80 my-2 shadow-2-strong">
                   <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
                     <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" alt="...">
                   </a>
@@ -397,11 +397,12 @@
                       <i class="fa fa-calendar-alt fa-sm"></i>
                         23.12.2022
                       </span> --}}
+                  <div class="card-body d-flex flex-column">
                   <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
-                    <h5 class="title-artikel text-center mt-3 mb-4">{{$artikel->judul}}</h5>
+                    <h5 class="title-artikel text-center mt-2 mb-0">{{$artikel->judul}}</h5>
                   </a>
-                  {{-- <p class="text-center mt-0"><br>{!!substr ($artikel->konten, 0,100)!!}.....<br></p>  --}}
-                  {{-- </div> --}}
+                  <p class="text-center mt-0">{!!substr ($artikel->konten, 0,65)!!}.....</p> 
+                  </div>
                 </div>
               </div>
               <br>
