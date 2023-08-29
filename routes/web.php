@@ -64,7 +64,6 @@ Route::get('/member', [userController::class, 'member']);
 Route::get('/katalog', [userController::class, 'katalog']);
 // Route::get('/deskripsikatalog', [userController::class, 'deskripsikatalog']);
 Route::get('/thanks', [userController::class, 'thanks']);
-Route::get('artikelhome', [userController::class, 'artikelhome']);
 Route::get('/frontartikel', [userController::class, 'artikel']);
 Route::get('singleArtikel', [userController::class, 'singleArtikel']);
 Route::get('/produk/{id}', [produkController::class, 'show'])->name('produk.show');
@@ -78,6 +77,7 @@ Route::get('/toko', [adminController::class, 'toko']);
 
 Route::resource('customer', CustomerController::class);
 
+Route::get('artikelhome', [ArtikelController::class, 'artikelhome']);
 Route::get('/artikelAdmin', [ArtikelController::class, 'artikel']);
 Route::resource('artikel', ArtikelController::class);
 Route::get('tambahArtikel', [ArtikelController::class, 'tambahArtikel']);

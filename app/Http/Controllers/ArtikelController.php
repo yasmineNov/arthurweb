@@ -32,6 +32,15 @@ class ArtikelController extends Controller
         ])->with('data', $data);
     }
 
+    public function artikelhome()
+    {
+        //
+        $data = artikel::orderBy('idArtikel', 'desc')->paginate();
+        return view('home', $data, [
+            "title" => "artikel"
+        ])->with('data', $data);
+    }
+
     function tambahArtikel()
     {
         return view('admin/artikel-tambahArtikel', [

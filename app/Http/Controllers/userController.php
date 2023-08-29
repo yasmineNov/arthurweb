@@ -10,14 +10,18 @@ use Illuminate\Http\Request;
 
 class userController extends Controller
 {
-    //
     function home()
     {
         $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate();
+        $dataPost = artikel::orderBy('idArtikel', 'desc')->paginate();
+
         return view('home', [
-            "title" => "home Produk"
-        ])->with('data1', $data1);
+            "title" => "home",
+            "data1" => $data1,
+            "dataPost" => $dataPost,
+        ]);
     }
+
     function about()
     {
         return view('about', [
@@ -50,28 +54,14 @@ class userController extends Controller
         ])->with('data2', $data2);
     }
 
-    // function artikelhome()
+    // public function show($id)
     // {
-    //     $data4 = artikel::orderBy('idArtikel', 'desc')->paginate();
-    //     return view('home', [
-    //         "title" => "artikel"
-    //     ])->with('data4', $data4);
+    //     //
+    //     $data = artikel::where('idArtikel', $id)->first();
+    //     return view('home', compact('artikel'), [
+    //         "title" => "home"
+    //     ])->with('data', $data);
     // }
-    // function singleArtikel(artikel $artikel)
-    // {
-    //     $data = artikel::where('idArtikel', $artikel)->first();
-    //     return view('artikel-single', compact('artikel'), [
-    //         "title" => "Single Artikel"
-    //     ]);
-    // }
-    public function show(artikel $artikel)
-    {
-        //
-        $data = artikel::where('idArtikel', $artikel)->first();
-        return view('artikel-single', compact('artikel'), [
-            "title" => "Single Artikel"
-        ])->with('data', $data);
-    }
 
     function checkout()
     {

@@ -383,27 +383,34 @@
     </header>
 
     <div class="row">
-      {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-        @foreach ($data4 as $artikel)
-        <article>
-          <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
-            <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="img-artikel" alt="...">
-          </a>
-          <div class="mt-2 text-muted small d-block mb-1">
-            <span>
-              <i class="fa fa-calendar-alt fa-sm"></i>
-              23.12.2022
-            </span>
-            <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
-              <h3 class="title-artikel mb-0">{{$artikel->judul}}</h3>
-            </a>  
-            <p class="card-text mt-0"><br>{!!substr ($artikel->konten, 0,145)!!}.....<br></p> 
-          </div>
-        </article>
-        @endforeach  
-      </div> --}}
+      {{-- <div class="col-12"> --}}
+        {{-- <br class="d-flex flex-row flex-nowrap overflow-auto"> --}}
+        {{-- <div class="d-flex justify-content-center"> --}}
+            @foreach ($dataPost as $artikel)
+              <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+                <div class="card w-100 my-2 shadow-2-strong">
+                  <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
+                    <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" alt="...">
+                  </a>
+                  {{-- <div class="mt-2 text-muted small d-block mb-1">
+                    <span>
+                      <i class="fa fa-calendar-alt fa-sm"></i>
+                        23.12.2022
+                      </span> --}}
+                  <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
+                    <h5 class="title-artikel text-center mt-3 mb-4">{{$artikel->judul}}</h5>
+                  </a>
+                  {{-- <p class="text-center mt-0"><br>{!!substr ($artikel->konten, 0,100)!!}.....<br></p>  --}}
+                  {{-- </div> --}}
+                </div>
+              </div>
+              <br>
+            @endforeach 
+        {{-- </div>  --}}
+      {{-- </div> --}}
+    </div>
       <!-- col.// -->
-      <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+      {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-12">
         <article>
           <a href="#" class="img-fluid">
             <img class="rounded w-100" src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/posts/2.webp" style="object-fit: cover;" height="160" />
@@ -433,9 +440,9 @@
             <p>When you enter into any new area of science, you almost reach</p>
           </div>
         </article>
-      </div>
+      </div> --}}
       <!-- col.// -->
-      <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+      {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-12">
         <article>
           <a href="#" class="img-fluid">
             <img class="rounded w-100" src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/posts/4.webp" style="object-fit: cover;" height="160" />
@@ -449,7 +456,7 @@
             <p>When you enter into any new area of science, you almost reach</p>
           </div>
         </article>
-      </div>
+      </div> --}}
     </div>
   </div>
 </section>

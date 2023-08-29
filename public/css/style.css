@@ -23,6 +23,13 @@
     padding: 0.5em;
     padding-bottom: 3.4em;
 } */
+.card-artikel {
+    /* width: 20rem;
+    height: 30rem; */
+    max-width:auto;
+    height:auto;
+    aspect-ratio: 9/16 ;
+}
 
 .img-artikel {
     background: rgb(241, 241, 241);
