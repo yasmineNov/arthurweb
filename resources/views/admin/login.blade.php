@@ -10,18 +10,24 @@
         <link href="css/styles-admin.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
-    <body class="bg-primary">
+    {{-- <body class="bg-primary"> --}}
+    <body>
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-5">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Masuk</h3></div>
+                    <div class="container mb-5">
+                        <div class="row justify-content-around">
+                            <div class="col vh-100">
+                                <a>
+                                    <img src="{{asset('images/logiin.jpg')}}" style="aspect-ratio: auto" class="align-self-center" alt="...">
+                                </a> 
+                            </div>
+                            <div class="col align-self-center">
+                                <div class="card">
+                                    <div class="card-header bg-primary text-light"><h3 class="text-center font-weight-light my-4">Masuk</h3></div>
                                     <div class="card-body">
                                         <form>
-                                            <div class="form-floating mb-3">
+                                            <div class="form-floating mb-3 mt-5">
                                                 <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
                                                 <label for="inputEmail">Email</label>
                                             </div>

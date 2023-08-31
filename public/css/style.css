@@ -30,6 +30,12 @@
     aspect-ratio: 9/16 ;
 }
 
+.login-center {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    margin-top: -50px;
+}
 .img-artikel {
     background: rgb(241, 241, 241);
     width: 80%;
