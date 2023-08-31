@@ -26,8 +26,8 @@
 .card-artikel {
     /* width: 20rem;
     height: 30rem; */
-    
-    aspect-ratio: 9/16 ;
+
+    aspect-ratio: 9/16;
 }
 
 .login-center {
@@ -45,7 +45,7 @@
     margin-left: auto;
     margin-right: auto;
     height: auto;
-    aspect-ratio: auto ;
+    aspect-ratio: auto;
     background-position: center;
 }
 
@@ -147,16 +147,16 @@ a {
 a:link {
     text-decoration: none;
 }
-  
+
 a:visited {
     text-decoration: none;
 }
-  
+
 a:hover {
     text-decoration: underline;
     color: #000000;
 }
-  
+
 a:active {
     text-decoration: underline;
 }
@@ -331,7 +331,10 @@ a:active {
 }
 
 /* Navbar */
-
+.nav-item.hovered > .nav-link {
+    background-color: yellow;
+    color: black;
+}
 .site-navbar {
     background: #fff;
     margin-bottom: 0px;
@@ -485,19 +488,19 @@ a:active {
 }
 
 .site-navbar .site-navigation .site-menu > li > a {
-    padding: 10px 10px;
+    padding: 10px 25px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     /* warna text navbar */
     color: #ffffff;
-    /* font-family: sans-serif;     */
-    font-size: 17px;
+    font-family: sans-serif;
+    font-size: 14px;
     font-weight: bold;
     text-decoration: none !important;
 }
 
 .site-navbar .site-navigation .site-menu > li > a:hover {
-    color: #f3ff4b;
+    color: #000000;
 }
 
 .site-navbar .site-navigation .site-menu .has-children {
@@ -543,7 +546,7 @@ a:active {
 }
 
 .site-navbar .site-navigation .site-menu .has-children .dropdown a {
-    font-size: 16px;
+    font-size: 14px;
     text-transform: none;
     letter-spacing: normal;
     -webkit-transition: 0s all;
@@ -639,7 +642,7 @@ a:active {
 .site-navbar .site-navigation .site-menu .has-children:hover > a,
 .site-navbar .site-navigation .site-menu .has-children:focus > a,
 .site-navbar .site-navigation .site-menu .has-children:active > a {
-    color: #f3ff4b;
+    color: #000000;
 }
 
 .site-navbar .site-navigation .site-menu .has-children:hover,
