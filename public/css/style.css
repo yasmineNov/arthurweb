@@ -331,6 +331,10 @@ a:active {
 }
 
 /* Navbar */
+.nav-item .nav-link.active {
+    background-color: yellow;
+    color: black;
+}
 .nav-item.hovered > .nav-link {
     background-color: yellow;
     color: black;

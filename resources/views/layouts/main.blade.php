@@ -71,6 +71,20 @@
         }
       });
     });
+      // JavaScript
+document.addEventListener("DOMContentLoaded", function () {
+    // Ambil semua elemen tautan menu
+    const menuLinks = document.querySelectorAll(".nav-link");
+
+    // Loop melalui setiap tautan menu
+    menuLinks.forEach(link => {
+        // Jika URL halaman saat ini cocok dengan tautan, tambahkan kelas "active"
+        if (link.getAttribute("href") === window.location.pathname) {
+            link.classList.add("active");
+        }
+    });
+});
+
   </script>
 </body>
 
