@@ -46,7 +46,7 @@
                     </div>
                   </div>
   
-                  <div class="col-6 col-md-4 order-3 order-md-3 text-right">
+                  <div class="col-6 col-md-4 order-3 order-md-3 d-flex flex-row-reverse text-right">
                     <div class="site-top-icons">
                       <ul>
                         <li><a href="#"><span class="icon icon-person"></span></a></li>
