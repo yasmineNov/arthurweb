@@ -9,15 +9,15 @@
       </div>
     </div>
   </div>
-  <a class="btn btn-primary mt-3" href="/frontartikel" role="button"><i class="fa-solid fa-circle-arrow-left"></i> Kembali</a>
+  {{-- <a class="btn btn-primary mt-3" href="/frontartikel" role="button"><i class="fa-solid fa-circle-arrow-left"></i> Kembali</a> --}}
 
-  <div class="text-center title-artikel mt-3 mb-3">
+  <div class="text-center title-artikel mt-5 mb-3">
     <h1>{{$artikel->judul}}</h1>
   </div>
   <div class="text-center mt-4 mb-3">             
     <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" style="aspect-ratio: 11 / 8" class="img-artikel" alt="...">
   </div>
-  <div class="text-right des-title mb-5">
+  <div class="text-right text-black mb-5">
     <p class="detail-artikel">{!!($artikel->konten)!!}</p>
   </div>
  @endsection
