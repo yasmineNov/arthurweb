@@ -12,8 +12,8 @@ class userController extends Controller
 {
     function home()
     {
-        $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate();
-        $dataPost = artikel::orderBy('idArtikel', 'desc')->paginate();
+        $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+        $dataPost = artikel::orderBy('idArtikel', 'desc')->paginate(4);
 
         return view('home', [
             "title" => "home",
