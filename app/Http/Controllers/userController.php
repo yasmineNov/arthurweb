@@ -48,7 +48,7 @@ class userController extends Controller
 
     function artikel()
     {
-        $data2 = artikel::orderBy('idArtikel', 'desc')->paginate();
+        $data2 = artikel::orderBy('idArtikel', 'desc')->paginate(4);
         return view('artikel', [
             "title" => "artikel"
         ])->with('data2', $data2);

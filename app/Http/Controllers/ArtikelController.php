@@ -17,7 +17,7 @@ class ArtikelController extends Controller
     public function index()
     {
         //
-        $data = artikel::orderBy('idArtikel', 'desc')->paginate();
+        $data = artikel::orderBy('idArtikel', 'desc')->paginate(4);
         return view('admin.artikel-admin', $data, [
             "title" => "artikel"
         ])->with('data', $data);
@@ -26,7 +26,7 @@ class ArtikelController extends Controller
     public function artikel()
     {
         //
-        $data = artikel::orderBy('idArtikel', 'desc')->paginate();
+        $data = artikel::orderBy('idArtikel', 'desc')->paginate(4);
         return view('admin.artikel-admin', $data, [
             "title" => "artikel"
         ])->with('data', $data);

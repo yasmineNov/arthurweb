@@ -34,7 +34,7 @@
                   <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
                     <h2 class="title-artikel text-center mb-0">{{$artikel->judul}}</h2>
                   </a>  
-                  <p class="card-text mt-0">{!!substr ($artikel->konten, 0,175)!!}.....<br></p> 
+                  <p class="card-text mt-0">{!!substr ($artikel->konten, 0,290)!!}.....<br></p> 
                          
                   {{-- <div class="d-flex flex-row-reverse">
                     <a class="btn btn-primary" href="{{ route('artikel.show',$artikel->idArtikel) }}">Selengkapnya</a>

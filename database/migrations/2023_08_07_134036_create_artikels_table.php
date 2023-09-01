@@ -15,7 +15,7 @@ return new class extends Migration
             $table->BigIncrements('idArtikel', 100);
             $table->string('img', 100);
             $table->string('judul', 100);
-            $table->text('konten', 100);
+            $table->text('konten');
             $table->string('slug', 100);
             $table->timestamps();
         });
