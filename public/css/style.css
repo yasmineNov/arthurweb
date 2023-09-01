@@ -332,11 +332,11 @@ a:active {
 
 /* Navbar */
 .nav-item .nav-link.active {
-    background-color: yellow;
+    background-color: rgb(255, 217, 0);
     color: black;
 }
 .nav-item.hovered > .nav-link {
-    background-color: yellow;
+    background-color: rgb(255, 217, 0);
     color: black;
 }
 .site-navbar {
