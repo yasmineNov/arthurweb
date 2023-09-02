@@ -49,6 +49,13 @@
     background-position: center;
 }
 
+.img-login {
+    width: 80%;
+    height: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .title-artikel {
     color: #000000;
     font-weight: bold;

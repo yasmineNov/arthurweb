@@ -16,10 +16,11 @@
             <div id="layoutAuthentication_content">
                 <main>
                     <div class="container mb-5">
-                        <div class="row justify-content-around">
-                            <div class="col vh-100">
+                        <div class="row">
+                            <div class="col vh-100 d-flex align-items-center justify-content-center">
+                            {{-- <div class="col-lg-6"> --}}
                                 <a>
-                                    <img src="{{asset('images/logiin.jpg')}}" style="aspect-ratio: auto" class="align-self-center" alt="...">
+                                    <img src="{{asset('images/logiin.jpg')}}" style="img-login" class="align-self-center" alt="...">
                                 </a> 
                             </div>
                             <div class="col align-self-center">
