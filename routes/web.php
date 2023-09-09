@@ -6,6 +6,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
@@ -57,6 +58,11 @@ use Illuminate\Support\Facades\Route;
 
 //LOGIN
 Route::get('/login', [LoginController::class, 'login']);
+Route::post('/login', [LoginController::class, 'authenticate']);
+
+//RESGISTER
+Route::get('/register', [RegisterController::class, 'register']);
+Route::post('/register', [RegisterController::class, 'store']);
 
 // ROUTES USER
 Route::resource('usr', CustomerController::class);

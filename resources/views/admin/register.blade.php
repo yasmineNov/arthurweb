@@ -12,64 +12,80 @@
     </head>
     {{-- <body class="bg-primary"> --}}
     <body>
+        {{-- //diperpendek// --}}
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
+
+              {{-- @if(session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  {{ session('success') }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+              @endif
+          
+              @if(session()->has('loginError'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  {{ session('loginError') }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+              @endif --}}
+
                 <main>
                     <div class="container mb-5">
-                        <div class="row justify-content-around">
-                            <div class="col vh-100">
-                                <a>
-                                    <img src="{{asset('images/register.jpg')}}" style="aspect-ratio: auto" class="align-self-center" alt="...">
-                                </a> 
+                        <div class="row">
+                            
+                            <div class="col-md-5 align-self-center">
+                                <div class="mb-5 d-flex justify-content-center">
+                                    <a class="nav-link" href="/">
+                                      <img src=" {{ asset('images/acmLogo.png') }}" alt="Image" class="img-fluid rounded" width="400px">
+                                    </a>
+                                  </div>
+                              <main class="form-registration">
+                                <h1 class="h3 mb-3 fw-900 text-center">Daftar</h1>
+                                <form action="/register" method="post">
+                                  @csrf
+                                  {{-- //Nama --}}
+                                  <div class="form-floating mb-2">
+                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="name" autofocus required value="{{ old('name') }}">
+                                    <label for="name">Username</label>
+                                    @error('name')
+                                      <div class="invalid-feedback">
+                                        {{ $message }}
+                                      </div>
+                                    @enderror
+                                  </div>
+                                  {{-- //Email --}}
+                                  <div class="form-floating mb-2">
+                                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" autofocus required value="{{ old('email') }}">
+                                    <label for="email">Alamat Email</label>
+                                    @error('email')
+                                      <div class="invalid-feedback">
+                                        {{ $message }}
+                                      </div>
+                                    @enderror
+                                  </div>
+                                  {{-- //Password --}}
+                                  <div class="form-floating mb-3">
+                                    <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                                    <label for="password">Password</label>
+                                  </div>
+                              
+                                  <button class="w-100 btn btn-lg btn-primary" type="submit">Daftar</button>
+                                </form>
+                                <small class="d-block text-center mt-3">Sudah Punya Akun? <a href="/login">Masuk Sekarang!</a></small>
                             </div>
-                            <div class="col align-self-center">
-                                <div class="card">
-                                    <div class="card-header bg-primary text-light"><h3 class="text-center font-weight-light my-4">Daftar</h3></div>
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="form-floating mb-3 mt-5">
-                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-                                                <label for="inputEmail">Email</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
-                                                <label for="inputPassword">Kata sandi</label>
-                                            </div>
-                                            <div class="form-check mb-3">
-                                                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                                <label class="form-check-label" for="inputRememberPassword">Ingat Sandi</label>
-                                            </div>
-                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.html">Lupa Pasword?</a>
-                                                <a class="btn btn-primary" href="/dashboard">Daftar</a>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.html">Sudah punya akun? Masuk! </a></div>
-                                    </div>
-                                </div>
+                            <div class="col vh-100 d-flex align-items-center justify-content-center">
+                                <a>
+                                    <img src="{{asset('images/register.jpg')}}" style="img-login" class="align-self-center" alt="...">
+                                </a> 
                             </div>
                         </div>
                     </div>
                 </main>
             </div>
-            {{-- <div id="layoutAuthentication_footer">
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div> --}}
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        </div>      
+        
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
     </body>
 </html>

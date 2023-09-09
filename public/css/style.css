@@ -30,6 +30,13 @@
     aspect-ratio: 9/16;
 }
 
+.login-logo {
+    height: 20rem;
+    width: 30rem;
+    /* position: absolute;
+    margin-top: -50px; */
+}
+
 .login-center {
     height: 100px;
     width: 100px;
