@@ -12,13 +12,13 @@
     </head>
     {{-- <body class="bg-primary"> --}}
     <body>
+        {{-- //diperpendek// --}}
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
                     <div class="container mb-5">
                         <div class="row">
                             <div class="col vh-100 d-flex align-items-center justify-content-center">
-                            {{-- <div class="col-lg-6"> --}}
                                 <a>
                                     <img src="{{asset('images/logiin.jpg')}}" style="img-login" class="align-self-center" alt="...">
                                 </a> 
@@ -55,22 +55,54 @@
                     </div>
                 </main>
             </div>
-            {{-- <div id="layoutAuthentication_footer">
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div> --}}
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        {{-- //LOGIN SANDIKA// --}}
+        {{-- <div class="row justify-content-center"> --}}
+            <div class="col-md-4">
+          
+              @if(session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  {{ session('success') }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+              @endif
+          
+              @if(session()->has('loginError'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  {{ session('loginError') }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+              @endif
+          
+              <main class="form-signin">
+                <h1 class="h3 mb-3 fw-normal text-center">Please login</h1>
+                <form action="/login" method="post">
+                  @csrf
+                  <div class="form-floating">
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" autofocus required value="{{ old('email') }}">
+                    <label for="email">Email address</label>
+                    @error('email')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
+                  </div>
+                  <div class="form-floating">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                    <label for="password">Password</label>
+                  </div>
+              
+                  <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+                </form>
+                <small class="d-block text-center mt-3">Not registered? <a href="/register">Register Now!</a></small>
+              </main>
+            </div>
+          </div>
+
+
+        
+        
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
     </body>
 </html>

@@ -5,6 +5,7 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
@@ -54,6 +55,9 @@ use Illuminate\Support\Facades\Route;
 //     ]);
 // });
 
+//LOGIN
+Route::get('/login', [LoginController::class, 'login']);
+
 // ROUTES USER
 Route::resource('usr', CustomerController::class);
 Route::get('/', [userController::class, 'home']);
@@ -69,7 +73,7 @@ Route::get('singleArtikel', [userController::class, 'singleArtikel']);
 Route::get('/produk/{id}', [produkController::class, 'show'])->name('produk.show');
 
 // ROUTES ADMIN
-Route::get('/login', [adminController::class, 'login']);
+// Route::get('/login', [adminController::class, 'login']);
 Route::get('/register', [adminController::class, 'register']);
 Route::get('/dashboard', [adminController::class, 'dashboard']);
 Route::get('/katalogpromo', [adminController::class, 'katalogpromo']);
