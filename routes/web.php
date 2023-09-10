@@ -57,11 +57,12 @@ use Illuminate\Support\Facades\Route;
 // });
 
 //LOGIN
-Route::get('/login', [LoginController::class, 'login']);
+Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
 //RESGISTER
-Route::get('/register', [RegisterController::class, 'register']);
+Route::get('/register', [RegisterController::class, 'register'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
 // ROUTES USER
@@ -73,15 +74,13 @@ Route::get('/checkout', [userController::class, 'checkout']);
 Route::get('/member', [userController::class, 'member']);
 Route::get('/katalog', [userController::class, 'katalog']);
 // Route::get('/deskripsikatalog', [userController::class, 'deskripsikatalog']);
-Route::get('/thanks', [userController::class, 'thanks']);
+// Route::get('/thanks', [userController::class, 'thanks']);
 Route::get('/frontartikel', [userController::class, 'artikel']);
 Route::get('singleArtikel', [userController::class, 'singleArtikel']);
 Route::get('/produk/{id}', [produkController::class, 'show'])->name('produk.show');
 
 // ROUTES ADMIN
-// Route::get('/login', [adminController::class, 'login']);
-Route::get('/register', [adminController::class, 'register']);
-Route::get('/dashboard', [adminController::class, 'dashboard']);
+Route::get('/dashboard', [adminController::class, 'dashboard'])->middleware('auth');
 Route::get('/katalogpromo', [adminController::class, 'katalogpromo']);
 Route::get('/toko', [adminController::class, 'toko']);
 

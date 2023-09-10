@@ -41,7 +41,12 @@
                         <li><a class="dropdown-item" href="#!">Pengaturan</a></li>
                         <li><a class="dropdown-item" href="#!">Log Aktivitas</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="/">Keluar</a></li>
+                        <form action="/logout" method="post">
+                            @csrf
+                              <button type="submit" class="dropdown-item">KELUAR</button>
+                          </form>
+
+                        {{-- <li><a class="dropdown-item" href="/">Keluar</a></li> --}}
                     </ul>
                 </li>
             </ul>

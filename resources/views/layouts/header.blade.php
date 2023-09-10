@@ -14,8 +14,22 @@
             </div>
             <div class="col-md-6">
               <ul class="site-menu d-flex align-items-center justify-content-end">
+                @auth
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Hai! {{ auth()->user()->name }} 
+                  </a>
+                    <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <form action="/logout" method="post">
+                      @csrf
+                        <button type="submit" class="dropdown-item">KELUAR</button>
+                    </form>
+                </li>
+                @else
                 <li><a class="btn btn-light" href="/login">Masuk</a></li>
                 <li><a class="btn btn-primary" href="/register">Daftar</a></li>
+                @endauth
               </ul>
             </div>
           </div>
