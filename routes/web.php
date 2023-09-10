@@ -80,7 +80,7 @@ Route::get('singleArtikel', [userController::class, 'singleArtikel']);
 Route::get('/produk/{id}', [produkController::class, 'show'])->name('produk.show');
 
 // ROUTES ADMIN
-Route::get('/dashboard', [adminController::class, 'dashboard'])->middleware('auth');
+Route::get('/dashboard', [adminController::class, 'dashboard'])->middleware('can:admin');
 Route::get('/katalogpromo', [adminController::class, 'katalogpromo']);
 Route::get('/toko', [adminController::class, 'toko']);
 
