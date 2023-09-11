@@ -16,9 +16,13 @@
               <ul class="site-menu d-flex align-items-center justify-content-end">
                 @auth
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Hai! {{ auth()->user()->name }} 
                   </a>
+                {{-- <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Hai! {{ auth()->user()->name }} 
+                  </a> --}}
 
                   @can('admin')
                   <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
