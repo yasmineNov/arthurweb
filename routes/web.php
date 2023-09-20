@@ -5,6 +5,7 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\userController;
@@ -64,6 +65,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 //RESGISTER
 Route::get('/register', [RegisterController::class, 'register'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
+
+//CART
+Route::post('/cart/{id}', [CartController::class, 'addcart'])->name('cart');;
 
 // ROUTES USER
 Route::resource('usr', CustomerController::class);

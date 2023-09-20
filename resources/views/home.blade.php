@@ -255,7 +255,14 @@
             <p class="card-text text-primary">{{ $item->kategori->namaKategori }}</p>
             <h6 class="card-text text-danger">Rp {{ $item->harga }}</h6>
             <div class="d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-              <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a>
+              <form action="{{url('cart', $item->idProduk)}}" method="POST">
+                @csrf
+              {{-- <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a> --}}
+              <input type="number" value="1" min="1" class="form-control" style="width:100px" name="quantity">
+              <br>
+              <input class="btn btn-primary shadow-0 me-1" type="submit" value="add cart">
+            </form>
+
               <a href="{{ route('produk.show', $item->idProduk) }}" class="btn btn-light shadow-0 me-1">Detail</a>
             </div>
           </div>

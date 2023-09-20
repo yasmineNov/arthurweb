@@ -40,6 +40,10 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('admin', function (User $user) {
             return $user->name == 'arthur';
         });
+
+        // Gate::define('notAdmin', function (User $user) {
+        //     return $user->name !== 'arthur';
+        // });
     }
     // protected $namespace = 'App\Http\Controllers';
 

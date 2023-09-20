@@ -6,20 +6,36 @@ namespace App\Http\Controllers;
 use App\Models\kategori;
 use App\Models\artikel;
 use App\Models\produk;
+use App\Models\cart;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class userController extends Controller
 {
     function home()
     {
-        $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
-        $dataPost = artikel::orderBy('idArtikel', 'desc')->paginate(4);
+        if (Auth::id()) {
+            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            $dataPost = artikel::orderBy('idArtikel', 'desc')->paginate(4);
 
-        return view('home', [
-            "title" => "home",
-            "data1" => $data1,
-            "dataPost" => $dataPost,
-        ]);
+            $user = auth()->user();
+            $count = cart::where('name', $user->name)->count();
+
+            return view('home', compact('count'), [
+                "title" => "home",
+                "data1" => $data1,
+                "dataPost" => $dataPost,
+            ]);
+        } else {
+            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            $dataPost = artikel::orderBy('idArtikel', 'desc')->paginate(4);
+
+            return view('home', [
+                "title" => "home",
+                "data1" => $data1,
+                "dataPost" => $dataPost,
+            ]);
+        }
     }
 
     function about()

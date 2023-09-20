@@ -72,17 +72,44 @@
   
                   <div class="col-6 col-md-4 order-3 order-md-3 d-flex flex-row-reverse text-right">
                     <div class="site-top-icons">
+                      {{-- @can('guest') --}}
+                      @if (Route::has('login'))
+                      @auth
+                      <ul>
+                        <li><a href="#"><span class="icon icon-person"></span></a></li>
+                        <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
+                        <li>
+                          
+                          
+
+                          <a href="/keranjang" class="site-cart">
+                            <span class="icon icon-shopping_cart">
+                            </span>
+                            {{-- <span class="count">{{ Cart::getTotalQuantity()}}</span> --}}
+                            <span class="count">{{$count}}</span>
+                          </a>
+
+                          
+
+                        </li>
+                        {{-- <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li> --}}
+                      </ul>
+                      @endauth
+                      @else
+
                       <ul>
                         <li><a href="#"><span class="icon icon-person"></span></a></li>
                         <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                         <li>
                           <a href="/keranjang" class="site-cart">
-                            <span class="icon icon-shopping_cart"></span>
-                            <span class="count">2</span>
+                            <span class="icon icon-shopping_cart">
+                            </span>
+                            {{-- <span class="count">{{ Cart::getTotalQuantity()}}</span> --}}
+                            <span class="count">0</span>
                           </a>
-                        </li>
-                        {{-- <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li> --}}
-                      </ul>
+
+                      @endif
+                    {{-- @endcan --}}
                     </div>
                   </div>
   
