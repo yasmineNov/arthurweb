@@ -87,6 +87,8 @@ Route::get('/produk/{id}', [produkController::class, 'show'])->name('produk.show
 Route::get('/dashboard', [adminController::class, 'dashboard'])->middleware('can:admin');
 Route::get('/katalogpromo', [adminController::class, 'katalogpromo']);
 Route::get('/toko', [adminController::class, 'toko']);
+Route::get('/slider', [adminController::class, 'slider']);
+
 
 Route::resource('customer', CustomerController::class);
 Route::get('member', [CustomerController::class, 'member']);
