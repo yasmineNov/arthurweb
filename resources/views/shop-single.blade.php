@@ -49,7 +49,7 @@
     
               <div class="mb-3">
                 <span class="h5">{{ $produk->harga }}</span>
-                <span class="text-muted">/per box</span>
+                <span class="text-muted">/per pcs</span>
               </div>
     
               <p>
@@ -61,10 +61,10 @@
                 <dd class="col-9">Regular</dd>
     
                 <dt class="col-3">Kategori</dt>
-                <dd class="col-9">Brown</dd>
+                <dd class="col-9">{!!$produk->kategori->namaKategori !!}</dd>
     
                 <dt class="col-3">Gramasi</dt>
-                <dd class="col-9">Cotton, Jeans</dd>
+                <dd class="col-9">{{ $produk->gramasi }} gsm</dd>
     
               </div>
     

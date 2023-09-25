@@ -80,6 +80,7 @@ class ProdukController extends Controller
         $produk->namaProduk = $request->namaProduk;
         $produk->idKategori = $request->kategori;
         $produk->harga = $request->harga;
+        $produk->gramasi = $request->gramasi;
         $produk->deskripsi = $request->deskripsi;
         $produk->save();
         // dd($request->all());
@@ -148,6 +149,7 @@ class ProdukController extends Controller
         $data = [
             'namaProduk' => $request->namaProduk,
             'idKategori' => $request->kategori,
+            'gramasi' => $request->gramasi,
             'harga' => $request->harga,
             'deskripsi' => $request->deskripsi,
         ];

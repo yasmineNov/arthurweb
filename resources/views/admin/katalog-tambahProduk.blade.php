@@ -66,6 +66,12 @@
                                 </div>
                             </div>
                             <div class="mb-3 row">
+                                <label for="gramasi" class="col-sm-2 col-form-label">Gramasi</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name='gramasi' id="gramasi"placeholder="Boleh dikosongi apabila produk tidak memiliki gramasi">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
                                 <label for="deskripsi" class="col-sm-2 col-form-label">deskripsi</label>
                                 <div class="col-sm-10">
                                     <textarea class="form-control" name='deskripsi' id="deskripsi" rows="5"></textarea>

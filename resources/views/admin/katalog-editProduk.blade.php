@@ -63,6 +63,12 @@
                                 </div>
                             </div>
                             <div class="mb-3 row">
+                                <label for="gramasi" class="col-sm-2 col-form-label">Gramasi</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name='gramasi' value="{{ $data->gramasi }}"  id="gramasi">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
                                 <label for="harga" class="col-sm-2 col-form-label">harga</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name='harga' value="{{ $data->harga }}"  id="harga">
