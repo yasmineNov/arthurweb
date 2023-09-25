@@ -72,6 +72,12 @@
                                 </div>
                             </div>
                             <div class="mb-3 row">
+                                <label for="jenis" class="col-sm-2 col-form-label">jenis</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name='jenis' id="jenis"placeholder="Boleh dikosongi apabila produk tidak memiliki jenis">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
                                 <label for="deskripsi" class="col-sm-2 col-form-label">deskripsi</label>
                                 <div class="col-sm-10">
                                     <textarea class="form-control" name='deskripsi' id="deskripsi" rows="5"></textarea>

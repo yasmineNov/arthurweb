@@ -39,6 +39,7 @@
                                 <th>Nama Produk</th>
                                 <th>Kategori</th>
                                 <th>Gramasi</th>
+                                <th>Jenis</th>
                                 <th>Harga</th>
                                 <th>Deksripsi</th>
                                 <th>Aksi</th>
@@ -50,6 +51,7 @@
                                 <th>Gambar</th>
                                 <th>Kategori</th>
                                 <th>Gramasi</th>
+                                <th>Jenis</th>
                                 <th>Harga</th>
                                 <th>Deksripsi</th>
                                 <th>Aksi</th>
@@ -64,6 +66,7 @@
                                 <td>{{ $item->namaProduk }}</td>
                                 <td>{{ $item->kategori->namaKategori }}</td>
                                 <td>{{ $item->gramasi }}</td>
+                                <td>{{ $item->jenis }}</td>
                                 <td>{{ $item->harga }}</td>
                                 <td>{{ $item->deskripsi }}</td>                           
                                 <td>

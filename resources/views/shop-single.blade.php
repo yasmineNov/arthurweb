@@ -57,8 +57,8 @@
               </p>
     
               <div class="row">
-                <dt class="col-3">Bahan:</dt>
-                <dd class="col-9">Regular</dd>
+                <dt class="col-3">Jenis:</dt>
+                <dd class="col-9">{{ $produk->jenis }} </dd>
     
                 <dt class="col-3">Kategori</dt>
                 <dd class="col-9">{!!$produk->kategori->namaKategori !!}</dd>
