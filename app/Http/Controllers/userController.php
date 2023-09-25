@@ -49,9 +49,19 @@ class userController extends Controller
     }
     function keranjang()
     {
-        return view('cart', [
-            "title" => "Keranjang"
-        ]);
+        if (Auth::id()) {
+
+            $user = auth()->user();
+            $count = cart::where('name', $user->name)->count();
+
+            return view('cart', compact('count'), [
+                "title" => "Keranjang"
+            ]);
+        } else {
+            return view('cart', [
+                "title" => "Keranjang"
+            ]);
+        }
     }
 
     function kategori()

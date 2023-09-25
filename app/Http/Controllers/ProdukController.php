@@ -10,6 +10,8 @@ use App\Http\Requests\UpdateprodukRequest;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use App\Models\cart;
+use Illuminate\Support\Facades\Auth;
 
 class ProdukController extends Controller
 {
@@ -89,7 +91,17 @@ class ProdukController extends Controller
      * Display the specified resource.
      */
     public function show($id)
-    { {
+    {
+        if (Auth::id()) {
+            $produk = produk::findOrFail($id);
+            $user = auth()->user();
+            $count = cart::where('name', $user->name)->count();
+
+            return view('shop-single', compact('count'), [
+                'title' => $produk->namaProduk,
+                'produk' => $produk,
+            ]);
+        } else {
             $produk = produk::findOrFail($id);
 
             return view('shop-single', [
