@@ -68,6 +68,7 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 //CART
 Route::post('/cart/{id}', [CartController::class, 'addcart'])->name('cart');;
+Route::resource('cart', CartController::class);
 
 // ROUTES USER
 Route::resource('usr', CustomerController::class);

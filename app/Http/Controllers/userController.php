@@ -51,18 +51,31 @@ class userController extends Controller
     {
         if (Auth::id()) {
 
+            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+
             $user = auth()->user();
             $count = cart::where('name', $user->name)->count();
 
             return view('cart', compact('count'), [
-                "title" => "Keranjang"
+                "title" => "Keranjang",
+                "data1" => $data1
             ]);
         } else {
+            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+
             return view('cart', [
-                "title" => "Keranjang"
+                "title" => "Keranjang",
+                "data1" => $data1,
             ]);
         }
     }
+
+    // public function destroy(cart $cart)
+    // {
+    //     //
+    //     $cart->delete();
+    //     return redirect()->to('cart');
+    // }
 
     function kategori()
     {

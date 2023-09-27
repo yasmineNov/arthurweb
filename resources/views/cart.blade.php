@@ -26,14 +26,15 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach ($data1 as $item)
                   <tr>
                     <td class="product-thumbnail">
-                      <img src="images/cloth_1.jpg" alt="Image" class="img-fluid">
+                      <img src="{{asset('storage/image-produk/'.$item->img)}}" alt="Image" class="img-fluid">
                     </td>
                     <td class="product-name">
-                      <h2 class="h5 text-black">Top Up T-Shirt</h2>
+                      <h2 class="h5 text-black">{{ $item->namaProduk }}</h2>
                     </td>
-                    <td>$49.00</td>
+                    <td>Rp {{ $item->harga }}</td>
                     <td>
                       <div class="input-group mb-3" style="max-width: 120px;">
                         <div class="input-group-prepend">
@@ -46,34 +47,21 @@
                       </div>
 
                     </td>
+                    {{-- // subtotal = harga * qty ; --}}
                     <td>$49.00</td>
-                    <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
-                  </tr>
+                    
+                    {{-- <form action="{{ route('cart.destroy',$cart->id) }}" method="POST">
+                    
+                    @csrf
+                    @method('DELETE') --}}
+                    <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i>   Delete</button></td>
 
-                  <tr>
-                    <td class="product-thumbnail">
-                      <img src="images/cloth_2.jpg" alt="Image" class="img-fluid">
-                    </td>
-                    <td class="product-name">
-                      <h2 class="h5 text-black">Polo Shirt</h2>
-                    </td>
-                    <td>$49.00</td>
-                    <td>
-                      <div class="input-group mb-3" style="max-width: 120px;">
-                        <div class="input-group-prepend">
-                          <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
-                        </div>
-                        <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                        </div>
-                      </div>
+                    {{-- </form> --}}
 
-                    </td>
-                    <td>$49.00</td>
-                    <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
+                    {{-- <td><a type="submit" class="btn btn-primary btn-sm">X</a></td> --}}
                   </tr>
                 </tbody>
+                @endforeach
               </table>
             </div>
           </form>
