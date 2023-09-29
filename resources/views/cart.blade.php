@@ -9,6 +9,8 @@
       </div>
     </div>
 
+    {{-- <h1>{{$user}}</h1> --}}
+
     <div class="site-section">
       <div class="container">
         <div class="row mb-5">

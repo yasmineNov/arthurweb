@@ -55,7 +55,7 @@ class CustomerController extends Controller
                 "title" => "Contact"
             ]);
         } else {
-            return view('contact', compact('count'), [
+            return view('contact', [
                 "title" => "Contact"
             ]);
         }

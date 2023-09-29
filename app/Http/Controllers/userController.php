@@ -54,7 +54,7 @@ class userController extends Controller
                 "image" => "acm.png"
             ]);
         } else {
-            return view('about', compact('count'), [
+            return view('about', [
                 "title" => "About",
                 "name" => "Arthur citra Media",
                 "email" => "acmbratang09@gmail.com",
@@ -115,7 +115,7 @@ class userController extends Controller
         } else {
             $data2 = artikel::orderBy('idArtikel', 'desc')->paginate(4);
 
-            return view('artikel', compact('count'), [
+            return view('artikel', [
                 "title" => "artikel"
             ])->with('data2', $data2);
         }
@@ -143,7 +143,7 @@ class userController extends Controller
             $user = auth()->user();
             $count = cart::where('name', $user->name)->count();
 
-            return view('contact', compact('count'), [
+            return view('contact', [
                 "title" => "Member"
             ]);
         } else {
@@ -163,7 +163,7 @@ class userController extends Controller
                 "title" => "Katalog"
             ]);
         } else {
-            return view('shop', compact('count'), [
+            return view('shop', [
                 "title" => "Katalog"
             ]);
         }
