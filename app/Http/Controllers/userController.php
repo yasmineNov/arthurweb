@@ -40,12 +40,27 @@ class userController extends Controller
 
     function about()
     {
-        return view('about', [
-            "title" => "About",
-            "name" => "Arthur citra Media",
-            "email" => "acmbratang09@gmail.com",
-            "image" => "acm.png"
-        ]);
+        if (Auth::id()) {
+
+            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+
+            $user = auth()->user();
+            $count = cart::where('name', $user->name)->count();
+
+            return view('about', compact('count'), [
+                "title" => "About",
+                "name" => "Arthur citra Media",
+                "email" => "acmbratang09@gmail.com",
+                "image" => "acm.png"
+            ]);
+        } else {
+            return view('about', compact('count'), [
+                "title" => "About",
+                "name" => "Arthur citra Media",
+                "email" => "acmbratang09@gmail.com",
+                "image" => "acm.png"
+            ]);
+        }
     }
     function keranjang()
     {
@@ -87,10 +102,23 @@ class userController extends Controller
 
     function artikel()
     {
-        $data2 = artikel::orderBy('idArtikel', 'desc')->paginate(4);
-        return view('artikel', [
-            "title" => "artikel"
-        ])->with('data2', $data2);
+        if (Auth::id()) {
+            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            $user = auth()->user();
+            $count = cart::where('name', $user->name)->count();
+
+            $data2 = artikel::orderBy('idArtikel', 'desc')->paginate(4);
+
+            return view('artikel', compact('count'), [
+                "title" => "artikel"
+            ])->with('data2', $data2);
+        } else {
+            $data2 = artikel::orderBy('idArtikel', 'desc')->paginate(4);
+
+            return view('artikel', compact('count'), [
+                "title" => "artikel"
+            ])->with('data2', $data2);
+        }
     }
 
     // public function show($id)
@@ -110,16 +138,37 @@ class userController extends Controller
     }
     function member()
     {
-        return view('contact', [
-            "title" => "Member"
-        ]);
+        if (Auth::id()) {
+            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            $user = auth()->user();
+            $count = cart::where('name', $user->name)->count();
+
+            return view('contact', compact('count'), [
+                "title" => "Member"
+            ]);
+        } else {
+            return view('contact', [
+                "title" => "Member"
+            ]);
+        }
     }
     function katalog()
     {
-        return view('shop', [
-            "title" => "Katalog"
-        ]);
+        if (Auth::id()) {
+            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            $user = auth()->user();
+            $count = cart::where('name', $user->name)->count();
+
+            return view('shop', compact('count'), [
+                "title" => "Katalog"
+            ]);
+        } else {
+            return view('shop', compact('count'), [
+                "title" => "Katalog"
+            ]);
+        }
     }
+
     function deskripsikatalog()
     {
         return view('shop-single', [

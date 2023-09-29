@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\customer;
+use App\Models\cart;
+use App\Models\produk;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorecustomerRequest;
 use App\Http\Requests\UpdatecustomerRequest;
 
@@ -22,17 +25,40 @@ class CustomerController extends Controller
     }
     function customer()
     {
-        $data = customer::orderBy('idCustomer', 'desc')->paginate();
-        return view('admin.customer', $data, [
-            "title" => "customer"
-        ])->with('data', $data);
+        if (Auth::id()) {
+            $data = customer::orderBy('idCustomer', 'desc')->paginate();
+            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            $user = auth()->user();
+            $count = cart::where('name', $user->name)->count();
+
+            return view('admin.customer', compact('count'), $data, [
+                "title" => "customer"
+            ])->with('data', $data);
+        } else {
+
+            $data = customer::orderBy('idCustomer', 'desc')->paginate();
+            return view('admin.customer', $data, [
+                "title" => "customer"
+            ])->with('data', $data);
+        }
     }
 
     function member()
     {
-        return view('contact', [
-            "title" => "Contact"
-        ]);
+        if (Auth::id()) {
+            $data = customer::orderBy('idCustomer', 'desc')->paginate();
+            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            $user = auth()->user();
+            $count = cart::where('name', $user->name)->count();
+
+            return view('contact', compact('count'), [
+                "title" => "Contact"
+            ]);
+        } else {
+            return view('contact', compact('count'), [
+                "title" => "Contact"
+            ]);
+        }
     }
 
     /**
