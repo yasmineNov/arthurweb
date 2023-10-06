@@ -28,21 +28,21 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($data1 as $item)
                   <tr>
+                    @foreach ($cart as $item) 
                     <td class="product-thumbnail">
                       <img src="{{asset('storage/image-produk/'.$item->img)}}" alt="Image" class="img-fluid">
                     </td>
                     <td class="product-name">
-                      <h2 class="h5 text-black">{{ $item->namaProduk }}</h2>
+                      <h2 class="h5 text-black">{{ $item->product_title }}</h2>
                     </td>
-                    <td>Rp {{ $item->harga }}</td>
+                    <td>Rp {{ $item->price }}</td>
                     <td>
                       <div class="input-group mb-3" style="max-width: 120px;">
                         <div class="input-group-prepend">
                           <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                         </div>
-                        <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <input type="text" class="form-control text-center" value="{{ $item->quantity }}" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
                           <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                         </div>
@@ -50,11 +50,13 @@
 
                     </td>
                     {{-- // subtotal = harga * qty ; --}}
-                    <td>$49.00</td>
+                    <td>Rp {{ $item->price * $item->quantity }}</td>
                     
-                    {{-- <form action="{{ route('cart.destroy',$cart->id) }}" method="POST">
+                    {{-- <form action="{{ route('cart.destroy',$item->id) }}" method="POST"> --}}
+
+                    {{-- <form action="{{ route('deletecart',$cart->id) }}" method="POST"> --}}
                     
-                    @csrf
+                    {{-- @csrf
                     @method('DELETE') --}}
                     <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i>   Delete</button></td>
 
