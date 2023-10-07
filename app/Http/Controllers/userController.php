@@ -64,25 +64,37 @@ class userController extends Controller
     }
     function keranjang()
     {
-        if (Auth::id()) {
+        // Ambil semua item keranjang untuk pengguna saat ini
+        $itemsKeranjang = cart::where('name', auth()->user()->name)->get();
 
-            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+        // Muat produk yang sesuai untuk setiap item dalam keranjang
+        foreach ($itemsKeranjang as $item) {
+        $item->load('produk'); // Ini akan memuat produk yang sesuai ke dalam properti 'product' pada setiap item keranjang
+         }
 
-            $user = auth()->user();
-            $count = cart::where('name', $user->name)->count();
+        // Kemudian kirim data ke tampilan
+        return view('cart', compact('itemsKeranjang'));
 
-            return view('cart', compact('count'), [
-                "title" => "Keranjang",
-                "data1" => $data1
-            ]);
-        } else {
-            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
 
-            return view('cart', [
-                "title" => "Keranjang",
-                "data1" => $data1,
-            ]);
-        }
+        // if (Auth::id()) {
+
+        //     $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+
+        //     $user = auth()->user();
+        //     $count = cart::where('name', $user->name)->count();
+
+        //     return view('cart', compact('count'), [
+        //         "title" => "Keranjang",
+        //         "data1" => $data1
+        //     ]);
+        // } else {
+        //     $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+
+        //     return view('cart', [
+        //         "title" => "Keranjang",
+        //         "data1" => $data1,
+        //     ]);
+        // }
     }
 
     // public function destroy(cart $cart)

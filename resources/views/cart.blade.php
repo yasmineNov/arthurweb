@@ -28,15 +28,30 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($data1 as $item)
+                  @foreach (itemsKeranjang as $item)
                   <tr>
                     <td class="product-thumbnail">
-                      <img src="{{asset('storage/image-produk/'.$item->img)}}" alt="Image" class="img-fluid">
+                    @if ($item->produk)
+                <img src="{{ asset('storage/image-produk/' . $item->produk->img) }}" alt="Image" class="img-fluid">
+                @else
+                <!-- Handle jika produk tidak ditemukan -->
+                <p>Produk tidak ditemukan</p>
+                @endif
                     </td>
                     <td class="product-name">
-                      <h2 class="h5 text-black">{{ $item->namaProduk }}</h2>
+                    @if ($item->produk)
+                <h2 class="h5 text-black">{{ $item->produk->namaProduk }}</h2>
+                  @else
+                <!-- Handle jika produk tidak ditemukan -->
+                  <p>Produk tidak ditemukan</p>
+                  @endif
                     </td>
-                    <td>Rp {{ $item->harga }}</td>
+                    @if ($item->product)
+                <h2 class="h5 text-black">{{ $item->produk->harga }}</h2>
+            @else
+                <!-- Handle jika produk tidak ditemukan -->
+                <p>Produk tidak ditemukan</p>
+            @endif
                     <td>
                       <div class="input-group mb-3" style="max-width: 120px;">
                         <div class="input-group-prepend">

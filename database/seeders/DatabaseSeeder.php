@@ -35,29 +35,29 @@ class DatabaseSeeder extends Seeder
         ]);
 
         //kategori
-        kategori::create([
-            'namaKategori' => 'indoor'
-        ]);
-        kategori::create([
-            'namaKategori' => 'outdoor'
-        ]);
-        kategori::create([
-            'namaKategori' => 'UV'
-        ]);
-        kategori::create([
-            'namaKategori' => 'A3'
-        ]);
+        // kategori::create([
+        //     'namaKategori' => 'indoor'
+        // ]);
+        // kategori::create([
+        //     'namaKategori' => 'outdoor'
+        // ]);
+        // kategori::create([
+        //     'namaKategori' => 'UV'
+        // ]);
+        // kategori::create([
+        //     'namaKategori' => 'A3'
+        // ]);
 
         //produk
-        produk::create([
-            'namaProduk' => 'mug',
-            'harga' => '25000',
-            'deskripsi' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,'
-        ]);
-        produk::create([
-            'namaProduk' => 'XBanner',
-            'harga' => '48000',
-            'deskripsi' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,'
-        ]);
+        // produk::create([
+        //     'namaProduk' => 'mug',
+        //     'harga' => '25000',
+        //     'deskripsi' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,'
+        // ]);
+        // produk::create([
+        //     'namaProduk' => 'XBanner',
+        //     'harga' => '48000',
+        //     'deskripsi' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,'
+        // ]);
     }
 }
