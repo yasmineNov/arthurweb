@@ -64,37 +64,27 @@ class userController extends Controller
     }
     function keranjang()
     {
-        // Ambil semua item keranjang untuk pengguna saat ini
-        $itemsKeranjang = cart::where('name', auth()->user()->name)->get();
+        if (Auth::id()) {
 
-        // Muat produk yang sesuai untuk setiap item dalam keranjang
-        foreach ($itemsKeranjang as $item) {
-        $item->load('produk'); // Ini akan memuat produk yang sesuai ke dalam properti 'product' pada setiap item keranjang
-         }
+            $user = auth()->user();
+            // $cart = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);
+            $cart = cart::where('name', $user->name)->with('produk')->orderBy('idProduk', 'desc')->paginate(4);;
+            $count = cart::where('name', $user->name)->count();
 
-        // Kemudian kirim data ke tampilan
-        return view('cart', compact('itemsKeranjang'));
+            return view('cart', compact('count'), [
+                "title" => "Keranjang",
+                // "data1" => $data1,
+                // "pict" => $pict,
+                "cart" => $cart
+            ]);
+        } else {
+            $data1 = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);
 
-
-        // if (Auth::id()) {
-
-        //     $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
-
-        //     $user = auth()->user();
-        //     $count = cart::where('name', $user->name)->count();
-
-        //     return view('cart', compact('count'), [
-        //         "title" => "Keranjang",
-        //         "data1" => $data1
-        //     ]);
-        // } else {
-        //     $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
-
-        //     return view('cart', [
-        //         "title" => "Keranjang",
-        //         "data1" => $data1,
-        //     ]);
-        // }
+            return view('cart', [
+                "title" => "Keranjang",
+                "data1" => $data1,
+            ]);
+        }
     }
 
     // public function destroy(cart $cart)

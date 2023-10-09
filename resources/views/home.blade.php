@@ -259,7 +259,7 @@
               <form action="{{url('cart', $item->idProduk)}}" method="POST">
                 @csrf
               {{-- <a href="#!" class="btn btn-primary shadow-0 me-1">Add to cart</a> --}}
-              {{-- <input type="number" value="1" min="1" class="form-control" style="width:100px" name="quantity">
+              {{-- <input type="number"  min="1" class="form-control" style="width:100px" name="quantity">
               <br> --}}
               <input class="btn btn-primary shadow-0 me-1" type="submit" value="add cart">
             </form>

@@ -9,8 +9,13 @@ use App\Models\produk;
 class cart extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id';
+    protected $fillable = ['id', 'name', 'idProduk'];
+    protected $table = 'carts';
+    public $timestamps = false;
+
     public function produk()
     {
-        return $this->belongsTo(produk::class, 'idProduk');
+        return $this->belongsTo(produk::class, 'idProduk', 'idProduk');
     }
 }
