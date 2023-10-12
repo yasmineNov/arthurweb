@@ -12,13 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('produks', function (Blueprint $table) {
-            $table->increments('idProduk', 100);
+            $table->bigIncrements('idProduk'); // Menggunakan big integer secara eksplisit
             $table->string('namaProduk', 100);
             $table->integer('harga')->nullable();
             $table->text('deskripsi', 100)->nullable();
-            $table->BigInteger('idKategori')->unsigned()->nullable();
+            $table->unsignedBigInteger('idKategori')->nullable();
+            
             $table->foreign('idKategori')
                 ->references('idKategori')->on('kategoris');
+                
             $table->timestamps();
             $table->softDeletesTz($column = 'deleted_at', $precision = 0);
         });

@@ -12,15 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('carts', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->nullable();
-            $table->string('img')->nullable();
-            // $table->string('phone')->nullable();
-            // $table->string('adress')->nullable();
-            $table->string('product_title')->nullable();
-            $table->string('quantity')->nullable();
-            $table->integer('price')->nullable();
-            $table->timestamps();
+
+            $table->id(); // Kolom id otomatis yang bertipe big integer
+            $table->string('name'); // Kolom name
+            $table->unsignedBigInteger('idProduk'); // Kolom idProduk yang bertipe unsigned big integer
+            
+            // Menambahkan foreign key constraint
+            $table->foreign('idProduk')
+                ->references('idProduk')
+                ->on('produks')
+                ->onDelete('cascade'); // Menambahkan constraint ON DELETE CASCADE
+            
+            $table->timestamps(); // Kolom created_at dan updated_at
+
         });
     }
 

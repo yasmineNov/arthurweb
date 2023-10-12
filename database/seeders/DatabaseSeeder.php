@@ -35,20 +35,21 @@ class DatabaseSeeder extends Seeder
         ]);
 
         //kategori
-        kategori::create([
-            'namaKategori' => 'indoor'
-        ]);
-        kategori::create([
-            'namaKategori' => 'outdoor'
-        ]);
-        kategori::create([
-            'namaKategori' => 'UV'
-        ]);
-        kategori::create([
-            'namaKategori' => 'A3'
-        ]);
+        // kategori::create([
+        //     'namaKategori' => 'indoor'
+        // ]);
+        // kategori::create([
+        //     'namaKategori' => 'outdoor'
+        // ]);
+        // kategori::create([
+        //     'namaKategori' => 'UV'
+        // ]);
+        // kategori::create([
+        //     'namaKategori' => 'A3'
+        // ]);
 
         //produk
+
         produk::create([
             'namaProduk' => 'mug',
             'harga' => '25000',

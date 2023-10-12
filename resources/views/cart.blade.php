@@ -31,12 +31,14 @@
                   <tr>
                     @foreach ($cart as $item) 
                     <td class="product-thumbnail">
-                      <img src="{{asset('storage/image-produk/'.$item->img)}}" alt="Image" class="img-fluid">
+                      <img src="{{asset('storage/image-produk/'.$item->produk->img)}}" alt="Image" class="img-fluid">
                     </td>
                     <td class="product-name">
-                      <h2 class="h5 text-black">{{ $item->product_title }}</h2>
+
+                      <h2 class="h5 text-black">{{ $item->produk->namaProduk }} </h2>
                     </td>
-                    <td>Rp {{ $item->price }}</td>
+                    <td>Rp {{ $item->produk->harga }}</td>
+
                     <td>
                       <div class="input-group mb-3" style="max-width: 120px;">
                         <div class="input-group-prepend">
