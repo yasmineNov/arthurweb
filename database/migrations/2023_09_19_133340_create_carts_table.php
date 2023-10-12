@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('carts', function (Blueprint $table) {
+
             $table->id(); // Kolom id otomatis yang bertipe big integer
             $table->string('name'); // Kolom name
             $table->unsignedBigInteger('idProduk'); // Kolom idProduk yang bertipe unsigned big integer
@@ -23,6 +24,7 @@ return new class extends Migration
                 ->onDelete('cascade'); // Menambahkan constraint ON DELETE CASCADE
             
             $table->timestamps(); // Kolom created_at dan updated_at
+
         });
     }
 

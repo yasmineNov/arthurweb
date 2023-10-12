@@ -22,7 +22,9 @@ class CartController extends Controller
 
             $cart = new cart;
             $cart->name = $user->name;
+
             $cart->idProduk = $produk->idProduk;
+
 
             $cart->save();
 
@@ -46,6 +48,16 @@ class CartController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
+    public function deletecart($id)
+    {
+        //
+        $data = cart::find($id);
+        $data->delete();
+        //  return redirect()->to('cart');
+        return redirect()->back();
+    }
+
     public function create()
     {
         //
@@ -86,26 +98,31 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(cart $cart, $id)
+    public function destroy(cart $cart)
     {
         //
 
         if (Auth::id()) {
-            $user = auth()->user();
 
-            $produk = produk::find($id);
+            // $produk = produk::find($id);
+            // $cart = cart::find($id);
+            // $cart = cart::where('name', $user->name)->get($id);
 
-            $cart = new cart;
-            $cart->name = $user->name;
-            $cart->product_title = $produk->namaProduk;
-            $cart->price = $produk->harga;
-            // $cart->quantity = $request->quantity;
+            // $cart = new cart;
+            // $cart->name = $user->name;
+            // $cart->img = $produk->img;
+            // $cart->product_title = $produk->namaProduk;
+            // $cart->quantity = $produk->harga;
+            // $cart->price = $produk->harga;
+
+            // $user = auth()->user();
 
             $cart->delete();
             return redirect()->to('cart');
 
             // return redirect()->back();
         } else {
+            // $cart = cart::find($id);
             $cart->delete();
             return redirect()->to('cart');
         }
