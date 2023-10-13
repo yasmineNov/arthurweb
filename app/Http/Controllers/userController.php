@@ -9,7 +9,7 @@ use App\Models\produk;
 use App\Models\cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class userController extends Controller
 {
     function home()
@@ -69,8 +69,24 @@ class userController extends Controller
             $user = auth()->user();
 
             // $cart = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);
-            $cart = cart::where('name', $user->name)->with('produk')->orderBy('idProduk', 'desc')->paginate(4);;
+            $kol = DB::table('carts')
+                        ->select('carts.id', 'carts.qty', 'produks.harga','carts.name')
+                        ->leftjoin('produks', 'produks.idProduk', '=', 'carts.idProduk')
+                        ->where('carts.name', $user->name)
+                        ->orderBy('carts.idProduk', 'desc')
+                        ->get();
+            $cart = cart::find($user->id)->with('produk')->orderBy('idProduk', 'desc')->get();
+            if($kol){
+                $tampung = [];
+                foreach ($kol as $key => $value) {
 
+                    $tampung[] += ($kol[$key]->qty * $kol[$key]->harga);
+                }
+                $hasil = 0;
+                foreach($tampung as $key => $value){
+                    $hasil += $value;
+                }
+            }
             $count = cart::where('name', $user->name)->count();
 
             return view('cart', compact('count'), [
@@ -79,7 +95,9 @@ class userController extends Controller
                 // "data1" => $data1,
 
                 // "pict" => $pict,
-                "cart" => $cart
+                "cart" => $cart,
+                "subtotal" => $tampung,
+                "total" => $hasil,
             ]);
         } else {
             $data1 = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);

@@ -29,7 +29,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    @foreach ($cart as $item) 
+                    @foreach ($cart as [$key]-> $item) 
                     <td class="product-thumbnail">
                       <img src="{{asset('storage/image-produk/'.$item->produk->img)}}" alt="Image" class="img-fluid">
                     </td>
@@ -44,7 +44,7 @@
                         <div class="input-group-prepend">
                           <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                         </div>
-                        <input type="text" class="form-control text-center" value="{{ $item->quantity }}" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <input type="text" class="form-control text-center" value="{{ $item->qty }}" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
                           <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                         </div>
@@ -52,7 +52,7 @@
 
                     </td>
                     {{-- // subtotal = harga * qty ; --}}
-                    <td>Rp {{ $item->price * $item->quantity }}</td>
+                    <td>Rp {{ $item->$tampung }}</td>
                     
                     {{-- <form action="{{ route('cart.destroy',$item->id) }}" method="POST"> --}}
 
@@ -117,7 +117,7 @@
                     <span class="text-black">Total</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
+                    <strong class="text-black">{{ $item->$hasil }}</strong>
                   </div>
                 </div>
 
