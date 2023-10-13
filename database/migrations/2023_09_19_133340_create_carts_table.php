@@ -16,13 +16,15 @@ return new class extends Migration
             $table->id(); // Kolom id otomatis yang bertipe big integer
             $table->string('name'); // Kolom name
             $table->unsignedBigInteger('idProduk'); // Kolom idProduk yang bertipe unsigned big integer
-            
+            $table->integer('qty')->nullable();
+            $table->integer('subtotal')->nullable();
+
             // Menambahkan foreign key constraint
             $table->foreign('idProduk')
                 ->references('idProduk')
                 ->on('produks')
                 ->onDelete('cascade'); // Menambahkan constraint ON DELETE CASCADE
-            
+
             $table->timestamps(); // Kolom created_at dan updated_at
 
         });

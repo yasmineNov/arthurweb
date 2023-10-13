@@ -22,9 +22,10 @@ class CartController extends Controller
 
             $cart = new cart;
             $cart->name = $user->name;
+            $cart->qty = $request->qty;
+            $cart->subtotal = $request->qty * $produk->price;
 
             $cart->idProduk = $produk->idProduk;
-
 
             $cart->save();
 

@@ -69,15 +69,12 @@ class userController extends Controller
             $user = auth()->user();
 
             // $cart = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);
-            $cart = cart::where('name', $user->name)->with('produk')->orderBy('idProduk', 'desc')->paginate(4);;
-
+            $cart = cart::where('name', $user->name)->with('produk')->orderBy('idProduk', 'desc')->paginate(4);
             $count = cart::where('name', $user->name)->count();
 
             return view('cart', compact('count'), [
                 "title" => "Keranjang",
-
                 // "data1" => $data1,
-
                 // "pict" => $pict,
                 "cart" => $cart
             ]);
