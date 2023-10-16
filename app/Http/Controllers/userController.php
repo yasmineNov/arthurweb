@@ -62,6 +62,7 @@ class userController extends Controller
             ]);
         }
     }
+
     function keranjang()
     {
         if (Auth::id()) {
@@ -155,22 +156,43 @@ class userController extends Controller
             ]);
         }
     }
+
     function katalog()
     {
         if (Auth::id()) {
-            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            $katalog = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            // $kategori = kategori::orderBy('idKategori', 'desc')->paginate(4);
+            $kategori = kategori::all();
             $user = auth()->user();
             $count = cart::where('name', $user->name)->count();
 
             return view('shop', compact('count'), [
-                "title" => "Katalog"
+                "title" => "Katalog",
+                "kategori" => $kategori,
+                "katalog" => $katalog,
+                // ])->with('katalog', $katalog);
             ]);
         } else {
+            $katalog = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            // $kategori = kategori::orderBy('idKategori', 'desc')->paginate();
+            $kategori = kategori::all();
             return view('shop', [
-                "title" => "Katalog"
+                "title" => "Katalog",
+                "kategori" => $kategori,
+                "katalog" => $katalog,
+                // ])->with('katalog', $katalog);
             ]);
         }
     }
+
+    // public function shop_kategori()
+    // {
+    //     //
+    //     $data_kategori = kategori::orderBy('idKategori', 'desc')->paginate();
+    //     return view('shop', $data_kategori, [
+    //         "title" => "kategori"
+    //     ])->with('data', $data_kategori);
+    // }
 
     function deskripsikatalog()
     {

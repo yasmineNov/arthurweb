@@ -16,10 +16,11 @@
           <div class="col-md-9 order-2">
 
             <div class="row">
-              <div class="col-md-12 mb-5">
-                <div class="float-md-left mb-4"><h2 class="text-black h5">Shop All</h2></div>
-                <div class="d-flex">
-                  <div class="dropdown mr-1 ml-md-auto">
+              <div class="col-md-12 mb-5 d-flex justify-content-between">
+                <div class="float-md-left mb-4">
+                  <h2 class="text-black h5">Shop All</h2>
+                </div>
+                  {{-- <div class="dropdown mr-1 ml-md-auto">
                     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Latest
                     </button>
@@ -39,161 +40,39 @@
                       <a class="dropdown-item" href="#">Price, low to high</a>
                       <a class="dropdown-item" href="#">Price, high to low</a>
                     </div>
-                  </div>
+                  </div> --}}
+
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Kategori
+                    </button>
+                    <ul class="dropdown-menu">
+                      @foreach ($katalog as $item) 
+                      <li><button class="dropdown-item" type="button">{{$item->kategori->namaKategori}}</button></li>
+                      @endforeach
+                    </ul>
                 </div>
+
               </div>
             </div>
             <div class="row mb-5">
 
+              @foreach ($katalog as $item)
               <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                 <div class="block-4 text-center border">
                   <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="images/banner280.jpg" alt="Image placeholder" class="img-fluid"></a>
+                    <img src="{{asset('storage/image-produk/'.$item->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" />
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">Banner V280gr</a></h3>
-                    <p class="mb-0">Outdoor</p>
-                    <p class="text-primary font-weight-bold">Rp.12.000/m</p>
+                    {{-- <h3><a href="shop-single.html">{{$katalog->img}}</a></h3> --}}
+                    
+                    <p class="mb-0">{{$item->namaProduk}}</p>
+                    <p class="text-primary font-weight-bold">{{$item->harga}}</p>
                   </div>
                 </div>
               </div>
-              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                <div class="block-4 text-center border">
-                  <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="images/banner280.jpg" alt="Image placeholder" class="img-fluid"></a>
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">Banner V340gr</a></h3>
-                    <p class="mb-0">Outdoor</p>
-                    <p class="text-primary font-weight-bold">Rp.25.000/m</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                <div class="block-4 text-center border">
-                  <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="images/banner280.jpg" alt="Image placeholder" class="img-fluid"></a>
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">Banner K440gr</a></h3>
-                    <p class="mb-0">Outdoor</p>
-                    <p class="text-primary font-weight-bold">Rp.40.000/m</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                <div class="block-4 text-center border">
-                  <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="images/banner280.jpg" alt="Image placeholder" class="img-fluid"></a>
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">Stiker Glossy</a></h3>
-                    <p class="mb-0">Indoor</p>
-                    <p class="text-primary font-weight-bold">Rp.60.000/m</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                <div class="block-4 text-center border">
-                  <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="images/banner280.jpg" alt="Image placeholder" class="img-fluid"></a>
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">Stiker Matte</a></h3>
-                    <p class="mb-0">Indoor</p>
-                    <p class="text-primary font-weight-bold">Rp.75.000/m</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                <div class="block-4 text-center border">
-                  <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="images/banner280.jpg" alt="Image placeholder" class="img-fluid"></a>
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">Albatros</a></h3>
-                    <p class="mb-0">Indoor</p>
-                    <p class="text-primary font-weight-bold">Rp.55.000/m</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                <div class="block-4 text-center border">
-                  <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="images/banner280.jpg" alt="Image placeholder" class="img-fluid"></a>
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">DTF UV</a></h3>
-                    <p class="mb-0">UV</p>
-                    <p class="text-primary font-weight-bold">Rp.95.000/lembar</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                <div class="block-4 text-center border">
-                  <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="images/banner280.jpg" alt="Image placeholder" class="img-fluid"></a>
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">ID CARD PVC 1 sisi</a></h3>
-                    <p class="mb-0">UV</p>
-                    <p class="text-primary font-weight-bold">Rp.15.000/pcs</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                <div class="block-4 text-center border">
-                  <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="images/banner280.jpg" alt="Image placeholder" class="img-fluid"></a>
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">ID CARD PVC 2 sisi</a></h3>
-                    <p class="mb-0">UV</p>
-                    <p class="text-primary font-weight-bold">Rp.20.000/pcs</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                <div class="block-4 text-center border">
-                  <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="images/banner280.jpg" alt="Image placeholder" class="img-fluid"></a>
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">Artpaper 260gr</a></h3>
-                    <p class="mb-0">A3</p>
-                    <p class="text-primary font-weight-bold">Rp.3.700/lembar</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                <div class="block-4 text-center border">
-                  <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="images/banner280.jpg" alt="Image placeholder" class="img-fluid"></a>
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">Stiker Bontak</a></h3>
-                    <p class="mb-0">A3</p>
-                    <p class="text-primary font-weight-bold">Rp.4.500/lembar</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                <div class="block-4 text-center border">
-                  <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="images/banner280.jpg" alt="Image placeholder" class="img-fluid"></a>
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">HVS</a></h3>
-                    <p class="mb-0">A3</p>
-                    <p class="text-primary font-weight-bold">Rp.3.000/lembar</p>
-                  </div>
-                </div>
-              </div>
-
-
+              
+              @endforeach
             </div>
             <div class="row" data-aos="fade-up">
               <div class="col-md-12 text-center">
@@ -214,7 +93,7 @@
 
           <div class="col-md-3 order-1 mb-5 mb-md-0">
             <div class="border p-4 rounded mb-4">
-              <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
+              <h3 class="mb-3 h6 text-uppercase text-black d-block">PROMO</h3>
               <ul class="list-unstyled mb-0">
                 <li class="mb-1"><a href="#" class="d-flex"><span>Men</span> <span class="text-black ml-auto">(2,220)</span></a></li>
                 <li class="mb-1"><a href="#" class="d-flex"><span>Women</span> <span class="text-black ml-auto">(2,550)</span></a></li>
@@ -223,13 +102,25 @@
             </div>
 
             <div class="border p-4 rounded mb-4">
-              <div class="mb-4">
+              <h3 class="mb-3 h6 text-uppercase text-black d-block">KATEGORI</h3>
+              <ul class="list-group list-group-flush">
+                @foreach ($kategori as $kategori) 
+                
+                <li class="list-group-item">{{$kategori->namaKategori}}</li>
+                {{-- <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+                <li class="list-group-item">A fourth item</li>
+                <li class="list-group-item">And a fifth one</li> --}}
+                @endforeach
+              </ul>
+
+              {{-- <div class="mb-4">
                 <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
                 <div id="slider-range" class="border-primary"></div>
                 <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
-              </div>
+              </div> --}}
 
-              <div class="mb-4">
+              {{-- <div class="mb-4">
                 <h3 class="mb-3 h6 text-uppercase text-black d-block">Size</h3>
                 <label for="s_sm" class="d-flex">
                   <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black">Small (2,319)</span>
@@ -240,9 +131,9 @@
                 <label for="s_lg" class="d-flex">
                   <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">Large (1,392)</span>
                 </label>
-              </div>
+              </div> --}}
 
-              <div class="mb-4">
+              {{-- <div class="mb-4">
                 <h3 class="mb-3 h6 text-uppercase text-black d-block">Color</h3>
                 <a href="#" class="d-flex color-item align-items-center" >
                   <span class="bg-danger color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Red (2,429)</span>
@@ -256,7 +147,7 @@
                 <a href="#" class="d-flex color-item align-items-center" >
                   <span class="bg-primary color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Purple (1,075)</span>
                 </a>
-              </div>
+              </div> --}}
 
             </div>
           </div>

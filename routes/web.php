@@ -78,6 +78,7 @@ Route::get('/keranjang', [userController::class, 'keranjang']);
 Route::get('/checkout', [userController::class, 'checkout']);
 Route::get('/member', [userController::class, 'member']);
 Route::get('/katalog', [userController::class, 'katalog']);
+// Route::get('/kategorii', [userController::class, 'shop_kategori']);
 // Route::get('/deskripsikatalog', [userController::class, 'deskripsikatalog']);
 // Route::get('/thanks', [userController::class, 'thanks']);
 Route::get('/frontartikel', [userController::class, 'artikel']);
@@ -105,5 +106,6 @@ Route::resource('produk', ProdukController::class);
 Route::get('/tambahProduk', [ProdukController::class, 'tambahProduk']);
 
 Route::get('/kategoriAdmin', [KategoriController::class, 'kategoriAdmin']);
+// Route::get('/kategoriShop', [KategoriController::class, 'shop_kategori']);
 Route::resource('kategori', KategoriController::class);
 Route::get('tambahKategori', [KategoriController::class, 'tambahKategori']);
