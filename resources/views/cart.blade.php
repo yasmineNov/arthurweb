@@ -29,7 +29,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    @foreach ($cart as [$key]-> $item) 
+                    @foreach ($cart as $key => $item)
                     <td class="product-thumbnail">
                       <img src="{{asset('storage/image-produk/'.$item->produk->img)}}" alt="Image" class="img-fluid">
                     </td>
@@ -52,12 +52,13 @@
 
                     </td>
                     {{-- // subtotal = harga * qty ; --}}
-                    <td>Rp {{ $item->$tampung }}</td>
-                    
+                    <!-- <td>Rp {{ $item->price * $item->quantity }}</td> -->
+                    <td>Rp {{ $subtotal[$key] }}</td>
+
                     {{-- <form action="{{ route('cart.destroy',$item->id) }}" method="POST"> --}}
 
                     {{-- <form action="{{ route('deletecart',$cart->id) }}" method="POST"> --}}
-                    
+
                     {{-- @csrf
                     @method('DELETE') --}}
                     <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i>   Delete</button></td>
@@ -104,20 +105,20 @@
                     <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
                   </div>
                 </div>
-                <div class="row mb-3">
+                <!-- <div class="row mb-3">
                   <div class="col-md-6">
                     <span class="text-black">Subtotal</span>
                   </div>
                   <div class="col-md-6 text-right">
                     <strong class="text-black">$230.00</strong>
                   </div>
-                </div>
+                </div> -->
                 <div class="row mb-5">
                   <div class="col-md-6">
                     <span class="text-black">Total</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black">{{ $item->$hasil }}</strong>
+                    <strong class="text-black">{{$total}}</strong>
                   </div>
                 </div>
 
