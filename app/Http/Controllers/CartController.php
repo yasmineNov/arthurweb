@@ -22,9 +22,8 @@ class CartController extends Controller
 
             $cart = new cart;
             $cart->name = $user->name;
-
             $cart->idProduk = $produk->idProduk;
-
+            $cart->qty = 1;
 
             $cart->save();
 
