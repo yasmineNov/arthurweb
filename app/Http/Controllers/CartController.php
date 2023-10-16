@@ -17,16 +17,26 @@ class CartController extends Controller
     {
         if (Auth::id()) {
             $user = auth()->user();
-
             $produk = produk::find($id);
-
-            $cart = new cart;
-            $cart->name = $user->name;
-            $cart->idProduk = $produk->idProduk;
-            $cart->qty = 1;
-
-            $cart->save();
-
+    
+            // Cari apakah produk sudah ada di keranjang pengguna
+            $existingCart = cart::where('name', $user->name)
+                ->where('idProduk', $produk->idProduk)
+                ->first();
+    
+            if ($existingCart) {
+                // Jika produk sudah ada di keranjang, tingkatkan jumlahnya
+                $existingCart->qty += 1;
+                $existingCart->save();
+            } else {
+                // Jika produk belum ada di keranjang, tambahkan sebagai item baru
+                $cart = new cart;
+                $cart->name = $user->name;
+                $cart->idProduk = $produk->idProduk;
+                $cart->qty = 1;
+                $cart->save();
+            }
+    
             return redirect()->back();
         } else {
             return redirect('login');
