@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('carts', function (Blueprint $table) {
 
             $table->id(); // Kolom id otomatis yang bertipe big integer
-            $table->string('name'); // Kolom name
+            $table->string('idUser'); // Kolom name
             $table->unsignedBigInteger('idProduk'); // Kolom idProduk yang bertipe unsigned big integer
             
             // Menambahkan foreign key constraint

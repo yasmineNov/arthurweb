@@ -20,7 +20,7 @@ class CartController extends Controller
             $produk = produk::find($id);
     
             // Cari apakah produk sudah ada di keranjang pengguna
-            $existingCart = cart::where('name', $user->name)
+            $existingCart = cart::where('idUser', $user->id)
                 ->where('idProduk', $produk->idProduk)
                 ->first();
     
@@ -31,7 +31,7 @@ class CartController extends Controller
             } else {
                 // Jika produk belum ada di keranjang, tambahkan sebagai item baru
                 $cart = new cart;
-                $cart->name = $user->name;
+                $cart->idUser = $user->id;
                 $cart->idProduk = $produk->idProduk;
                 $cart->qty = 1;
                 $cart->save();
