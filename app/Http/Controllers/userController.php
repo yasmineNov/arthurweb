@@ -161,8 +161,8 @@ class userController extends Controller
     {
         if (Auth::id()) {
             $katalog = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
-            // $kategori = kategori::orderBy('idKategori', 'desc')->paginate(4);
             $kategori = kategori::all();
+            // $GengProduk = produk::where('namaKategori', $kategori->namaKategori)->with('produk')->orderBy('idProduk', 'desc')->paginate(4);
             $user = auth()->user();
             $count = cart::where('name', $user->name)->count();
 
@@ -170,17 +170,18 @@ class userController extends Controller
                 "title" => "Katalog",
                 "kategori" => $kategori,
                 "katalog" => $katalog,
-                // ])->with('katalog', $katalog);
+                // "GengProduk" => $GengProduk,
             ]);
         } else {
             $katalog = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
-            // $kategori = kategori::orderBy('idKategori', 'desc')->paginate();
             $kategori = kategori::all();
+            // $GengProduk = produk::where('idKategori', $kategori->idKategori)->with('produk')->orderBy('idProduk', 'desc')->paginate(4);
+            $user = auth()->user();
             return view('shop', [
                 "title" => "Katalog",
                 "kategori" => $kategori,
                 "katalog" => $katalog,
-                // ])->with('katalog', $katalog);
+                // "GengProduk" => $GengProduk,
             ]);
         }
     }

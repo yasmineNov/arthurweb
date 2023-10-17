@@ -16,43 +16,10 @@
           <div class="col-md-9 order-2">
 
             <div class="row">
-              <div class="col-md-12 mb-5 d-flex justify-content-between">
+              <div class="col-md-12 mb-0 d-flex justify-content-between">
                 <div class="float-md-left mb-4">
-                  <h2 class="text-black h5">Shop All</h2>
+                  <h2 class="text-black">Semua Kategori</h2>
                 </div>
-                  {{-- <div class="dropdown mr-1 ml-md-auto">
-                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Latest
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                      <a class="dropdown-item" href="#">Men</a>
-                      <a class="dropdown-item" href="#">Women</a>
-                      <a class="dropdown-item" href="#">Children</a>
-                    </div>
-                  </div>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuReference" data-toggle="dropdown">Reference</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                      <a class="dropdown-item" href="#">Relevance</a>
-                      <a class="dropdown-item" href="#">Name, A to Z</a>
-                      <a class="dropdown-item" href="#">Name, Z to A</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Price, low to high</a>
-                      <a class="dropdown-item" href="#">Price, high to low</a>
-                    </div>
-                  </div> --}}
-
-                  <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Kategori
-                    </button>
-                    <ul class="dropdown-menu">
-                      @foreach ($katalog as $item) 
-                      <li><button class="dropdown-item" type="button">{{$item->kategori->namaKategori}}</button></li>
-                      @endforeach
-                    </ul>
-                </div>
-
               </div>
             </div>
             <div class="row mb-5">
@@ -104,103 +71,80 @@
             <div class="border p-4 rounded mb-4">
               <h3 class="mb-3 h6 text-uppercase text-black d-block">KATEGORI</h3>
               <ul class="list-group list-group-flush">
-                @foreach ($kategori as $kategori) 
+                @foreach ($kategori as $item) 
                 
-                <li class="list-group-item">{{$kategori->namaKategori}}</li>
-                {{-- <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-                <li class="list-group-item">A fourth item</li>
-                <li class="list-group-item">And a fifth one</li> --}}
+                <li class="list-group-item">{{$item->namaKategori}}</li>
                 @endforeach
               </ul>
-
-              {{-- <div class="mb-4">
-                <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
-                <div id="slider-range" class="border-primary"></div>
-                <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
-              </div> --}}
-
-              {{-- <div class="mb-4">
-                <h3 class="mb-3 h6 text-uppercase text-black d-block">Size</h3>
-                <label for="s_sm" class="d-flex">
-                  <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black">Small (2,319)</span>
-                </label>
-                <label for="s_md" class="d-flex">
-                  <input type="checkbox" id="s_md" class="mr-2 mt-1"> <span class="text-black">Medium (1,282)</span>
-                </label>
-                <label for="s_lg" class="d-flex">
-                  <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">Large (1,392)</span>
-                </label>
-              </div> --}}
-
-              {{-- <div class="mb-4">
-                <h3 class="mb-3 h6 text-uppercase text-black d-block">Color</h3>
-                <a href="#" class="d-flex color-item align-items-center" >
-                  <span class="bg-danger color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Red (2,429)</span>
-                </a>
-                <a href="#" class="d-flex color-item align-items-center" >
-                  <span class="bg-success color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Green (2,298)</span>
-                </a>
-                <a href="#" class="d-flex color-item align-items-center" >
-                  <span class="bg-info color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Blue (1,075)</span>
-                </a>
-                <a href="#" class="d-flex color-item align-items-center" >
-                  <span class="bg-primary color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Purple (1,075)</span>
-                </a>
-              </div> --}}
-
             </div>
+          </div>
+        </div>        
+
+        <div class="col-md-9 order-2">
+          <div class="row">
+            <div class="col-md-12 mb-0 d-flex justify-content-between">
+              <div class="float-md-left mb-4">
+                <h2 class="text-black">Semua Kategori</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-5">
+            @foreach ($katalog as $item)
+            <div class="col-sm-6 col-lg-3 mb-4" data-aos="fade-up">
+            <div class="block-2 text-center border">
+                <figure class="block-4-image">
+                  <img src="{{asset('storage/image-produk/'.$item->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" />
+                </figure>
+                <div class="block-4-text p-4">
+                  
+                  <p class="mb-0 h-5">{{$item->namaProduk}}</p>
+                  <p class="text-primary font-weight-bold">{{$item->harga}}</p>
+                </div>
+              </div>
+            </div>          
+            @endforeach
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-md-12">
-            <div class="site-section site-blocks-2">
-                <div class="row justify-content-center text-center mb-5">
-                  <div class="col-md-7 site-section-heading pt-4">
-                    <h2>Categories</h2>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
-                    <a class="block-2-item" href="#">
-                      <figure class="image">
-                        <img src="images/women.jpg" alt="" class="img-fluid">
-                      </figure>
-                      <div class="text">
-                        <span class="text-uppercase">Collections</span>
-                        <h3>Women</h3>
+
+        <div class="col-md-9 order-2">
+          <div class="row">
+            <div class="col-md-12 mb-0 d-flex justify-content-between">
+              <div class="float-md-left mb-4">
+                @if ($item != null)
+                  @foreach ($kategori as $item) 
+                  <h2 class="text-black">{{$item->namaKategori}}</h2>
+
+                  <div class="row mb-5">
+                    @foreach ($katalog as $item)
+                    <div class="col-sm-6 col-lg-3 mb-4" data-aos="fade-up">
+                    <div class="block-2 text-center border">
+                        <figure class="block-4-image">
+                          <img src="{{asset('storage/image-produk/'.$item->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" />
+                        </figure>
+                        <div class="block-4-text p-4">
+                          
+                          <p class="mb-0 h-5">{{$item->namaProduk}}</p>
+                          <p class="text-primary font-weight-bold">{{$item->harga}}</p>
+                        </div>
                       </div>
-                    </a>
+                    </div>          
+                    @endforeach
                   </div>
-                  <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-                    <a class="block-2-item" href="#">
-                      <figure class="image">
-                        <img src="images/children.jpg" alt="" class="img-fluid">
-                      </figure>
-                      <div class="text">
-                        <span class="text-uppercase">Collections</span>
-                        <h3>Children</h3>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-                    <a class="block-2-item" href="#">
-                      <figure class="image">
-                        <img src="images/men.jpg" alt="" class="img-fluid">
-                      </figure>
-                      <div class="text">
-                        <span class="text-uppercase">Collections</span>
-                        <h3>Men</h3>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              
+                  @endforeach
+                
+                @else
+                    <h2>nothing!!</h2>
+                
+                @endif
+
+                
+
+              </div>
             </div>
-          </div>
+          </div>  
         </div>
-        
+
       </div>
     </div>
 
