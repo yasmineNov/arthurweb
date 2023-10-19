@@ -160,7 +160,7 @@ class userController extends Controller
     function katalog()
     {
         if (Auth::id()) {
-            $katalog = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            $katalog = produk::with('kategori')->orderBy('idProduk', 'desc')->limit(6)->paginate(4);
             $kategori = kategori::all();
             // $GengProduk = produk::where('namaKategori', $kategori->namaKategori)->with('produk')->orderBy('idProduk', 'desc')->paginate(4);
             $user = auth()->user();
