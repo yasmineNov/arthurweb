@@ -69,6 +69,8 @@ Route::post('/register', [RegisterController::class, 'store']);
 //CART
 Route::post('/cart/{id}', [CartController::class, 'addcart'])->name('cart');;
 Route::resource('cart', CartController::class);
+Route::post('/update-cart/{id}/increase', 'CartController@increaseQty');
+Route::post('/update-cart/{id}/decrease', 'CartController@decreaseQty');
 
 // ROUTES USER
 Route::resource('usr', CustomerController::class);

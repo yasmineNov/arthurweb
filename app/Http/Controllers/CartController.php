@@ -18,12 +18,12 @@ class CartController extends Controller
         if (Auth::id()) {
             $user = auth()->user();
             $produk = produk::find($id);
-    
+
             // Cari apakah produk sudah ada di keranjang pengguna
             $existingCart = cart::where('name', $user->name)
                 ->where('idProduk', $produk->idProduk)
                 ->first();
-    
+
             if ($existingCart) {
                 // Jika produk sudah ada di keranjang, tingkatkan jumlahnya
                 $existingCart->qty += 1;
@@ -36,11 +36,33 @@ class CartController extends Controller
                 $cart->qty = 1;
                 $cart->save();
             }
-    
+
             return redirect()->back();
         } else {
             return redirect('login');
         }
+    }
+
+    public function increaseQty($id)
+    {
+        // Temukan item keranjang berdasarkan ID dan tingkatkan qty
+        $cartItem = Cart::find($id);
+        $cartItem->qty++;
+        $cartItem->save();
+
+        return response()->json(['newQty' => $cartItem->qty]);
+    }
+
+    public function decreaseQty($id)
+    {
+        // Temukan item keranjang berdasarkan ID dan kurangkan qty jika qty > 1
+        $cartItem = Cart::find($id);
+        if ($cartItem->qty > 1) {
+            $cartItem->qty--;
+            $cartItem->save();
+        }
+
+        return response()->json(['newQty' => $cartItem->qty]);
     }
 
     // public function jumlahCart(Request $request, $id)
