@@ -57,6 +57,10 @@ use Illuminate\Support\Facades\Route;
 //     ]);
 // });
 
+//SEARCH
+Route::get('/search', [userController::class, 'search'])->name('search');
+
+
 //LOGIN
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);

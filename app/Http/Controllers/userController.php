@@ -186,6 +186,42 @@ class userController extends Controller
         }
     }
 
+
+    function search(Request $request)
+    {
+        if (Auth::id()) {
+            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            $user = auth()->user();
+            $count = cart::where('name', $user->name)->count();
+
+            $query = $request->input('query'); // Mendapatkan kata kunci pencarian dari input pengguna
+
+            // Melakukan pencarian produk dengan Eloquent
+            $produk = produk::where('namaProduk', 'like', '%' . $query . '%')
+                ->orWhere('deskripsi', 'like', '%' . $query . '%')
+                ->get();
+
+            return view('hasil_pencarian', compact('count'), [
+                "title" => "hasilPencarian",
+                'produk' => $produk,
+                'query' => $query
+            ]);
+        } else {
+            $query = $request->input('query'); // Mendapatkan kata kunci pencarian dari input pengguna
+
+            // Melakukan pencarian produk dengan Eloquent
+            $produk = produk::where('namaProduk', 'like', '%' . $query . '%')
+                ->orWhere('deskripsi', 'like', '%' . $query . '%')
+                ->get();
+
+            return view('hasil_pencarian', compact('count'), [
+                "title" => "hasilPencarian",
+                'produk' => $produk,
+                'query' => $query
+            ]);
+        }
+    }
+
     // public function shop_kategori()
     // {
     //     //
