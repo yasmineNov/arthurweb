@@ -62,6 +62,7 @@ class userController extends Controller
             ]);
         }
     }
+
     function keranjang()
     {
         if (Auth::id()) {
@@ -69,6 +70,7 @@ class userController extends Controller
             $user = auth()->user();
 
             // $cart = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);
+
             $kol = DB::table('carts')
                         ->select('carts.id', 'carts.qty', 'produks.harga','carts.idUser')
                         ->leftjoin('produks', 'produks.idProduk', '=', 'carts.idProduk')
@@ -89,11 +91,10 @@ class userController extends Controller
             }
             $count = cart::where('idUser', $user->id)->count();
 
+
             return view('cart', compact('count'), [
                 "title" => "Keranjang",
-
                 // "data1" => $data1,
-
                 // "pict" => $pict,
                 "cart" => $cart,
                 "subtotal" => $tampung,
@@ -176,22 +177,80 @@ class userController extends Controller
             ]);
         }
     }
+
     function katalog()
     {
         if (Auth::id()) {
-            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            $katalog = produk::with('kategori')->orderBy('idProduk', 'desc')->limit(6)->paginate(4);
+            $kategori = kategori::all();
+            // $GengProduk = produk::where('namaKategori', $kategori->namaKategori)->with('produk')->orderBy('idProduk', 'desc')->paginate(4);
             $user = auth()->user();
             $count = cart::where('idUser', $user->id)->count();
 
             return view('shop', compact('count'), [
-                "title" => "Katalog"
+                "title" => "Katalog",
+                "kategori" => $kategori,
+                "katalog" => $katalog,
+                // "GengProduk" => $GengProduk,
             ]);
         } else {
+            $katalog = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            $kategori = kategori::all();
+            // $GengProduk = produk::where('idKategori', $kategori->idKategori)->with('produk')->orderBy('idProduk', 'desc')->paginate(4);
+            $user = auth()->user();
             return view('shop', [
-                "title" => "Katalog"
+                "title" => "Katalog",
+                "kategori" => $kategori,
+                "katalog" => $katalog,
+                // "GengProduk" => $GengProduk,
             ]);
         }
     }
+
+
+    function search(Request $request)
+    {
+        if (Auth::id()) {
+            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            $user = auth()->user();
+            $count = cart::where('name', $user->name)->count();
+
+            $query = $request->input('query'); // Mendapatkan kata kunci pencarian dari input pengguna
+
+            // Melakukan pencarian produk dengan Eloquent
+            $produk = produk::where('namaProduk', 'like', '%' . $query . '%')
+                ->orWhere('deskripsi', 'like', '%' . $query . '%')
+                ->get();
+
+            return view('hasil_pencarian', compact('count'), [
+                "title" => "hasilPencarian",
+                'produk' => $produk,
+                'query' => $query
+            ]);
+        } else {
+            $query = $request->input('query'); // Mendapatkan kata kunci pencarian dari input pengguna
+
+            // Melakukan pencarian produk dengan Eloquent
+            $produk = produk::where('namaProduk', 'like', '%' . $query . '%')
+                ->orWhere('deskripsi', 'like', '%' . $query . '%')
+                ->get();
+
+            return view('hasil_pencarian', compact('count'), [
+                "title" => "hasilPencarian",
+                'produk' => $produk,
+                'query' => $query
+            ]);
+        }
+    }
+
+    // public function shop_kategori()
+    // {
+    //     //
+    //     $data_kategori = kategori::orderBy('idKategori', 'desc')->paginate();
+    //     return view('shop', $data_kategori, [
+    //         "title" => "kategori"
+    //     ])->with('data', $data_kategori);
+    // }
 
     function deskripsikatalog()
     {

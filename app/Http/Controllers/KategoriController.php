@@ -32,6 +32,15 @@ class KategoriController extends Controller
         ])->with('data', $data);
     }
 
+    // public function shop_kategori()
+    // {
+    //     //
+    //     $data_kategori = kategori::orderBy('idKategori', 'desc')->paginate();
+    //     return view('shop', $data_kategori, [
+    //         "title" => "kategori"
+    //     ])->with('data', $data_kategori);
+    // }
+
     function tambahkategori()
     {
         return view('admin/tambah-kategori', [

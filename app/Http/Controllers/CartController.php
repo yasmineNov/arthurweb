@@ -19,6 +19,7 @@ class CartController extends Controller
             $user = auth()->user();
             $produk = produk::find($id);
 
+
             // Cari apakah produk sudah ada di keranjang pengguna
             $existingCart = cart::where('idUser', $user->id)
                 ->where('idProduk', $produk->idProduk)
@@ -36,6 +37,7 @@ class CartController extends Controller
                 $cart->qty = 1;
                 $cart->save();
             }
+
 
             return redirect()->back();
         } else {

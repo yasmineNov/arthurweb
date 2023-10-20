@@ -9,6 +9,26 @@
     color: #3b71ca !important;
 }
 
+/* SEARCH */
+.form-control:focus {
+    box-shadow: none;
+  }
+  
+  .form-control-underlined {
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
+    padding-left: 0;
+  }
+    
+  .form-control::placeholder {
+    font-size: 0.95rem;
+    color: #6596ff;
+    font-style: italic;
+  }
+/* END SEARCH */
+
+
 /* .card {
     position: relative;
     width: 11.875em;

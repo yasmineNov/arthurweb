@@ -56,12 +56,18 @@
                 <div class="row align-items-center">
   
                   <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-                    <form action="" class="site-block-top-search">
-                      <span class="icon icon-search2"></span>
-                      <input type="text" class="form-control border-0" placeholder="Search">
+                    <div class="row">
+                    
+                    <form action="/search" method="GET" class="site-block-top-search">
+                      <ul class="site-menu d-flex align-items-center justify-content-start">
+                          <input type="text" class="form-control border-0" name="query" placeholder="Cari Produk">
+                          <button type="submit" class="btn btn-link"><i class="icon icon-search2"></i></button>
+                      </ul>
+                      
                     </form>
+                    </div>
                   </div>
-  
+
                   <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
                     <div class="site-logo">
                       <a class="nav-link" href="/" class="js-logo-clone">
