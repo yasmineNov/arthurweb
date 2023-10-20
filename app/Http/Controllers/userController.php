@@ -19,7 +19,7 @@ class userController extends Controller
             $dataPost = artikel::orderBy('idArtikel', 'desc')->paginate(4);
 
             $user = auth()->user();
-            $count = cart::where('name', $user->name)->count();
+            $count = cart::where('idUser', $user->id)->count();
 
             return view('home', compact('count'), [
                 "title" => "home",
@@ -45,7 +45,7 @@ class userController extends Controller
             $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
 
             $user = auth()->user();
-            $count = cart::where('name', $user->name)->count();
+            $count = cart::where('idUser', $user->id)->count();
 
             return view('about', compact('count'), [
                 "title" => "About",
@@ -70,12 +70,12 @@ class userController extends Controller
 
             // $cart = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);
             $kol = DB::table('carts')
-                        ->select('carts.id', 'carts.qty', 'produks.harga','carts.name')
+                        ->select('carts.id', 'carts.qty', 'produks.harga','carts.idUser')
                         ->leftjoin('produks', 'produks.idProduk', '=', 'carts.idProduk')
-                        ->where('carts.name', $user->name)
+                        ->where('carts.idUser', $user->id)
                         ->orderBy('carts.idProduk', 'desc')
                         ->get();
-            $cart = cart::find($user->id)->with('produk')->orderBy('idProduk', 'desc')->get();
+            $cart = cart::where('idUser',$user->id)->with('produk')->orderBy('idProduk', 'desc')->get();
             if($kol){
                 $tampung = [];
                 foreach ($kol as $key => $value) {
@@ -87,7 +87,7 @@ class userController extends Controller
                     $hasil += $value;
                 }
             }
-            $count = cart::where('name', $user->name)->count();
+            $count = cart::where('idUser', $user->id)->count();
 
             return view('cart', compact('count'), [
                 "title" => "Keranjang",
@@ -129,7 +129,7 @@ class userController extends Controller
         if (Auth::id()) {
             $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
             $user = auth()->user();
-            $count = cart::where('name', $user->name)->count();
+            $count = cart::where('idUser', $user->id)->count();
 
             $data2 = artikel::orderBy('idArtikel', 'desc')->paginate(4);
 
@@ -165,7 +165,7 @@ class userController extends Controller
         if (Auth::id()) {
             $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
             $user = auth()->user();
-            $count = cart::where('name', $user->name)->count();
+            $count = cart::where('idUser', $user->id)->count();
 
             return view('contact', [
                 "title" => "Member"
@@ -181,7 +181,7 @@ class userController extends Controller
         if (Auth::id()) {
             $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
             $user = auth()->user();
-            $count = cart::where('name', $user->name)->count();
+            $count = cart::where('idUser', $user->id)->count();
 
             return view('shop', compact('count'), [
                 "title" => "Katalog"

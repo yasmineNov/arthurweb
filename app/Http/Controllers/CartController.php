@@ -20,7 +20,7 @@ class CartController extends Controller
             $produk = produk::find($id);
 
             // Cari apakah produk sudah ada di keranjang pengguna
-            $existingCart = cart::where('name', $user->name)
+            $existingCart = cart::where('idUser', $user->id)
                 ->where('idProduk', $produk->idProduk)
                 ->first();
 
@@ -31,7 +31,7 @@ class CartController extends Controller
             } else {
                 // Jika produk belum ada di keranjang, tambahkan sebagai item baru
                 $cart = new cart;
-                $cart->name = $user->name;
+                $cart->idUser = $user->id;
                 $cart->idProduk = $produk->idProduk;
                 $cart->qty = 1;
                 $cart->save();
@@ -45,8 +45,10 @@ class CartController extends Controller
 
     public function increaseQty($id)
     {
+        // dd($id);
         // Temukan item keranjang berdasarkan ID dan tingkatkan qty
         $cartItem = Cart::find($id);
+        // dd($cartItem);
         $cartItem->qty++;
         $cartItem->save();
 
@@ -55,8 +57,10 @@ class CartController extends Controller
 
     public function decreaseQty($id)
     {
+        // dd($id);
         // Temukan item keranjang berdasarkan ID dan kurangkan qty jika qty > 1
         $cartItem = Cart::find($id);
+        // dd($cartItem);
         if ($cartItem->qty > 1) {
             $cartItem->qty--;
             $cartItem->save();
