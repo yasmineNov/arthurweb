@@ -34,19 +34,23 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('789')
         ]);
 
-        //kategori
-        // kategori::create([
-        //     'namaKategori' => 'indoor'
-        // ]);
-        // kategori::create([
-        //     'namaKategori' => 'outdoor'
-        // ]);
-        // kategori::create([
-        //     'namaKategori' => 'UV'
-        // ]);
-        // kategori::create([
-        //     'namaKategori' => 'A3'
-        // ]);
+        // kategori
+        kategori::create([
+            'idKategori' => '1',
+            'namaKategori' => 'indoor'
+        ]);
+        kategori::create([
+            'idKategori' => '2',
+            'namaKategori' => 'outdoor'
+        ]);
+        kategori::create([
+            'idKategori' => '3',
+            'namaKategori' => 'UV'
+        ]);
+        kategori::create([
+            'idKategori' => '4',
+            'namaKategori' => 'A3'
+        ]);
 
         //produk
 
