@@ -16,8 +16,6 @@ return new class extends Migration
             $table->id(); // Kolom id otomatis yang bertipe big integer
             $table->string('idUser'); // Kolom name
             $table->unsignedBigInteger('idProduk'); // Kolom idProduk yang bertipe unsigned big integer
-            $table->integer('qty')->nullable();
-            $table->integer('subtotal')->nullable();
 
             // Menambahkan foreign key constraint
             $table->foreign('idProduk')
