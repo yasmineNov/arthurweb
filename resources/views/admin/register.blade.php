@@ -54,6 +54,16 @@
                                       </div>
                                     @enderror
                                   </div>
+                                  {{-- //Whatsapp --}}
+                                  <div class="form-floating mb-2">
+                                    <input type="whatsapp" name="whatsapp" class="form-control @error('whatsapp') is-invalid @enderror" id="whatsapp" placeholder="Nomor Whatsapp" autofocus required value="{{ old('whatsapp') }}">
+                                    <label for="whatsapp">Nomor Whatsapp</label>
+                                    @error('whatsapp')
+                                      <div class="invalid-feedback">
+                                        {{ $message }}
+                                      </div>
+                                    @enderror
+                                  </div>
                                   {{-- //Email --}}
                                   <div class="form-floating mb-2">
                                     <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" autofocus required value="{{ old('email') }}">

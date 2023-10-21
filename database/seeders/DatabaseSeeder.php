@@ -20,16 +20,19 @@ class DatabaseSeeder extends Seeder
         //user
         User::create([
             'name' => 'arthur',
+            'whatsapp' => '087858860888',
             'email' => 'acmbratang09@gmail.com',
             'password' => bcrypt('123')
         ]);
         User::create([
             'name' => 'mimin',
+            'whatsapp' => '085872755356',
             'email' => 'ynh025@gmail.com',
             'password' => bcrypt('456')
         ]);
         User::create([
             'name' => 'deden',
+            'whatsapp' => '085736692227',
             'email' => 'dedenfirm@gmail.com',
             'password' => bcrypt('789')
         ]);
