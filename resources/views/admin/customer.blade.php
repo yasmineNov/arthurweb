@@ -66,13 +66,11 @@
                     @foreach ($data as $customer)
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td>{{ $customer->namaCustomer }}</td>
+                        <td>{{ $customer->name }}</td>
                         <td>{{ $customer->whatsapp }}</td>
                         <td>{{ $customer->email }}</td>
                         <td>
-                        <form action="{{ route('customer.destroy',$customer->idCustomer) }}" method="POST">
-
-                        {{-- <a class="btn btn-warning" href="{{ route('customer.edit',$customer->idCustomer) }}"><i class="fa fa-pencil"></i>   Edit</a> --}}
+                        <form action="{{ route('customer.destroy',$customer->id) }}" method="POST">
                
                         @csrf
                         @method('DELETE')

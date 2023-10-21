@@ -60,7 +60,6 @@ use Illuminate\Support\Facades\Route;
 //SEARCH
 Route::get('/search', [userController::class, 'search'])->name('search');
 
-
 //LOGIN
 Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -73,8 +72,8 @@ Route::post('/register', [RegisterController::class, 'store']);
 //CART
 Route::post('/cart/{id}', [CartController::class, 'addcart'])->name('cart');;
 Route::resource('cart', CartController::class);
-Route::get('/update-cart/increase/{id}', [CartController::class,'increaseQty']);
-Route::get('/update-cart/decrease/{id}', [CartController::class,'decreaseQty']);
+Route::get('/update-cart/increase/{id}', [CartController::class, 'increaseQty']);
+Route::get('/update-cart/decrease/{id}', [CartController::class, 'decreaseQty']);
 
 
 // ROUTES USER

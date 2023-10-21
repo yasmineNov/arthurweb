@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\customer;
 use App\Models\cart;
+use App\Models\user;
 use App\Models\produk;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -18,10 +19,11 @@ class CustomerController extends Controller
     public function index()
     {
         //
-        $data = customer::orderBy('idCustomer', 'desc')->paginate();
-        return view('admin.customer', $data, [
-            "title" => "customer"
-        ])->with('data', $data);
+        $data = user::orderBy('id', 'desc')->paginate();
+        return view('admin.customer', [
+            "title" => "customer",
+            "data" => $data,
+        ]);
     }
     function customer()
     {
@@ -32,14 +34,16 @@ class CustomerController extends Controller
             $count = cart::where('name', $user->name)->count();
 
             return view('admin.customer', compact('count'), $data, [
-                "title" => "customer"
-            ])->with('data', $data);
+                "title" => "customer",
+                "data" => $data,
+            ]);
         } else {
 
             $data = customer::orderBy('idCustomer', 'desc')->paginate();
             return view('admin.customer', $data, [
-                "title" => "customer"
-            ])->with('data', $data);
+                "title" => "customer",
+                "data" => $data,
+            ]);
         }
     }
 
