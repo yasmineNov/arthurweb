@@ -129,9 +129,10 @@
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item has-children">
+            {{-- <li class="nav-item has-children"> --}}
+            <li class="nav-item">
               <a class="nav-link" href="/katalog">Katalog</a>
-              <ul class="dropdown">
+              {{-- <ul class="dropdown">
                 <li class="has-children">
                   <a href="#">OUTDOOR</a>
       
@@ -231,19 +232,20 @@
                     <li><a href="#">TENTCARD</a></li>
                   </ul>
                 </li>
-              </ul>
+              </ul> --}}
             </li>
-            <li class="nav-item has-children">
+            {{-- <li class="nav-item has-children"> --}}
+            <li class="nav-item">
               <a class="nav-link" href="/frontartikel">Artikel</a>
-              <ul class="dropdown">
+              {{-- <ul class="dropdown">
                 <li><a href="#">Menu One</a></li>
                 <li><a href="#">Menu Two</a></li>
                 <li><a href="#">Menu Three</a></li>
-              </ul>
+              </ul> --}}
             </li>
       
             <li class="nav-item"><a class="nav-link" href="/about">Tentang Kami</a></li>
-            <li class="nav-item"><a class="nav-link" href="/member">Member</a></li>
+            {{-- <li class="nav-item"><a class="nav-link" href="/member">Member</a></li> --}}
       
             <div class="d-md-none">
               <div class="row">
