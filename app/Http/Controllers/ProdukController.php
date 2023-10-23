@@ -97,7 +97,7 @@ class ProdukController extends Controller
         if (Auth::id()) {
             $produk = produk::findOrFail($id);
             $user = auth()->user();
-            $count = cart::where('name', $user->name)->count();
+            $count = cart::where('idUser', $user->id)->count();
 
             return view('shop-single', compact('count'), [
                 'title' => $produk->namaProduk,

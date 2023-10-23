@@ -168,7 +168,7 @@
 
   <div class="container my-5">
     <header class="mb-4">
-      <h3>New products</h3>
+      <h3>Best Seller Items</h3>
     </header>
 
     <div class="row">
@@ -238,7 +238,7 @@
 <section>
   <div class="container my-5">
     <header class="mb-4">
-      <h3>Recommended</h3>
+      <h3>Promo Items</h3>
     </header>
 
     <div class="row">
