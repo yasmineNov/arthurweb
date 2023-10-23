@@ -10,6 +10,7 @@ use App\Models\cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 class userController extends Controller
 {
     function home()
@@ -72,20 +73,20 @@ class userController extends Controller
             // $cart = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);
 
             $kol = DB::table('carts')
-                        ->select('carts.id', 'carts.qty', 'produks.harga','carts.idUser')
-                        ->leftjoin('produks', 'produks.idProduk', '=', 'carts.idProduk')
-                        ->where('carts.idUser', $user->id)
-                        ->orderBy('carts.idProduk', 'desc')
-                        ->get();
-            $cart = cart::where('idUser',$user->id)->with('produk')->orderBy('idProduk', 'desc')->get();
-            if($kol){
+                ->select('carts.id', 'carts.qty', 'produks.harga', 'carts.idUser')
+                ->leftjoin('produks', 'produks.idProduk', '=', 'carts.idProduk')
+                ->where('carts.idUser', $user->id)
+                ->orderBy('carts.idProduk', 'desc')
+                ->get();
+            $cart = cart::where('idUser', $user->id)->with('produk')->orderBy('idProduk', 'desc')->get();
+            if ($kol) {
                 $tampung = [];
                 foreach ($kol as $key => $value) {
 
                     $tampung[] += ($kol[$key]->qty * $kol[$key]->harga);
                 }
                 $hasil = 0;
-                foreach($tampung as $key => $value){
+                foreach ($tampung as $key => $value) {
                     $hasil += $value;
                 }
             }
@@ -213,7 +214,7 @@ class userController extends Controller
         if (Auth::id()) {
             $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
             $user = auth()->user();
-            $count = cart::where('name', $user->name)->count();
+            $count = cart::where('idUser', $user->id)->count();
 
             $query = $request->input('query'); // Mendapatkan kata kunci pencarian dari input pengguna
 
