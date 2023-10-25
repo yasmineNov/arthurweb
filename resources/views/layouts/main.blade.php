@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/slick-1.8.1/slick/slick.css') }}"/>
 
     <!-- CSS Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -44,6 +45,7 @@
         @include('partials.footer')
 
     </div>
+    <script type="text/javascript" src="{{ asset('assets/slick-1.8.1/slick/slick.min.js') }}"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="{{ asset('assets/js/cdn.jsdelivr.net_npm_vue@2.6.14_dist_vue.js') }}"></script>
