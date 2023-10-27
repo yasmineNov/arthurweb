@@ -90,7 +90,7 @@ Route::get('/member', [userController::class, 'member']);
 Route::get('/katalog', [userController::class, 'katalog']);
 // Route::get('/kategorii', [userController::class, 'shop_kategori']);
 // Route::get('/deskripsikatalog', [userController::class, 'deskripsikatalog']);
-// Route::get('/thanks', [userController::class, 'thanks']);
+Route::get('/thanks', [userController::class, 'thanks']);
 Route::get('/frontartikel', [userController::class, 'artikel']);
 Route::get('singleArtikel', [userController::class, 'singleArtikel']);
 Route::get('/produk/{id}', [produkController::class, 'show'])->name('produk.show');

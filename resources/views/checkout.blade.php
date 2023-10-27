@@ -19,9 +19,25 @@
           </div>
         </div> --}}
         <div class="row d-flex justify-content-center">
-          {{-- <div class="col-md-6 mb-5 mb-md-0">
-            <h2 class="h3 mb-3 text-black">Billing Details</h2>
-            <div class="p-3 p-lg-5 border">
+          <div class="col-md-6 mb-5 mb-md-0">
+            <h2 class="h3 mb-3 text-black">Cara Order Online</h2>
+            <p class="mb-3 text-black">
+              1. Login pada Web Arthur Citra Media.<br>
+              2. Pilih Menu Katalog untuk memilih barang yang ingin anda beli.<br>
+              3. Setelah Puas Memilih, klik icon keranjang pada bagian kanan atas.<br>
+              4. Cek kembali barang belanjaan anda.<br>
+              5. Jika sudah merasa yakin dan puas, silahkan klik "Checkout" pada bagian bawah kanan halaman.<br>
+              6. Cek kembali apakah barang anda sudah sesuai dengan barang yang tertera di Invoice.<br>
+              7. Jika sudah, silahkan klik "Order Via Whatsapp".<br>
+              8. Untuk Pembayaran silahkan melakukan Transaksi dengan Transfer ke BCA 6730305557 A/n Budi Santoso.<br>
+              9. Jika Sudah melakukan Pembayaran Silahkan konfirmasi ke Admin Kami Via Whatsapp.<br>
+              10. Jika Pesanan sudah terkonfirmasi, silahkan tunggu pesanan anda diproses.<br>
+              11. Admin kami akan menghubungi Nomor Whatsapp yang Anda cantumkan saat pesanan sudah selesai.<br><br>
+
+              ~ TERIMA KASIH ~
+            </p>
+            
+            {{-- <div class="p-3 p-lg-5 border">
               <div class="form-group">
                 <label for="c_country" class="text-black">Country <span class="text-danger">*</span></label>
                 <select id="c_country" class="form-control">
@@ -183,8 +199,8 @@
                 <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control" placeholder="Write your notes here..."></textarea>
               </div>
 
-            </div>
-          </div> --}}
+            </div> --}}
+          </div>
           <div class="col-md-6">
             {{-- <div class="row mb-5">
               <div class="col-md-12">
@@ -205,7 +221,7 @@
             
             <div class="row mb-5">
               <div class="col-md-12">
-                <h2 class="h3 mb-3 text-black text-center">Your Order</h2>
+                <h2 class="h3 mb-3 text-black text-center">Invoice</h2>
                 <div class="p-3 p-lg-5 border">
                   <table class="table site-block-order-table mb-5">
                     <thead>
