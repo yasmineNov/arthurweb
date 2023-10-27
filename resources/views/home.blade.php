@@ -6,10 +6,14 @@
   <div class="container">
     <div class="row gx-3">
       <main class="col-lg-9">
-        <div class="single-item">
-          <div>your content</div>
-          <div>your content</div>
-          <div>your content</div>
+        <div class="slider">
+          <div>A</div>
+          <div>B</div>
+          <div>C</div>
+          <div>D</div>
+          <div>E</div>
+          <div>F</div>
+          <div>G</div>
         </div>
       </main>
       <aside class="col-lg-3">
@@ -321,6 +325,11 @@
 
 @section('javascript')
     <script>
-        $('.single-item').slick();
+        $('.slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        });
     </script>
 @endsection
