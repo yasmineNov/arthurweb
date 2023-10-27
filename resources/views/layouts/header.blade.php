@@ -244,7 +244,7 @@
               </ul> --}}
             </li>
       
-            <li class="nav-item"><a class="nav-link" href="/order">Order Online</a></li>
+            <li class="nav-item"><a class="nav-link" href="/order">Kalkulator</a></li>
             <li class="nav-item"><a class="nav-link" href="/about">Tentang Kami</a></li>
             {{-- <li class="nav-item"><a class="nav-link" href="/member">Member</a></li> --}}
       
