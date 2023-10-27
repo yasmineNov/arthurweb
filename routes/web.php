@@ -9,6 +9,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\SlideController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -95,7 +96,9 @@ Route::get('/produk/{id}', [produkController::class, 'show'])->name('produk.show
 Route::get('/dashboard', [adminController::class, 'dashboard'])->middleware('can:admin');
 Route::get('/katalogpromo', [adminController::class, 'katalogpromo']);
 Route::get('/toko', [adminController::class, 'toko']);
-Route::get('/slider', [adminController::class, 'slider']);
+
+Route::get('/slider', [SlideController::class, 'slider']);
+// Route::resource('/slider', SlideController::class);
 
 
 Route::resource('customer', CustomerController::class);

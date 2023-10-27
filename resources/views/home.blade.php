@@ -7,13 +7,39 @@
     <div class="row gx-3">
       <main class="col-lg-9">
         <div class="slider">
-          <div>A</div>
-          <div>B</div>
-          <div>C</div>
-          <div>D</div>
-          <div>E</div>
-          <div>F</div>
-          <div>G</div>
+
+          <div class="card-banner p-5 bg-primary rounded-5" style="height: 350px;">
+            <div style="max-width: 500px;">
+              <h2 class="text-white">
+                Great products with <br />
+                best deals
+              </h2>
+              <p class="text-white">No matter how far along you are in your sophistication as an amateur astronomer, there is always one.</p>
+              <a href="#" class="btn btn-light shadow-0 text-primary"> View more </a>
+            </div>
+          </div>
+
+          <div class="card-banner p-5 bg-danger rounded-5" style="height: 350px;">
+            <div style="max-width: 500px;">
+              <h2 class="text-white">
+                Great products with <br />
+                best deals
+              </h2>
+              <p class="text-white">No matter how far along you are in your sophistication as an amateur astronomer, there is always one.</p>
+              <a href="#" class="btn btn-light shadow-0 text-primary"> View more </a>
+            </div>
+          </div>
+
+          <div class="card-banner p-5 bg-warning rounded-5" style="height: 350px;">
+            <div style="max-width: 500px;">
+              <h2 class="text-white">
+                Great products with <br />
+                best deals
+              </h2>
+              <p class="text-white">No matter how far along you are in your sophistication as an amateur astronomer, there is always one.</p>
+              <a href="#" class="btn btn-light shadow-0 text-primary"> View more </a>
+            </div>
+          </div>
         </div>
       </main>
       <aside class="col-lg-3">
@@ -326,10 +352,12 @@
 @section('javascript')
     <script>
         $('.slider').slick({
+        arrows : false,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 3000,
+        pauseOnHover: false,
         });
     </script>
 @endsection

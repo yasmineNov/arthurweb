@@ -10,6 +10,15 @@ class SlideController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function slider()
+    {
+        //
+        $data = slide::orderBy('idSlide', 'desc')->paginate();
+        return view('admin/slider', $data, [
+            "title" => "slider"
+        ])->with('data', $data);
+    }
+    
     public function index()
     {
         //
