@@ -11,15 +11,15 @@
 
     <div class="site-section">
       <div class="container">
-        <div class="row mb-5">
+        {{-- <div class="row mb-5">
           <div class="col-md-12">
             <div class="border p-4 rounded" role="alert">
               Returning customer? <a href="#">Click here</a> to login
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-5 mb-md-0">
+        </div> --}}
+        <div class="row d-flex justify-content-center">
+          {{-- <div class="col-md-6 mb-5 mb-md-0">
             <h2 class="h3 mb-3 text-black">Billing Details</h2>
             <div class="p-3 p-lg-5 border">
               <div class="form-group">
@@ -184,10 +184,9 @@
               </div>
 
             </div>
-          </div>
+          </div> --}}
           <div class="col-md-6">
-
-            <div class="row mb-5">
+            {{-- <div class="row mb-5">
               <div class="col-md-12">
                 <h2 class="h3 mb-3 text-black">Coupon Code</h2>
                 <div class="p-3 p-lg-5 border">
@@ -202,11 +201,11 @@
 
                 </div>
               </div>
-            </div>
+            </div> --}}
             
             <div class="row mb-5">
               <div class="col-md-12">
-                <h2 class="h3 mb-3 text-black">Your Order</h2>
+                <h2 class="h3 mb-3 text-black text-center">Your Order</h2>
                 <div class="p-3 p-lg-5 border">
                   <table class="table site-block-order-table mb-5">
                     <thead>
@@ -233,7 +232,7 @@
                     </tbody>
                   </table>
 
-                  <div class="border p-3 mb-3">
+                  {{-- <div class="border p-3 mb-3">
                     <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsebank" role="button" aria-expanded="false" aria-controls="collapsebank">Direct Bank Transfer</a></h3>
 
                     <div class="collapse" id="collapsebank">
@@ -261,10 +260,11 @@
                         <p class="mb-0">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
                       </div>
                     </div>
-                  </div>
+                  </div> --}}
 
-                  <div class="form-group">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='thankyou.html'">Place Order</button>
+                  <div class="form-group text-center">
+                    {{-- <button class="btn btn-primary btn-lg py-3 btn-block" href="https://wa.me/087858860888">Order Via Whatsapp</button> --}}
+                    <a class="btn btn-primary btn-lg py-3 btn-bloc text-center" href="https://wa.me/087858860888">Order Via Whatsapp</a>
                   </div>
 
                 </div>

@@ -64,6 +64,56 @@ class userController extends Controller
         }
     }
 
+    function order()
+    {
+        if (Auth::id()) {
+
+            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+
+            $user = auth()->user();
+            $count = cart::where('idUser', $user->id)->count();
+
+            return view('cara-order', compact('count'), [
+                "title" => "cara-order",
+                "name" => "Arthur citra Media",
+                "email" => "acmbratang09@gmail.com",
+                "image" => "acm.png"
+            ]);
+        } else {
+            return view('cara-order', [
+                "title" => "cara-order",
+                "name" => "Arthur citra Media",
+                "email" => "acmbratang09@gmail.com",
+                "image" => "acm.png"
+            ]);
+        }
+    }
+
+    function forgotPassword()
+    {
+        if (Auth::id()) {
+
+            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+
+            $user = auth()->user();
+            $count = cart::where('idUser', $user->id)->count();
+
+            return view('Auth.forgot-password', compact('count'), [
+                "title" => "cara-order",
+                "name" => "Arthur citra Media",
+                "email" => "acmbratang09@gmail.com",
+                "image" => "acm.png"
+            ]);
+        } else {
+            return view('Auth.forgot-password', [
+                "title" => "cara-order",
+                "name" => "Arthur citra Media",
+                "email" => "acmbratang09@gmail.com",
+                "image" => "acm.png"
+            ]);
+        }
+    }
+
     function keranjang()
     {
         if (Auth::id()) {
@@ -158,9 +208,23 @@ class userController extends Controller
 
     function checkout()
     {
-        return view('checkout', [
-            "title" => "Checkout"
-        ]);
+        if (Auth::id()) {
+            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            $user = auth()->user();
+            $count = cart::where('idUser', $user->id)->count();
+
+            $data2 = artikel::orderBy('idArtikel', 'desc')->paginate(4);
+
+            return view('checkout', compact('count'), [
+                "title" => "Checkout"
+            ]);
+        } else {
+            $data2 = artikel::orderBy('idArtikel', 'desc')->paginate(4);
+
+            return view('checkout', [
+                "title" => "Checkout"
+            ]);
+        }
     }
     function member()
     {

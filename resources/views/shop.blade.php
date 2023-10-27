@@ -92,6 +92,12 @@
             @foreach ($katalog as $item)
             <div class="col-sm-6 col-lg-3 mb-4" data-aos="fade-up">
             <div class="block-2 text-center border">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Default checkbox
+                </label>
+              </div>
                 <figure class="block-4-image">
                   <img src="{{asset('storage/image-produk/'.$item->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" />
                 </figure>

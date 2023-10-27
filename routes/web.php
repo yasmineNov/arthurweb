@@ -65,7 +65,10 @@ Route::get('/login', [LoginController::class, 'login'])->name('login')->middlewa
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
-//RESGISTER
+// FORGOT PASSWORD
+Route::get('/forgot-password', [userController::class, 'forgotPassword']);
+
+//REGISTER
 Route::get('/register', [RegisterController::class, 'register'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
@@ -79,6 +82,7 @@ Route::get('/update-cart/decrease/{id}', [CartController::class, 'decreaseQty'])
 // ROUTES USER
 Route::resource('usr', CustomerController::class);
 Route::get('/', [userController::class, 'home']);
+Route::get('/order', [userController::class, 'order']);
 Route::get('/about', [userController::class, 'about']);
 Route::get('/keranjang', [userController::class, 'keranjang']);
 Route::get('/checkout', [userController::class, 'checkout']);
