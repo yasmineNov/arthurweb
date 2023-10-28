@@ -7,6 +7,7 @@ use App\Models\kategori;
 use App\Models\artikel;
 use App\Models\produk;
 use App\Models\cart;
+use App\Models\slide;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,6 +19,8 @@ class userController extends Controller
         if (Auth::id()) {
             $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
             $dataPost = artikel::orderBy('idArtikel', 'desc')->paginate(4);
+            $dataSlider = slide::orderBy('idSlide', 'desc')->paginate();
+        
 
             $user = auth()->user();
             $count = cart::where('idUser', $user->id)->count();
@@ -26,15 +29,18 @@ class userController extends Controller
                 "title" => "home",
                 "data1" => $data1,
                 "dataPost" => $dataPost,
+                "dataSlider" => $dataSlider,
             ]);
         } else {
             $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
             $dataPost = artikel::orderBy('idArtikel', 'desc')->paginate(4);
+            $dataSlider = slide::orderBy('idSlide', 'desc')->paginate();
 
             return view('home', [
                 "title" => "home",
                 "data1" => $data1,
                 "dataPost" => $dataPost,
+                "dataSlider" => $dataSlider,
             ]);
         }
     }

@@ -8,38 +8,18 @@
       <main class="col-lg-9">
         <div class="slider">
 
-          <div class="card-banner p-5 bg-primary rounded-5" style="height: 350px;">
+          @foreach ($dataSlider as $item)
+          <div class="card-banner p-5 bg-primary rounded-5" style="height: 350px; background-image: url('{{ asset('storage/image-slider/'.$item->img) }}'); background-size: cover; background-position: center;"> 
             <div style="max-width: 500px;">
               <h2 class="text-white">
-                Great products with <br />
-                best deals
+                {{ $item->judul }}
               </h2>
-              <p class="text-white">No matter how far along you are in your sophistication as an amateur astronomer, there is always one.</p>
-              <a href="#" class="btn btn-light shadow-0 text-primary"> View more </a>
+              <p class="text-white">{{ $item->body }}</p>
+              <a href="http://127.0.0.1:8000/{{ $item->body }}" class="btn btn-light shadow-0 text-primary"> View more </a>
             </div>
           </div>
-
-          <div class="card-banner p-5 bg-danger rounded-5" style="height: 350px;">
-            <div style="max-width: 500px;">
-              <h2 class="text-white">
-                Great products with <br />
-                best deals
-              </h2>
-              <p class="text-white">No matter how far along you are in your sophistication as an amateur astronomer, there is always one.</p>
-              <a href="#" class="btn btn-light shadow-0 text-primary"> View more </a>
-            </div>
-          </div>
-
-          <div class="card-banner p-5 bg-warning rounded-5" style="height: 350px;">
-            <div style="max-width: 500px;">
-              <h2 class="text-white">
-                Great products with <br />
-                best deals
-              </h2>
-              <p class="text-white">No matter how far along you are in your sophistication as an amateur astronomer, there is always one.</p>
-              <a href="#" class="btn btn-light shadow-0 text-primary"> View more </a>
-            </div>
-          </div>
+          @endforeach
+          
         </div>
       </main>
       <aside class="col-lg-3">

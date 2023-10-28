@@ -61,10 +61,5 @@ class adminController extends Controller
             "title" => "Tambah Produk"
         ]);
     }
-    function slider()
-    {
-        return view('admin/slider', [
-            "title" => "slider"
-        ]);
-    }
+  
 }

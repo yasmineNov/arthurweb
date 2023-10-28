@@ -26,7 +26,7 @@
                         <div><i class="fas fa-table me-1"></i>
                             Katalog Produk
                         </div>
-                        <a class="btn btn-primary" href='{{url('/tambahProduk')}}' role="button"><i class="fa-solid fa-plus"></i> Tambahkan Slider</a>
+                        <a class="btn btn-primary" href='{{url('/tambahslider')}}' role="button"><i class="fa-solid fa-plus"></i> Tambahkan Slider</a>
                     </div>
                 </div>
                 
@@ -39,6 +39,7 @@
                                 <th>Judul</th>
                                 <th>URL</th>
                                 <th>isi</th>
+                                <th>Aksi</th>
                                 
                         </thead>
                         <tfoot>
@@ -48,26 +49,29 @@
                                 <th>Judul</th>
                                 <th>URL</th>
                                 <th>isi</th>
+                                <th>Aksi</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                            
-                            <tr>
-                                
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>                        
-                                <td>
-                                    {{-- <form class='d-inline' action="{{ route('produk.destroy',$item->idProduk) }}" method="POST">
-                                        @csrf
-                                        <a href='{{ url('produk/'.$item->idProduk.'/edit')}}' class="btn btn-warning"><i class="fa fa-pencil">Edit</i></a>
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash">hapus</i></button>
-                                    </form>   --}}
-                                </td>
-                            </tr>
-                           
+                            <?php $i = $data->firstItem() ?>
+                            @foreach ($data as $item)
+                                <tr>
+                                    <td>{{ $i }}</td>
+                                    <td><img src="{{asset('storage/image-slider/'.$item->img)}}" alt="" width="100"></td>
+                                    <td>{{ $item->judul }}</td>
+                                    <td>{{ $item->url }}</td>
+                                    <td>{{ $item->body   }}</td>                        
+                                    <td>
+                                        <form class='d-inline' action="{{ route('slider.destroy',$item->idSlide) }}" method="POST">
+                                            @csrf
+                                            <a href='{{ url('slider//'.$item->idSlide.'/edit')}}' class="btn btn-warning"><i class="fa fa-pencil">Edit</i></a>
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash">hapus</i></button>
+                                        </form>  
+                                    </td>
+                                </tr>
+                            <?php $i++ ?>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
