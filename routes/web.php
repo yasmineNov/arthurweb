@@ -5,6 +5,7 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\forgotPasswordController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -66,7 +67,9 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 // FORGOT PASSWORD
-Route::get('/forgot-password', [userController::class, 'forgotPassword']);
+Route::get('/forgot-password', [forgotPasswordController::class, 'forgotPassword']);
+Route::post('/update-password', [forgotPasswordController::class, 'updatePassword']);
+Route::post('/forgot-password', [forgotPasswordController::class, 'updatePassword']);
 
 //REGISTER
 Route::get('/register', [RegisterController::class, 'register'])->middleware('guest');

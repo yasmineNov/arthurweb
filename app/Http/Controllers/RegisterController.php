@@ -12,7 +12,6 @@ class RegisterController extends Controller
     {
         return view('admin.register', [
             "title" => "register",
-            // "active" => "register"
         ]);
     }
     public function store(Request $request)

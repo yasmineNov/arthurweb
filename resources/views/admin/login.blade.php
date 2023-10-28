@@ -70,83 +70,15 @@
                                   <button class="w-100 btn btn-lg btn-primary" type="submit">Masuk</button>
                                 </form>
                                 <small class="d-block text-center mt-3">Belum Punya Akun? <a href="/register">Daftar Sekarang!</a></small>
-                                {{-- <div class="card">
-                                    <div class="card-header bg-primary text-light"><h3 class="text-center font-weight-light my-4">Masuk</h3></div>
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="form-floating mb-3 mt-5">
-                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-                                                <label for="inputEmail">Email</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
-                                                <label for="inputPassword">Kata sandi</label>
-                                            </div>
-                                            <div class="form-check mb-3">
-                                                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                                <label class="form-check-label" for="inputRememberPassword">Ingat Sandi</label>
-                                            </div>
-                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.html">Lupa Pasword?</a>
-                                                <a class="btn btn-primary" href="/dashboard">Masuk</a>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.html">Buat akun baru? Daftar! </a></div>
-                                    </div>
-                                </div> --}}
+                                {{-- <small class="d-block text-center mt-3">Belum Punya Akun? <a href="/register">Daftar Sekarang!</a><a href="/forgot-password">  Lupa Pasword?</a></small> --}}
+                                <a class="small d-block text-center mt-3" href="/forgot-password">Lupa Pasword?</a>
+                                
                             </div>
                         </div>
                     </div>
                 </main>
             </div>
         </div>
-        {{-- //LOGIN SANDIKA// --}}
-        {{-- <div class="row justify-content-center"> --}}
-            {{-- <div class="col-md-4">
-          
-              @if(session()->has('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                  {{ session('success') }}
-                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-              @endif
-          
-              @if(session()->has('loginError'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                  {{ session('loginError') }}
-                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-              @endif
-          
-              <main class="form-signin">
-                <h1 class="h3 mb-3 fw-normal text-center">Please login</h1>
-                <form action="/login" method="post">
-                  @csrf
-                  <div class="form-floating">
-                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" autofocus required value="{{ old('email') }}">
-                    <label for="email">Email address</label>
-                    @error('email')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                    @enderror
-                  </div>
-                  <div class="form-floating">
-                    <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
-                    <label for="password">Password</label>
-                  </div>
-              
-                  <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
-                </form>
-                <small class="d-block text-center mt-3">Not registered? <a href="/register">Register Now!</a></small>
-              </main>
-            </div>
-          </div> --}}
-
-
-        
         
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
