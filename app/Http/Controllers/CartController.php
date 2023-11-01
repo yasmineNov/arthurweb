@@ -7,12 +7,52 @@ use App\Models\User;
 use App\Models\produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    public function tampungCart()
+    {
+        if (Auth::id()) {
+            $user = auth()->user();
+
+            // $cart = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);
+
+            $kol = DB::table('carts')
+                ->select('carts.id', 'carts.qty', 'produks.harga', 'carts.idUser')
+                ->leftjoin('produks', 'produks.idProduk', '=', 'carts.idProduk')
+                ->where('carts.idUser', $user->id)
+                ->orderBy('carts.idProduk', 'desc')
+                ->get();
+            $cart = cart::where('idUser', $user->id)->with('produk')->orderBy('idProduk', 'desc')->get();
+            if ($kol) {
+                $tampung = [];
+                foreach ($kol as $key => $value) {
+
+                    $tampung[] += ($kol[$key]->qty * $kol[$key]->harga);
+                }
+                $hasil = 0;
+                foreach ($tampung as $key => $value) {
+                    $hasil += $value;
+                }
+            }
+            $count = cart::where('idUser', $user->id)->count();
+
+            return response()->json([
+                // "data1" => $data1,
+                // "pict" => $pict,
+                "cart" => $cart,
+                "subtotal" => $tampung,
+                "total" => $hasil,
+            ]);
+
+        } else {
+        }
+    }
+
     public function addcart(Request $request, $id)
     {
         if (Auth::id()) {

@@ -69,23 +69,23 @@ class userController extends Controller
 
             $user = auth()->user();
 
-            // $cart = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);
+            $cart = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);
 
             $kol = DB::table('carts')
-                        ->select('carts.id', 'carts.qty', 'produks.harga','carts.idUser')
-                        ->leftjoin('produks', 'produks.idProduk', '=', 'carts.idProduk')
-                        ->where('carts.idUser', $user->id)
-                        ->orderBy('carts.idProduk', 'desc')
-                        ->get();
-            $cart = cart::where('idUser',$user->id)->with('produk')->orderBy('idProduk', 'desc')->get();
-            if($kol){
+                ->select('carts.id', 'carts.qty', 'produks.harga', 'carts.idUser')
+                ->leftjoin('produks', 'produks.idProduk', '=', 'carts.idProduk')
+                ->where('carts.idUser', $user->id)
+                ->orderBy('carts.idProduk', 'desc')
+                ->get();
+            $cart = cart::where('idUser', $user->id)->with('produk')->orderBy('idProduk', 'desc')->get();
+            if ($kol) {
                 $tampung = [];
                 foreach ($kol as $key => $value) {
 
                     $tampung[] += ($kol[$key]->qty * $kol[$key]->harga);
                 }
                 $hasil = 0;
-                foreach($tampung as $key => $value){
+                foreach ($tampung as $key => $value) {
                     $hasil += $value;
                 }
             }
@@ -96,9 +96,9 @@ class userController extends Controller
                 "title" => "Keranjang",
                 // "data1" => $data1,
                 // "pict" => $pict,
-                "cart" => $cart,
-                "subtotal" => $tampung,
-                "total" => $hasil,
+                // "cart" => $cart,
+                // "subtotal" => $tampung,
+                // "total" => $hasil,
             ]);
         } else {
             $data1 = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);

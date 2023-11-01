@@ -30,32 +30,31 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <template v-for='(cart, index) in cart' :index='index'>
                                 <tr>
-                                    {{-- @foreach ($cart as $key => $item) --}}
-                                    
+                                    @foreach ($cart as $key => $item)
                                         <td class="product-thumbnail">
-                                            <img :src="cart.img"
+                                            <img src="{{ asset('storage/image-produk/' . $item->produk->img) }}"
                                                 alt="Image" class="img-fluid">
                                         </td>
                                         <td class="product-name">
-                                            <h2 class="h5 text-black"> Rp @{{cart.namaProduk}}</h2>
+
+                                            <h2 class="h5 text-black">{{ $item->produk->namaProduk }} </h2>
                                         </td>
-                                        <td>Rp @{{cart.harga}}</td>
+                                        <td>Rp {{ $item->produk->harga }}</td>
 
                                         <td>
                                             <div class="input-group mb-3" style="max-width: 120px;">
                                                 <div class="input-group-prepend">
                                                     <button class="btn btn-outline-primary js-btn-minus"
-                                                        data-id="" type="button">&minus;</button>
+                                                        data-id="{{ $item->id }}" type="button">&minus;</button>
                                                 </div>
                                                 <input type="text" class="form-control text-center qty-input"
-                                                    :value="cart.qty" placeholder=""
+                                                    value="{{ $item->qty }}" placeholder=""
                                                     aria-label="Example text with button addon"
-                                                    aria-describedby="button-addon1" data-id="">
+                                                    aria-describedby="button-addon1" data-id="{{ $item->idProduk }}">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-outline-primary js-btn-plus"
-                                                        data-id="" type="button">&plus;</button>
+                                                        data-id="{{ $item->id }}" type="button">&plus;</button>
                                                 </div>
                                             </div>
 
@@ -63,8 +62,8 @@
 
                                         </td>
                                         {{-- // subtotal = harga * qty ; --}}
-                                        <!-- <td>Rp </td> -->
-                                        <td>Rp @{{cart.subtotal}}</td>
+                                        <!-- <td>Rp {{ $item->price * $item->quantity }}</td> -->
+                                        <td>Rp {{ $subtotal[$key] }}</td>
 
                                         {{-- <form action="{{ route('cart.destroy',$item->id) }}" method="POST"> --}}
 
@@ -78,11 +77,9 @@
                                         {{-- </form> --}}
 
                                         {{-- <td><a type="submit" class="btn btn-primary btn-sm">X</a></td> --}}
-                                    
-                                    </tr>
-                                </template>
+                                </tr>
                             </tbody>
-                            
+                            @endforeach
                         </table>
                     </div>
                 </form>
@@ -130,10 +127,9 @@
                             <div class="row mb-5">
                                 <div class="col-md-6">
                                     <span class="text-black">Total</span>
-                                    
                                 </div>
                                 <div class="col-md-6 text-right">
-                                    <strong class="text-black"></strong>
+                                    <strong class="text-black">{{ $total }}</strong>
                                 </div>
                             </div>
 
@@ -190,48 +186,12 @@
 
         var vm = new Vue({
             el: ".site-section",
-            data: {
-                cart:[],member:[]
-            },
+            data: {},
             mounted() {
-                this.tampung();
+                
             },
             methods: {
-                tampung() {
-                    $.ajax({
-                    url: "/tampungCart",
-                    type: "GET",
-                    success: function(data) {
-                        vm.cart=[];
-                        // console.log(data['cart'][0].produk.harga);
-                        var i = 0;
-                        data['cart'].forEach(function(dt){
-                            console.log(dt.produk);
-                            vm.cart.push({
-                                'img':'/image-produk/'+ dt.produk.img,
-                                'namaProduk':dt.produk.namaProduk,
-                                'harga':dt.produk.harga,
-                                'qty':dt.qty,
-                                'subtotal':data['subtotal'][i],
-                            });
-                             i++;
-                        });
-                    }
-                });
-                },
-                onClickPlus() {
-                    // Kirim permintaan Ajax untuk menambahkan qty
-                    $.ajax({
-                        url: "/update-cart/increase/" + productId,
-                        type: "GET",
-                        success: function(data) {
-                            $.ajax
-                        }
-                    });
-                },
-
-
-
+                
             }
         })
     </script>
