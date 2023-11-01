@@ -277,6 +277,7 @@
       
       
 </header>
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const navItems = document.querySelectorAll(".nav-item");
@@ -292,4 +293,33 @@
     });
   });
   
+  document.addEventListener("DOMContentLoaded", function() {
+
+window.addEventListener('scroll', function() {
+
+  if (window.scrollY > 50) {
+    document.getElementById('navbar_top').classList.add('fixed-top');
+    // add padding top to show content behind navbar
+    navbar_height = document.querySelector('.navbar').offsetHeight;
+    document.body.style.paddingTop = navbar_height + 'px';
+  } else {
+    document.getElementById('navbar_top').classList.remove('fixed-top');
+    // remove padding top from body
+    document.body.style.paddingTop = '0';
+  }
+});
+});
+// JavaScript
+document.addEventListener("DOMContentLoaded", function () {
+// Ambil semua elemen tautan menu
+const menuLinks = document.querySelectorAll(".nav-link");
+
+// Loop melalui setiap tautan menu
+menuLinks.forEach(link => {
+  // Jika URL halaman saat ini cocok dengan tautan, tambahkan kelas "active"
+  if (link.getAttribute("href") === window.location.pathname) {
+      link.classList.add("active");
+  }
+});
+});
 </script>

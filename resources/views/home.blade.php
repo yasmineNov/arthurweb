@@ -1,91 +1,25 @@
 @extends('layouts.main')
 
 @section('container')
-{{-- CAROUSEL START --}}
-
-{{-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="images/yellow.jpg" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="images/red.jpg" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="images/blue.jpg" alt="Third slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div> --}}
-
-{{-- CAROUSEL END --}}
-
-{{-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="jumbotron">
-        <h1 class="display-4">SEMANGAT NGERJAIN WEB NYA!!</h1>
-        <p class="lead">Yuk bisa yuk, selesai sesuai dateline :v </p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="jumbotron">
-        <h1 class="display-4">IYA TAU, AGAK MUMET EMANG.. TAPI KUDU SEMANGAT & NIAT !!</h1>
-        <hr class="my-4"> 
-        <p>It uses utility classes for typography</p> 
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="jumbotron">
-        <h1 class="display-4">PROMO 3</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-      </div>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div> --}}
 <!-- intro -->
 <section class="pt-3">
   <div class="container">
     <div class="row gx-3">
       <main class="col-lg-9">
-        <div class="card-banner p-5 bg-primary rounded-5" style="height: 350px;">
-          <div style="max-width: 500px;">
-            <h2 class="text-white">
-              Great products with <br />
-              best deals
-            </h2>
-            <p class="text-white">No matter how far along you are in your sophistication as an amateur astronomer, there is always one.</p>
-            <a href="#" class="btn btn-light shadow-0 text-primary"> View more </a>
+        <div class="slider">
+
+          @foreach ($dataSlider as $item)
+          <div class="card-banner p-5 bg-primary rounded-5" style="height: 350px; background-image: url('{{ asset('storage/image-slider/'.$item->img) }}'); background-size: cover; background-position: center;"> 
+            <div style="max-width: 500px;">
+              <h2 class="text-white">
+                {{ $item->judul }}
+              </h2>
+              <p class="text-white">{{ $item->body }}</p>
+              <a href="http://127.0.0.1:8000/{{ $item->body }}" class="btn btn-light shadow-0 text-primary"> View more </a>
+            </div>
           </div>
+          @endforeach
+          
         </div>
       </main>
       <aside class="col-lg-3">
@@ -393,4 +327,17 @@
     </div>
   </div>
 </section>
+@endsection
+
+@section('javascript')
+    <script>
+        $('.slider').slick({
+        arrows : false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        pauseOnHover: false,
+        });
+    </script>
 @endsection
