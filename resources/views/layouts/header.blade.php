@@ -140,7 +140,7 @@
                             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                             {{-- <li class="nav-item has-children"> --}}
                             <li class="nav-item">
-                                <a class="nav-link" href="/katalog">Katalog</a>
+                                <a class="nav-link" href="{{ URL('/katalog') }}">Katalog</a>
                                 {{-- <ul class="dropdown">
                 <li class="has-children">
                   <a href="#">OUTDOOR</a>
