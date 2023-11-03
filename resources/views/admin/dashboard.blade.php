@@ -4,7 +4,7 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-0">
-                <h1 class="mt-1">Dashboard deden</h1>
+                <h1 class="mt-1">Dashboard deden tes</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active">Dashboard</li>
                 </ol>
