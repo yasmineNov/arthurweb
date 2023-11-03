@@ -169,7 +169,7 @@
 <!-- Features -->
 
 <!-- Recommended -->
-<section>
+{{-- <section>
   <div class="container my-5">
     <header class="mb-4">
       <h3>Promo Items</h3>
@@ -238,7 +238,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> --}}
 <!-- Recommended -->
 
 {{-- blog --}}
