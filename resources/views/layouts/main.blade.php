@@ -5,7 +5,8 @@
     <title>ACM &mdash; {{ $title }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Mukta:300,400,700') }}">
     <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css') }}">
 
@@ -16,7 +17,7 @@
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/slick-1.8.1/slick/slick.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/slick-1.8.1/slick/slick.css') }}" />
 
     <!-- CSS Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +43,7 @@
             @yield('container')
         </div>
 
-        @include('partials.footer')
+        @include('layouts/footer')
 
     </div>
     <script src="{{ asset('assets/slick-1.8.1/slick/slick.min.js') }}"></script>
