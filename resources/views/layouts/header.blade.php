@@ -45,7 +45,7 @@
                             </li>
                         @else
                             <li><a class="btn btn-light" href="{{ URL('/login') }}">Masuk</a></li>
-                            <li><a class="btn btn-primary" href="/register">Daftar</a></li>
+                            <li><a class="btn btn-primary" href="{{ URL('/register') }}">Daftar</a></li>
                         @endauth
                     </ul>
                 </div>
