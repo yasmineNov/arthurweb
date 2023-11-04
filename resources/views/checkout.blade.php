@@ -229,14 +229,10 @@
                       <th>Total</th>
                     </thead>
                     <tbody>
-                      {{-- <tr>
-                        <td>Top Up T-Shirt <strong class="mx-2">x</strong> 1</td>
-                        <td>$250.00</td>
-                      </tr>
                       <tr>
-                        <td>Polo Shirt <strong class="mx-2">x</strong>   1</td>
-                        <td>$100.00</td>
-                      </tr> --}}
+                        <td>First Item <strong class="mx-2">x</strong>   1</td>
+                        <td>Rp.-</td>
+                      </tr>
                       <tr>
                         <td class="text-black font-weight-bold"><strong>Subtotal keranjang</strong></td>
                         <td class="text-black">Rp.-</td>
