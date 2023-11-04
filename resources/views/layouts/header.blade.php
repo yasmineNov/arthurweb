@@ -242,10 +242,11 @@
                   </ul>
                 </li>
               </ul> --}}
+                 
                             </li>
                             {{-- <li class="nav-item has-children"> --}}
                             <li class="nav-item">
-                                <a class="nav-link" href="/frontartikel">Artikel</a>
+                                <a class="nav-link" href="{{ URL('/frontartikel') }}">Artikel</a>
                                 {{-- <ul class="dropdown">
                 <li><a href="#">Menu One</a></li>
                 <li><a href="#">Menu Two</a></li>
