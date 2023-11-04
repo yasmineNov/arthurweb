@@ -20,7 +20,7 @@ class userController extends Controller
             $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
             $dataPost = artikel::orderBy('idArtikel', 'desc')->paginate(4);
             $dataSlider = slide::orderBy('idSlide', 'desc')->paginate();
-        
+
 
             $user = auth()->user();
             $count = cart::where('idUser', $user->id)->count();
@@ -306,7 +306,7 @@ class userController extends Controller
                 ->orWhere('deskripsi', 'like', '%' . $query . '%')
                 ->get();
 
-            return view('hasil_pencarian', compact('count'), [
+            return view('hasil_pencarian', [
                 "title" => "hasilPencarian",
                 'produk' => $produk,
                 'query' => $query
