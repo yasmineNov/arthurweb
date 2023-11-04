@@ -36,13 +36,13 @@
                             
                             <div class="col-md-5 align-self-center">
                                 <div class="mb-5 d-flex justify-content-center">
-                                    <a class="nav-link" href="/">
+                                    <a class="nav-link" href="{{ URL('/') }}">
                                       <img src=" {{ asset('images/acmLogo.png') }}" alt="Image" class="img-fluid rounded" width="400px">
                                     </a>
                                   </div>
                               <main class="form-registration">
                                 <h1 class="h3 mb-3 fw-900 text-center">Daftar</h1>
-                                <form action="/register" method="post">
+                                <form action='{{url('/register')}}'  method="post">
                                   @csrf
                                   {{-- //Nama --}}
                                   <div class="form-floating mb-2">
@@ -82,7 +82,7 @@
                               
                                   <button class="w-100 btn btn-lg btn-primary" type="submit">Daftar</button>
                                 </form>
-                                <small class="d-block text-center mt-3">Sudah Punya Akun? <a href="/login">Masuk Sekarang!</a></small>
+                                <small class="d-block text-center mt-3">Sudah Punya Akun? <a href="{{ URL('/login') }}">Masuk Sekarang!</a></small>
                             </div>
                             <div class="col vh-100 d-flex align-items-center justify-content-center">
                                 <a>

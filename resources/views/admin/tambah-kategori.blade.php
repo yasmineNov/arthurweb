@@ -8,7 +8,7 @@
             <a class="btn btn-primary" href='{{url('kategori')}}' role="button"><i class="fa-solid fa-circle-arrow-left"></i> Kembali</a>
             <h1 class="mt-4">tambahkan Kategori</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item nav-link"><a href="/">Dashboard</a></li>
+                <li class="breadcrumb-item nav-link"><a href="{{ URL('/') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active">tambahkan Kategori</li>
             </ol>
             <div class="card mb-4">

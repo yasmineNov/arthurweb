@@ -5,10 +5,10 @@
     <main>
 
         <div class="container-fluid px-4">
-            <a class="btn btn-primary" href="/artikelAdmin" role="button"><i class="fa-solid fa-circle-arrow-left"></i> Kembali</a>
+            <a class="btn btn-primary" href="{{ URL('/artikelAdmin') }}" role="button"><i class="fa-solid fa-circle-arrow-left"></i> Kembali</a>
             <h1 class="mt-4">tambahkan Artikel</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item nav-link"><a href="/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item nav-link"><a href="{{ URL('/dashboard') }}" >Dashboard</a></li>
                 <li class="breadcrumb-item active">tambahkan Artikel</li>
             </ol>
             <div class="card mb-4">

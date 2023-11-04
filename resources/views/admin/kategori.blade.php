@@ -7,7 +7,7 @@
         <div class="container-fluid px-4">
             <h1 class="mt-4">Master Kategori</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item nav-link"><a href="/">Dashboard</a></li>
+                <li class="breadcrumb-item nav-link"><a href="{{ URL('/') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active">kategori</li>
             </ol>
             <div class="card mb-4">

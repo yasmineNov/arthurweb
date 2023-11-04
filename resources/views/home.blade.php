@@ -122,7 +122,7 @@
               <input class="btn btn-primary shadow-0 me-1" type="submit" value="add cart">
             </form>
 
-              <a href="{{ route('produk.show', $item->idProduk) }}" class="btn btn-light shadow-0 me-1">Detail</a>
+              <a href="{{ url('produk.show', $item->idProduk) }}" class="btn btn-light shadow-0 me-1">Detail</a>
             </div>
           </div>
         </div>
@@ -255,7 +255,7 @@
             @foreach ($dataPost as $artikel)
               <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
                 <div class="card w-80 my-2 shadow-2-strong">
-                  <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
+                  <a href="{{ url('artikel.show',$artikel->idArtikel) }}">
                     <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" alt="...">
                   </a>
                   {{-- <div class="mt-2 text-muted small d-block mb-1">
@@ -264,7 +264,7 @@
                         23.12.2022
                       </span> --}}
                   <div class="card-body d-flex flex-column">
-                  <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
+                  <a href="{{ url('artikel.show',$artikel->idArtikel) }}">
                     <h5 class="title-artikel text-center mt-2 mb-0">{{$artikel->judul}}</h5>
                   </a>
                   <p class="text-center mt-0">{!!substr ($artikel->konten, 0,65)!!}.....</p> 
