@@ -30,7 +30,7 @@
                   </a> --}}
 
                                 @can('admin')
-                                <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+                                <li><a class="dropdown-item" href="{{ URL('/dashboard') }}">Dashboard</a></li>
                             @endcan
 
                             {{-- <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li> --}}
@@ -79,7 +79,7 @@
 
                             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
                                 <div class="site-logo">
-                                    <a class="nav-link" href="/" class="js-logo-clone">
+                                    <a class="nav-link" href="{{ URL('/') }}" class="js-logo-clone">
                                         <img src=" {{ asset('images/acmLogo.png') }}" alt="Image"
                                             class="img-fluid rounded mb-3">
                                     </a>
@@ -110,7 +110,7 @@
                                             <li><a href="#"><span class="icon icon-person"></span></a></li>
                                             <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                                             <li>
-                                                <a href="/keranjang" class="site-cart">
+                                                <a href="{{ URL('/keranjang') }}" class="site-cart">
                                                     <span class="icon icon-shopping_cart">
                                                     </span>
                                                     {{-- <span class="count">{{ Cart::getTotalQuantity()}}</span> --}}
@@ -137,7 +137,7 @@
                 <nav class="site-navigation text-right text-md-center" role="navigation">
                     <div class="container">
                         <ul class="site-menu js-clone-nav d-none d-md-block">
-                            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ URL('/') }}">Home</a></li>
                             {{-- <li class="nav-item has-children"> --}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ URL('/katalog') }}">Katalog</a>
@@ -254,9 +254,8 @@
               </ul> --}}
                             </li>
 
-                            <li class="nav-item"><a class="nav-link" href="/order">Kalkulator</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/about">Tentang Kami</a></li>
-                            {{-- <li class="nav-item"><a class="nav-link" href="/member">Member</a></li> --}}
+                            <li class="nav-item"><a class="nav-link"  href="/order" href="{{ URL('/frontartikel') }}">Kalkulator</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ URL('/about') }}">Tentang Kami</a></li>
 
                             <div class="d-md-none">
                                 <div class="row">
