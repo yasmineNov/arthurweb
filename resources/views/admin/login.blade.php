@@ -40,13 +40,13 @@
                             </div>
                             <div class="col-md-4 align-self-center">
                               <div class="mb-5 d-flex justify-content-center">
-                                <a class="nav-link" href="/">
+                                <a class="nav-link" href="{{ URL('/') }}">
                                   <img src=" {{ asset('images/acmLogo.png') }}" alt="Image" class="img-fluid rounded" width="400px">
                                 </a>
                               </div>
                               <main class="form-signin">
                                 <h1 class="h3 mt-5 mb-3 fw-900 text-center">Masuk</h1>
-                                <form action="/login" method="post">
+                                <form action="/login"  method="post">
                                   @csrf
                                   <div class="form-floating mb-2">
                                     <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" autofocus required value="{{ old('email') }}">
@@ -69,9 +69,9 @@
                               
                                   <button class="w-100 btn btn-lg btn-primary" type="submit">Masuk</button>
                                 </form>
-                                <small class="d-block text-center mt-3">Belum Punya Akun? <a href="/register">Daftar Sekarang!</a></small>
+                                <small class="d-block text-center mt-3">Belum Punya Akun? <a href="{{ URL('/register') }}">Daftar Sekarang!</a></small>
                                 {{-- <small class="d-block text-center mt-3">Belum Punya Akun? <a href="/register">Daftar Sekarang!</a><a href="/forgot-password">  Lupa Pasword?</a></small> --}}
-                                <a class="small d-block text-center mt-3" href="/forgot-password">Lupa Pasword?</a>
+                                <a class="small d-block text-center mt-3" href="{{ URL('/forgot-password') }}">Lupa Pasword?</a>
                                 
                             </div>
                         </div>
