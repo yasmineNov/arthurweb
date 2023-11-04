@@ -65,7 +65,7 @@
                             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
                                 <div class="row">
 
-                                    <form action="/search" method="GET" class="site-block-top-search">
+                                    <form action='{{url('search')}}'  method="GET" class="site-block-top-search">
                                         <ul class="site-menu d-flex align-items-center justify-content-start">
                                             <input type="text" class="form-control border-0" name="query"
                                                 placeholder="Cari Produk">
@@ -95,7 +95,7 @@
                                                 <li><a href="#"><span class="icon icon-person"></span></a></li>
                                                 <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                                                 <li>
-                                                    <a href="/keranjang" class="site-cart">
+                                                    <a href="{{ URL('/keranjang') }}"  class="site-cart">
                                                         <span class="icon icon-shopping_cart">
                                                         </span>
                                                         {{-- <span class="count">{{ Cart::getTotalQuantity()}}</span> --}}
@@ -278,9 +278,9 @@
                                                     src="images/tokped.png"></a></li>
                                     </div>
                                     <div class="col-12 text-right mt-2">
-                                        <li class="nav-item"><a class="btn btn-light" href="/register">Daftar</a>
+                                        <li class="nav-item"><a class="btn btn-light" href="{{ URL('/register') }}">Daftar</a>
                                         </li>
-                                        <li class="nav-item"><a class="btn btn-primary" href="/login">Masuk</a></li>
+                                        <li class="nav-item"><a class="btn btn-primary" href="{{ URL('/login') }}">Masuk</a></li>
                                     </div>
                                 </div>
                             </div>
