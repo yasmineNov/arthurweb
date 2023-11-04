@@ -70,7 +70,7 @@
                         <td>{{ $customer->whatsapp }}</td>
                         <td>{{ $customer->email }}</td>
                         <td>
-                        <form action="{{ route('customer.destroy',$customer->id) }}" method="POST">
+                        <form action="{{ url('customer.destroy',$customer->id) }}" method="POST">
                
                         @csrf
                         @method('DELETE')
