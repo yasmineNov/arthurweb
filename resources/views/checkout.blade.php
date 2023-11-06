@@ -243,6 +243,7 @@
                       <tr>
                         <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
                         <td></td>
+                        <td></td>
                         <td class="text-black">Rp. {{ $total }}</td>
                       </tr>
                       {{-- <tr>
