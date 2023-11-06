@@ -253,7 +253,7 @@
               <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
                 <div class="card w-80 my-2 shadow-2-strong">
                   <a href="{{ url('artikel.show',$artikel->idArtikel) }}">
-                    <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" alt="...">
+                    <img src="{{asset('public/storage/image-artikel/'.$artikel->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" alt="...">
                   </a>
                   <div class="mt-2 text-muted small d-block mb-1">
                     <div class="card-body d-flex flex-column">
