@@ -227,12 +227,15 @@
                     <thead>
                       <th>Produk</th>
                       <th>Total</th>
+                      <th>Qty</th>
                       <th>Subtotal</th>
                     </thead>
                     <tbody>
                       @foreach ($cart as $key => $item)
                       <tr>
-                        <td>{{ $item->produk->namaProduk }}<strong class="mx-2">x</strong>{{ $item->qty }}</td>
+                        {{-- <td>{{ $item->produk->namaProduk }}<strong class="mx-2">x</strong>1</td> --}}
+                        <td>{{ $item->produk->namaProduk }}</td>
+                        <td>{{ $item->qty }} pcs</td>
                         <td>Rp. {{ $item->produk->harga }}</td>
                         <td>Rp. {{ $subtotal[$key] }}</td>
                       </tr>
