@@ -157,6 +157,13 @@ class userController extends Controller
                 "subtotal" => $tampung,
                 "total" => $hasil,
             ]);
+
+            return view('checkout', compact('count'), [
+                "title" => "Keranjang",
+                "cart" => $cart,
+                "subtotal" => $tampung,
+                "total" => $hasil,
+            ]);
         } else {
             $data1 = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);
 

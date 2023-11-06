@@ -230,17 +230,18 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td>First Item <strong class="mx-2">x</strong>   1</td>
-                        <td>Rp.-</td>
-                      </tr>
-                      <tr>
-                        <td class="text-black font-weight-bold"><strong>Subtotal keranjang</strong></td>
-                        <td class="text-black">Rp.-</td>
+                        @foreach ($cart as $key => $item)
+                        <td>{{ $item->produk->namaProduk }}<strong class="mx-2">x</strong>   1</td>
+                        <td>Rp {{ $item->produk->harga }}</td>
                       </tr>
                       <tr>
                         <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
-                        <td class="text-black font-weight-bold"><strong>Rp.-</strong></td>
+                        <td class="text-black">Rp {{ $subtotal[$key] }}</td>
                       </tr>
+                      {{-- <tr>
+                        <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
+                        <td class="text-black font-weight-bold"><strong>Rp.-</strong></td>
+                      </tr> --}}
                     </tbody>
                   </table>
 
