@@ -227,22 +227,26 @@
                     <thead>
                       <th>Produk</th>
                       <th>Total</th>
+                      <th>Subtotal</th>
                     </thead>
                     <tbody>
                       @foreach ($cart as $key => $item)
                       <tr>
-                        <td>{{ $item->produk->namaProduk }}<strong class="mx-2">x</strong>   1</td>
-                        <td>Rp {{ $item->produk->harga }}</td>
+                        <td>{{ $item->produk->namaProduk }}<strong class="mx-2">x</strong>{{ $item->qty }}</td>
+                        <td>Rp. {{ $item->produk->harga }}</td>
+                        <td>Rp. {{ $subtotal[$key] }}</td>
                       </tr>
+                      @endforeach
                       <tr>
                         <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
-                        <td class="text-black">Rp {{ $subtotal[$key] }}</td>
+                        <td></td>
+                        <td class="text-black">Rp. {{ $total }}</td>
                       </tr>
                       {{-- <tr>
                         <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
                         <td class="text-black font-weight-bold"><strong>Rp.-</strong></td>
                       </tr> --}}
-                      @endforeach
+                      
                     </tbody>
                   </table>
 
@@ -279,6 +283,7 @@
                   <div class="form-group text-center">
                     {{-- <button class="btn btn-primary btn-lg py-3 btn-block" href="https://wa.me/087858860888">Order Via Whatsapp</button> --}}
                     <a class="btn btn-primary btn-lg py-3 btn-bloc text-center" href="https://wa.me/087858860888">Order Via Whatsapp</a>
+                    {{-- <a class="btn btn-primary btn-lg py-3 btn-bloc text-center" href="https://wa.me/087858860888?text=Order%20By%20%20%3A{{$user}}%0A%0APesanan%20%3A%20%0A1%20{{ $item->produk->namaProduk }}%20{{ $item->produk->qty }}%20Rp.{{ $subtotal[$key] }}%0A%0AGrand%C2%A0Total%09%3A%20Rp.{{ $total }}">Order Via Whatsapp</a> --}}
                   </div>
 
                 </div>
