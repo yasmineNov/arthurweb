@@ -157,13 +157,6 @@ class userController extends Controller
                 "subtotal" => $tampung,
                 "total" => $hasil,
             ]);
-
-            return view('checkout', compact('count'), [
-                "title" => "Keranjang",
-                "cart" => $cart,
-                "subtotal" => $tampung,
-                "total" => $hasil,
-            ]);
         } else {
             $data1 = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);
 
@@ -224,12 +217,32 @@ class userController extends Controller
         if (Auth::id()) {
             $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
             $user = auth()->user();
+
+            $kol = DB::table('carts')
+                ->select('carts.id', 'carts.qty', 'produks.harga', 'carts.idUser')
+                ->leftjoin('produks', 'produks.idProduk', '=', 'carts.idProduk')
+                ->where('carts.idUser', $user->id)
+                ->orderBy('carts.idProduk', 'desc')
+                ->get();
+            $cart = cart::where('idUser', $user->id)->with('produk')->orderBy('idProduk', 'desc')->get();
+            if ($kol) {
+                $tampung = [];
+                foreach ($kol as $key => $value) {
+
+                    $tampung[] += ($kol[$key]->qty * $kol[$key]->harga);
+                }
+                $hasil = 0;
+                foreach ($tampung as $key => $value) {
+                    $hasil += $value;
+                }
+            }
             $count = cart::where('idUser', $user->id)->count();
 
-            $data2 = artikel::orderBy('idArtikel', 'desc')->paginate(4);
-
             return view('checkout', compact('count'), [
-                "title" => "Checkout"
+                "title" => "checkout",
+                "cart" => $cart,
+                "subtotal" => $tampung,
+                "total" => $hasil,
             ]);
         } else {
             $data2 = artikel::orderBy('idArtikel', 'desc')->paginate(4);
