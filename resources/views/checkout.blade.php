@@ -229,8 +229,8 @@
                       <th>Total</th>
                     </thead>
                     <tbody>
+                      @foreach ($cart as $key => $item)
                       <tr>
-                        @foreach ($cart as $key => $item)
                         <td>{{ $item->produk->namaProduk }}<strong class="mx-2">x</strong>   1</td>
                         <td>Rp {{ $item->produk->harga }}</td>
                       </tr>
@@ -242,6 +242,7 @@
                         <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
                         <td class="text-black font-weight-bold"><strong>Rp.-</strong></td>
                       </tr> --}}
+                      @endforeach
                     </tbody>
                   </table>
 
