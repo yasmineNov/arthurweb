@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\customer;
 use App\Models\cart;
-use App\Models\user;
+use App\Models\User;
 use App\Models\produk;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
