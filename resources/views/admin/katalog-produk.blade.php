@@ -62,8 +62,7 @@
                             @foreach ($data as $item)
                             <tr>
                                 <td>{{ $i }}</td>
-                                {{-- <td><img src="{{asset('storage/image-produk/'.$item->img)}}" alt="" width="100"></td> --}}
-                                <td><img src="{{asset('storage/app/public/image-produk/'.$item->img)}}" alt="" width="100"></td>
+                                <td><img src="{{asset('storage/image-produk/'.$item->img)}}" alt="" width="100"></td>
                                 <td>{{ $item->namaProduk }}</td>
                                 <td>{{ $item->kategori->namaKategori }}</td>
                                 <td>{{ $item->gramasi }}</td>
