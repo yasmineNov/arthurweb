@@ -59,14 +59,14 @@
           </div>
 
           <div class="col-md-3 order-1 mb-5 mb-md-0">
-            <div class="border p-4 rounded mb-4">
+            {{-- <div class="border p-4 rounded mb-4">
               <h3 class="mb-3 h6 text-uppercase text-black d-block">PROMO</h3>
               <ul class="list-unstyled mb-0">
                 <li class="mb-1"><a href="#" class="d-flex"><span>Men</span> <span class="text-black ml-auto">(2,220)</span></a></li>
                 <li class="mb-1"><a href="#" class="d-flex"><span>Women</span> <span class="text-black ml-auto">(2,550)</span></a></li>
                 <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(2,124)</span></a></li>
               </ul>
-            </div>
+            </div> --}}
 
             <div class="border p-4 rounded mb-4">
               <h3 class="mb-3 h6 text-uppercase text-black d-block">KATEGORI</h3>
@@ -92,18 +92,18 @@
             @foreach ($katalog as $item)
             <div class="col-sm-6 col-lg-3 mb-4" data-aos="fade-up">
             <div class="block-2 text-center border">
-              <div class="form-check">
+              {{-- <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
                   Default checkbox
                 </label>
-              </div>
+              </div> --}}
                 <figure class="block-4-image">
                   <img src="{{asset('storage/image-produk/'.$item->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" />
                 </figure>
                 <div class="block-4-text p-4">
                   
-                  <p class="mb-0 h-5">{{$item->namaProduk}}</p>
+                  <p class="mb-0 h-5">{!!substr ($item->namaProduk, 0,17)!!}...</p>
                   <p class="text-primary font-weight-bold">{{$item->harga}}</p>
                 </div>
               </div>
