@@ -123,7 +123,7 @@
               <input class="btn btn-primary shadow-0 me-1" type="submit" value="add cart">
             </form>
 
-              <a href="{{ url('produk.show', $item->idProduk) }}" class="btn btn-light shadow-0 me-1">Detail</a>
+              <a href="{{ route('produk.show', $item->idProduk) }}" class="btn btn-light shadow-0 me-1">Detail</a>
             </div>
           </div>
         </div>
