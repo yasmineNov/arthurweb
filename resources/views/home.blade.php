@@ -258,7 +258,7 @@
                   </a>
                   <div class="mt-2 text-muted small d-block mb-1">
                     <div class="card-body d-flex flex-column">
-                    <a href="{{ url('artikel.show',$artikel->idArtikel) }}">
+                    <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
                       <h5 class="title-artikel text-center mt-2 mb-0">{{$artikel->judul}}</h5>
                     </a>
                     <p class="text-center mt-0">{!!substr ($artikel->konten, 0,65)!!}.....</p> 
