@@ -117,7 +117,7 @@
     </section>
     <!-- content -->
     
-    <section class="bg-light border-top py-4">
+    {{-- <section class="bg-light border-top py-4">
       <div class="container">
         <div class="row gx-4">
           <div class="col-lg-8 mb-4">
@@ -266,5 +266,5 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
 @endsection
