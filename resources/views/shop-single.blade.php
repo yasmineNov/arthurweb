@@ -15,7 +15,8 @@
           <aside class="col-lg-6">
             <div class="border rounded-4 mb-3 d-flex justify-content-center">
               <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big.webp">
-                <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="{{ asset('storage/image-produk/' . $produk->img) }}" />
+                {{-- <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="{{ asset('storage/image-produk/' . $produk->img) }}" /> --}}
+                <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="{{asset('image-produk/'.$produk->img) }}" />
               </a>
             </div>
             {{-- <div class="d-flex justify-content-center mb-3">
