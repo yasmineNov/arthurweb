@@ -9,7 +9,7 @@
         <div class="slider">
 
           @foreach ($dataSlider as $item)
-          <div class="card-banner p-5 bg-primary rounded-5" style="height: 350px; background-image: url('{{ asset('storage/image-slider/'.$item->img) }}'); background-size: cover; background-position: center;"> 
+          <div class="card-banner p-5 bg-primary rounded-5" style="height: 350px; background-image: url('{{ asset('storage/image-slider/'.$item->img) }}'); background-size: cover; background-position: center;">
             <div style="max-width: 500px;">
               <h2 class="text-white">
                 {{ $item->judul }}
@@ -19,7 +19,7 @@
             </div>
           </div>
           @endforeach
-          
+
         </div>
       </main>
       <aside class="col-lg-3">
@@ -36,7 +36,7 @@
   </div>
   <!-- container end.// -->
 </section>
-<!-- intro --> 
+<!-- intro -->
 <section class="pt-5">
   <div class="mt-2 text-center"><h1>MENGAPA MEMILIH KAMI ? </h1></div>
 <div class="site-section site-section-sm site-blocks-1">
@@ -116,7 +116,7 @@
             <p class="card-text text-primary">{{ $item->kategori->namaKategori }}</p>
             <h6 class="card-text text-danger">Rp {{ $item->harga }}</h6>
             <div class="d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-              
+
             <form action="{{url('cart', $item->idProduk)}}" method="POST">
               @csrf
               <input type="hidden" name="_method" value="POST"> <!-- Perbarui method menjadi POST -->
@@ -127,7 +127,7 @@
             </div>
           </div>
         </div>
-      </div>    
+      </div>
       @endforeach
 
     </div>
@@ -261,13 +261,13 @@
                     <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
                       <h5 class="title-artikel text-center mt-2 mb-0">{{$artikel->judul}}</h5>
                     </a>
-                    <p class="text-center mt-0">{!!substr ($artikel->konten, 0,65)!!}.....</p> 
+                    <p class="text-center mt-0">{!!substr ($artikel->konten, 0,65)!!}.....</p>
                     </div>
                   </div>
               </div>
               <br>
               </div>
-            @endforeach 
+            @endforeach
     </div>
   </div>
 </section>

@@ -78,7 +78,6 @@ class userController extends Controller
 
             $user = auth()->user();
             $count = cart::where('idUser', $user->id)->count();
-
             return view('cara-order', compact('count'), [
                 "title" => "cara-order",
                 "name" => "Arthur citra Media",

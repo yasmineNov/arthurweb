@@ -7,6 +7,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\forgotPasswordController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\kalkulator\KalkulatorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\userController;
@@ -59,6 +60,8 @@ use Illuminate\Support\Facades\Route;
 //     ]);
 // });
 
+Route::post('/kalkulator/hitung',[KalkulatorController::class, 'hitung'])->name('kalkulator.hitung');
+
 //SEARCH
 Route::get('/search', [userController::class, 'search'])->name('search');
 
@@ -78,9 +81,11 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 //CART
 Route::post('/cart/{id}', [CartController::class, 'addcart'])->name('cart');;
-Route::resource('cart', CartController::class);
+Route::get('/cart/view' ,[CartController::class, 'cartView'])->name('cart.view');
 Route::get('/update-cart/increase/{id}', [CartController::class, 'increaseQty']);
 Route::get('/update-cart/decrease/{id}', [CartController::class, 'decreaseQty']);
+Route::get('/update-cart/deleted/{id}', [CartController::class, 'deletedCart']);
+Route::resource('cart', CartController::class);
 
 
 // ROUTES USER

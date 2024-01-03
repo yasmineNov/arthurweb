@@ -30,56 +30,38 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    @foreach ($cart as $key => $item)
+                                <template v-for="(dt, index) in card">
+                                    <tr>
                                         <td class="product-thumbnail">
-                                            <img src="{{ asset('storage/image-produk/' . $item->produk->img) }}"
-                                                alt="Image" class="img-fluid">
+                                            <img :src="dt.gambar" alt="Image" class="img-fluid">
                                         </td>
                                         <td class="product-name">
-
-                                            <h2 class="h5 text-black">{{ $item->produk->namaProduk }} </h2>
+                                            <h2 class="h5 text-black">@{{ dt.namaProduk }}</h2>
                                         </td>
-                                        <td>Rp {{ $item->produk->harga }}</td>
-
+                                        <td>Rp @{{ dt.hargaProduk }}</td>
                                         <td>
                                             <div class="input-group mb-3" style="max-width: 120px;">
                                                 <div class="input-group-prepend">
                                                     <button class="btn btn-outline-primary js-btn-minus"
-                                                        data-id="{{ $item->id }}" type="button">&minus;</button>
+                                                        :data-id="dt.id" v-on:click="kurang(dt.id)" type="button">&minus;</button>
                                                 </div>
                                                 <input type="text" class="form-control text-center qty-input"
-                                                    value="{{ $item->qty }}" placeholder=""
+                                                    :value="dt.qtyProduk" placeholder=""
                                                     aria-label="Example text with button addon"
-                                                    aria-describedby="button-addon1" data-id="{{ $item->idProduk }}">
+                                                    aria-describedby="button-addon1" :data-id="dt.idProduk">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-outline-primary js-btn-plus"
-                                                        data-id="{{ $item->id }}" type="button">&plus;</button>
+                                                        :data-id="dt.id" type="button"
+                                                        v-on:click="Tambah(dt.id)">&plus;</button>
                                                 </div>
                                             </div>
-
-
-
                                         </td>
-                                        {{-- // subtotal = harga * qty ; --}}
-                                        <!-- <td>Rp {{ $item->price * $item->quantity }}</td> -->
-                                        <td>Rp {{ $subtotal[$key] }}</td>
-
-                                        {{-- <form action="{{ route('cart.destroy',$item->id) }}" method="POST"> --}}
-
-                                        {{-- <form action="{{ route('deletecart',$cart->id) }}" method="POST"> --}}
-
-                                        {{-- @csrf
-                                        @method('DELETE') --}}
-                                        <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i>
-                                                Delete</button></td>
-
-                                        {{-- </form> --}}
-
-                                        {{-- <td><a type="submit" class="btn btn-primary btn-sm">X</a></td> --}}
-                                </tr>
+                                        <td>Rp @{{ dt.subtotal }}</td>
+                                        <td><span class="btn btn-danger" v-on:click="hapus(dt.idProduk)"><i class="fa fa-trash"></i>
+                                                Delete</span></td>
+                                    </tr>
+                                </template>
                             </tbody>
-                            @endforeach
                         </table>
                     </div>
                 </form>
@@ -116,85 +98,153 @@
                                     <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
                                 </div>
                             </div>
-                            <!-- <div class="row mb-3">
-                                                                                                                      <div class="col-md-6">
-                                                                                                                        <span class="text-black">Subtotal</span>
-                                                                                                                      </div>
-                                                                                                                      <div class="col-md-6 text-right">
-                                                                                                                        <strong class="text-black">$230.00</strong>
-                                                                                                                      </div>
-                                                                                                                    </div> -->
-                            <div class="row mb-5">
-                                <div class="col-md-6">
-                                    <span class="text-black">Total</span>
-                                </div>
-                                <div class="col-md-6 text-right mb-5">
-                                    <strong class="text-black">{{ $total }}</strong>
-                                </div>
-                                <a class="btn btn-primary btn-lg py-3 btn-bloc" href="{{ URL('/checkout') }}">Checkout</a>
+                        </div>
+                        <div class="row mb-5">
+                            <div class="col-md-6">
+                                <span class="text-black">Total</span>
                             </div>
-
-                            {{-- <div class="row">
-                                <div class="col-md-12"> --}}
-                                    {{-- <button class="btn btn-primary btn-lg py-3 btn-block"
-                                    href="/checkout">Checkout</button> --}}
-                                    {{-- <a class="btn btn-primary btn-lg py-3 btn-bloc" href="/checkout">Checkout</a>
-                                </div> --}}
+                            <div class="col-md-6 text-right mb-5">
+                                <strong class="text-black">@{{ total }}</strong>
                             </div>
+                            <a class="btn btn-primary btn-lg py-3 btn-bloc" href="{{ URL('/checkout') }}">Checkout</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
+    </div>
 @endsection
 
 @section('javascript')
     <script>
-        $(document).ready(function() {
-            // Mengatur event listener untuk tombol plus
-            $(".js-btn-plus").on("click", function() {
-                var productId = $(this).data("id");
-                var qtyInput = $(".qty-input[data-id=" + productId + "]");
-                var currentQty = parseInt(qtyInput.val());
-
-                // Kirim permintaan Ajax untuk menambahkan qty
-                $.ajax({
-                    url: "/update-cart/increase/" + productId,
-                    type: "GET",
-                    success: function(data) {
-                        qtyInput.val(data.newQty);
-                    }
-                });
-            });
-
-            // Mengatur event listener untuk tombol minus
-            $(".js-btn-minus").on("click", function() {
-                var productId = $(this).data("id");
-                var qtyInput = $(".qty-input[data-id=" + productId + "]");
-                var currentQty = parseInt(qtyInput.val());
-
-                // Kirim permintaan Ajax untuk mengurangkan qty
-                $.ajax({
-                    url: "/update-cart/decrease/" + productId,
-                    type: "GET",
-                    success: function(data) {
-                        qtyInput.val(data.newQty);
-                    }
-                });
-            });
-        });
-
-
+        const Swal = SweetAlert;
         var vm = new Vue({
             el: ".site-section",
-            data: {},
+            data: {
+                card: [],
+                total: '',
+            },
             mounted() {
-                this.test();
+                this.main();
             },
             methods: {
-                test() {
-                    console.log("jkjkjkj");
+                main() {
+                    $.ajax({
+                        url: "/cart/view",
+                        type: "GET",
+                        success: function(data) {
+                            vm.card = [];
+                            data.cart.forEach((dt, i) => {
+                                vm.card.push({
+                                    'gambar': "{{ env('base_url') }}" +
+                                        '/storage/image-produk' + dt.produk.img,
+                                    'namaProduk': dt.produk.namaProduk,
+                                    'hargaProduk': dt.produk.harga,
+                                    'id': dt.id,
+                                    'qtyProduk': dt.qty,
+                                    'idProduk': dt.idProduk,
+                                    'subtotal': data.subtotal[i],
+                                })
+                            });
+                            vm.total = data.total;
+                        }
+                    });
+                },
+                Tambah(id) {
+                    Swal.fire({
+                        title: "",
+                        text: "Loading...",
+                        imageUrl: 'https://www.boasnotas.com/img/loading2.gif',
+                        imageHeight: 50,
+                        showConfirmButton: false,
+                        allowOutsideClick: false
+                    })
+
+                    $.ajax({
+                        url: "/update-cart/increase/" + id,
+                        type: "GET",
+                        success: function(data) {
+                            vm.card = [];
+                            data.cart.forEach((dt, i) => {
+                                vm.card.push({
+                                    'gambar': "{{ env('base_url') }}" +
+                                        '/storage/image-produk' + dt.produk.img,
+                                    'namaProduk': dt.produk.namaProduk,
+                                    'hargaProduk': dt.produk.harga,
+                                    'id': dt.id,
+                                    'qtyProduk': dt.qty,
+                                    'idProduk': dt.idProduk,
+                                    'subtotal': data.subtotal[i],
+                                })
+                            });
+                            vm.total = data.total;
+                            Swal.close()
+                        }
+                    });
+                },
+                kurang(id) {
+                    Swal.fire({
+                        title: "",
+                        text: "Loading...",
+                        imageUrl: 'https://www.boasnotas.com/img/loading2.gif',
+                        imageHeight: 50,
+                        showConfirmButton: false,
+                        allowOutsideClick: false
+                    })
+                    $.ajax({
+                        url: "/update-cart/decrease/" + id,
+                        type: "GET",
+                        success: function(data) {
+                            vm.card = [];
+                            data.cart.forEach((dt, i) => {
+                                vm.card.push({
+                                    'gambar': "{{ env('base_url') }}" +
+                                        '/storage/image-produk' + dt.produk.img,
+                                    'namaProduk': dt.produk.namaProduk,
+                                    'hargaProduk': dt.produk.harga,
+                                    'id': dt.id,
+                                    'qtyProduk': dt.qty,
+                                    'idProduk': dt.idProduk,
+                                    'subtotal': data.subtotal[i],
+                                })
+                            });
+                            vm.total = data.total;
+                            Swal.close();
+                        }
+                    });
+                },
+                hapus(id){
+                    Swal.fire({
+                        title: "",
+                        text: "Loading...",
+                        imageUrl: 'https://www.boasnotas.com/img/loading2.gif',
+                        imageHeight: 50,
+                        showConfirmButton: false,
+                        allowOutsideClick: false
+                    })
+                    $.ajax({
+                        url: "/update-cart/deleted/" + id,
+                        type: "GET",
+                        success: function(data) {
+                            vm.card = [];
+                            data.cart.forEach((dt, i) => {
+                                vm.card.push({
+                                    'gambar': "{{ env('base_url') }}" +
+                                        '/storage/image-produk' + dt.produk.img,
+                                    'namaProduk': dt.produk.namaProduk,
+                                    'hargaProduk': dt.produk.harga,
+                                    'id': dt.id,
+                                    'qtyProduk': dt.qty,
+                                    'idProduk': dt.idProduk,
+                                    'subtotal': data.subtotal[i],
+                                })
+                            });
+                            vm.total = data.total;
+                            Swal.close();
+                        }
+                    });
                 }
             }
         })

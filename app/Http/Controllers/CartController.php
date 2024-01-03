@@ -7,12 +7,54 @@ use App\Models\User;
 use App\Models\produk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
+     public function cartView(){
+        if (Auth::id()) {
+            $user = auth()->user();
+
+            // $cart = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);
+
+            $kol = DB::table('carts')
+                ->select('carts.id', 'carts.qty', 'produks.harga', 'carts.idUser')
+                ->leftjoin('produks', 'produks.idProduk', '=', 'carts.idProduk')
+                ->where('carts.idUser', $user->id)
+                ->orderBy('carts.idProduk', 'desc')
+                ->get();
+            $cart = cart::where('idUser', $user->id)->with('produk')->orderBy('idProduk', 'desc')->get();
+            if ($kol) {
+                $tampung = [];
+                foreach ($kol as $key => $value) {
+
+                    $tampung[] += ($kol[$key]->qty * $kol[$key]->harga);
+                }
+                $hasil = 0;
+                foreach ($tampung as $key => $value) {
+                    $hasil += $value;
+                }
+            }
+            $count = cart::where('idUser', $user->id)->count();
+
+
+            return response()->json([
+                "cart" => $cart,
+                "subtotal" => $tampung,
+                "total" => $hasil,
+            ]);
+        }else{
+            return response()->json([
+                "cart" => '',
+                "subtotal" => '',
+                "total" => '',
+            ]);
+        }
+     }
     public function addcart(Request $request, $id)
     {
         if (Auth::id()) {
@@ -49,28 +91,138 @@ class CartController extends Controller
     {
         // dd($id);
         // Temukan item keranjang berdasarkan ID dan tingkatkan qty
-        $cartItem = Cart::find($id);
-        // dd($cartItem);
-        $cartItem->qty++;
-        $cartItem->save();
+        DB::beginTransaction();
+        try {
+            $cartItem = Cart::find($id);
+            // dd($cartItem);
+            $cartItem->qty++;
+            $cartItem->save();
 
-        return response()->json(['newQty' => $cartItem->qty]);
+            if (Auth::id()) {
+
+                $user = auth()->user();
+
+                // $cart = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);
+
+                $kol = DB::table('carts')
+                    ->select('carts.id', 'carts.qty', 'produks.harga', 'carts.idUser')
+                    ->leftjoin('produks', 'produks.idProduk', '=', 'carts.idProduk')
+                    ->where('carts.idUser', $user->id)
+                    ->orderBy('carts.idProduk', 'desc')
+                    ->get();
+                $cart = cart::where('idUser', $user->id)->with('produk')->orderBy('idProduk', 'desc')->get();
+                if ($kol) {
+                    $tampung = [];
+                    foreach ($kol as $key => $value) {
+
+                        $tampung[] += ($kol[$key]->qty * $kol[$key]->harga);
+                    }
+                    $hasil = 0;
+                    foreach ($tampung as $key => $value) {
+                        $hasil += $value;
+                    }
+                }
+                $count = cart::where('idUser', $user->id)->count();
+
+                DB::commit();
+                return response()->json([
+                    'newQty' => $cartItem->qty,
+                    "cart" => $cart,
+                    "subtotal" => $tampung,
+                    "total" => $hasil,
+                ]);
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+            DB::rollBack();
+        }
     }
 
     public function decreaseQty($id)
     {
         // dd($id);
-        // Temukan item keranjang berdasarkan ID dan kurangkan qty jika qty > 1
-        $cartItem = Cart::find($id);
-        // dd($cartItem);
-        if ($cartItem->qty > 1) {
-            $cartItem->qty--;
-            $cartItem->save();
-        }
+        DB::beginTransaction();
+        try { // Temukan item keranjang berdasarkan ID dan kurangkan qty jika qty > 1
+            $cartItem = Cart::find($id);
+            // dd($cartItem);
+            if ($cartItem->qty > 1) {
+                $cartItem->qty--;
+                $cartItem->save();
+            }
+            if (Auth::id()) {
 
-        return response()->json(['newQty' => $cartItem->qty]);
+                $user = auth()->user();
+
+                // $cart = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);
+
+                $kol = DB::table('carts')
+                    ->select('carts.id', 'carts.qty', 'produks.harga', 'carts.idUser')
+                    ->leftjoin('produks', 'produks.idProduk', '=', 'carts.idProduk')
+                    ->where('carts.idUser', $user->id)
+                    ->orderBy('carts.idProduk', 'desc')
+                    ->get();
+                $cart = cart::where('idUser', $user->id)->with('produk')->orderBy('idProduk', 'desc')->get();
+                if ($kol) {
+                    $tampung = [];
+                    foreach ($kol as $key => $value) {
+
+                        $tampung[] += ($kol[$key]->qty * $kol[$key]->harga);
+                    }
+                    $hasil = 0;
+                    foreach ($tampung as $key => $value) {
+                        $hasil += $value;
+                    }
+                }
+                $count = cart::where('idUser', $user->id)->count();
+
+                DB::commit();
+                return response()->json([
+                    'newQty' => $cartItem->qty,
+                    "cart" => $cart,
+                    "subtotal" => $tampung,
+                    "total" => $hasil,
+                ]);
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
+    public function deletedCart($id){
+        if (Auth::id()) {
+            $user = auth()->user();
+
+            $cart = cart::where('idProduk',$id)->where('idUser',$user->id);
+            $cart->delete();
+
+            // $cart = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);
+
+            $kol = DB::table('carts')
+                ->select('carts.id', 'carts.qty', 'produks.harga', 'carts.idUser')
+                ->leftjoin('produks', 'produks.idProduk', '=', 'carts.idProduk')
+                ->where('carts.idUser', $user->id)
+                ->orderBy('carts.idProduk', 'desc')
+                ->get();
+            $cart = cart::where('idUser', $user->id)->with('produk')->orderBy('idProduk', 'desc')->get();
+            if ($kol) {
+                $tampung = [];
+                foreach ($kol as $key => $value) {
+
+                    $tampung[] += ($kol[$key]->qty * $kol[$key]->harga);
+                }
+                $hasil = 0;
+                foreach ($tampung as $key => $value) {
+                    $hasil += $value;
+                }
+            }
+            $count = cart::where('idUser', $user->id)->count();
+            return response()->json([
+                "cart" => $cart,
+                "subtotal" => $tampung,
+                "total" => $hasil,
+            ]);
+        }
+    }
     // public function jumlahCart(Request $request, $id)
     // {
     //     $usertype=Auth::user()->usertype;

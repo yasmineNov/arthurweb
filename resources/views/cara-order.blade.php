@@ -12,7 +12,7 @@
 <div class="container-fluid px-4">
 
   <h3 class="mt-4 mt-5 mb-3">Hitung Perkiraan harga produk yang akan anda pesan</h3>
-  
+
   <div class="card mb-4">
       <div class="card-body">
           <!-- START FORM -->
@@ -28,7 +28,7 @@
 
           </div>
           @endif
-          <form method='post' action='{{url('produk')}}' enctype="multipart/form-data">
+          <form method='post' action='{{env('base_url').'kalkulator/hitung'}}' enctype="multipart/form-data">
               @csrf
 
               <div class="my-3 p-3 bg-body rounded shadow-sm">
@@ -71,21 +71,21 @@
                       </div>
                   </div>
                   <div class="mb-3 row">
-                      <label for="gramasi" class="col-sm-2 col-form-label">Panjang</label>
+                      <label for="tinggi" class="col-sm-2 col-form-label">Panjang</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" name='gramasi' id="gramasi"placeholder="Boleh dikosongi apabila produk tidak memiliki gramasi">
+                          <input type="text" class="form-control" name='tinggi' id="tinggi"placeholder="Boleh dikosongi apabila produk tidak memiliki gramasi">
                       </div>
                   </div>
                   <div class="mb-3 row">
-                      <label for="jenis" class="col-sm-2 col-form-label">Lebar</label>
+                      <label for="lebar" class="col-sm-2 col-form-label">Lebar</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" name='jenis' id="jenis"placeholder="Boleh dikosongi apabila produk tidak memiliki jenis">
+                          <input type="text" class="form-control" name='lebar' id="lebar"placeholder="Boleh dikosongi apabila produk tidak memiliki jenis">
                       </div>
                   </div>
                   <div class="mb-3 row">
-                    <label for="jenis" class="col-sm-2 col-form-label">Finishing</label>
+                    <label for="hasil" class="col-sm-2 col-form-label">Finishing</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name='jenis' id="jenis"placeholder="Boleh dikosongi apabila produk tidak memiliki jenis">
+                        <input type="text" class="form-control" name='hasil' id="hasil"placeholder="Boleh dikosongi apabila produk tidak memiliki jenis">
                     </div>
                 </div>
                   {{-- <div class="mb-3 row">
@@ -107,5 +107,5 @@
 </div>
 </div>
 
-              
+
 @endsection
