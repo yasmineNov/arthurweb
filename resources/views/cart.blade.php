@@ -132,7 +132,7 @@
             methods: {
                 main() {
                     $.ajax({
-                        url: "/cart/view",
+                        url: "/public/cart/view",
                         type: "GET",
                         success: function(data) {
                             vm.card = [];
@@ -194,7 +194,7 @@
                         allowOutsideClick: false
                     })
                     $.ajax({
-                        url: "/update-cart/decrease/" + id,
+                        url: "/public/update-cart/decrease/" + id,
                         type: "GET",
                         success: function(data) {
                             vm.card = [];
@@ -225,7 +225,7 @@
                         allowOutsideClick: false
                     })
                     $.ajax({
-                        url: "/update-cart/deleted/" + id,
+                        url: "/public/update-cart/deleted/" + id,
                         type: "GET",
                         success: function(data) {
                             vm.card = [];
