@@ -163,7 +163,7 @@
                     })
 
                     $.ajax({
-                        url: "public/update-cart/increase/" + id,
+                        url: "update-cart/increase/" + id,
                         type: "GET",
                         success: function(data) {
                             vm.card = [];
@@ -194,7 +194,7 @@
                         allowOutsideClick: false
                     })
                     $.ajax({
-                        url: "/public/update-cart/decrease/" + id,
+                        url: "update-cart/decrease/" + id,
                         type: "GET",
                         success: function(data) {
                             vm.card = [];
@@ -225,7 +225,7 @@
                         allowOutsideClick: false
                     })
                     $.ajax({
-                        url: "/public/update-cart/deleted/" + id,
+                        url: "update-cart/deleted/" + id,
                         type: "GET",
                         success: function(data) {
                             vm.card = [];
