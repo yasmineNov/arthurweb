@@ -71,7 +71,7 @@ class ProdukController extends Controller
         // $dari database = inputan
         // $produk->idProduk = $request->idProduk;
         $image    = $request->file('image');
-        $filename = date('Y-m-d') . $image->getClientOriginalName();
+        $filename = date('Y-m-d') . time();
         $path     = 'image-produk/' . $filename;
 
         Storage::disk('public')->put($path, file_get_contents($image));
