@@ -163,7 +163,7 @@
                     })
 
                     $.ajax({
-                        url: "/update-cart/increase/" + id,
+                        url: "public/update-cart/increase/" + id,
                         type: "GET",
                         success: function(data) {
                             vm.card = [];
