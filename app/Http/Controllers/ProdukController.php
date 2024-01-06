@@ -78,7 +78,7 @@ class ProdukController extends Controller
 
         $gambar = time() . '.' . $request->image->extension();
         $produk->img = $gambar;
-        $request->image->storeAs('public/product/' . $gambar);
+        $request->image->storeAs('product/' . $gambar);
 
         $produk->namaProduk = $request->namaProduk;
         $produk->idKategori = $request->kategori;
