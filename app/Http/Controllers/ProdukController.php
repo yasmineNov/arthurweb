@@ -70,17 +70,20 @@ class ProdukController extends Controller
         $produk = new produk;
         // $dari database = inputan
         // $produk->idProduk = $request->idProduk;
-        $image    = $request->file('image');
-        $filename = date('Y-m-d') . $image->getClientOriginalName();
-        $path     = 'image-produk/' . $filename;
+        // $image    = $request->file('image');
+        // $filename = date('Y-m-d') . $image->getClientOriginalName();
+        // $path     = 'image-produk/' . $filename;
 
-        Storage::disk('public')->put($path, file_get_contents($image));
+        // Storage::disk('public')->put($path, file_get_contents($image));
 
-        $produk->img = $filename;
+        $gambar = time() . '.' . $request->image->extension();
+        $request->image->storePublicly('public/product/' . $gambar);
+
+        $produk->img = $gambar;
         $produk->namaProduk = $request->namaProduk;
         $produk->idKategori = $request->kategori;
         $produk->harga = $request->harga;
-        $produk->gramasi = $request->gramasi;
+        $produk->custom = $request->custom;
         $produk->jenis = $request->jenis;
         $produk->deskripsi = $request->deskripsi;
         $produk->save();

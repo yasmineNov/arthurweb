@@ -19,6 +19,7 @@
         <link href="{{ asset('css/styles-admin.css') }}" rel="stylesheet">
         {{-- <link href="css/styles-admin.css" rel="stylesheet" /> --}}
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -124,8 +125,8 @@
                                     <a class="nav-link" href="layout-static.html">Belum Diproses</a>
                                     {{-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
                                         Authentication
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i> 
-                                        </div> 
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i>
+                                        </div>
                                     </a>
                                 </nav>
                             </div> --}}
@@ -163,10 +164,10 @@
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
                         Admin
-                    </div> 
+                    </div>
                 </nav>
             </div>
-            
+
             <div class='container mt-4'>
                 @yield('container')
             </div>
@@ -186,7 +187,7 @@
             </div>
         </div>
         {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> --}}
-    
+
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
