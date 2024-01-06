@@ -77,9 +77,9 @@ class ProdukController extends Controller
         // Storage::disk('public')->put($path, file_get_contents($image));
 
         $gambar = time() . '.' . $request->image->extension();
-        $request->image->storePublicly('public/product/' . $gambar);
-
         $produk->img = $gambar;
+        $request->image->storeAs('public/product/' . $gambar);
+
         $produk->namaProduk = $request->namaProduk;
         $produk->idKategori = $request->kategori;
         $produk->harga = $request->harga;
