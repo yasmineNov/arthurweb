@@ -110,7 +110,7 @@
       <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
         <div class="card w-100 my-2 shadow-2-strong">
           {{-- <img src="{{asset('storage/image-produk/'.$item->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" /> --}}
-          <img src="{{asset('public/product/'.$item->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" />
+          <img src="{{asset('product/'.$item->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" />
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">{{ $item->namaProduk }}</h5>
             <p class="card-text text-primary">{{ $item->kategori->namaKategori }}</p>
