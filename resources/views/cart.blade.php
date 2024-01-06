@@ -139,7 +139,7 @@
                             data.cart.forEach((dt, i) => {
                                 vm.card.push({
                                     'gambar': "{{ env('base_url') }}" +
-                                        'storage/image-produk' + dt.produk.img,
+                                        'storage/image-produk/' + dt.produk.img,
                                     'namaProduk': dt.produk.namaProduk,
                                     'hargaProduk': dt.produk.harga,
                                     'id': dt.id,
@@ -170,7 +170,7 @@
                             data.cart.forEach((dt, i) => {
                                 vm.card.push({
                                     'gambar': "{{ env('base_url') }}" +
-                                        'storage/image-produk' + dt.produk.img,
+                                        'storage/image-produk/' + dt.produk.img,
                                     'namaProduk': dt.produk.namaProduk,
                                     'hargaProduk': dt.produk.harga,
                                     'id': dt.id,
@@ -201,7 +201,7 @@
                             data.cart.forEach((dt, i) => {
                                 vm.card.push({
                                     'gambar': "{{ env('base_url') }}" +
-                                        'storage/image-produk' + dt.produk.img,
+                                        'storage/image-produk/' + dt.produk.img,
                                     'namaProduk': dt.produk.namaProduk,
                                     'hargaProduk': dt.produk.harga,
                                     'id': dt.id,
@@ -232,7 +232,7 @@
                             data.cart.forEach((dt, i) => {
                                 vm.card.push({
                                     'gambar': "{{ env('base_url') }}" +
-                                        'storage/image-produk' + dt.produk.img,
+                                        'storage/image-produk/' + dt.produk.img,
                                     'namaProduk': dt.produk.namaProduk,
                                     'hargaProduk': dt.produk.harga,
                                     'id': dt.id,
