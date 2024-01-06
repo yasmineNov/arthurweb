@@ -76,7 +76,7 @@ class ProdukController extends Controller
 
         // Storage::disk('public')->put($path, file_get_contents($image));
 
-        $gambar = date('Y-m-d'). time() .'.' . $request->image->extension();
+        $gambar = date('Y-m-d') . time() . '.' . $request->image->extension();
         $request->image->storeAs('public/image-produk/' . $gambar);
         $produk->img = $gambar;
 
@@ -134,6 +134,7 @@ class ProdukController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $request->validate([
             'image' => 'mimes:png,jpg,jpeg|max:2048',
             'namaProduk' => 'required',
@@ -160,15 +161,18 @@ class ProdukController extends Controller
         ];
 
         if ($request->hasFile('image')) {
+            $NamaGambar = produk::find($id);
             $image = $request->file('image');
             $filename = date('Y-m-d') . $image->getClientOriginalName();
             $path = 'image-produk/' . $filename;
             Storage::disk('public')->put($path, file_get_contents($image));
 
             // Hapus gambar lama jika ada
-            if (isset($data['img'])) {
-                Storage::disk('public')->delete('image-produk/' . $data['img']);
-            }
+            // if (isset($data['img'])) {
+            //     Storage::disk('public')->delete('image-produk/' . $data['img']);
+            // }
+            $hapus = 'public/image-produk/'.$NamaGambar->img;
+            Storage::delete($hapus);
 
             $data['img'] = $filename;
         }
