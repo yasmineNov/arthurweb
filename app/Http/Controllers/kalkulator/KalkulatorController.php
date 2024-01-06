@@ -30,22 +30,26 @@ class KalkulatorController extends Controller
         if ($lebar < 100) {
             $lebar = 100;
             $hasil = (($lebar / 100) * ($tinggi / 100)) * $harga;
+            $hasil = ceil($hasil / 500) * 500;
         } else if ($lebar > 100 && $lebar < 160) {
             $hasil = (($lebar / 100) * ($tinggi / 100)) * $harga;
+            $hasil = ceil($hasil / 500) * 500;
         } else if ($lebar >= 160 && $lebar < 220) {
             $lebar = 220;
             $hasil = (($lebar / 100) * ($tinggi / 100)) * $harga;
+            $hasil = ceil($hasil / 500) * 500;
         } else if ($lebar >= 220 && $lebar < 260) {
             $lebar = 260;
             $hasil = (($lebar / 100) * ($tinggi / 100)) * $harga;
+            $hasil = ceil($hasil / 500) * 500;
         } else if ($lebar >= 260 && $lebar < 320) {
             $lebar = 320;
             $hasil = (($lebar / 100) * ($tinggi / 100)) * $harga;
+            $hasil = ceil($hasil / 500) * 500;
         } else if ($lebar > 320) {
             $hasil = 'Untuk ukuran diatas 320cm Mohon hubungi 087858860888.';
         }
 
-        $hasil = ceil($hasil / 500) * 500;
         dd($hasil);
     }
 }
