@@ -74,15 +74,16 @@ class userController extends Controller
     {
         if (Auth::id()) {
 
-            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
-
+            $dropdown = produk::where('custom', 1)->get();
+            // dd($dropdown);
             $user = auth()->user();
             $count = cart::where('idUser', $user->id)->count();
             return view('cara-order', compact('count'), [
                 "title" => "cara-order",
                 "name" => "Arthur citra Media",
                 "email" => "acmbratang09@gmail.com",
-                "image" => "acm.png"
+                "image" => "acm.png",
+                'dropdown' => $dropdown,
             ]);
         } else {
             return view('cara-order', [

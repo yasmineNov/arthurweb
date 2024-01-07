@@ -26,7 +26,7 @@
                                 </a>
                                 {{-- <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Hai! {{ auth()->user()->name }} 
+                    Hai! {{ auth()->user()->name }}
                   </a> --}}
 
                                 @can('admin')
@@ -144,7 +144,7 @@
                                 {{-- <ul class="dropdown">
                 <li class="has-children">
                   <a href="#">OUTDOOR</a>
-      
+
                   <ul class="dropdown">
                     <li class="has-children">
                       <a href="#">BANNER</a>
@@ -154,7 +154,7 @@
                         <li><a href="#">K440gr</a></li>
                       </ul>
                     </li>
-      
+
                     <li class="has-children">
                       <a href="#">BACKLITE</a>
                       <ul class="dropdown">
@@ -162,7 +162,7 @@
                         <li><a href="#">BL. JERMAN</a></li>
                       </ul>
                     </li>
-      
+
                     <li class="has-children">
                       <a href="#">STIKER OUTDOOR</a>
                       <ul class="dropdown">
@@ -170,7 +170,7 @@
                         <li><a href="#">ST. ONEWAY OUTDOOR</a></li>
                       </ul>
                     </li>
-      
+
                   </ul>
                 </li>
                 <li class="has-children">
@@ -242,7 +242,7 @@
                   </ul>
                 </li>
               </ul> --}}
-                 
+
                             </li>
                             {{-- <li class="nav-item has-children"> --}}
                             <li class="nav-item">
@@ -254,7 +254,7 @@
               </ul> --}}
                             </li>
 
-                            <li class="nav-item"><a class="nav-link"  href="/order" href="{{ URL('/frontartikel') }}">Kalkulator</a></li>
+                            <li class="nav-item"><a class="nav-link"  href="/kalkulator" href="{{ URL('/frontartikel') }}">Kalkulator</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ URL('/about') }}">Tentang Kami</a></li>
 
                             <div class="d-md-none">

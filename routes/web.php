@@ -61,6 +61,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::post('/kalkulator/hitung',[KalkulatorController::class, 'hitung'])->name('kalkulator.hitung');
+Route::get('/kalkulator', [userController::class, 'order']);
 
 //SEARCH
 Route::get('/search', [userController::class, 'search'])->name('search');
@@ -91,7 +92,6 @@ Route::resource('cart', CartController::class);
 // ROUTES USER
 Route::resource('usr', CustomerController::class);
 Route::get('/', [userController::class, 'home']);
-Route::get('/order', [userController::class, 'order']);
 Route::get('/about', [userController::class, 'about']);
 Route::get('/keranjang', [userController::class, 'keranjang']);
 Route::get('/checkout', [userController::class, 'checkout']);
