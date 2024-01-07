@@ -85,12 +85,14 @@ class userController extends Controller
                 "image" => "acm.png",
                 'dropdown' => $dropdown,
             ]);
-        } else {
+        } else
+            $dropdown = produk::where('custom', 1)->get(); {
             return view('cara-order', [
                 "title" => "cara-order",
                 "name" => "Arthur citra Media",
                 "email" => "acmbratang09@gmail.com",
-                "image" => "acm.png"
+                "image" => "acm.png",
+                'dropdown' => $dropdown,
             ]);
         }
     }
