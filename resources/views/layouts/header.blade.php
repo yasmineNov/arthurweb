@@ -38,7 +38,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <form action="{{URL("/logout")}}" method="post">
+                            <form action="{{URL('/logout')}}" method="post">
                                 @csrf
                                 <button type="submit" class="dropdown-item">KELUAR</button>
                             </form>
@@ -254,7 +254,7 @@
               </ul> --}}
                             </li>
 
-                            <li class="nav-item"><a class="nav-link"  href="{{ URL('/kalkulator') }}" href="{{ URL('/frontartikel') }}">Kalkulator</a></li>
+                            <li class="nav-item"><a class="nav-link"  href="{{URL('/kalkulator')}}">Kalkulator</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ URL('/about') }}">Tentang Kami</a></li>
 
                             <div class="d-md-none">
