@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\artikel;
 use App\Models\kategori;
+use App\Models\cart;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreartikelRequest;
 use App\Http\Requests\UpdateartikelRequest;
 use Illuminate\Support\Facades\Storage;
@@ -93,12 +95,28 @@ class ArtikelController extends Controller
      */
     public function show($id)
     {
-        $kategori = kategori::all();
-        $artikel = artikel::findOrFail($id);
-        return view('artikel-single', compact('artikel'), [
-            "title" => $artikel->judul,
-            'artikel' => $artikel
-        ]);
+        if (Auth::id()) {
+            $kategori = kategori::all();
+            $artikel = artikel::findOrFail($id);
+
+            $user = auth()->user();
+            $count = cart::where('idUser', $user->id)->count();
+
+            // return view('artikel-single', compact('artikel'), [
+            return view('artikel-single', compact('count'), [
+                "title" => $artikel->judul,
+                'artikel' => $artikel
+            ]);
+        } else {
+            $kategori = kategori::all();
+            $artikel = artikel::findOrFail($id);
+
+            // return view('artikel-single', compact('artikel'), [
+            return view('artikel-single', compact('artikel'), [
+                "title" => $artikel->judul,
+                'artikel' => $artikel
+            ]);
+        }
     }
 
     /**
