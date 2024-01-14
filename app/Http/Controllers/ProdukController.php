@@ -138,7 +138,7 @@ class ProdukController extends Controller
     public function show($id)
     {
         if (Auth::id()) {
-            $produk = produk::findOrFail($id);
+            $produk = produk::with('varian')->findOrFail($id);
             $user = auth()->user();
             $count = cart::where('idUser', $user->id)->count();
 
@@ -147,7 +147,7 @@ class ProdukController extends Controller
                 'produk' => $produk,
             ]);
         } else {
-            $produk = produk::findOrFail($id);
+            $produk = produk::with('varian')->findOrFail($id);
 
             return view('shop-single', [
                 'title' => $produk->namaProduk,

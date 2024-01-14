@@ -63,21 +63,42 @@ class CartController extends Controller
 
 
             // Cari apakah produk sudah ada di keranjang pengguna
-            $existingCart = cart::where('idUser', $user->id)
-                ->where('idProduk', $produk->idProduk)
-                ->first();
+            if(isset($request->varian)){
+                $existingCart = cart::where('idUser', $user->id)
+                    ->where('idProduk', $produk->idProduk)->where('id_varian',$request)
+                    ->first();
+            }else{
+                $existingCart = cart::where('idUser', $user->id)
+                    ->where('idProduk', $produk->idProduk)->whereNull('id_varian')
+                    ->first();
+            }
 
             if ($existingCart) {
+                if($existingCart->id_varian == $request->varian){
+
+                }else{
+                    $existingCart->qty += 1;
+                    $existingCart->save();
+                }
                 // Jika produk sudah ada di keranjang, tingkatkan jumlahnya
-                $existingCart->qty += 1;
-                $existingCart->save();
             } else {
+                if(isset($request->varian)){
+                    $cart = new cart;
+                    $cart->idUser = $user->id;
+                    $cart->idProduk = $produk->idProduk;
+                    $cart->qty = $request->qty;
+                    $cart->id_varian = isset($request->varian) ? $request->varian : '';
+                    $cart->lebar = isset($request->lebar) ? $request->lebar  : '';
+                    $cart->tinggi = isset($request->tinggi) ? $request->tinggi : '';
+                    $cart->save();
+                }else{
+                    $cart = new cart;
+                    $cart->idUser = $user->id;
+                    $cart->idProduk = $produk->idProduk;
+                    $cart->qty = $request->qty;
+                    $cart->save();
+                }
                 // Jika produk belum ada di keranjang, tambahkan sebagai item baru
-                $cart = new cart;
-                $cart->idUser = $user->id;
-                $cart->idProduk = $produk->idProduk;
-                $cart->qty = 1;
-                $cart->save();
             }
 
 
