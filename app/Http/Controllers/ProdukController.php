@@ -11,7 +11,9 @@ use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\cart;
+use App\Models\md_varian;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProdukController extends Controller
 {
@@ -49,47 +51,85 @@ class ProdukController extends Controller
      */
     public function store(StoreprodukRequest $request)
     {
-        $request->validate([
-            'image' => 'required|mimes:png,jpg,jpeg|max:2048',
-            'namaProduk' => 'required',
-            'kategori' => 'required',
-            'harga' => 'required|numeric',
-            'deskripsi' => 'required',
+        if (isset($request->varian_nama)) {
+            $request->validate([
+                'image' => 'required|mimes:png,jpg,jpeg|max:2048',
+                'namaProduk' => 'required',
+                'kategori' => 'required',
+                'deskripsi' => 'required',
+                'varian_nama.*' => 'required',
+                'varian_harga.*' => 'required',
 
-        ], [
-            // 'idProduk.required' => 'Id produk wajib diisi',
-            'idProduk.numeric' => 'Id produk harus angka',
-            'idProduk.unique' => 'Id produk sudah ada dalam database',
-            'namaProduk.required' => 'Nama produk wajib diisi',
-            'kategori.required' => 'kategori wajib diisi',
-            'harga.required' => 'Harga wajib diisi',
-            'harga.numeric' => 'Harga harus dalam bentuk angka',
-            'deskripsi.required' => 'Deskripsi wajib diisi',
-        ]);
+            ], [
+                // 'idProduk.required' => 'Id produk wajib diisi',
+                'idProduk.numeric' => 'Id produk harus angka',
+                'idProduk.unique' => 'Id produk sudah ada dalam database',
+                'namaProduk.required' => 'Nama produk wajib diisi',
+                'kategori.required' => 'kategori wajib diisi',
+                'deskripsi.required' => 'Deskripsi wajib diisi',
+                'varian_nama.*.required' => 'Varian Nama wajib diisi',
+                'varian_harga.*.required' => 'Varian Harga wajib diisi',
+            ]);
+        } else {
+            $request->validate([
+                'image' => 'required|mimes:png,jpg,jpeg|max:2048',
+                'namaProduk' => 'required',
+                'kategori' => 'required',
+                'harga' => 'required|numeric',
+                'deskripsi' => 'required',
+                'varian_nama.*' => 'required',
 
-        $produk = new produk;
-        // $dari database = inputan
-        // $produk->idProduk = $request->idProduk;
-        // $image    = $request->file('image');
-        // $filename = date('Y-m-d') . time();
-        // $path     = 'image-produk/' . $filename;
+            ], [
+                // 'idProduk.required' => 'Id produk wajib diisi',
+                'idProduk.numeric' => 'Id produk harus angka',
+                'idProduk.unique' => 'Id produk sudah ada dalam database',
+                'namaProduk.required' => 'Nama produk wajib diisi',
+                'kategori.required' => 'kategori wajib diisi',
+                'harga.required' => 'Harga wajib diisi',
+                'harga.numeric' => 'Harga harus dalam bentuk angka',
+                'deskripsi.required' => 'Deskripsi wajib diisi',
+            ]);
+        }
 
-        // Storage::disk('public')->put($path, file_get_contents($image));
+        DB::beginTransaction();
+        try {
+            $produk = new produk;
+            // $dari database = inputan
+            // $produk->idProduk = $request->idProduk;
+            // $image    = $request->file('image');
+            // $filename = date('Y-m-d') . time();
+            // $path     = 'image-produk/' . $filename;
 
-        $gambar = date('Y-m-d') . time() . '.' . $request->image->extension();
-        $request->image->storeAs('public/image-produk/' . $gambar);
-        $produk->img = $gambar;
+            // Storage::disk('public')->put($path, file_get_contents($image));
 
-        $produk->namaProduk = $request->namaProduk;
-        $produk->idKategori = $request->kategori;
-        $produk->harga = $request->harga;
-        $produk->custom = $request->custom;
-        $produk->jenis = $request->jenis;
-        $produk->deskripsi = $request->deskripsi;
-        $produk->save();
-        // dd($request->all());
+            $gambar = date('Y-m-d') . time() . '.' . $request->image->extension();
+            $request->image->storeAs('public/image-produk/' . $gambar);
+            $produk->img = $gambar;
 
-        return redirect()->to('katalogproduk')->with('success', 'Berhasil menambah data');
+            $produk->namaProduk = $request->namaProduk;
+            $produk->idKategori = $request->kategori;
+            $produk->harga = $request->harga;
+            $produk->custom = $request->custom;
+            $produk->jenis = $request->jenis;
+            $produk->deskripsi = $request->deskripsi;
+            $produk->save();
+
+            if (isset($request->varian_nama)) {
+                foreach ($request->varian_nama as $key => $value) {
+                    $varian = new md_varian();
+                    $varian->id_product = $produk->idProduk;
+                    $varian->nama = $value;
+                    $varian->harga = $request->varian_harga[$key];
+                    $varian->save();
+                }
+            }
+
+            DB::commit();
+            return redirect()->to('katalogproduk')->with('success', 'Berhasil menambah data');
+        } catch (\Throwable $th) {
+            //throw $th;
+            DB::rollBack();
+        }
     }
 
     /**
@@ -171,7 +211,7 @@ class ProdukController extends Controller
             // if (isset($data['img'])) {
             //     Storage::disk('public')->delete('image-produk/' . $data['img']);
             // }
-            $hapus = 'public/image-produk/'.$NamaGambar->img;
+            $hapus = 'public/image-produk/' . $NamaGambar->img;
             Storage::delete($hapus);
 
             $data['img'] = $filename;

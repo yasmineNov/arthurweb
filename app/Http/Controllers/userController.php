@@ -17,7 +17,7 @@ class userController extends Controller
     function home()
     {
         if (Auth::id()) {
-            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            $data1 = produk::with('kategori','varian')->orderBy('idProduk', 'desc')->paginate(4);
             $dataPost = artikel::orderBy('idArtikel', 'desc')->paginate(4);
             $dataSlider = slide::orderBy('idSlide', 'desc')->paginate();
 
@@ -32,7 +32,7 @@ class userController extends Controller
                 "dataSlider" => $dataSlider,
             ]);
         } else {
-            $data1 = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            $data1 = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->paginate(4);
             $dataPost = artikel::orderBy('idArtikel', 'desc')->paginate(4);
             $dataSlider = slide::orderBy('idSlide', 'desc')->paginate();
 
@@ -274,9 +274,9 @@ class userController extends Controller
     function katalog()
     {
         if (Auth::id()) {
-            $katalog = produk::with('kategori')->orderBy('idProduk', 'desc')->limit(6)->paginate(4);
+            $katalog = produk::with('kategori','varian')->orderBy('idProduk', 'desc')->limit(6)->paginate(6);
             $kategori = kategori::all();
-            // $GengProduk = produk::where('namaKategori', $kategori->namaKategori)->with('produk')->orderBy('idProduk', 'desc')->paginate(4);
+            // $GengProduk = produk::where('namaKategori', $kategori->namaKategori)->with('produk')->orderBy('idProduk', 'desc')->paginate(6);
             $user = auth()->user();
             $count = cart::where('idUser', $user->id)->count();
 
@@ -287,7 +287,7 @@ class userController extends Controller
                 // "GengProduk" => $GengProduk,
             ]);
         } else {
-            $katalog = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(4);
+            $katalog = produk::with('kategori','varian')->orderBy('idProduk', 'desc')->paginate(6);
             $kategori = kategori::all();
             // $GengProduk = produk::where('idKategori', $kategori->idKategori)->with('produk')->orderBy('idProduk', 'desc')->paginate(4);
             $user = auth()->user();

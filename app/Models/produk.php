@@ -18,4 +18,9 @@ class produk extends Model
     {
         return $this->belongsTo(kategori::class, 'idKategori', 'idKategori');
     }
+
+    public function varian()
+    {
+        return $this->hasMany(md_varian::class, 'id_product', 'idProduk')->orderBy('id_product');
+    }
 }

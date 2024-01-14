@@ -1,81 +1,88 @@
 @extends('layouts.main')
 
 @section('container')
-<!-- intro -->
-<section class="pt-3">
-  <div class="container">
-    <div class="row gx-3">
-      <main class="col-lg-9">
-        <div class="slider">
+    <!-- intro -->
+    <section class="pt-3">
+        <div class="container">
+            <div class="row gx-3">
+                <main class="col-lg-9">
+                    <div class="slider">
 
-          @foreach ($dataSlider as $item)
-          <div class="card-banner p-5 bg-primary rounded-5" style="height: 350px; background-image: url('{{ asset('storage/image-slider/'.$item->img) }}'); background-size: cover; background-position: center;">
-            <div style="max-width: 500px;">
-              <h2 class="text-white">
-                {{ $item->judul }}
-              </h2>
-              <p class="text-white">{{ $item->body }}</p>
-              <a href="http://127.0.0.1:8000/{{ $item->body }}" class="btn btn-light shadow-0 text-primary"> View more </a>
+                        @foreach ($dataSlider as $item)
+                            <div class="card-banner p-5 bg-primary rounded-5"
+                                style="height: 350px; background-image: url('{{ asset('storage/image-slider/' . $item->img) }}'); background-size: cover; background-position: center;">
+                                <div style="max-width: 500px;">
+                                    <h2 class="text-white">
+                                        {{ $item->judul }}
+                                    </h2>
+                                    <p class="text-white">{{ $item->body }}</p>
+                                    <a href="http://127.0.0.1:8000/{{ $item->body }}"
+                                        class="btn btn-light shadow-0 text-primary"> View more </a>
+                                </div>
+                            </div>
+                        @endforeach
+
+                    </div>
+                </main>
+                <aside class="col-lg-3">
+                    <div class="card-banner h-100 rounded-5" style="background-color: #f87217;">
+                        <div class="card-body text-center pb-5">
+                            <h5 class="pt-5 text-white">Amazing Gifts</h5>
+                            <p class="text-white">No matter how far along you are in your sophistication</p>
+                            <a href="#" class="btn btn-outline-light"> View more </a>
+                        </div>
+                    </div>
+                </aside>
             </div>
-          </div>
-          @endforeach
+            <!-- row //end -->
+        </div>
+        <!-- container end.// -->
+    </section>
+    <!-- intro -->
+    <section class="pt-5">
+        <div class="mt-2 text-center">
+            <h1>MENGAPA MEMILIH KAMI ? </h1>
+        </div>
+        <div class="site-section site-section-sm site-blocks-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
+                        <div class="icon mr-4 align-self-start">
+                            <span class="fa-solid fa-tag"></span>
+                        </div>
+                        <div class="text">
+                            <h2 class="text-uppercase">Harga Termurah</h2>
+                            <p>Arthur sering banget ngadain promo tiap event besar loh!! jadi pantengin terus web dan sosmed
+                                kami & jangan sampai kalian ketinggalan promonya ya!</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon mr-4 align-self-start">
+                            <span class="fa-solid fa-palette"></span>
+                        </div>
+                        <div class="text">
+                            <h2 class="text-uppercase">Warna Terjamin</h2>
+                            <p>Warna pudar & bergaris? Nggak banget kan! kami berani jamin deh kalian nggak akan nemuin
+                                kejadian kayak gitu kalau kalian pakai jasa printing kami</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon mr-4 align-self-start">
+                            <span class="fa-solid fa-circle-check"></span>
+                        </div>
+                        <div class="text">
+                            <h2 class="text-uppercase">Kualitas Terjaga</h2>
+                            <p>Temukan cacat saat serah terima barang? Kami akan dengan senang hati melayani & menerima
+                                komplain kalian. jadi masih ragu cetak di Arthur?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        </div>
-      </main>
-      <aside class="col-lg-3">
-        <div class="card-banner h-100 rounded-5" style="background-color: #f87217;">
-          <div class="card-body text-center pb-5">
-            <h5 class="pt-5 text-white">Amazing Gifts</h5>
-            <p class="text-white">No matter how far along you are in your sophistication</p>
-            <a href="#" class="btn btn-outline-light"> View more </a>
-          </div>
-        </div>
-      </aside>
-    </div>
-    <!-- row //end -->
-  </div>
-  <!-- container end.// -->
-</section>
-<!-- intro -->
-<section class="pt-5">
-  <div class="mt-2 text-center"><h1>MENGAPA MEMILIH KAMI ? </h1></div>
-<div class="site-section site-section-sm site-blocks-1">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
-        <div class="icon mr-4 align-self-start">
-          <span class="fa-solid fa-tag"></span>
-        </div>
-        <div class="text">
-          <h2 class="text-uppercase">Harga Termurah</h2>
-          <p>Arthur sering banget ngadain promo tiap event besar loh!! jadi pantengin terus web dan sosmed kami & jangan sampai kalian ketinggalan promonya ya!</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="icon mr-4 align-self-start">
-          <span class="fa-solid fa-palette"></span>
-        </div>
-        <div class="text">
-          <h2 class="text-uppercase">Warna Terjamin</h2>
-          <p>Warna pudar & bergaris? Nggak banget kan! kami berani jamin deh kalian nggak akan nemuin kejadian kayak gitu kalau kalian pakai jasa printing kami</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="icon mr-4 align-self-start">
-          <span class="fa-solid fa-circle-check"></span>
-        </div>
-        <div class="text">
-          <h2 class="text-uppercase">Kualitas Terjaga</h2>
-          <p>Temukan cacat saat serah terima barang? Kami akan dengan senang hati melayani & menerima komplain kalian. jadi masih ragu cetak di Arthur?</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+    </section>
 
-</section>
-
-{{-- <div class="site-section block-3 site-blocks-2 bg-light">
+    {{-- <div class="site-section block-3 site-blocks-2 bg-light">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-7 site-section-heading text-center pt-4">
@@ -100,40 +107,35 @@
     </div>
   </div> --}}
 
-  <div class="container my-5">
-    <header class="mb-4">
-      <h3>Best Seller Items</h3>
-    </header>
+    <div class="container my-5">
+        <header class="mb-4">
+            <h3>Best Seller Items</h3>
+        </header>
 
-    <div class="row">
-      @foreach ($data1 as $item)
-      <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
-        <div class="card w-100 my-2 shadow-2-strong">
-          {{-- <img src="{{asset('storage/image-produk/'.$item->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" /> --}}
-          <img src="{{asset('storage/image-produk/'.$item->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" />
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title">{{ $item->namaProduk }}</h5>
-            <p class="card-text text-primary">{{ $item->kategori->namaKategori }}</p>
-            <h6 class="card-text text-danger">Rp {{ $item->harga }}</h6>
-            <div class="d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+        <div class="row">
+            @foreach ($data1 as $item)
+                <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+                    <div class="card w-100 my-2 shadow-2-strong">
+                        {{-- <img src="{{asset('storage/image-produk/'.$item->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" /> --}}
+                        <img src="{{ asset('storage/image-produk/' . $item->img) }}" class="card-img-top"
+                            style="aspect-ratio: 1 / 1" />
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ $item->namaProduk }}</h5>
+                            <p class="card-text text-primary">{{ $item->kategori->namaKategori }}</p>
+                            <h6 class="card-text text-danger">Rp {{ $item->harga }}</h6>
+                            <div class="d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+                                <a href="{{ route('produk.show', $item->idProduk) }}"
+                                    class="btn btn-light shadow-0 me-1">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
 
-            <form action="{{url('cart', $item->idProduk)}}" method="POST">
-              @csrf
-              <input type="hidden" name="_method" value="POST"> <!-- Perbarui method menjadi POST -->
-              <input class="btn btn-primary shadow-0 me-1" type="submit" value="add cart">
-            </form>
-
-              <a href="{{ route('produk.show', $item->idProduk) }}" class="btn btn-light shadow-0 me-1">Detail</a>
-            </div>
-          </div>
         </div>
-      </div>
-      @endforeach
-
     </div>
-  </div>
 
-{{-- <div class="site-section block-8">
+    {{-- <div class="site-section block-8">
   <div class="container">
     <div class="row justify-content-center  mb-5">
       <div class="col-md-7 site-section-heading text-center pt-4">
@@ -153,24 +155,24 @@
     </div>
   </div>
 </div> --}}
-<!-- Features -->
-<section>
-  <div class="container">
-    <div class="card p-4 bg-primary">
-      <div class="row align-items-center">
-        <div class="col">
-          <h4 class="mb-0 text-white">Best products and brands in store</h4>
-          <p class="mb-0 text-white-50">Trendy products and text to build on the card title</p>
+    <!-- Features -->
+    <section>
+        <div class="container">
+            <div class="card p-4 bg-primary">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h4 class="mb-0 text-white">Best products and brands in store</h4>
+                        <p class="mb-0 text-white-50">Trendy products and text to build on the card title</p>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-white text-primary shadow-0" href="#">Discover</a></div>
+                </div>
+            </div>
         </div>
-        <div class="col-auto"><a class="btn btn-white text-primary shadow-0" href="#">Discover</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Features -->
+    </section>
+    <!-- Features -->
 
-<!-- Recommended -->
-{{-- <section>
+    <!-- Recommended -->
+    {{-- <section>
   <div class="container my-5">
     <header class="mb-4">
       <h3>Promo Items</h3>
@@ -240,48 +242,49 @@
     </div>
   </div>
 </section> --}}
-<!-- Recommended -->
+    <!-- Recommended -->
 
-{{-- blog --}}
-<section class="mt-5 mb-4">
-  <div class="container text-dark">
-    <header class="mb-4">
-      <h3>Artikel</h3>
-    </header>
+    {{-- blog --}}
+    <section class="mt-5 mb-4">
+        <div class="container text-dark">
+            <header class="mb-4">
+                <h3>Artikel</h3>
+            </header>
 
-    <div class="row">
-            @foreach ($dataPost as $artikel)
-              <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
-                <div class="card w-80 my-2 shadow-2-strong">
-                  <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
-                    <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="card-img-top" style="aspect-ratio: 1 / 1" alt="...">
-                  </a>
-                  <div class="mt-2 text-muted small d-block mb-1">
-                    <div class="card-body d-flex flex-column">
-                    <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
-                      <h5 class="title-artikel text-center mt-2 mb-0">{{$artikel->judul}}</h5>
-                    </a>
-                    <p class="text-center mt-0">{!!substr ($artikel->konten, 0,65)!!}.....</p>
+            <div class="row">
+                @foreach ($dataPost as $artikel)
+                    <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+                        <div class="card w-80 my-2 shadow-2-strong">
+                            <a href="{{ route('artikel.show', $artikel->idArtikel) }}">
+                                <img src="{{ asset('storage/image-artikel/' . $artikel->img) }}" class="card-img-top"
+                                    style="aspect-ratio: 1 / 1" alt="...">
+                            </a>
+                            <div class="mt-2 text-muted small d-block mb-1">
+                                <div class="card-body d-flex flex-column">
+                                    <a href="{{ route('artikel.show', $artikel->idArtikel) }}">
+                                        <h5 class="title-artikel text-center mt-2 mb-0">{{ $artikel->judul }}</h5>
+                                    </a>
+                                    <p class="text-center mt-0">{!! substr($artikel->konten, 0, 65) !!}.....</p>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
                     </div>
-                  </div>
-              </div>
-              <br>
-              </div>
-            @endforeach
-    </div>
-  </div>
-</section>
+                @endforeach
+            </div>
+        </div>
+    </section>
 @endsection
 
 @section('javascript')
     <script>
         $('.slider').slick({
-        arrows : false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        pauseOnHover: false,
+            arrows: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            pauseOnHover: false,
         });
     </script>
 @endsection

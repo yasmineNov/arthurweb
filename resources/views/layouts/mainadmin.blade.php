@@ -196,6 +196,8 @@
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+        <script src="{{ asset('assets/js/cdn.jsdelivr.net_npm_vue@2.6.14_dist_vue.js') }}"></script>
+        @yield("vue")
         {{-- tinyMCE --}}
         <script src="https://cdn.tiny.cloud/1/pzu9x5pjvgol75f7v6541v2xdqv0ib0jukp1ekkp4duveqsx/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
         <script>tinymce.init({selector:'textarea'});</script>
