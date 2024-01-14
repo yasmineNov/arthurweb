@@ -132,14 +132,13 @@
             methods: {
                 main() {
                     $.ajax({
-                        url: "/public/cart/view",
+                        url: "{{ URL('cart/view'); }}",
                         type: "GET",
                         success: function(data) {
                             vm.card = [];
                             data.cart.forEach((dt, i) => {
                                 vm.card.push({
-                                    'gambar': "{{ env('base_url') }}" +
-                                        'storage/image-produk/' + dt.produk.img,
+                                    'gambar': "{{ asset('" + "storage/image-produk/" + dt.produk.img + "') }}",
                                     'namaProduk': dt.produk.namaProduk,
                                     'hargaProduk': dt.produk.harga,
                                     'id': dt.id,
@@ -169,8 +168,7 @@
                             vm.card = [];
                             data.cart.forEach((dt, i) => {
                                 vm.card.push({
-                                    'gambar': "{{ env('base_url') }}" +
-                                        'storage/image-produk/' + dt.produk.img,
+                                    'gambar': "{{ asset('" + "storage/image-produk/" + dt.produk.img + "') }}",
                                     'namaProduk': dt.produk.namaProduk,
                                     'hargaProduk': dt.produk.harga,
                                     'id': dt.id,
@@ -200,8 +198,7 @@
                             vm.card = [];
                             data.cart.forEach((dt, i) => {
                                 vm.card.push({
-                                    'gambar': "{{ env('base_url') }}" +
-                                        'storage/image-produk/' + dt.produk.img,
+                                    'gambar': "{{ asset('" + "storage/image-produk/" + dt.produk.img+"') }}",
                                     'namaProduk': dt.produk.namaProduk,
                                     'hargaProduk': dt.produk.harga,
                                     'id': dt.id,
@@ -231,8 +228,7 @@
                             vm.card = [];
                             data.cart.forEach((dt, i) => {
                                 vm.card.push({
-                                    'gambar': "{{ env('base_url') }}" +
-                                        'storage/image-produk/' + dt.produk.img,
+                                    'gambar': "{{ asset('" + "storage/image-produk/"+ dt.produk.img + "')",
                                     'namaProduk': dt.produk.namaProduk,
                                     'hargaProduk': dt.produk.harga,
                                     'id': dt.id,
