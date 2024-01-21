@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\produk;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class cart extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     protected $primaryKey = 'id';
     protected $fillable = ['id', 'name', 'idProduk'];
     protected $table = 'carts';

@@ -33,7 +33,7 @@
                 </aside>
                 <main class="col-lg-6">
                     <div class="ps-lg-3">
-                        <form action="{{ url('cart/'. $produk->idProduk) }}" method="POST">
+                        <form action="{{ url('cart/' . $produk->idProduk) }}" method="POST">
                             <h4 class="title text-dark">
                                 {{ $produk->namaProduk }}
                             </h4>
@@ -75,7 +75,7 @@
                                 @if (isset($produk->varian[0]))
                                     <dd class="col-9" id="harga-varian"></dd>
                                 @else
-                                <dd class="col-9">{{ $produk->harga }}</dd>
+                                    <dd class="col-9">{{ $produk->harga }}</dd>
                                 @endif
 
                             </div>
@@ -83,22 +83,49 @@
                             <hr />
 
                             <div class="row mb-4">
+                                @if ($errors->any())
+                                    <div class="col-md-12">
+                                        <div class="pt-3">
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    @foreach ($errors->all() as $item)
+                                                        <li>{{ $item }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                                 @if ($produk->custom == 1)
+                                    <input type="text" name="jenis" value="{{ $produk->jenis }}" hidden>
                                     <div class="col-md-4 col-6 mb-3">
-                                        <label class="mb-2 d-block">Panjang</label>
+                                        <label class="mb-2 d-block" for="tinggi">Tinggi</label>
                                         <div class="input-group mb-3" style="width: 170px;">
                                             <input type="text" class="form-control text-center border border-secondary"
-                                                placeholder="0cm" aria-label="Example text with button addon"
-                                                aria-describedby="button-addon1" />
+                                                placeholder="0cm" aria-label="Example text with button addon" id="tinggi"
+                                                name="tinggi" aria-describedby="button-addon1" />
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-6 mb-3">
-                                        <label class="mb-2 d-block">Lebar</label>
+                                        <label class="mb-2 d-block" for="lebar">Lebar</label>
                                         <div class="input-group mb-3" style="width: 170px;">
                                             <input type="text" class="form-control text-center border border-secondary"
                                                 placeholder="0cm" aria-label="Example text with button addon"
-                                                aria-describedby="button-addon1" />
+                                                aria-describedby="button-addon1" name="lebar" id="lebar" />
                                         </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="hasil" class="mb-2 d-block">Finishing</label>
+                                        {{-- <input type="text" class="form-control" name='hasil'
+                                        id="hasil"placeholder="Boleh dikosongi apabila produk tidak memiliki jenis"> --}}
+                                        <select class="form-control" name='finishing' id="finishing1">
+                                            <option value ='' selected>Pilih Finishing</option>
+                                            <option value="lebihan">Lebihan</option>
+                                            <option value="potong press">Potong Press</option>
+                                            <option value="mata ayam">Mata Ayam</option>
+                                            <option value="selongsong">Selongsong</option>
+                                            <option value="lipat press">Lipat Press</option>
+                                        </select>
                                     </div>
                                 @endif
                                 @if (isset($produk->varian[0]))
@@ -122,8 +149,8 @@
                                             <i class="fas fa-minus"></i>
                                         </button>
                                         <input type="text" class="form-control text-center border border-secondary"
-                                            placeholder="14" aria-label="Example text with button addon"
-                                            aria-describedby="button-addon1" name="qty"/>
+                                            placeholder="0" aria-label="Example text with button addon"
+                                            aria-describedby="button-addon1" name="qty" />
                                         <button class="btn btn-white border border-secondary px-3" type="button"
                                             id="button-addon2" data-mdb-ripple-color="dark">
                                             <i class="fas fa-plus"></i>

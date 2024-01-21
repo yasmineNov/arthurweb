@@ -122,7 +122,18 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">{{ $item->namaProduk }}</h5>
                             <p class="card-text text-primary">{{ $item->kategori->namaKategori }}</p>
-                            <h6 class="card-text text-danger">Rp {{ $item->harga }}</h6>
+                            @if (isset($item->varian[0]))
+                                <h6 class="card-text text-danger">Rp
+                                    @foreach ($item->varian as $i => $varian)
+                                        {{ ($i == 0 ? ($varian->harga ) : $i + 1 == count($item->varian)) ? $varian->harga : '' }}
+                                        @if ($i == 0)
+                                         -
+                                        @endif
+                                    @endforeach
+                                </h6>
+                            @else
+                                <h6 class="card-text text-danger">Rp {{ $item->harga }}</h6>
+                            @endif
                             <div class="d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
                                 <a href="{{ route('produk.show', $item->idProduk) }}"
                                     class="btn btn-light shadow-0 me-1">Detail</a>

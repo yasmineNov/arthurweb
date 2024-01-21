@@ -43,7 +43,8 @@
                                             <div class="input-group mb-3" style="max-width: 120px;">
                                                 <div class="input-group-prepend">
                                                     <button class="btn btn-outline-primary js-btn-minus"
-                                                        :data-id="dt.id" v-on:click="kurang(dt.id)" type="button">&minus;</button>
+                                                        :data-id="dt.id" v-on:click="kurang(dt.id)"
+                                                        type="button">&minus;</button>
                                                 </div>
                                                 <input type="text" class="form-control text-center qty-input"
                                                     :value="dt.qtyProduk" placeholder=""
@@ -56,8 +57,9 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>Rp @{{ dt.subtotal }}</td>
-                                        <td><span class="btn btn-danger" v-on:click="hapus(dt.idProduk)"><i class="fa fa-trash"></i>
+                                        <td>Rp @{{ dt.subtotal.toLocaleString(['ban', 'id']) }}</td>
+                                        <td><span class="btn btn-danger" v-on:click="hapus(dt.idProduk)"><i
+                                                    class="fa fa-trash"></i>
                                                 Delete</span></td>
                                     </tr>
                                 </template>
@@ -104,7 +106,7 @@
                                 <span class="text-black">Total</span>
                             </div>
                             <div class="col-md-6 text-right mb-5">
-                                <strong class="text-black">@{{ total }}</strong>
+                                <strong class="text-black">Rp @{{ total.toLocaleString(['ban', 'id']) }}</strong>
                             </div>
                             <a class="btn btn-primary btn-lg py-3 btn-bloc" href="{{ URL('/checkout') }}">Checkout</a>
                         </div>
@@ -132,19 +134,20 @@
             methods: {
                 main() {
                     $.ajax({
-                        url: "{{ URL('cart/view'); }}",
+                        url: "{{ URL('cart/view') }}",
                         type: "GET",
                         success: function(data) {
                             vm.card = [];
                             data.cart.forEach((dt, i) => {
                                 vm.card.push({
-                                    'gambar': "{{ asset('storage/image-produk/') }}" + "/"+  dt.produk.img,
-                                    'namaProduk': dt.produk.namaProduk,
-                                    'hargaProduk': dt.produk.harga,
+                                    'gambar': "{{ asset('storage/image-produk/') }}" +
+                                        "/" + dt.img,
+                                    'namaProduk': dt.nama,
+                                    'hargaProduk': dt.harga,
                                     'id': dt.id,
                                     'qtyProduk': dt.qty,
                                     'idProduk': dt.idProduk,
-                                    'subtotal': data.subtotal[i],
+                                    'subtotal': dt.Total_Harga,
                                 })
                             });
                             vm.total = data.total;
@@ -168,13 +171,14 @@
                             vm.card = [];
                             data.cart.forEach((dt, i) => {
                                 vm.card.push({
-                                    'gambar': "{{ asset('storage/image-produk/') }}" + "/"+  dt.produk.img,
-                                    'namaProduk': dt.produk.namaProduk,
-                                    'hargaProduk': dt.produk.harga,
+                                    'gambar': "{{ asset('storage/image-produk/') }}" +
+                                        "/" + dt.img,
+                                    'namaProduk': dt.nama,
+                                    'hargaProduk': dt.harga,
                                     'id': dt.id,
                                     'qtyProduk': dt.qty,
                                     'idProduk': dt.idProduk,
-                                    'subtotal': data.subtotal[i],
+                                    'subtotal': dt.Total_Harga,
                                 })
                             });
                             vm.total = data.total;
@@ -198,13 +202,13 @@
                             vm.card = [];
                             data.cart.forEach((dt, i) => {
                                 vm.card.push({
-                                    'gambar': "{{ asset('storage/image-produk/') }}" + "/"+  dt.produk.img,
-                                    'namaProduk': dt.produk.namaProduk,
-                                    'hargaProduk': dt.produk.harga,
+                                    'gambar': "{{ asset('storage/image-produk/') }}" + "/"+  dt.img,
+                                    'namaProduk': dt.nama,
+                                    'hargaProduk': dt.harga,
                                     'id': dt.id,
                                     'qtyProduk': dt.qty,
                                     'idProduk': dt.idProduk,
-                                    'subtotal': data.subtotal[i],
+                                    'subtotal': dt.Total_Harga,
                                 })
                             });
                             vm.total = data.total;
@@ -212,7 +216,7 @@
                         }
                     });
                 },
-                hapus(id){
+                hapus(id) {
                     Swal.fire({
                         title: "",
                         text: "Loading...",
@@ -228,7 +232,8 @@
                             vm.card = [];
                             data.cart.forEach((dt, i) => {
                                 vm.card.push({
-                                    'gambar': "{{ asset('storage/image-produk/')" + "/"+ dt.produk.img,
+                                    'gambar': "{{ asset('storage/image-produk/')" +
+                                        "/" + dt.produk.img,
                                     'namaProduk': dt.produk.namaProduk,
                                     'hargaProduk': dt.produk.harga,
                                     'id': dt.id,

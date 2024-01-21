@@ -23,4 +23,9 @@ class produk extends Model
     {
         return $this->hasMany(md_varian::class, 'id_product', 'idProduk')->orderBy('id_product');
     }
+
+    public function cart()
+    {
+        return $this->hasMany(md_varian::class, 'idProduk', 'idProduk')->orderBy('idProduk');
+    }
 }
