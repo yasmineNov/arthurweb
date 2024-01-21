@@ -40,16 +40,19 @@
                                         </td>
                                         <td>Rp @{{ dt.hargaProduk }}</td>
                                         <td>
-                                            <div class="input-group mb-3" style="max-width: 120px;">
+                                            <div class="input-group justify-content-center mb-3">
                                                 <div class="input-group-prepend">
                                                     <button class="btn btn-outline-primary js-btn-minus"
                                                         :data-id="dt.id" v-on:click="kurang(dt.id)"
                                                         type="button">&minus;</button>
                                                 </div>
-                                                <input type="text" class="form-control text-center qty-input"
-                                                    :value="dt.qtyProduk" placeholder=""
-                                                    aria-label="Example text with button addon"
-                                                    aria-describedby="button-addon1" :data-id="dt.idProduk">
+                                                <input type="number" class="text-center qty-input" v-model="dt.qtyProduk"
+                                                    placeholder="" aria-label="Example text with button addon"
+                                                    aria-describedby="button-addon1" :data-id="dt.id"
+                                                    style="
+                                                    width: 5em;
+                                                "
+                                                    @input="Qty()">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-outline-primary js-btn-plus"
                                                         :data-id="dt.id" type="button"
@@ -247,6 +250,29 @@
                             Swal.close();
                         }
                     });
+                },
+                Qty() {
+                    $.ajax({
+                        url: "/update-cart/tambahinput/" + event.target.value +'/' + event.target.getAttribute("data-id"),
+                        type: "GET",
+                        success: function(data) {
+                            vm.card = [];
+                            data.cart.forEach((dt, i) => {
+                                vm.card.push({
+                                    'gambar': "{{ asset('storage/image-produk/') }}" +
+                                        "/" + dt.img,
+                                    'namaProduk': dt.nama,
+                                    'hargaProduk': dt.harga,
+                                    'id': dt.id,
+                                    'qtyProduk': dt.qty,
+                                    'idProduk': dt.idProduk,
+                                    'subtotal': dt.Total_Harga,
+                                })
+                            });
+                            vm.total = data.total;
+                            Swal.close();
+                        }
+                    })
                 }
             }
         })

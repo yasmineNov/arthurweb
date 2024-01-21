@@ -180,7 +180,6 @@ class CartController extends Controller
                             'id' => $value->id,
                             'idProduk' => $value->produk->idProduk,
                         ];
-
                     }
                     $ambil[] = $tampung1;
                 }
@@ -578,7 +577,6 @@ class CartController extends Controller
                                 'id' => $value->id,
                                 'idProduk' => $value->produk->idProduk,
                             ];
-
                         }
                         $ambil[] = $tampung1;
                     }
@@ -791,7 +789,6 @@ class CartController extends Controller
                                 'id' => $value->id,
                                 'idProduk' => $value->produk->idProduk,
                             ];
-
                         }
                         $ambil[] = $tampung1;
                     }
@@ -828,6 +825,220 @@ class CartController extends Controller
             }
         } catch (\Throwable $th) {
             //throw $th;
+        }
+    }
+
+    public function tambahinput($qtyGanti, $id)
+    {
+
+        DB::beginTransaction();
+        try {
+            $cartItem = Cart::find($id);
+            if($qtyGanti != 0){
+                $cartItem->qty = $qtyGanti;
+            }
+            $cartItem->save();
+
+            if (Auth::id()) {
+                $user = auth()->user();
+
+                // $cart = cart::with('produk')->orderBy('idProduk', 'desc')->paginate(4);
+
+                $cek = User::with(['cart' => function ($query) {
+                    $query->whereNull('deleted_at');
+                }, 'cart.produk', 'cart.produk.varian'])
+                    ->where('id', $user->id)
+                    ->first();
+
+                if ($cek) {
+                    $tampung = [];
+                    $ambil = [];
+                    foreach ($cek->cart as $key => $value) {
+                        if (isset($value->id_varian)) {
+                            foreach ($value->produk->varian as $key => $varian) {
+                                if ($varian->id == $value->id_varian) {
+                                    $tampung1 = [
+                                        'Total_Harga' => ($value->qty * $varian->harga),
+                                        'img' => $value->produk->img,
+                                        'harga' => $varian->harga,
+                                        'qty' => $value->qty,
+                                        'nama' => $value->produk->namaProduk,
+                                        'id' => $value->id,
+                                        'idProduk' => $value->produk->id,
+                                    ];
+                                }
+                            }
+                        } else if (isset($value->lebar)) {
+                            $harga = $value->produk->harga;
+                            if ($value->produk->jenis == "banner") {
+                                if ($value->lebar < $value->tinggi && $value->tinggi < 320 && $value->tinggi > 100) {
+                                    $lebar = $value->tinggi;
+                                    $tinggi = $value->lebar;
+                                } else {
+                                    $lebar = $value->lebar;
+                                    $tinggi = $value->tinggi;
+                                }
+                                if ($lebar <= 100) {
+                                    $lebar = 100;
+                                    $hasil_custom = (($lebar / 100) * ($tinggi / 100)) * $harga;
+                                    if (substr(strval($hasil_custom), -3) > 0) {
+                                        $hasil_custom = ceil($hasil_custom / 500) * 500;
+                                    }
+                                    if ($value->finishing == "lebihan" || $value->finishing == "potong press") {
+                                        $hasil_custom = $hasil_custom;
+                                    } else {
+                                        $hasil_custom = $hasil_custom + 1000;
+                                    }
+                                } else if ($lebar > 100 && $lebar < 160) {
+                                    $hasil_custom = (($lebar / 100) * ($tinggi / 100)) * $harga;
+                                    if (substr(strval($hasil_custom), -3) > 0) {
+                                        $hasil_custom = ceil($hasil_custom / 500) * 500;
+                                    }
+                                    if ($value->finishing == "lebihan" || $value->finishing == "potong press") {
+                                        $hasil_custom = $hasil_custom;
+                                    } else {
+                                        $hasil_custom = $hasil_custom + 1000;
+                                    }
+                                } else if ($lebar >= 160 && $lebar < 220) {
+                                    $lebar = 220;
+                                    $hasil_custom = (($lebar / 100) * ($tinggi / 100)) * $harga;
+                                    if (substr(strval($hasil_custom), -3) > 0) {
+                                        $hasil_custom = ceil($hasil_custom / 500) * 500;
+                                    }
+                                    if ($value->finishing == "lebihan" || $value->finishing == "potong press") {
+                                        $hasil_custom = $hasil_custom;
+                                    } else {
+                                        $hasil_custom = $hasil_custom + 1000;
+                                    }
+                                } else if ($lebar >= 220 && $lebar < 260) {
+                                    $lebar = 260;
+                                    $hasil_custom = (($lebar / 100) * ($tinggi / 100)) * $harga;
+                                    if (substr(strval($hasil_custom), -3) > 0) {
+                                        $hasil_custom = ceil($hasil_custom / 500) * 500;
+                                    }
+                                    if ($value->finishing == "lebihan" || $value->finishing == "potong press") {
+                                        $hasil_custom = $hasil_custom;
+                                    } else {
+                                        $hasil_custom = $hasil_custom + 1000;
+                                    }
+                                } else if ($lebar >= 260 && $lebar < 320) {
+                                    $lebar = 320;
+                                    $hasil_custom = (($lebar / 100) * ($tinggi / 100)) * $harga;
+                                    if (substr(strval($hasil_custom), -3) > 0) {
+                                        $hasil_custom = ceil($hasil_custom / 500) * 500;
+                                    }
+                                    if ($value->finishing == "lebihan" || $value->finishing == "potong press") {
+                                        $hasil_custom = $hasil_custom;
+                                    } else {
+                                        $hasil_custom = $hasil_custom + 1000;
+                                    }
+                                }
+                            } else if ($value->produk->jenis == "stiker") {
+                                if ($value->lebar < $value->tinggi && $value->tinggi < 152 && $value->tinggi > 100) {
+                                    $lebar = $value->tinggi;
+                                    $tinggi = $value->lebar;
+                                } else {
+                                    $lebar = $value->lebar;
+                                    $tinggi = $value->tinggi;
+                                }
+                                if ($lebar <= 100) {
+                                    $lebar = 106;
+                                    $hasil_custom = (($lebar / 100) * ($tinggi / 100)) * $harga;
+                                    if (substr(strval($hasil_custom), -3) > 0) {
+                                        $hasil_custom = ceil($hasil_custom / 500) * 500;
+                                    }
+                                } else if ($lebar > 100 && $lebar <= 125) {
+                                    $lebar = 127;
+                                    $hasil_custom = (($lebar / 100) * ($tinggi / 100)) * $harga;
+                                    if (substr(strval($hasil_custom), -3) > 0) {
+                                        $hasil_custom = ceil($hasil_custom / 500) * 500;
+                                    }
+                                } else if ($lebar > 127 && $lebar <= 152) {
+                                    $lebar = 155;
+                                    $hasil_custom = (($lebar / 100) * ($tinggi / 100)) * $harga;
+                                    if (substr(strval($hasil_custom), -3) > 0) {
+                                        $hasil_custom = ceil($hasil_custom / 500) * 500;
+                                    }
+                                }
+                            } else if ($value->jenis == "albatros" || $value->jenis == "luster") {
+                                if ($value->lebar < $value->tinggi && $value->tinggi < 126 && $value->tinggi > 100) {
+                                    $lebar = $value->tinggi;
+                                    $tinggi = $value->lebar;
+                                } else {
+                                    $lebar = $value->lebar;
+                                    $tinggi = $value->tinggi;
+                                }
+
+                                if ($lebar <= 87) {
+                                    $lebar = 100;
+                                    $hasil_custom = (($lebar / 100) * ($tinggi / 100)) * $harga;
+                                    if (substr(strval($hasil_custom), -3) > 0) {
+                                        $hasil_custom = ceil($hasil_custom / 500) * 500;
+                                    }
+                                } else if ($lebar > 87 && $lebar <= 125) {
+                                    $lebar = 127;
+                                    $hasil_custom = (($lebar / 100) * ($tinggi / 100)) * $harga;
+                                    if (substr(strval($hasil_custom), -3) > 0) {
+                                        $hasil_custom = ceil($hasil_custom / 500) * 500;
+                                    }
+                                }
+                            }
+                            $tampung1 = [
+                                'Total_Harga' => $hasil_custom * $value->qty,
+                                'img' => $value->produk->img,
+                                'harga' => $hasil_custom,
+                                'qty' => $value->qty,
+                                'nama' => $value->produk->namaProduk,
+                                'id' => $value->id,
+                                'idProduk' => $value->produk->id,
+                            ];
+                        } else {
+                            $tampung1 = [
+                                'Total_Harga' => ($value->qty * $value->produk->harga),
+                                'img' => $value->produk->img,
+                                'harga' => $value->produk->harga,
+                                'qty' => $value->qty,
+                                'nama' => $value->produk->namaProduk,
+                                'id' => $value->id,
+                                'idProduk' => $value->produk->idProduk,
+                            ];
+                        }
+                        $ambil[] = $tampung1;
+                    }
+                    $hasil = 0.0;
+                    foreach ($ambil as $key => $value) {
+                        $hasil += $value['Total_Harga'];
+                    }
+                }
+                // $kol = DB::table('carts')
+                //     ->select('carts.id', 'carts.qty', 'produks.harga', 'carts.idUser')
+                //     ->leftjoin('produks', 'produks.idProduk', '=', 'carts.idProduk')
+                //     ->where('carts.idUser', $user->id)
+                //     ->orderBy('carts.idProduk', 'desc')
+                //     ->get();
+                $cart = cart::where('idUser', $user->id)->with('produk')->get();
+                // if ($kol) {
+                //     $tampung = [];
+                //     foreach ($kol as $key => $value) {
+
+                //         $tampung[] += ($kol[$key]->qty * $kol[$key]->harga);
+                //     }
+                //     $hasil = 0;
+                //     foreach ($tampung as $key => $value) {
+                //         $hasil += $value;
+                //     }
+                // }
+                $count = cart::where('idUser', $user->id)->count();
+
+                DB::commit();
+                return response()->json([
+                    "cart" => $ambil,
+                    "total" => $hasil,
+                ]);
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+            DB::rollBack();
         }
     }
 
@@ -999,7 +1210,6 @@ class CartController extends Controller
                             'id' => $value->id,
                             'idProduk' => $value->produk->idProduk,
                         ];
-
                     }
                     $ambil[] = $tampung1;
                 }

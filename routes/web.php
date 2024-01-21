@@ -86,6 +86,7 @@ Route::get('/cart/view' ,[CartController::class, 'cartView'])->name('cart.view')
 Route::get('/update-cart/increase/{id}', [CartController::class, 'increaseQty']);
 Route::get('/update-cart/decrease/{id}', [CartController::class, 'decreaseQty']);
 Route::get('/update-cart/deleted/{id}', [CartController::class, 'deletedCart']);
+Route::get('/update-cart/tambahinput/{id}/{id2}', [CartController::class, 'tambahinput']);
 Route::resource('cart', CartController::class);
 
 
@@ -102,7 +103,7 @@ Route::get('/katalog', [userController::class, 'katalog']);
 Route::get('/thanks', [userController::class, 'thanks']);
 Route::get('/frontartikel', [userController::class, 'artikel']);
 Route::get('singleArtikel', [userController::class, 'singleArtikel']);
-Route::get('/produk/{id}', [produkController::class, 'show'])->name('produk.show');
+Route::get('/produk/{id}', [produkController::class, 'show']);
 
 // ROUTES ADMIN
 Route::get('/dashboard', [adminController::class, 'dashboard'])->middleware('can:admin');
@@ -121,7 +122,7 @@ Route::get('artikelhome', [ArtikelController::class, 'artikelhome']);
 Route::get('/artikelAdmin', [ArtikelController::class, 'artikel']);
 Route::resource('artikel', ArtikelController::class);
 Route::get('tambahArtikel', [ArtikelController::class, 'tambahArtikel']);
-Route::get('/artikel/{id}', [ArtikelController::class, 'show'])->name('artikel.show');
+Route::get('/artikel/{id}', [ArtikelController::class, 'show']);
 
 Route::get('/katalogproduk', [ProdukController::class, 'katalogproduk']);
 Route::resource('produk', ProdukController::class);
