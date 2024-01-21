@@ -58,7 +58,7 @@
                                             </div>
                                         </td>
                                         <td>Rp @{{ dt.subtotal.toLocaleString(['ban', 'id']) }}</td>
-                                        <td><span class="btn btn-danger" v-on:click="hapus(dt.idProduk)"><i
+                                        <td><span class="btn btn-danger" v-on:click="hapus(dt.id)"><i
                                                     class="fa fa-trash"></i>
                                                 Delete</span></td>
                                     </tr>
@@ -202,7 +202,8 @@
                             vm.card = [];
                             data.cart.forEach((dt, i) => {
                                 vm.card.push({
-                                    'gambar': "{{ asset('storage/image-produk/') }}" + "/"+  dt.img,
+                                    'gambar': "{{ asset('storage/image-produk/') }}" +
+                                        "/" + dt.img,
                                     'namaProduk': dt.nama,
                                     'hargaProduk': dt.harga,
                                     'id': dt.id,
@@ -232,14 +233,14 @@
                             vm.card = [];
                             data.cart.forEach((dt, i) => {
                                 vm.card.push({
-                                    'gambar': "{{ asset('storage/image-produk/')" +
-                                        "/" + dt.produk.img,
-                                    'namaProduk': dt.produk.namaProduk,
-                                    'hargaProduk': dt.produk.harga,
+                                    'gambar': "{{ asset('storage/image-produk/') }}" +
+                                        "/" + dt.img,
+                                    'namaProduk': dt.nama,
+                                    'hargaProduk': dt.harga,
                                     'id': dt.id,
                                     'qtyProduk': dt.qty,
                                     'idProduk': dt.idProduk,
-                                    'subtotal': data.subtotal[i],
+                                    'subtotal': dt.Total_Harga,
                                 })
                             });
                             vm.total = data.total;
