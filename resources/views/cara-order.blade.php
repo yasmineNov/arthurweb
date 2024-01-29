@@ -160,7 +160,7 @@
             formData.append("tinggi", $('#tinggi').val());
             formData.append("finishing", $('#finishing1').val());
             $.ajax({
-                url: "public/kalkulator/hitung",
+                url: "kalkulator/hitung",
                 type: "POST",
                 data: formData,
                 dataType: "json",
