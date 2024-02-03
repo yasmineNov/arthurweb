@@ -5,27 +5,27 @@
     <section class="pt-3">
         <div class="container">
             <div class="row gx-3">
-                <main class="col-lg-9">
-                    <div class="slider">
+                {{-- <main class="col-lg-9">
+                   
+                </main> --}}
+                <div class="slider">
 
-                      @foreach ($dataSlider as $item)
-                      <a href="http://127.0.0.1:8000/{{ $item->url }}" class="card-banner-link">
-                          <div class="card-banner p-5 bg-primary rounded-5"
-                              style="height: 350px; background-image: url('{{ asset('storage/image-slider/' . $item->img) }}'); background-size: cover; background-position: center;">
-                              {{-- <div style="max-width: 500px;">
-                                  <h2 class="text-white">
-                                      {{ $item->judul }}
-                                  </h2>
-                                  <p class="text-white">{{ $item->body }}</p>
-                                  <button class="btn btn-light shadow-0 text-primary"> View more </button>
-                              </div> --}}
-                          </div>
-                      </a>
-                  @endforeach
+                  @foreach ($dataSlider as $item)
+                  <a href="http://127.0.0.1:8000/{{ $item->url }}" class="card-banner-link">
+                      <div class="card-banner p-5 bg-primary rounded-5"
+                          style="height: 350px; background-image: url('{{ asset('storage/image-slider/' . $item->img) }}'); background-size: cover; background-position: center;">
+                          {{-- <div style="max-width: 500px;">
+                              <h2 class="text-white">
+                                  {{ $item->judul }}
+                              </h2>
+                              <p class="text-white">{{ $item->body }}</p>
+                              <button class="btn btn-light shadow-0 text-primary"> View more </button>
+                          </div> --}}
+                      </div>
+                  </a>
+              @endforeach
 
-                    </div>
-                </main>
-               
+                </div>
             </div>
             <!-- row //end -->
         </div>
