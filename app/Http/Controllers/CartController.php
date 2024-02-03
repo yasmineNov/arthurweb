@@ -31,7 +31,7 @@ class CartController extends Controller
                 $tampung1 = [];
                 $ambil = [];
                 foreach ($cek->cart as $key => $value) {
-                    if ($value->id_varian != 'Pilih Varian') {
+                    if (isset($value->id_varian)) {
                         foreach ($value->produk->varian as $key => $varian) {
                             if ($varian->id == $value->id_varian) {
                                 $tampung1 = [
@@ -1075,7 +1075,7 @@ class CartController extends Controller
                 $tampung1 = [];
                 $ambil = [];
                 foreach ($cek->cart as $key => $value) {
-                    if ($value->id_varian != 'Pilih Varian') {
+                    if (isset($value->id_varian)) {
                         foreach ($value->produk->varian as $key => $varian) {
                             if ($varian->id == $value->id_varian) {
                                 $tampung1 = [
