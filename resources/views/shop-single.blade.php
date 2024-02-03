@@ -32,7 +32,7 @@
                     <!-- gallery-wrap .end// -->
                 </aside>
                 <main class="col-lg-6">
-                    <div class="ps-lg-3">
+                    <div class="ps-lg-3" id="content">
                         <form action="{{ url('cart/' . $produk->idProduk) }}" method="POST">
                             <h4 class="title text-dark">
                                 {{ $produk->namaProduk }}
@@ -145,14 +145,14 @@
                                     <label class="mb-2 d-block">Quantity</label>
                                     <div class="input-group mb-3" style="width: 170px;">
                                         <button class="btn btn-white border border-secondary px-3" type="button"
-                                            id="button-addon1" data-mdb-ripple-color="dark">
+                                            id="button-addon1" data-mdb-ripple-color="dark" v-on:Click="kurang">
                                             <i class="fas fa-minus"></i>
                                         </button>
                                         <input type="text" class="form-control text-center border border-secondary"
                                             placeholder="0" aria-label="Example text with button addon"
-                                            aria-describedby="button-addon1" name="qty" />
+                                            aria-describedby="button-addon1" name="qty" :value="qty" />
                                         <button class="btn btn-white border border-secondary px-3" type="button"
-                                            id="button-addon2" data-mdb-ripple-color="dark">
+                                            id="button-addon2" data-mdb-ripple-color="dark" v-on:Click="tambah">
                                             <i class="fas fa-plus"></i>
                                         </button>
                                     </div>
@@ -187,6 +187,31 @@
         $(document).ready(function() {
             document.getElementById("showJenis").style.display = "none";
             document.getElementById("cekCustom").style.display = "inline-flex";
+        })
+    </script>
+
+@endsection
+@section('javascript')
+    <script>
+        const Swal = SweetAlert;
+        var vm = new Vue({
+            el: "#content",
+            data: {
+                qty:0,
+            },
+            mounted() {
+                console.log("testing");
+            },
+            methods: {
+                kurang(){
+                   if(this.qty != 0 ){
+                    this.qty--;
+                   }
+                },
+                tambah(){
+                    this.qty++;
+                }
+            }
         })
     </script>
 @endsection
