@@ -27,12 +27,11 @@ class CartController extends Controller
             }, 'cart.produk', 'cart.produk.varian'])
                 ->where('id', $user->id)
                 ->first();
-
             if ($cek) {
-                $tampung = [];
+                $tampung1 = [];
                 $ambil = [];
                 foreach ($cek->cart as $key => $value) {
-                    if (isset($value->id_varian)) {
+                    if ($value->id_varian != 'Pilih Varian') {
                         foreach ($value->produk->varian as $key => $varian) {
                             if ($varian->id == $value->id_varian) {
                                 $tampung1 = [
