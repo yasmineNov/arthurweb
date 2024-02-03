@@ -103,7 +103,7 @@
                                         <div class="input-group mb-3" style="width: 170px;">
                                             <input type="text" class="form-control text-center border border-secondary"
                                                 placeholder="0cm" aria-label="Example text with button addon" id="tinggi"
-                                                name="tinggi" aria-describedby="button-addon1" />
+                                                name="tinggi" aria-describedby="button-addon1" value="0" />
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-6 mb-3">
@@ -111,7 +111,7 @@
                                         <div class="input-group mb-3" style="width: 170px;">
                                             <input type="text" class="form-control text-center border border-secondary"
                                                 placeholder="0cm" aria-label="Example text with button addon"
-                                                aria-describedby="button-addon1" name="lebar" id="lebar" />
+                                                aria-describedby="button-addon1" name="lebar" id="lebar" value="0" />
                                         </div>
                                     </div>
                                     <div class="col-md-12">
