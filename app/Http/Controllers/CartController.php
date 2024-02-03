@@ -227,19 +227,21 @@ class CartController extends Controller
             $produk = produk::find($id);
 
             $harga = $produk->harga;
-            $request->validate([
-                'qty' => 'required|numeric',
 
-            ], [
-                'qty.required' => 'Qty wajib diisi',
-            ]);
 
             // Cari apakah produk sudah ada di keranjang pengguna
             if (isset($request->varian)) {
                 $existingCart = cart::where('idUser', $user->id)
                     ->where('idProduk', $produk->idProduk)->where('id_varian', $request)
                     ->first();
-            } elseif ($request->tinggi) {
+                    $request->validate([
+                        'varian' => ['required', 'not_in:Pilih Varian'],
+                        'qty' => ['required', 'numeric', 'not_in:0'],
+                    ], [
+                        'varian.not_in' => 'Pilihan varian tidak valid.',
+                        'qty.not_in' => 'Harga tidak valid.',
+                    ]);
+            } else if ($request->tinggi) {
                 $request->validate([
                     'lebar' => 'required|numeric',
                     'tinggi' => 'required|numeric',
@@ -370,6 +372,14 @@ class CartController extends Controller
                         return redirect()->back()->withErrors(["msg" => 'Untuk ukuran diatas 127cm pada product ini. Mohon hubungi 087858860888.']);
                     }
                 }
+            }
+            else{
+                $request->validate([
+                    'qty' => 'required|numeric',
+
+                ], [
+                    'qty.required' => 'Qty wajib diisi',
+                ],);
             }
             $existingCart = cart::where('idUser', $user->id)
                 ->where('idProduk', $produk->idProduk)->whereNull('id_varian')
@@ -833,7 +843,7 @@ class CartController extends Controller
         DB::beginTransaction();
         try {
             $cartItem = Cart::find($id);
-            if($qtyGanti != 0){
+            if ($qtyGanti != 0) {
                 $cartItem->qty = $qtyGanti;
             }
             $cartItem->save();
@@ -1058,10 +1068,10 @@ class CartController extends Controller
                 ->first();
 
             if ($cek) {
-                $tampung = [];
+                $tampung1 = [];
                 $ambil = [];
                 foreach ($cek->cart as $key => $value) {
-                    if (isset($value->id_varian)) {
+                    if ($value->id_varian != 'Pilih Varian') {
                         foreach ($value->produk->varian as $key => $varian) {
                             if ($varian->id == $value->id_varian) {
                                 $tampung1 = [
