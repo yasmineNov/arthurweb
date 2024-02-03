@@ -162,7 +162,7 @@ class ProdukController extends Controller
     public function edit($id)
     {
         $kategori = kategori::all();
-        $data = produk::where('idProduk', $id)->first();
+        $data = produk::with('varian')->where('idProduk', $id)->first();
         return view('admin/katalog-editProduk', compact('kategori'), [
             "title" => "edit Produk"
         ])->with('data', $data);
@@ -174,36 +174,15 @@ class ProdukController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $request->validate([
-            'image' => 'mimes:png,jpg,jpeg|max:2048',
-            'namaProduk' => 'required',
-            'kategori' => 'required',
-            'harga' => 'required|numeric',
-            'deskripsi' => 'required',
-        ], [
-            'idProduk.numeric' => 'Id produk harus angka',
-            'idProduk.unique' => 'Id produk sudah ada dalam database',
-            'namaProduk.required' => 'Nama produk wajib diisi',
-            'kategori.required' => 'kategori wajib diisi',
-            'harga.required' => 'Harga wajib diisi',
-            'harga.numeric' => 'Harga harus dalam bentuk angka',
-            'deskripsi.required' => 'Deskripsi wajib diisi',
-        ]);
-
-        $data = [
-            'namaProduk' => $request->namaProduk,
-            'idKategori' => $request->kategori,
-            'gramasi' => $request->gramasi,
-            'jenis' => $request->jenis,
-            'harga' => $request->harga,
-            'deskripsi' => $request->deskripsi,
-        ];
-
+        $produk = produk::find($id);
+        $produk->namaProduk = $request->namaProduk;
+        $produk->idKategori = $request->kategori;
+        $produk->jenis = $request->jenis;
         if ($request->hasFile('image')) {
             $NamaGambar = produk::find($id);
             $image = $request->file('image');
             $filename = date('Y-m-d') . $image->getClientOriginalName();
+            $produk->img = $filename;
             $path = 'image-produk/' . $filename;
             Storage::disk('public')->put($path, file_get_contents($image));
 
@@ -216,8 +195,21 @@ class ProdukController extends Controller
 
             $data['img'] = $filename;
         }
-        produk::where('idproduk', $id)->update($data);
+        if($request->harga){
+            $produk->harga = $request->harga;
+        }
+        $produk->save();
 
+        if($request->varian_nama){
+            md_varian::where('id_product',$id)->delete();
+            foreach ($request->varian_nama as $key => $value) {
+                $varian = new md_varian();
+                $varian->id_product = $produk->idProduk;
+                $varian->nama = $value;
+                $varian->harga = $request->varian_harga[$key];
+                $varian->save();
+            }
+        }
         return redirect()->to('katalogproduk')->with('success', 'Berhasil mengupdate data');
     }
 
