@@ -443,6 +443,7 @@ class userController extends Controller
     {
         if (Auth::id()) {
             $katalog = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->limit(6)->paginate(6);
+            $data1 = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->paginate(4);
             $kategori = kategori::all();
             // $GengProduk = produk::where('namaKategori', $kategori->namaKategori)->with('produk')->orderBy('idProduk', 'desc')->paginate(6);
             $user = auth()->user();
@@ -456,6 +457,7 @@ class userController extends Controller
             ]);
         } else {
             $katalog = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->paginate(6);
+            $data1 = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->paginate(6);
             $kategori = kategori::all();
             // $GengProduk = produk::where('idKategori', $kategori->idKategori)->with('produk')->orderBy('idProduk', 'desc')->paginate(4);
             $user = auth()->user();
