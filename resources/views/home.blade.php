@@ -8,31 +8,24 @@
                 <main class="col-lg-9">
                     <div class="slider">
 
-                        @foreach ($dataSlider as $item)
-                            <div class="card-banner p-5 bg-primary rounded-5"
-                                style="height: 350px; background-image: url('{{ asset('storage/image-slider/' . $item->img) }}'); background-size: cover; background-position: center;">
-                                <div style="max-width: 500px;">
-                                    <h2 class="text-white">
-                                        {{ $item->judul }}
-                                    </h2>
-                                    <p class="text-white">{{ $item->body }}</p>
-                                    <a href="http://127.0.0.1:8000/{{ $item->body }}"
-                                        class="btn btn-light shadow-0 text-primary"> View more </a>
-                                </div>
-                            </div>
-                        @endforeach
+                      @foreach ($dataSlider as $item)
+                      <a href="http://127.0.0.1:8000/{{ $item->url }}" class="card-banner-link">
+                          <div class="card-banner p-5 bg-primary rounded-5"
+                              style="height: 350px; background-image: url('{{ asset('storage/image-slider/' . $item->img) }}'); background-size: cover; background-position: center;">
+                              {{-- <div style="max-width: 500px;">
+                                  <h2 class="text-white">
+                                      {{ $item->judul }}
+                                  </h2>
+                                  <p class="text-white">{{ $item->body }}</p>
+                                  <button class="btn btn-light shadow-0 text-primary"> View more </button>
+                              </div> --}}
+                          </div>
+                      </a>
+                  @endforeach
 
                     </div>
                 </main>
-                <aside class="col-lg-3">
-                    <div class="card-banner h-100 rounded-5" style="background-color: #f87217;">
-                        <div class="card-body text-center pb-5">
-                            <h5 class="pt-5 text-white">Amazing Gifts</h5>
-                            <p class="text-white">No matter how far along you are in your sophistication</p>
-                            <a href="#" class="btn btn-outline-light"> View more </a>
-                        </div>
-                    </div>
-                </aside>
+               
             </div>
             <!-- row //end -->
         </div>
