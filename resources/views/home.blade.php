@@ -102,7 +102,7 @@
 
     <div class="container my-5">
         <header class="mb-4">
-            <h3>Best Seller Items</h3>
+            <h3>Produk Terbaru</h3>
         </header>
 
         <div class="row">
@@ -139,6 +139,78 @@
         </div>
     </div>
 
+    <!-- Features -->
+    <section>
+      <div class="container mb-5">
+          <div class="card p-4 bg-primary">
+              <div class="row align-items-center">
+                  <div class="col">
+                      <h4 class="mb-0 text-white">Semua Kategori Produk</h4>
+                      <p class="mb-0 text-white-50">Temukan Produk Digital Printing yang ingin kamu cari</p>
+                  </div>
+                  <div class="col-auto"><a class="btn btn-white text-primary shadow-0" href="#">Discover</a></div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- Features -->
+
+    <div class="col-md-12 order-2">
+      <div class="row">
+          <div class="col-md-12 mb-0 d-flex justify-content-between">
+              <div class="float-md-left mb-4">
+                  @foreach ($kategori as $kategoriItem)
+                      @php
+                          $produkKategori = $katalog->where('idKategori', $kategoriItem->idKategori);
+                      @endphp
+
+                      @if ($produkKategori->count() > 0)
+                          <h2 class="text-black">{{ $kategoriItem->namaKategori }}</h2>
+
+                          <div class="row mb-5">
+                              @foreach ($produkKategori as $produkItem)
+                                  {{-- <div class="col-sm-6 col-lg-3 mb-4" data-aos="fade-up">
+                                      <div class="block-2 text-center border"> --}}
+                                          <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+                                              <div class="card w-100 my-2 shadow-2-strong">
+                                          <figure class="block-4-image">
+                                              <img src="{{ asset('storage/image-produk/' . $produkItem->img) }}"
+                                                  class="card-img-top" style="aspect-ratio: 1 / 1" />
+                                          </figure>
+                                          <div class="block-4-text p-4">
+                                              <p class="mb-0 h-5">{{ $produkItem->namaProduk }}</p>
+                                              </p>
+                                              @if (isset($produkItem->varian[0]))
+                                                  <h6 class="card-text text-danger">Rp
+                                                      @foreach ($produkItem->varian as $i => $varian)
+                                                          {{ ($i == 0 ? $varian->harga : $i + 1 == count($produkItem->varian)) ? $varian->harga : '' }}
+                                                          @if ($i == 0)
+                                                              -
+                                                          @endif
+                                                      @endforeach
+                                                  </h6>
+                                              @else
+                                                  <h6 class="card-text text-danger">Rp {{ $produkItem->harga }}</h6>
+                                              @endif
+                                              <div class="d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+                                                  <a href="{{ route('produk.show', $produkItem->idProduk) }}"
+                                                      class="btn btn-light shadow-0 me-1">Detail</a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              @endforeach
+                          </div>
+                      @endif
+                  @endforeach
+
+
+
+              </div>
+          </div>
+      </div>
+  </div>
+
     {{-- <div class="site-section block-8">
   <div class="container">
     <div class="row justify-content-center  mb-5">
@@ -159,21 +231,7 @@
     </div>
   </div>
 </div> --}}
-    <!-- Features -->
-    <section>
-        <div class="container">
-            <div class="card p-4 bg-primary">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h4 class="mb-0 text-white">Best products and brands in store</h4>
-                        <p class="mb-0 text-white-50">Trendy products and text to build on the card title</p>
-                    </div>
-                    <div class="col-auto"><a class="btn btn-white text-primary shadow-0" href="#">Discover</a></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Features -->
+    
 
     <!-- Recommended -->
     {{-- <section>
@@ -247,6 +305,22 @@
   </div>
 </section> --}}
     <!-- Recommended -->
+
+<!-- Features -->
+<section>
+  <div class="container">
+      <div class="card p-4 bg-primary">
+          <div class="row align-items-center">
+              <div class="col">
+                  <h4 class="mb-0 text-white">Artikel Arthur</h4>
+                  <p class="mb-0 text-white-50">Temukan Tips dan Artikel Seputar Digital Printing</p>
+              </div>
+              <div class="col-auto"><a class="btn btn-white text-primary shadow-0" href="#">Discover</a></div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- Features -->
 
     {{-- blog --}}
     <section class="mt-5 mb-4">

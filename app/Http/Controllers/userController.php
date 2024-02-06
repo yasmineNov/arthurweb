@@ -22,6 +22,8 @@ class userController extends Controller
             $dataPost = artikel::orderBy('idArtikel', 'desc')->paginate(4);
             $dataSlider = slide::orderBy('idSlide', 'desc')->paginate();
 
+            $katalog = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->limit(6)->paginate(6);
+            $kategori = kategori::all();
 
             $user = auth()->user();
             $count = cart::where('idUser', $user->id)->count();
@@ -31,17 +33,24 @@ class userController extends Controller
                 "data1" => $data1,
                 "dataPost" => $dataPost,
                 "dataSlider" => $dataSlider,
+                "kategori" => $kategori,
+                "katalog" => $katalog
             ]);
         } else {
             $data1 = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->paginate(4);
             $dataPost = artikel::orderBy('idArtikel', 'desc')->paginate(4);
             $dataSlider = slide::orderBy('idSlide', 'desc')->paginate();
 
+            $katalog = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->limit(6)->paginate(6);
+            $kategori = kategori::all();
+
             return view('home', [
                 "title" => "home",
                 "data1" => $data1,
                 "dataPost" => $dataPost,
                 "dataSlider" => $dataSlider,
+                "kategori" => $kategori,
+                "katalog" => $katalog
             ]);
         }
     }

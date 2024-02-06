@@ -36,7 +36,8 @@
           </div> --}}
             </div>
 
-            <div class="col-md-12 order-2">
+            {{-- SEMUA KATEGORI --}}
+            {{-- <div class="col-md-12 order-2">
                 <div class="row">
                     <div class="col-md-12 mb-0 d-flex justify-content-between">
                         <div class="float-md-left mb-4">
@@ -46,21 +47,15 @@
                 </div>
                 <div class="row mb-5">
                     @foreach ($katalog as $item)
-                        <div class="col-md-2 mb-4" data-aos="fade-up">
-                            <div class="block-2 text-center border">
-                                {{-- <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Default checkbox
-                </label>
-              </div> --}}
+                                <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+                                    <div class="card w-100 my-2 shadow-2-strong">
                                 <figure class="block-4-image">
                                     <img src="{{ asset('storage/image-produk/' . $item->img) }}" class="card-img-top"
                                         style="aspect-ratio: 1 / 1" />
                                 </figure>
                                 <div class="block-4-text p-4">
 
-                                    <p class="mb-0 h-5">{!! substr($item->namaProduk, 0, 17) !!}...</p>
+                                    <p class="mb-0 h-5">{!! substr($item->namaProduk, 0, 25) !!}</p>
                                     @if (isset($item->varian[0]))
                                         <h6 class="card-text text-danger">Rp
                                             @foreach ($item->varian as $i => $varian)
@@ -83,7 +78,7 @@
                     @endforeach
 
                 </div>
-            </div>
+            </div> --}}
 
 
             <div class="col-md-12 order-2">
@@ -100,8 +95,10 @@
 
                                     <div class="row mb-5">
                                         @foreach ($produkKategori as $produkItem)
-                                            <div class="col-sm-6 col-lg-3 mb-4" data-aos="fade-up">
-                                                <div class="block-2 text-center border">
+                                            {{-- <div class="col-sm-6 col-lg-3 mb-4" data-aos="fade-up">
+                                                <div class="block-2 text-center border"> --}}
+                                                    <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+                                                        <div class="card w-100 my-2 shadow-2-strong">
                                                     <figure class="block-4-image">
                                                         <img src="{{ asset('storage/image-produk/' . $produkItem->img) }}"
                                                             class="card-img-top" style="aspect-ratio: 1 / 1" />
