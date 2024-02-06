@@ -71,7 +71,9 @@
                                 </form>
                                 <small class="d-block text-center mt-3">Belum Punya Akun? <a href="{{ URL('/register') }}">Daftar Sekarang!</a></small>
                                 {{-- <small class="d-block text-center mt-3">Belum Punya Akun? <a href="/register">Daftar Sekarang!</a><a href="/forgot-password">  Lupa Pasword?</a></small> --}}
-                                <a class="small d-block text-center mt-3" href="{{ URL('/forgot-password') }}">Lupa Pasword?</a>
+                                
+                                {{-- ini yang kepake tp sementara di tiadakan --}}
+                                {{-- <a class="small d-block text-center mt-3" href="{{ URL('/forgot-password') }}">Lupa Pasword?</a> --}}
                                 
                             </div>
                         </div>
