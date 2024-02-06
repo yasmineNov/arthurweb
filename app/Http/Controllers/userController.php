@@ -482,7 +482,7 @@ class userController extends Controller
 
             // Melakukan pencarian produk dengan Eloquent
             $produk = produk::where('namaProduk', 'like', '%' . $query . '%')
-                ->orWhere('deskripsi', 'like', '%' . $query . '%')
+                // ->orWhere('deskripsi', 'like', '%' . $query . '%')
                 ->get();
 
             return view('hasil_pencarian', compact('count'), [
@@ -495,7 +495,7 @@ class userController extends Controller
 
             // Melakukan pencarian produk dengan Eloquent
             $produk = produk::where('namaProduk', 'like', '%' . $query . '%')
-                ->orWhere('deskripsi', 'like', '%' . $query . '%')
+                // ->orWhere('deskripsi', 'like', '%' . $query . '%')
                 ->get();
 
             return view('hasil_pencarian', [
