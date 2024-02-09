@@ -113,6 +113,8 @@ Route::get('/toko', [adminController::class, 'toko']);
 // Route::get('/slider', [SlideController::class, 'slider']);
 Route::get('/tambahslider', [SlideController::class, 'tambahslider']);
 Route::resource('slider', SlideController::class);
+Route::delete('slider/{slide}', [SlideController::class, 'destroy'])->name('slider.destroy');
+
 
 
 Route::resource('customer', CustomerController::class);
