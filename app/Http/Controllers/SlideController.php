@@ -101,7 +101,7 @@ class SlideController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Slide $slide)
+    public function destroy(slide $slide)
     {
         $slide->delete();
         return redirect()->to('slider')
