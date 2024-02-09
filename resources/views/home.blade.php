@@ -11,7 +11,7 @@
                 <div class="slider">
 
                   @foreach ($dataSlider as $item)
-                  <a href="http://127.0.0.1:8000/{{ $item->url }}" class="card-banner-link">
+                  <a href="{{ $item->url }}" class="card-banner-link">
                       <div class="card-banner p-5 bg-primary rounded-5"
                           style="height: 350px; background-image: url('{{ asset('storage/image-slider/' . $item->img) }}'); background-size: cover; background-position: center;">
                           {{-- <div style="max-width: 500px;">

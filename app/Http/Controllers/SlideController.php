@@ -50,17 +50,12 @@ class SlideController extends Controller
     {
         $request->validate([
             'image' => 'required|mimes:png,jpg,jpeg|max:2048',
-            'judul' => 'required',
             'url' => 'required',
-            'body' => 'required'
         ], [
-            'judul.required' => 'judul wajib diisi',
             'image.mimes' => 'gambar harus berformat png, jpg, atau jpeg',
             'image.max' => 'gambar maksimal 2048kb',
             'konten.required' => 'url wajib diisi',
-            'body.required' => 'body wajib diisi'
-            
-
+    
         ]);
 
         $slider = new slide;
@@ -71,9 +66,7 @@ class SlideController extends Controller
         Storage::disk('public')->put($path, file_get_contents($image));
 
         $slider->img = $filename;
-        $slider->judul = $request->judul;
         $slider->url = $request->url;
-        $slider->body = $request->body;
         
         $slider->save();
 
