@@ -37,26 +37,14 @@
                                     <input type="file" class="form-control" name='image' id="image">
                                 </div>
                             </div>
-                            <div class="mb-3 row">
-                                <label for="judul" class="col-sm-2 col-form-label">Judul</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name='judul' id="judul">
-                                </div>
-                            </div>
-                            
+                          
                             <div class="mb-3 row">
                                 <label for="url" class="col-sm-2 col-form-label">url</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" name='url' id="url">
                                 </div>
                             </div>
-                            <div class="mb-3 row">
-                                <label for="body" class="col-sm-2 col-form-label">body</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" name='body' id="body">
-                                </div>
-                            </div>
-                            
+                      
                             <div class="mb-3 row">
                                 <label for="jurusan" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10"><button type="submit" class="btn btn-primary" name="submit">SIMPAN</button></div>
