@@ -36,9 +36,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>gambar</th>
-                                <th>Judul</th>
                                 <th>URL</th>
-                                <th>isi</th>
                                 <th>Aksi</th>
                                 
                         </thead>
@@ -46,9 +44,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>gambar</th>
-                                <th>Judul</th>
                                 <th>URL</th>
-                                <th>isi</th>
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
@@ -58,9 +54,7 @@
                                 <tr>
                                     <td>{{ $i }}</td>
                                     <td><img src="{{asset('storage/image-slider/'.$item->img)}}" alt="" width="100"></td>
-                                    <td>{{ $item->judul }}</td>
-                                    <td>{{ $item->url }}</td>
-                                    <td>{{ $item->body   }}</td>                        
+                                    <td>{{ $item->url }}</td>                   
                                     <td>
                                         <form class='d-inline' action="{{ route('slider.destroy',$item->idSlide) }}" method="POST">
                                             @csrf
