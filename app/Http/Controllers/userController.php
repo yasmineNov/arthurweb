@@ -451,7 +451,7 @@ class userController extends Controller
     function katalog()
     {
         if (Auth::id()) {
-            $katalog = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->limit(4)->paginate();
+            $katalog = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->limit()->paginate();
             $data1 = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->paginate();
             $kategori = kategori::all();
             // $GengProduk = produk::where('namaKategori', $kategori->namaKategori)->with('produk')->orderBy('idProduk', 'desc')->paginate(6);
@@ -465,7 +465,7 @@ class userController extends Controller
                 // "GengProduk" => $GengProduk,
             ]);
         } else {
-            $katalog = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->limit(4)->paginate();
+            $katalog = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->limit()->paginate();
             $data1 = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->paginate();
             $kategori = kategori::all();
             // $GengProduk = produk::where('idKategori', $kategori->idKategori)->with('produk')->orderBy('idProduk', 'desc')->paginate(4);
