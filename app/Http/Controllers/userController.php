@@ -18,11 +18,11 @@ class userController extends Controller
     function home()
     {
         if (Auth::id()) {
-            $data1 = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->paginate(4);
+            $data1 = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->paginate(0);
             $dataPost = artikel::orderBy('idArtikel', 'desc')->paginate(4);
             $dataSlider = slide::orderBy('idSlide', 'desc')->paginate();
 
-            $katalog = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->limit(6)->paginate(6);
+            $katalog = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->limit(0)->paginate(0);
             $kategori = kategori::all();
 
             $user = auth()->user();
