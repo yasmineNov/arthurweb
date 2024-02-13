@@ -221,7 +221,8 @@
                         @foreach ($katalog as $produkItem)
                             {{-- Periksa apakah produk saat ini termasuk dalam kategori yang sedang diproses --}}
                             @if ($produkItem->kategori->idKategori == $kategoriItem->idKategori)
-                                <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+                                {{-- <div class="col-lg-3 col-md-6 col-sm-6 d-flex"> --}}
+                                <div class="col-lg-2 col-md-2 col-sm-2 d-flex">
                                     <div class="card w-100 my-2 shadow-2-strong">
                                         <figure class="block-4-image">
                                             <img src="{{ asset('storage/image-produk/' . $produkItem->img) }}"
@@ -229,6 +230,7 @@
                                         </figure>
                                         <div class="block-4-text p-4">
                                             <p class="mb-0 h-5">{{ $produkItem->namaProduk }}</p>
+                                            {{-- harga --}}
                                             @if (isset($produkItem->varian[0]))
                                                 <h6 class="card-text text-danger">Rp
                                                     @foreach ($produkItem->varian as $i => $varian)
