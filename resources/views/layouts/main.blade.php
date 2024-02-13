@@ -3,7 +3,7 @@
 
 <head>
     <title>ACM &mdash; {{ $title }}</title>
-    <link rel="shortcut icon" href="{{ asset('images/logoACM.png') }}">
+    <link rel="shortcut icon" sizes="16x16" href="{{ asset('images/logoACM.png') }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
