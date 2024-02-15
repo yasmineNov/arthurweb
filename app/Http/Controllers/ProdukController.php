@@ -26,7 +26,7 @@ class ProdukController extends Controller
     // }
     function katalogproduk()
     {
-        $data = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(0);
+        $data = produk::with('kategori')->orderBy('idProduk', 'desc')->get();
         return view('admin/katalog-produk', [
             "title" => "Katalog Produk"
         ])->with('data', $data);
