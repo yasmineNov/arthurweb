@@ -58,14 +58,13 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            <?php $i = $data->firstItem() ?>
+                            <?php $i = 1; ?> <!-- Mulai dari nomor 1 -->
                             @foreach ($data as $item)
                             <tr>
                                 <td>{{ $i }}</td>
                                 <td><img src="{{asset('storage/image-produk/'.$item->img)}}" alt="" width="100"></td>
                                 <td>{{ $item->namaProduk }}</td>
                                 <td>{{ $item->kategori->namaKategori }}</td>
-                                {{-- <td>{{ $item->gramasi }}</td> --}}
                                 <td>{{ $item->jenis }}</td>
                                 <td>{{ $item->harga }}</td>
                                 <td>{{ $item->deskripsi }}</td>                           
@@ -78,7 +77,7 @@
                                     </form>  
                                 </td>
                             </tr>
-                            <?php $i++ ?>
+                            <?php $i++; ?> <!-- Increment nomor indeks -->
                             @endforeach
                         </tbody>
                     </table>
