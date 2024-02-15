@@ -26,7 +26,7 @@ class ProdukController extends Controller
     // }
     function katalogproduk()
     {
-        $data = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate();
+        $data = produk::with('kategori')->orderBy('idProduk', 'desc')->paginate(0);
         return view('admin/katalog-produk', [
             "title" => "Katalog Produk"
         ])->with('data', $data);
@@ -195,13 +195,13 @@ class ProdukController extends Controller
 
             $data['img'] = $filename;
         }
-        if($request->harga){
+        if ($request->harga) {
             $produk->harga = $request->harga;
         }
         $produk->save();
 
-        if($request->varian_nama){
-            md_varian::where('id_product',$id)->delete();
+        if ($request->varian_nama) {
+            md_varian::where('id_product', $id)->delete();
             foreach ($request->varian_nama as $key => $value) {
                 $varian = new md_varian();
                 $varian->id_product = $produk->idProduk;
