@@ -22,7 +22,8 @@ class userController extends Controller
             $dataPost = artikel::orderBy('idArtikel', 'desc')->paginate(4);
             $dataSlider = slide::orderBy('idSlide', 'desc')->paginate();
 
-            $katalog = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->limit(6)->paginate(-1);
+            // $katalog = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->limit(6)->paginate(-1);
+            $katalog = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->get();
             $kategori = kategori::all();
 
             $user = auth()->user();
