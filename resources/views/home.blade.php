@@ -9,23 +9,24 @@
                    
                 </main> --}}
                 <div class="slider">
-
-                  @foreach ($dataSlider as $item)
-                  <a href="{{ $item->url }}" class="card-banner-link">
-                      <div class="card-banner p-5 bg-primary rounded-5"
-                          style="height: 350px; background-image: url('{{ asset('storage/image-slider/' . $item->img) }}'); background-size: cover; background-position: center;">
-                          {{-- <div style="max-width: 500px;">
-                              <h2 class="text-white">
-                                  {{ $item->judul }}
-                              </h2>
-                              <p class="text-white">{{ $item->body }}</p>
-                              <button class="btn btn-light shadow-0 text-primary"> View more </button>
-                          </div> --}}
-                      </div>
-                  </a>
-              @endforeach
-
+                    @foreach ($dataSlider as $item)
+                    <a href="{{ $item->url }}" class="card-banner-link">
+                        <div class="card-banner-wrapper">
+                            <div class="card-banner p-5 bg-primary rounded-5">
+                                <img src="{{ asset('storage/image-slider/' . $item->img) }}" alt="{{ $item->judul }}" class="slider-image">
+                                {{-- <div style="max-width: 500px;">
+                                    <h2 class="text-white">
+                                        {{ $item->judul }}
+                                    </h2>
+                                    <p class="text-white">{{ $item->body }}</p>
+                                    <button class="btn btn-light shadow-0 text-primary"> View more </button>
+                                </div> --}}
+                            </div>
+                        </div>
+                    </a>
+                    @endforeach
                 </div>
+                
             </div>
             <!-- row //end -->
         </div>
