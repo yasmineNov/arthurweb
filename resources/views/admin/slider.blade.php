@@ -58,7 +58,7 @@
                                     <td>
                                         <form class='d-inline' action="{{ route('slider.destroy',$item->idSlide) }}" method="POST">
                                             @csrf
-                                            <a href='{{ url('slider//'.$item->idSlide.'/edit')}}' class="btn btn-warning"><i class="fa fa-pencil">Edit</i></a>
+                                            <a href='{{ url('slider/'.$item->idSlide.'/edit')}}' class="btn btn-warning"><i class="fa fa-pencil">Edit</i></a>
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger"><i class="fa fa-trash">hapus</i></button>
                                         </form>  

@@ -19,7 +19,7 @@ class SlideController extends Controller
     //         "title" => "slider"
     //     ])->with('data', $data);
     // }
-    
+
     function tambahslider()
     {
         return view('admin/slider-tambah', [
@@ -55,7 +55,7 @@ class SlideController extends Controller
             'image.mimes' => 'gambar harus berformat png, jpg, atau jpeg',
             'image.max' => 'gambar maksimal 2048kb',
             'konten.required' => 'url wajib diisi',
-    
+
         ]);
 
         $slider = new slide;
@@ -67,7 +67,7 @@ class SlideController extends Controller
 
         $slider->img = $filename;
         $slider->url = $request->url;
-        
+
         $slider->save();
 
         return redirect()->to('slider')
@@ -85,26 +85,65 @@ class SlideController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(slide $slide)
+    public function edit($id)
     {
         //
+        $data = slide::where('idSlide', $id)->first();
+        return view('admin/slider-edit', [
+            "title" => "Edit Slider"
+        ])->with('data', $data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, slide $slide)
+    public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'image' => 'required|mimes:png,jpg,jpeg|max:2048',
+            'url' => 'required',
+        ], [
+            'image.mimes' => 'gambar harus berformat png, jpg, atau jpeg',
+            'image.max' => 'gambar maksimal 2048kb',
+            'konten.required' => 'url wajib diisi',
+
+        ]);
+
+        $slider = slide::find($id);
+        $slider->url = $request->url;
+        if ($request->hasFile('image')) {
+            $NamaGambar = slide::find($id);
+            $image = $request->file('image');
+            $filename = date('Y-m-d') . $image->getClientOriginalName();
+            $slider->img = $filename;
+            $path = 'image-slider/' . $filename;
+            Storage::disk('public')->put($path, file_get_contents($image));
+
+            // Hapus gambar lama jika ada
+            // if (isset($data['img'])) {
+            //     Storage::disk('public')->delete('image-produk/' . $data['img']);
+            // }
+            $hapus = 'public/image-slider/' . $NamaGambar->img;
+            Storage::delete($hapus);
+
+            $data['img'] = $filename;
+        }
+
+        $slider->save();
+
+        return redirect()->to('slider')
+            ->with('success', 'Berhasil update data');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(slide $slide)
+
+    public function destroy($id)
     {
+        $slide = slide::findOrFail($id);
         $slide->delete();
-        return redirect()->to('slider')
-            ->with('success', 'Data telah berhasil dihapus');
+        return redirect()->to('slider')->with('success', 'Data telah berhasil dihapus');
     }
 }

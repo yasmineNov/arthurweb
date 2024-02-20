@@ -60,7 +60,7 @@ use Illuminate\Support\Facades\Route;
 //     ]);
 // });
 
-Route::post('/kalkulator/hitung',[KalkulatorController::class, 'hitung'])->name('kalkulator.hitung');
+Route::post('/kalkulator/hitung', [KalkulatorController::class, 'hitung'])->name('kalkulator.hitung');
 Route::get('/kalkulator', [userController::class, 'order']);
 
 //SEARCH
@@ -82,7 +82,7 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 //CART
 Route::post('/cart/{id}', [CartController::class, 'addcart'])->name('cart');;
-Route::get('/cart/view' ,[CartController::class, 'cartView'])->name('cart.view');
+Route::get('/cart/view', [CartController::class, 'cartView'])->name('cart.view');
 Route::get('/update-cart/increase/{id}', [CartController::class, 'increaseQty']);
 Route::get('/update-cart/decrease/{id}', [CartController::class, 'decreaseQty']);
 Route::get('/update-cart/deleted/{id}', [CartController::class, 'deletedCart']);
