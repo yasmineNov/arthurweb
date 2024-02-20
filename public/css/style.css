@@ -145,22 +145,6 @@
 /* .text {
     max-width: 55px;
 } */
-.card-banner {
-    background-size: cover;
-    /* Menyesuaikan ukuran gambar agar selalu menutupi seluruh area elemen */
-    background-position: center;
-    /* Posisikan gambar ke tengah elemen */
-    height: 350px;
-    /* Tinggi slider */
-}
-
-/* Tambahkan aturan media query untuk responsivitas */
-@media screen and (max-width: 768px) {
-    .card-banner {
-        height: 200px;
-        /* Tinggi slider pada ukuran viewport di bawah 768px */
-    }
-}
 
 .image {
     background: rgb(241, 241, 241);
