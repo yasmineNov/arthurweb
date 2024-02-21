@@ -1418,6 +1418,13 @@ a:active {
     border: 1px solid transparent;
 }
 
+.slider {
+    width: 100%;
+    /* Lebar slider 100% dari kontainer */
+    height: auto;
+    /* Tinggi slider menyesuaikan proporsi */
+}
+
 #slider-range {
     height: 8px;
 }
