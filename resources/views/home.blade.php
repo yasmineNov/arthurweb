@@ -9,22 +9,13 @@
                    
                 </main> --}}
                 <div class="slider">
-
-                  @foreach ($dataSlider as $item)
-                  <a href="{{ $item->url }}" class="card-banner-link">
-                      <div class="card-banner p-5 bg-primary rounded-5"
-                          style="height: 350px; background-image: url('{{ asset('storage/image-slider/' . $item->img) }}'); background-size: cover; background-position: center;">
-                          {{-- <div style="max-width: 500px;">
-                              <h2 class="text-white">
-                                  {{ $item->judul }}
-                              </h2>
-                              <p class="text-white">{{ $item->body }}</p>
-                              <button class="btn btn-light shadow-0 text-primary"> View more </button>
-                          </div> --}}
-                      </div>
-                  </a>
-              @endforeach
-
+                    @foreach ($dataSlider as $item)
+                        <a href="{{ $item->url }}" class="card-banner-link">
+                            <div class="card-banner p-5 bg-primary rounded-5" style="height: 350px;">
+                                <img src="{{ asset('storage/image-slider/' . $item->img) }}" alt="{{ $item->judul }}" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                        </a>
+                    @endforeach
                 </div>
             </div>
             <!-- row //end -->
@@ -209,7 +200,7 @@
       </div>
   </div> --}}
 
- <div class="col-md-12 order-2">
+  <div class="col-md-12 order-2">
     <div class="row">
         <div class="col-md-12 mb-0 d-flex justify-content-between">
             <div class="float-md-left mb-4">
@@ -221,7 +212,8 @@
                         @foreach ($katalog as $produkItem)
                             {{-- Periksa apakah produk saat ini termasuk dalam kategori yang sedang diproses --}}
                             @if ($produkItem->kategori->idKategori == $kategoriItem->idKategori)
-                                <div class="col-lg-2 col-md-3 col-sm-4 col-6 d-flex">
+                                {{-- <div class="col-lg-3 col-md-6 col-sm-6 d-flex"> --}}
+                                <div class="col-lg-2 col-md-2 col-sm-2 d-flex">
                                     <div class="card w-100 my-2 shadow-2-strong">
                                         <figure class="block-4-image">
                                             <img src="{{ asset('storage/image-produk/' . $produkItem->img) }}"
@@ -258,7 +250,6 @@
         </div>
     </div>
 </div>
-
 
     {{-- <div class="site-section block-8">
   <div class="container">
