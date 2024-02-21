@@ -44,6 +44,23 @@
     padding: 0.5em;
     padding-bottom: 3.4em;
 } */
+
+.aspect-ratio-box {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* Menetapkan tinggi relatif */
+}
+
+.aspect-ratio-box > * {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+}
+
 .card-artikel {
     /* width: 20rem;
     height: 30rem; */
