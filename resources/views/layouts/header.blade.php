@@ -64,19 +64,15 @@
 
                             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
                                 <div class="row">
-
-                                    <form action='{{url('search')}}'  method="GET" class="site-block-top-search">
-                                        <ul class="site-menu d-flex align-items-center justify-content-start">
-                                            <input type="text" class="form-control border-0" name="query"
-                                                placeholder="Cari Produk">
-                                            <button type="submit" class="btn btn-link"><i
-                                                    class="icon icon-search2"></i></button>
-                                        </ul>
-
+                                    <form action="{{ url('search') }}" method="GET" class="site-block-top-search">
+                                        <div class="input-group position-relative">
+                                            <input type="text" class="form-control border-0 shadow-sm rounded-pill" name="query" placeholder="Cari Produk" style="padding-right: 44px;">
+                                            <button type="submit" class="btn btn-link position-absolute end-0 top-50 translate-middle-y"><i class="icon icon-search2"></i></button>
+                                        </div>
                                     </form>
                                 </div>
-                            </div>
-
+                            </div>                            
+                                                                                                     
                             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
                                 <div class="site-logo">
                                     <a class="nav-link" href="{{ URL('/') }}" class="js-logo-clone">
