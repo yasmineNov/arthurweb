@@ -9,7 +9,7 @@
                 @foreach ($dataSlider as $item)
                     <a href="{{ $item->url }}" class="card-banner-link">
                         <div class="card-banner bg-primary rounded-5"
-                            style="width: 100%; padding-top: 30%; position: relative; background-image: url('{{ asset('storage/image-slider/' . $item->img) }}'); background-size: cover; background-position: center;">
+                            style="width: 100%; padding-top: 33%; position: relative; background-image: url('{{ asset('storage/image-slider/' . $item->img) }}'); background-size: cover; background-position: center;">
                         </div>
                     </a>
                 @endforeach
