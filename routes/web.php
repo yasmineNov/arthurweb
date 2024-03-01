@@ -132,3 +132,4 @@ Route::get('/kategoriAdmin', [KategoriController::class, 'kategoriAdmin']);
 // Route::get('/kategoriShop', [KategoriController::class, 'shop_kategori']);
 Route::resource('kategori', KategoriController::class);
 Route::get('tambahKategori', [KategoriController::class, 'tambahKategori']);
+Route::get('/footer', [KategoriController::class, 'footer']);

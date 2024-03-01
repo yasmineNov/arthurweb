@@ -31,6 +31,14 @@ class KategoriController extends Controller
             "title" => "kategori"
         ])->with('data', $data);
     }
+    function footer()
+    {
+        $data1 = kategori::orderBy('idKategori', 'desc')->paginate();
+    return view('layouts.footer', [
+        "title" => "footer"
+    ])->with('data1', $data1);
+     
+    }
 
     // public function shop_kategori()
     // {

@@ -1,43 +1,42 @@
 <footer class="site-footer border-top">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 mb-5 mb-lg-0">
-          <div class="row">
-            <div class="col-md-12">
-              <h3 class="footer-heading mb-4">Arthur Citra Media</h3>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <ul class="list-unstyled">
-                <li><a href="#">Outdoor Printing</a></li>
-                <li><a href="#">Indoor Printing</a></li>
-                <li><a href="#">UV Printing</a></li>
-                <li><a href="#">A3 Printing</a></li>
-              </ul>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <ul class="list-unstyled">
-                <li><a href="#">Stempel</a></li>
-                <li><a href="#">Merchandise</a></li>
-                <li><a href="#">offset printing</a></li>
-              </ul>
-            </div>
-            <div class="col-md-6 col-lg-4">
-              <ul class="list-unstyled">
-                <li><a href="#">Neonbox</a></li>
-                <li><a href="#">Totem</a></li>
-                <li><a href="#">Akrilik</a></li>
-              </ul>
-            </div>
+        
+        <div class="col-md-6 col-lg-3">
+          <div class="block-5 mb-5">
+            <h3 class="footer-heading mb-4">Arthur Citra Media</h3>
+            <ul class="list-unstyled">
+              <li><a class="nav-link" href="{{ URL('/') }}">Home</a></li>
+              <li><a class="nav-link" href="{{ URL('/frontartikel') }}">Artikel</a>
+              <li><a class="nav-link"  href="{{URL('/kalkulator')}}">Kalkulator</a></li>
+              <li><a class="nav-link" href="{{ URL('/about') }}">Tentang Kami</a></li>   
+            </ul>
           </div>
         </div>
         <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-          <h3 class="footer-heading mb-4">Promo</h3>
-          <a href="#" class="block-6">
-            <img src="{{asset('images/promoRI.jpg')}}" alt="Image placeholder" class="img-fluid rounded mb-4">
-            <h3 class="font-weight-light  mb-0">Promo HUT RI 2023</h3>
-            <p>Promo mulai 1 Juli 2023 - 20 Agustus 2023</p>
-          </a>
+          <h3 class="footer-heading mb-4">Sosial media</h3>
+          <ul class="site-menu d-flex align-items-center justify-content-start" style="list-style: none; padding-left: 0;">
+              <li><a class="nav-link text-dark" href="https://wa.me/087858860888"><img src="{{ asset('images/whatsapp.png') }}" style="width: 25px; height: 25px;"></a></li>
+              <li><a class="nav-link text-dark" href="https://www.instagram.com/arthurcitramedia/"><img src="{{ asset('images/instagram.png') }}" style="width: 25px; height: 25px;"></a></li>
+              <li><a class="nav-link text-dark" href="https://shopee.co.id/arthuradv?smtt=0.0.9"><img src="{{ asset('images/shopee.png') }}" style="width: 25px; height: 25px;"></a></li>
+              <li><a class="nav-link text-dark" href="https://www.tokopedia.com/archive-arthuradv"><img src="{{ asset('images/tokped.png') }}" style="width: 25px; height: 25px;"></a></li>
+          </ul>
+      </div>
+      
+      
+        <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+          <h3 class="footer-heading mb-4">Kategori</h3>
+          <ul class="list-unstyled">
+            {{-- @foreach ($data1 as $kategori)
+
+               <li>{{ $kategori->namaKategori }}</li>    
+
+             @endforeach
+             --}}
+          </ul>
+          
         </div>
+
         <div class="col-md-6 col-lg-3">
           <div class="block-5 mb-5">
             <h3 class="footer-heading mb-4">Contact Info</h3>
@@ -47,16 +46,6 @@
               <li class="email">acmbratang@gmail.com</li>
             </ul>
           </div>
-
-          {{-- <div class="block-7">
-            <form action="#" method="post">
-              <label for="email_subscribe" class="footer-heading">Subscribe</label>
-              <div class="form-group">
-                <input type="text" class="form-control py-4" id="email_subscribe" placeholder="Email">
-                <input type="submit" class="btn btn-sm btn-primary" value="Send">
-              </div>
-            </form>
-          </div> --}}
         </div>
       </div>
       <div class="row pt-5 mt-5 text-center">
