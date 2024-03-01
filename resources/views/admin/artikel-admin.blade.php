@@ -49,7 +49,7 @@
                         <th>No.</th>
                         <th>Gambar</th>
                         <th>Judul</th>
-                        <th>Konten</th>
+                        {{-- <th>Konten</th> --}}
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -58,7 +58,7 @@
                         <th>No.</th>
                         <th>Gambar</th>
                         <th>Judul</th>
-                        <th>Konten</th>
+                        {{-- <th>Konten</th> --}}
                         <th>Aksi</th>
                     </tr>
                 </tfoot>
@@ -69,7 +69,7 @@
                         <td>{{ $i++ }}</td>
                         <td><img src="{{asset('storage/image-artikel/'.$artikel->img)}}" alt="" width="100"></td>
                         <td>{{ $artikel->judul }}</td>
-                        <td>{{ $artikel->konten }}</td>
+                        {{-- <td>{{ $artikel->konten }}</td> --}}
                         <td>
                         <form action="{{ route('artikel.destroy',$artikel->idArtikel) }}" method="POST">
    

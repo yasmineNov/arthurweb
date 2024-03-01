@@ -34,7 +34,12 @@
                   <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
                     <h2 class="title-artikel text-center mb-0">{{$artikel->judul}}</h2>
                   </a>  
-                  <p class="card-text mt-0">{!!substr ($artikel->konten, 0,290)!!}.....<br></p> 
+                  <p class="card-text mt-0">{!!substr ($artikel->konten, 0, 100)!!}..... 
+                    <a href="{{ route('artikel.show',$artikel->idArtikel) }}">
+                      <span style="color:blue;">Baca Selengkapnya >>></span>
+                    </a>
+                    <br>
+                  </p> 
                          
                   {{-- <div class="d-flex flex-row-reverse">
                     <a class="btn btn-primary" href="{{ route('artikel.show',$artikel->idArtikel) }}">Selengkapnya</a>
@@ -67,7 +72,7 @@
 
         {{-- Kolom samping --}}
         <div class="col-md-3 order-1 mb-5 mb-md-0">
-          <div class="border p-4 rounded mb-4">
+          {{-- <div class="border p-4 rounded mb-4">
             <h3 class="mb-3 h6 text-uppercase text-black d-block">Kategori</h3>
 
             <ul class="list-unstyled mb-0">
@@ -75,7 +80,7 @@
               <li class="mb-1"><a href="#" class="d-flex"><span>Indoor</span></li>
               <li class="mb-1"><a href="#" class="d-flex"><span>UV</span></a></li>
             </ul>
-          </div>
+          </div> --}}
 
           <div class="border p-4 rounded mb-4">
             <div class="mb-4">
