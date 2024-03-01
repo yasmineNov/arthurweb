@@ -44,6 +44,10 @@
     padding: 0.5em;
     padding-bottom: 3.4em;
 } */
+.article-img {
+    max-width: 100%; /* Maksimum lebar gambar adalah lebar area induknya */
+    height: auto; /* Menggunakan auto untuk mempertahankan rasio aspek gambar */
+}
 
 .article-center {
     margin: auto;
