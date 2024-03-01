@@ -28,7 +28,7 @@
       </div>
     {{-- kolom samping end --}}
     <div class="col-md-9 order-2">
-        <div class="article-center title-artikel mt-5 mb-3">
+        <div class="article-center title-artikel mb-3">
           <h1>{{$artikel->judul}}</h1>
         </div>
         <div class="article-center mt-4 mb-3">             
