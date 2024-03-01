@@ -31,7 +31,7 @@
         <div class="article-center title-artikel mb-3">
           <h1>{{$artikel->judul}}</h1>
         </div>
-        <div class="article-center mt-4 mb-3">             
+        <div class="text-centre article-center mt-4 mb-3">             
           <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="article-img" alt="...">
         </div>
       <div class="text-black mb-5 article-center">
