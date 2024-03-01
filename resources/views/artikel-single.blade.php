@@ -13,7 +13,7 @@
 
   <div class="container mb-5">
     <div class="row mt-5 mb-0">
-{{-- Kolom samping --}}
+    {{-- Kolom samping --}}
       <div class="col-md-3 order-1 mb-5 mb-md-0">
         <div class="border p-4 rounded mb-4">
           <div class="mb-4">
@@ -26,21 +26,18 @@
           </div>
         </div>
       </div>
-
-{{-- kolom samping end --}}
-
-  <div class="text-center title-artikel mt-5 mb-3">
-    <h1>{{$artikel->judul}}</h1>
-  </div>
-  <div class="text-center mt-4 mb-3">             
-    <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="article-img" alt="...">
-    {{-- <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" style="aspect-ratio: 11 / 3" class="img-artikel" alt="..."> --}}
-  </div>
-  <div class="text-right text-black mb-5 article-center">
-    <p>{!!($artikel->konten)!!}</p>
-    {{-- <p class="detail-artikel">{!!($artikel->konten)!!}</p> --}}
-  </div>
-
-</div>
+    {{-- kolom samping end --}}
+    <div class="col-md-9 order-2">
+        <div class="article-center title-artikel mt-5 mb-3">
+          <h1>{{$artikel->judul}}</h1>
+        </div>
+        <div class="article-center mt-4 mb-3">             
+          <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" class="article-img" alt="...">
+        </div>
+      <div class="text-black mb-5 article-center">
+        <p>{!!($artikel->konten)!!}</p>
+      </div>
+    </div>
+    </div>
 </div>
  @endsection
