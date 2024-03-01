@@ -19,6 +19,7 @@
     {{-- <img src="{{asset('storage/image-artikel/'.$artikel->img)}}" style="aspect-ratio: 11 / 3" class="img-artikel" alt="..."> --}}
   </div>
   <div class="text-right text-black mb-5 article-center">
-    <p class="detail-artikel">{!!($artikel->konten)!!}</p>
+    <p>{!!($artikel->konten)!!}</p>
+    {{-- <p class="detail-artikel">{!!($artikel->konten)!!}</p> --}}
   </div>
  @endsection
