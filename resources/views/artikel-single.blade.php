@@ -11,6 +11,24 @@
   </div>
   {{-- <a class="btn btn-primary mt-3" href="/frontartikel" role="button"><i class="fa-solid fa-circle-arrow-left"></i> Kembali</a> --}}
 
+  <div class="container mb-5">
+    <div class="row mt-5 mb-0">
+{{-- Kolom samping --}}
+      <div class="col-md-3 order-1 mb-5 mb-md-0">
+        <div class="border p-4 rounded mb-4">
+          <div class="mb-4">
+            <h3 class="mb-3 h6 text-uppercase text-black d-block">Recent Post</h3>
+      
+              @foreach ($data2 as $artikel)
+              <p><i class="fa fa-star"></i>    {{$artikel->judul}}</p>
+              @endforeach
+
+          </div>
+        </div>
+      </div>
+
+{{-- kolom samping end --}}
+
   <div class="text-center title-artikel mt-5 mb-3">
     <h1>{{$artikel->judul}}</h1>
   </div>
@@ -22,4 +40,7 @@
     <p>{!!($artikel->konten)!!}</p>
     {{-- <p class="detail-artikel">{!!($artikel->konten)!!}</p> --}}
   </div>
+
+</div>
+</div>
  @endsection
