@@ -56,7 +56,6 @@
 
     {{-- middle navbar --}}
     <nav id="navbar_top" class=" ">
-        <div class="container-fluid">
             <header class="site-navbar" role="banner">
                 <div class="site-navbar-top">
                     <div class="container">

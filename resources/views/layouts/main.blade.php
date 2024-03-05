@@ -36,11 +36,13 @@
 
 <body>
 
-    <div class="site-wrap ">
+    {{-- <div class="site-wrap bg-section1"> --}}
+    <div class="site-wrap">
         @include('layouts/header')
 
         {{-- container dibawah ini adalah sebuah tempat yang menampung variabel yang berisi bahan utama yg berbeda2 yang hanya ditampung di main.blade.php --}}
-        <div class='container mt-4'>
+        {{-- <div class='container mt-4 bg-section1'> --}}
+        <div class='container-fluid mt-4'>
             @yield('container')
         </div>
 

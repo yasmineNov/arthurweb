@@ -24,7 +24,7 @@
     
     
     <!-- intro -->
-    <section class="pt-5">
+    <section class="bg-section1 mt-5 pt-5">
         <div class="mt-2 text-center">
             <h1>MENGAPA MEMILIH KAMI ? </h1>
         </div>
@@ -200,7 +200,8 @@
           </div>
       </div>
   </div> --}}
-
+  <section>
+    <div class="container mb-5">
   <div class="col-md-12 order-2">
     <div class="row">
         <div class="col-md-12 mb-0 d-flex justify-content-between">
@@ -250,6 +251,8 @@
         </div>
     </div>
 </div>
+</div>
+</section>
 
     {{-- <div class="site-section block-8">
   <div class="container">
