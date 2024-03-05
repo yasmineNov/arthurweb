@@ -200,8 +200,8 @@
           </div>
       </div>
   </div> --}}
-  <section>
-    <div class="container mb-5">
+<section>
+      <div class="container mb-5">
   <div class="col-md-12 order-2">
     <div class="row">
         <div class="col-md-12 mb-0 d-flex justify-content-between">
@@ -251,8 +251,6 @@
         </div>
     </div>
 </div>
-</div>
-</section>
 
     {{-- <div class="site-section block-8">
   <div class="container">
