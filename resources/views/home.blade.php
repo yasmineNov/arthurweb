@@ -24,13 +24,13 @@
     
     
     <!-- intro -->
-    <section class="bg-section1 mt-5 pt-5">
+    <section class="pt-5 bg-colour no-margin        ">
         <div class="mt-2 text-center">
             <h1>MENGAPA MEMILIH KAMI ? </h1>
         </div>
         <div class="site-section site-section-sm site-blocks-1">
             <div class="container">
-                <div class="row">
+                <div class="row">   
                     <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
                         <div class="icon mr-4 align-self-start">
                             <span class="fa-solid fa-tag"></span>
@@ -200,8 +200,7 @@
           </div>
       </div>
   </div> --}}
-  <section>
-    <div class="container mb-5">
+
   <div class="col-md-12 order-2">
     <div class="row">
         <div class="col-md-12 mb-0 d-flex justify-content-between">
@@ -217,8 +216,10 @@
                                 <div class="col-lg-2 col-md-3 col-sm-4 col-6 d-flex">
                                     <div class="card w-100 my-2 shadow-2-strong">
                                         <figure class="block-4-image">
-                                            <img src="{{ asset('storage/image-produk/' . $produkItem->img) }}"
-                                                class="card-img-top" style="aspect-ratio: 1 / 1" />
+                                            <a href="{{ route('produk.show', $produkItem->idProduk) }}">
+                                                <img src="{{ asset('storage/image-produk/' . $produkItem->img) }}"
+                                                    class="card-img-top" style="aspect-ratio: 1 / 1" />
+                                            </a>
                                         </figure>
                                         <div class="block-4-text p-4">
                                             <p class="mb-0 h-5">{{ $produkItem->namaProduk }}</p>
@@ -251,8 +252,6 @@
         </div>
     </div>
 </div>
-</div>
-</section>
 
     {{-- <div class="site-section block-8">
   <div class="container">
