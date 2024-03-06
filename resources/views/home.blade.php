@@ -217,8 +217,10 @@
                                 <div class="col-lg-2 col-md-3 col-sm-4 col-6 d-flex">
                                     <div class="card w-100 my-2 shadow-2-strong">
                                         <figure class="block-4-image">
-                                            <img src="{{ asset('storage/image-produk/' . $produkItem->img) }}"
-                                                class="card-img-top" style="aspect-ratio: 1 / 1" />
+                                            <a href="{{ route('produk.show', $produkItem->idProduk) }}">
+                                                <img src="{{ asset('storage/image-produk/' . $produkItem->img) }}"
+                                                    class="card-img-top" style="aspect-ratio: 1 / 1" />
+                                            </a>
                                         </figure>
                                         <div class="block-4-text p-4">
                                             <p class="mb-0 h-5">{{ $produkItem->namaProduk }}</p>
