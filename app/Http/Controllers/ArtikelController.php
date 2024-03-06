@@ -97,17 +97,17 @@ class ArtikelController extends Controller
     {
         if (Auth::id()) {
             $kategori = kategori::all();
-    $artikel = artikel::findOrFail($id);
-    $data2 = artikel::orderBy('idArtikel', 'desc')->paginate(10);
-    $user = auth()->user();
-    $count = cart::where('idUser', $user->id)->count();
+            $artikel = artikel::findOrFail($id);
+            $data2 = artikel::orderBy('idArtikel', 'desc')->paginate(10);
+            $user = auth()->user();
+            $count = cart::where('idUser', $user->id)->count();
 
-    return view('artikel-single', [
-        "title" => $artikel->judul,
-        'artikel' => $artikel,
-        'data2' => $data2,
-        'count' => $count,
-    ]);
+            return view('artikel-single', [
+            "title" => $artikel->judul,
+            'artikel' => $artikel,
+            'data2' => $data2,
+            'count' => $count,
+            ]);
         } else {
             $kategori = kategori::all();
             $artikel = artikel::findOrFail($id);

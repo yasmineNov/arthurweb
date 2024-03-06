@@ -18,11 +18,9 @@
         <div class="border p-4 rounded mb-4">
           <div class="mb-4">
             <h3 class="mb-3 h6 text-uppercase text-black d-block">Recent Post</h3>
-      
-              
-              <p><i class="fa fa-star"></i>    {{$artikel->judul}}</p>
-              
-
+                @foreach ($data2 as $recentArtikel)
+                  <p><i class="fa fa-star"></i> {{ $recentArtikel->judul }}</p>
+                @endforeach
           </div>
         </div>
       </div>
