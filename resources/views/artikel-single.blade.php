@@ -19,9 +19,9 @@
           <div class="mb-4">
             <h3 class="mb-3 h6 text-uppercase text-black d-block">Recent Post</h3>
       
-              @foreach ($data2 as $artikel)
+              
               <p><i class="fa fa-star"></i>    {{$artikel->judul}}</p>
-              @endforeach
+              
 
           </div>
         </div>
