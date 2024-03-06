@@ -140,7 +140,7 @@
                                 <a class="nav-link" href="{{ URL('/frontartikel') }}">Artikel</a>
                             </li>
 
-                            <li class="nav-item"><a class="nav-link"  href="{{URL('/kalkulator')}}">Kalkulator</a></li>
+                            <li class="nav-item"><a class="nav-link"  href="{{URL('/kalkulator')}}">Estimasi Harga</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ URL('/about') }}">Tentang Kami</a></li>
 
                             <div class="d-md-none">
