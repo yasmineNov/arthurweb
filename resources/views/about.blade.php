@@ -141,7 +141,7 @@
         <p class="fs-4">Menjadi solusi patner periklanan kreatif dan terpercaya di indonesia</p> 
   </div>
 
-{{-- <div class="wrapper justify-content-center d-flex"> 
+<div class="wrapper justify-content-center d-flex"> 
   <i id="left" class="fa-solid  fas fa-angle-left"></i> 
   <ul class="carousel"> 
       <li class="card"> 
@@ -193,7 +193,7 @@
   </ul> 
   <i id="center" class="fa-solid fas fa-angle-right"></i> 
 </div> 
-<br> --}}
+<br>
 </section>
 <!-- ======= Our Clients Section ======= -->
 
