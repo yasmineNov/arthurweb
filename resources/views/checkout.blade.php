@@ -31,11 +31,9 @@
                         5. Jika sudah merasa yakin dan puas, silahkan klik "Checkout" pada bagian bawah kanan halaman.<br>
                         6. Cek kembali apakah barang anda sudah sesuai dengan barang yang tertera di Invoice.<br>
                         7. Jika sudah, silahkan klik "Order Via Whatsapp".<br>
-                        8. Untuk Pembayaran silahkan melakukan Transaksi dengan Transfer ke BCA 6730305557 A/n Budi
-                        Santoso.<br>
-                        9. Jika Sudah melakukan Pembayaran Silahkan konfirmasi ke Admin Kami Via Whatsapp.<br>
-                        10. Jika Pesanan sudah terkonfirmasi, silahkan tunggu pesanan anda diproses.<br>
-                        11. Admin kami akan menghubungi Nomor Whatsapp yang Anda cantumkan saat pesanan sudah
+                        8. Untuk Pembayaran silahkan melakukan Transaksi dengan Transfer ke nomor rekening yang akan diberikan oleh admin<br>
+                        9. Jika Pesanan sudah terkonfirmasi, silahkan tunggu pesanan anda diproses.<br>
+                        10. Admin kami akan menghubungi Nomor Whatsapp yang Anda cantumkan saat pesanan sudah
                         selesai.<br><br>
 
                         ~ TERIMA KASIH ~
