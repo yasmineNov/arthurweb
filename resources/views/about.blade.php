@@ -146,7 +146,7 @@
   <i id="left" class="fa-solid  fas fa-angle-left"></i> 
   <ul class="carousel"> 
       <li class="card"> 
-          <div class="img"><img src="{{ asset('storage/images/clients/client-4.png')}}"
+          <div class="img"><img src="images/clients/client-1.png"
                                 alt="" draggable="false"> </div> 
           <h2 style="color: #528efd; font-weight:bold;"> 
                 Miniso 
@@ -154,7 +154,7 @@
           {{-- <span>Coding Platform</span>  --}}
       </li> 
       <li class="card"> 
-        <div class="img"><img src="{{ asset('storage/images/clients/client-4.png')}}"
+        <div class="img"><img src="images/clients/client-2.png"
                               alt="" draggable="false"> </div> 
         <h2 style="color: #528efd; font-weight:bold;"> 
               PP Production 
@@ -162,7 +162,7 @@
         {{-- <span>Coding Platform</span>  --}}
     </li> 
     <li class="card"> 
-      <div class="img"><img src="{{ asset('storage/images/clients/client-4.png')}}"
+      <div class="img"><img src="images/clients/client-3.png"
                             alt="" draggable="false"> </div> 
       <h2 style="color: #528efd; font-weight:bold;"> 
             Pakuwon Group 
@@ -170,31 +170,31 @@
       {{-- <span>Coding Platform</span>  --}}
   </li> 
       <li class="card"> 
-          <div class="img"><img src="{{ asset('storage/images/clients/client-4.png')}}"
+          <div class="img"><img src="images/clients/client-4.png"
                                 alt="" draggable="false"> </div> 
           <h2 style="color: #528efd; font-weight:bold;">Grand City Surabaya</h2> 
           {{-- <span>Coding Platform</span>  --}}
       </li> 
       <li class="card"> 
-          <div class="img"><img src="{{ asset('storage/images/clients/client-4.png')}}"
+          <div class="img"><img src="images/clients/client-5.png"
                                 alt="" draggable="false"> </div> 
           <h2 style="color: #528efd; font-weight:bold;">Grand Sungkono Lagoon</h2> 
           {{-- <span>Coding Platform</span>  --}}
       </li> 
       <li class="card"> 
-          <div class="img"><img src="{{ asset('storage/images/clients/client-4.png')}}" 
+          <div class="img"><img src="images/clients/client-6.png" 
                                 alt="" draggable="false"> </div> 
           <h2 style="color: #528efd; font-weight:bold;">Propnex</h2> 
           {{-- <span>Coding Platform</span>  --}}
       </li> 
       <li class="card"> 
-          <div class="img"><img src="{{ asset('storage/images/clients/client-4.png')}}"
+          <div class="img"><img src="images/clients/client-7.png"
                                 alt="" draggable="false"> </div> 
           <h2 style="color: #528efd; font-weight:bold;">Trans Icon</h2> 
           {{-- <span>Coding Platform</span>  --}}
       </li> 
       <li class="card"> 
-          <div class="img"><img src="{{ asset('storage/images/clients/client-4.png')}}" 
+          <div class="img"><img src="images/clients/client-8.png" 
                                 alt="" draggable="false"> </div> 
           <h2 style="color: #528efd; font-weight:bold;">United Tractors</h2> 
           {{-- <span>Coding Platform</span>  --}}
@@ -203,7 +203,7 @@
   <i id="center" class="fa-solid fas fa-angle-right"></i> 
 {{-- </div> --}}
 </div> 
-<br><br>
+<br>
 </section>
 
 
