@@ -25,15 +25,19 @@
       
       
         <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-          <h3 class="footer-heading mb-4">Kategori</h3>
-          <ul class="list-unstyled">
+          <h3 class="footer-heading mb-4">Jumlah Pengunjung</h3>
+          <!-- hitwebcounter Code START -->
+<a href="https://www.hitwebcounter.com" target="_blank">
+  <img src="https://hitwebcounter.com/counter/counter.php?page=12060304&style=0019&nbdigits=5&type=page&initCount=0" title="Counter Widget" Alt="Visit counter For Websites"   border="0" /></a>            
+
+          {{-- <ul class="list-unstyled"> --}}
             {{-- @foreach ($data1 as $kategori)
 
                <li>{{ $kategori->namaKategori }}</li>    
 
              @endforeach
              --}}
-          </ul>
+          {{-- </ul> --}}
           
         </div>
 
