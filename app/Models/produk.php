@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\kategori;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class produk extends Model
 {
     use HasFactory;
+    use SoftDeletes;
     protected $primaryKey = 'idProduk';
     protected $fillable = ['idProduk', 'img', 'namaProduk', 'harga', 'deskripsi', 'idKategori'];
     protected $table = 'produks';

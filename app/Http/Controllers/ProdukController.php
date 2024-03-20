@@ -218,6 +218,8 @@ class ProdukController extends Controller
      */
     public function destroy(produk $produk)
     {
+        $card = cart::where('idProduk',$produk->idProduk)->delete();
+        $varian = md_varian::where('id_product',$produk->idProduk)->delete();
         $produk->delete();
         return redirect()->to('katalogproduk')
             ->with('success', 'Data telah berhasil dihapus');
