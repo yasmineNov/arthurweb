@@ -106,7 +106,8 @@
                         </div>
                     </div>
                     <div class="col-xl-6">
-                        <div class="card mb-8">
+                        <div class="mb-8">
+                            <br><br><br>
                             <a class="nav-link" href="{{ URL('/') }}" class="js-logo-clone">
                                 <img src=" {{ asset('\images\bisnis-dashboard.png') }}" alt="Image"
                                     class="img-fluid rounded mb-3">
