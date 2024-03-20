@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\kategori;
+use App\Models\artikel;
+use App\Models\produk;
+use App\Models\User;
 
 class adminController extends Controller
 {
@@ -21,8 +25,21 @@ class adminController extends Controller
     }
     function dashboard()
     {
+        // $katalog = produk::with('kategori', 'varian')->orderBy('idProduk', 'desc')->get();
+        $produk = produk::count();
+        $kategori = kategori::count();
+        $artikel = artikel::count();
+        $user = user::count();
+
+        $data = kategori::orderBy('idKategori', 'desc')->paginate();
+
         return view('admin/dashboard', [
-            "title" => "Dashboard"
+            "title" => "Dashboard",
+            "produk" => $produk,
+            "kategori" => $kategori,
+            "artikel" => $artikel,
+            "user" => $user,
+            "data" => $data,
         ]);
     }
     // function katalogproduk()
@@ -61,5 +78,4 @@ class adminController extends Controller
             "title" => "Tambah Produk"
         ]);
     }
-  
 }

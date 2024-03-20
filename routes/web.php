@@ -25,41 +25,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// MODEL ROOT BAWAAN
-// Route::get('/artikel', function () {
-//     return view('artikel', [
-//         "title" => "artikel"
-//     ]);
-// });
-
-// Route::get('/artikel', function () {
-//     $blog_posts = [
-//         [
-//             "title" => "Judul post pertama",
-//             "slug" => "judul-post-pertama",
-//             "author" => "Arthur Citra Media",
-//             "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio alias veritatis suscipit provident id eaque, pariatur error cupiditate exercitationem laboriosam earum omnis, deleniti repudiandae quidem molestias ab tempora. Beatae non cupiditate ipsa deleniti veritatis alias harum mollitia repellendus at suscipit aliquid, eveniet quis nihil ex! Veritatis eos necessitatibus asperiores omnis nulla quam error pariatur id qui, in accusamus rerum placeat inventore iste illo labore! Eius, itaque numquam. Iusto accusantium, commodi laborum hic officiis voluptates natus quia vero quas minima voluptatum!"
-//         ],
-//         [
-//             "title" => "Judul post kedua",
-//             "slug" => "judul-post-kedua",
-//             "author" => "Arthur Citra Media",
-//             "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio alias veritatis suscipit provident id eaque, pariatur error cupiditate exercitationem laboriosam earum omnis, deleniti repudiandae quidem molestias ab tempora. Beatae non cupiditate ipsa deleniti veritatis alias harum mollitia repellendus at suscipit aliquid, eveniet quis nihil ex! Veritatis eos necessitatibus asperiores omnis nulla quam error pariatur id qui, in accusamus rerum placeat inventore iste illo labore! Eius, itaque numquam. Iusto accusantium, commodi laborum hic officiis voluptates natus quia vero quas minima voluptatum!"
-//         ],
-//     ];
-
-//     return view('artikel', [
-//         "title" => "Artikel",
-//         "posts" => $blog_posts
-//     ]);
-// });
-
-// Route::get('/artikel/{slug}', function ($slug) {
-//     return view('artikel-single', [
-//         "title" => "$slug"
-//     ]);
-// });
-
 Route::post('/kalkulator/hitung', [KalkulatorController::class, 'hitung'])->name('kalkulator.hitung');
 Route::get('/kalkulator', [userController::class, 'order']);
 
@@ -98,8 +63,6 @@ Route::get('/keranjang', [userController::class, 'keranjang']);
 Route::get('/checkout', [userController::class, 'checkout']);
 Route::get('/member', [userController::class, 'member']);
 Route::get('/katalog', [userController::class, 'katalog']);
-// Route::get('/kategorii', [userController::class, 'shop_kategori']);
-// Route::get('/deskripsikatalog', [userController::class, 'deskripsikatalog']);
 Route::get('/thanks', [userController::class, 'thanks']);
 Route::get('/frontartikel', [userController::class, 'artikel']);
 Route::get('singleArtikel', [userController::class, 'singleArtikel']);
@@ -110,7 +73,6 @@ Route::get('/dashboard', [adminController::class, 'dashboard'])->middleware('can
 Route::get('/katalogpromo', [adminController::class, 'katalogpromo']);
 Route::get('/toko', [adminController::class, 'toko']);
 
-// Route::get('/slider', [SlideController::class, 'slider']);
 Route::get('/tambahslider', [SlideController::class, 'tambahslider']);
 Route::resource('slider', SlideController::class);
 
@@ -129,7 +91,6 @@ Route::resource('produk', ProdukController::class);
 Route::get('/tambahProduk', [ProdukController::class, 'tambahProduk']);
 
 Route::get('/kategoriAdmin', [KategoriController::class, 'kategoriAdmin']);
-// Route::get('/kategoriShop', [KategoriController::class, 'shop_kategori']);
 Route::resource('kategori', KategoriController::class);
 Route::get('tambahKategori', [KategoriController::class, 'tambahKategori']);
 Route::get('/footer', [KategoriController::class, 'footer']);
