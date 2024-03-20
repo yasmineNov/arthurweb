@@ -19,7 +19,7 @@
                                 <div><i class="fa-solid fa-users fa-2xl" style="color: #ffffff;"></i></div>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">Lihat Detail</a>
+                                <a class="small text-white stretched-link" href="{{ URL('/customer') }}">Lihat Detail</a>
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                                 <i class="fa-solid fa-pen-to-square fa-2xl" style="color: #ffffff;"></i>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">Lihat Detail</a>
+                                <a class="small text-white stretched-link" href="{{ URL('/artikel') }}">Lihat Detail</a>
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                                 <i class="fa-solid fa-list fa-2xl" style="color: #ffffff;"></i>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">Lihat Detail</a>
+                                <a class="small text-white stretched-link" href="{{ URL('/kategori') }}">Lihat Detail</a>
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                                 <i class="fa-solid fa-file-circle-check fa-2xl" style="color: #ffffff;"></i>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">Lihat Detail</a>
+                                <a class="small text-white stretched-link" href="{{ URL('/katalogproduk') }}">Lihat Detail</a>
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
