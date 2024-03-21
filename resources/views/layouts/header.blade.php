@@ -215,15 +215,22 @@
     });
     // JavaScript
     document.addEventListener("DOMContentLoaded", function() {
-        // Ambil semua elemen tautan menu
-        const menuLinks = document.querySelectorAll(".nav-link");
+    // Ambil semua elemen tautan menu
+    const menuLinks = document.querySelectorAll(".nav-link");
 
-        // Loop melalui setiap tautan menu
-        menuLinks.forEach(link => {
-            // Jika URL halaman saat ini cocok dengan tautan, tambahkan kelas "active"
-            if (link.getAttribute("href") === window.location.pathname) {
-                link.classList.add("active");
-            }
-        });
+    // Ambil pathname dari URL halaman saat ini
+    const currentPagePath = window.location.pathname;
+
+    // Loop melalui setiap tautan menu
+    menuLinks.forEach(link => {
+        // Ambil pathname dari href tautan
+        const linkPath = new URL(link.href).pathname;
+
+        // Jika pathname dari href tautan sama dengan pathname dari URL halaman saat ini, tambahkan kelas "active"
+        if (linkPath === currentPagePath) {
+            link.classList.add("active");
+        }
     });
+});
+
 </script>
