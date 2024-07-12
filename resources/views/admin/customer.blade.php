@@ -49,7 +49,7 @@
                         <th>Nama Customer</th>
                         <th>whatsapp</th>
                         <th>email</th>
-                        <th>Aksi</th>
+                        {{-- <th>Aksi</th> --}}
                     </tr>
                 </thead>
                 <tfoot>
@@ -58,7 +58,7 @@
                         <th>Nama Customer</th>
                         <th>whatsapp</th>
                         <th>email</th>
-                        <th>Aksi</th>
+                        {{-- <th>Aksi</th> --}}
                     </tr>
                 </tfoot>
                 <tbody>
@@ -69,7 +69,7 @@
                         <td>{{ $customer->name }}</td>
                         <td>{{ $customer->whatsapp }}</td>
                         <td>{{ $customer->email }}</td>
-                        <td>
+                        {{-- <td>
                         <form action="{{ url('customer.destroy',$customer->id) }}" method="POST">
                
                         @csrf
@@ -77,7 +77,7 @@
                         <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i>   Delete</button>
                         </form>
                          
-                        </td>
+                        </td> --}}
                     </tr>
                     @endforeach
                 </tbody>
