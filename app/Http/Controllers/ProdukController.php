@@ -178,6 +178,10 @@ class ProdukController extends Controller
         $produk->namaProduk = $request->namaProduk;
         $produk->idKategori = $request->kategori;
         $produk->jenis = $request->jenis;
+         // Update deskripsi
+        if ($request->has('deskripsi')) {
+            $produk->deskripsi = $request->deskripsi;
+        }
         if ($request->hasFile('image')) {
             $NamaGambar = produk::find($id);
             $image = $request->file('image');
